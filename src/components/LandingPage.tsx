@@ -1,5 +1,6 @@
 import React from "react";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
+import LiquidEther from "./LiquidEther";
 import "./LandingPage.css";
 
 const LandingPage: React.FC = () => {
@@ -13,6 +14,13 @@ const LandingPage: React.FC = () => {
   return (
     <div className={`landing ${stepClasses}`} data-step={step}>
       <div className="landing__main">
+        <LiquidEther
+          mouseForce={10}
+          cursorSize={200}
+          autoSpeed={0.3}
+          autoIntensity={0.2}
+          viscous={120}
+        />
         <div className="landing__body">
           {/* Left column — identity */}
           <div className="landing__left-col">

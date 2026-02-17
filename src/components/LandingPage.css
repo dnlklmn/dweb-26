@@ -17,6 +17,7 @@
     border: var(--border);
     min-height: 0;
     overflow: hidden;
+    position: relative;
 }
 
 /* --- Body (row: left-col + right-col) --- */
@@ -25,6 +26,8 @@
     display: flex;
     flex: 1;
     min-height: 0;
+    position: relative;
+    z-index: 1;
 }
 
 /* Left column — always visible, holds identity */
@@ -43,7 +46,7 @@
 .landing__identity {
     display: flex;
     align-items: flex-start;
-    padding: 8px;
+    padding: 0px;
 }
 
 .landing__identity-text {
