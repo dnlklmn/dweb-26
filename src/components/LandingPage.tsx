@@ -3,7 +3,7 @@ import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import "./LandingPage.css";
 
 const LandingPage: React.FC = () => {
-  const { step } = useSteppedAnimation({ totalSteps: 8 });
+  const { step } = useSteppedAnimation({ totalSteps: 6 });
 
   const stepClasses = Array.from(
     { length: step + 1 },
