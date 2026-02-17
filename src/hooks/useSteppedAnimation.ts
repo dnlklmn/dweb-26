@@ -1,15 +1,16 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from "react";
 
 interface UseSteppedAnimationOptions {
   totalSteps: number;
   initialDelay?: number;
   stagger?: number;
+  stepDelays?: Record<number, number>;
   autoStart?: boolean;
 }
 
 function getStaggerFromCSS(): number {
   const value = getComputedStyle(document.documentElement)
-    .getPropertyValue('--anim-stagger')
+    .getPropertyValue("--anim-stagger")
     .trim();
   return parseInt(value, 10) || 600;
 }
@@ -18,6 +19,7 @@ export function useSteppedAnimation({
   totalSteps,
   initialDelay = 300,
   stagger,
+  stepDelays,
   autoStart = true,
 }: UseSteppedAnimationOptions) {
   const [step, setStep] = useState(0);
@@ -51,7 +53,11 @@ export function useSteppedAnimation({
       return;
     }
 
-    const delay = step === 0 ? initialDelay : (stagger ?? getStaggerFromCSS());
+    const nextStep = step + 1;
+    const delay =
+      step === 0
+        ? initialDelay
+        : (stepDelays?.[nextStep] ?? stagger ?? getStaggerFromCSS());
     timeoutRef.current = setTimeout(() => {
       setStep((s) => s + 1);
     }, delay);
