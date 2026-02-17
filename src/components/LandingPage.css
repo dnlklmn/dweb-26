@@ -1,0 +1,361 @@
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.landing {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: var(--page-padding);
+    position: relative;
+}
+
+.landing__main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: var(--border);
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* --- Body (row: left-col + right-col) --- */
+
+.landing__body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Left column — always visible, holds identity */
+.landing__left-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
+    border-right: var(--border);
+    border-right-color: transparent;
+    transition:
+        width var(--anim-duration) var(--anim-easing),
+        border-right-color var(--anim-duration) var(--anim-easing);
+}
+
+.landing__identity {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+}
+
+.landing__identity-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform var(--anim-duration) var(--anim-easing);
+}
+
+.landing__name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+}
+
+.landing__role {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+}
+
+/* Right column — starts at 0 width, grows via flex */
+.landing__right-col {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 0%;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex var(--anim-duration) var(--anim-easing);
+}
+
+/* Upper row — starts filling all space, shrinks to 192px when rows appear below */
+.landing__upper-row {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    border-bottom: var(--border);
+    border-bottom-color: transparent;
+    transition:
+        flex var(--anim-duration) var(--anim-easing),
+        border-bottom-color var(--anim-duration) var(--anim-easing);
+}
+
+.landing__location {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.landing__location-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.landing__location-city {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+}
+
+.landing__location-country {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+}
+
+/* Nav — grows from 0 width at step 5 */
+.landing__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    flex: 0 0 0%;
+    min-width: 0;
+    overflow: hidden;
+    border-left: var(--border);
+    opacity: 0;
+    transition:
+        flex var(--anim-duration) var(--anim-easing),
+        padding var(--anim-duration) var(--anim-easing),
+        opacity var(--anim-duration) var(--anim-easing);
+}
+
+.landing__nav-row {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+.landing__nav-left {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.21;
+}
+
+.landing__nav-right {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.21;
+    text-align: right;
+}
+
+/* Middle row — hero, grows from 0 at step 3 */
+.landing__middle-row {
+    display: flex;
+    align-items: flex-end;
+    flex: 0;
+    padding: 0 8px;
+    min-height: 0;
+    overflow: hidden;
+    transition:
+        flex var(--anim-duration) var(--anim-easing),
+        padding var(--anim-duration) var(--anim-easing);
+}
+
+.landing__headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.21;
+    text-transform: uppercase;
+    max-width: 1024px;
+    opacity: 0;
+    transition: opacity var(--anim-duration) var(--anim-easing);
+}
+
+/* Bottom row — grows from 0 height */
+.landing__bottom-row {
+    display: flex;
+    height: 0;
+    min-height: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-top: var(--border);
+    transition: height var(--anim-duration) var(--anim-easing);
+}
+
+/* Bottom-left — grows from 0 width */
+.landing__bottom-left {
+    flex: 0 0 0%;
+    min-width: 0;
+    border-right: var(--border);
+    overflow: hidden;
+    transition: flex var(--anim-duration) var(--anim-easing);
+}
+
+.landing__bottom-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.landing__bio-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity var(--anim-duration) var(--anim-easing);
+}
+
+.landing__bio {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+    max-width: 254px;
+}
+
+.landing__since {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+}
+
+/* Footer — grows from 0 height */
+.landing__footer {
+    overflow: hidden;
+    height: 0;
+    flex-shrink: 0;
+    transition: height var(--anim-duration) var(--anim-easing);
+}
+
+.landing__footer-inner {
+    border: var(--border);
+    border-top: none;
+    padding: 8px;
+}
+
+.landing__footer-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.21;
+    opacity: 0;
+    transition: opacity var(--anim-duration) var(--anim-easing);
+}
+
+/* ============================================
+   STEP 0 — Identity centered
+   ============================================ */
+
+.landing:not(.step-1) .landing__identity-text {
+    transform: translate(
+        calc(50vw - var(--page-padding) - 50%),
+        calc(50vh - var(--page-padding) - 50% - 20px)
+    );
+}
+
+/* ============================================
+   STEP 1 — Identity moves up (stays centered X)
+   ============================================ */
+
+.landing.step-1 .landing__identity-text {
+    transform: translate(calc(50vw - var(--page-padding) - 50%), 0);
+}
+
+/* ============================================
+   STEP 2 — Identity moves left to top-left corner
+   ============================================ */
+
+.landing.step-2 .landing__identity-text {
+    transform: translate(0, 0);
+}
+
+/* ============================================
+   STEP 3 — Right column grows in from 0 to 75%
+   Left column shrinks from 100% to 25%
+   Location text already visible in upper row
+   ============================================ */
+
+.landing.step-3 .landing__right-col {
+    flex: 0 0 75%;
+}
+
+.landing.step-3 .landing__left-col {
+    width: 25%;
+    border-right-color: var(--color-border);
+}
+
+/* ============================================
+   STEP 4 — Middle row grows in from below,
+   upper row shrinks from flex:1 to 192px,
+   border appears between them, headline fades in
+   ============================================ */
+
+.landing.step-4 .landing__upper-row {
+    flex: 0 0 192px;
+    border-bottom-color: var(--color-border);
+}
+
+.landing.step-4 .landing__middle-row {
+    flex: 1;
+    padding: 8px;
+}
+
+.landing.step-4 .landing__headline {
+    opacity: 1;
+}
+
+/* ============================================
+   STEP 5 — Bottom row grows from 0 to 192px
+   Bio text fades in
+   ============================================ */
+
+.landing.step-5 .landing__bottom-row {
+    height: 192px;
+}
+
+.landing.step-5 .landing__bio-text {
+    opacity: 1;
+}
+
+/* ============================================
+   STEP 6 — Nav grows from 0 to 1/3 of right col
+   Bottom-left grows from 0 to 1/3 of right col
+   ============================================ */
+
+.landing.step-6 .landing__nav {
+    flex: 0 0 33.333%;
+    padding: 8px;
+    opacity: 1;
+}
+
+.landing.step-6 .landing__bottom-left {
+    flex: 0 0 33.333%;
+}
+
+/* ============================================
+   STEP 7 — Footer row grows from 0 height
+   ============================================ */
+
+.landing.step-7 .landing__footer {
+    height: 48px;
+}
+
+.landing.step-7 .landing__footer-title {
+    opacity: 1;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
