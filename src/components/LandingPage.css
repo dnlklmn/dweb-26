@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: var(--page-padding);
+    padding: var(--page-padding) var(--page-padding) 0;
     position: relative;
 }
 
@@ -239,7 +239,7 @@
 .landing__footer-inner {
     border: var(--border);
     border-top: none;
-    padding: 8px;
+    padding: 48px 8px 8px;
 }
 
 .landing__footer-title {
@@ -340,11 +340,143 @@
    ============================================ */
 
 .landing.step-5 .landing__footer {
-    height: 48px;
+    height: 81px;
 }
 
 .landing.step-5 .landing__footer-title {
     opacity: 1;
+}
+
+/* ============================================
+   CASE STUDIES
+   ============================================ */
+
+/*
+   Border ownership (no doubling):
+   - case-studies container: left + right
+   - separator: bottom only (top comes from footer-inner or case-study above)
+   - separator-marker: right
+   - case-study: bottom
+   - image: right (divides image from info)
+   - info-top: bottom (divides top box from bottom bar)
+   - meta: left (divides from image column)
+   - tags: left + top
+*/
+
+.case-studies {
+    margin: 0 var(--page-padding);
+    border-left: var(--border);
+    border-right: var(--border);
+    visibility: hidden;
+}
+
+.case-studies--visible {
+    visibility: visible;
+}
+
+/* Reveal wrapper — each section grows from 0 */
+.case-study__reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--anim-duration) var(--anim-easing);
+}
+
+.case-study__reveal > * {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.case-studies--visible .case-study__reveal {
+    grid-template-rows: 1fr;
+}
+
+/* Separator between case studies */
+.case-study__separator {
+    height: 48px;
+    border-bottom: var(--border);
+}
+
+/* Case study teaser row */
+.case-study {
+    display: flex;
+    border-bottom: var(--border);
+}
+
+/* Left — image placeholder */
+.case-study__image {
+    width: 50%;
+    flex-shrink: 0;
+    min-height: 400px;
+    padding: 8px;
+    border-right: var(--border);
+}
+
+/* Right — info panel */
+.case-study__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Top area — empty bordered box */
+.case-study__info-top {
+    flex: 1;
+    border-bottom: var(--border);
+    padding: 8px;
+}
+
+/* Bottom bar — title/description left, role/year right */
+.case-study__info-bottom {
+    display: flex;
+}
+
+.case-study__meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px;
+    flex: 1;
+    border-left: var(--border);
+}
+
+.case-study__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.21;
+}
+
+.case-study__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+}
+
+.case-study__tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    padding: 8px;
+    flex: 1;
+    border-left: var(--border);
+    border-top: var(--border);
+}
+
+.case-study__role {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+    max-width: 341px;
+}
+
+.case-study__year {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+    color: #5e5e5e;
 }
 
 /* ============================================
