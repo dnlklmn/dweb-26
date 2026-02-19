@@ -2,7 +2,7 @@
     /* Animation tuning — single source of truth */
     --anim-duration: 0.4s;
     --anim-easing: cubic-bezier(0.22, 1, 0.36, 1);
-    --anim-stagger: 250ms;
+    --anim-stagger: 450ms;
 
     /* Layout tokens */
     --color-bg: #0f0f0f;

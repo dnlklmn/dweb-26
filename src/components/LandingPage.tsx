@@ -8,6 +8,7 @@ const caseStudies = [
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
+    image: require("../assets/auto/header.png"),
   },
   {
     title: "Radicle Desktop",
@@ -26,7 +27,7 @@ const caseStudies = [
 const LandingPage: React.FC = () => {
   const { step, isComplete } = useSteppedAnimation({
     totalSteps: 6,
-    stepDelays: { 5: 500 },
+    stepDelays: { 2: 200, 5: 500 },
   });
 
   const stepClasses = Array.from(
@@ -120,7 +121,15 @@ const LandingPage: React.FC = () => {
               style={{ transitionDelay: `${(i * 2 + 1) * 150}ms` }}
             >
               <div className="case-study">
-                <div className="case-study__image" />
+                <div className="case-study__image">
+                  {study.image && (
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="case-study__img"
+                    />
+                  )}
+                </div>
                 <div className="case-study__info">
                   <div className="case-study__info-top" />
                   <div className="case-study__info-bottom">
