@@ -1,0 +1,134 @@
+/* ============================================
+   TRANSITION OVERLAY
+   Phase 2:  2-cell bar slides to top
+   Phase 3:  Invisible route switch (overlay stays)
+   Phase 4:  Overlay fades, real page takes over
+   ============================================ */
+
+.tr-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity var(--anim-duration) var(--anim-easing);
+}
+
+.tr-overlay--hidden {
+    opacity: 0;
+}
+
+.tr-overlay--fading {
+    opacity: 0;
+}
+
+/* --- Background --- */
+
+.tr-overlay__bg {
+    position: absolute;
+    top: var(--card-top);
+    left: var(--card-left);
+    width: var(--card-width);
+    height: var(--card-height);
+    background: var(--color-bg);
+    transition:
+        top var(--anim-duration) var(--anim-easing),
+        left var(--anim-duration) var(--anim-easing),
+        width var(--anim-duration) var(--anim-easing),
+        height var(--anim-duration) var(--anim-easing);
+}
+
+.tr-overlay--expanded .tr-overlay__bg {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* --- Header bar: 2 cells at 50/50 --- */
+
+.tr-overlay__header {
+    position: absolute;
+    top: var(--bar-top);
+    left: var(--bar-left);
+    width: var(--bar-width);
+    display: flex;
+    z-index: 1;
+    border: var(--border);
+    transition:
+        top var(--anim-duration) var(--anim-easing),
+        left var(--anim-duration) var(--anim-easing),
+        width var(--anim-duration) var(--anim-easing);
+}
+
+.tr-overlay--expanded .tr-overlay__header {
+    top: var(--page-padding);
+    left: var(--page-padding);
+    width: calc(100vw - 2 * var(--page-padding));
+}
+
+/* --- Cells --- */
+
+.tr-overlay__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px;
+    flex: 1 1 50%;
+    min-width: 0;
+}
+
+.tr-overlay__cell + .tr-overlay__cell {
+    border-left: var(--border);
+}
+
+.tr-overlay__cell--tags {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+}
+
+/* --- Typography --- */
+
+.tr-overlay__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.tr-overlay__subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.tr-overlay__tags-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.tr-overlay__year {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #5e5e5e;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .tr-overlay,
+    .tr-overlay__bg,
+    .tr-overlay__header {
+        transition-duration: 0.01ms !important;
+    }
+}

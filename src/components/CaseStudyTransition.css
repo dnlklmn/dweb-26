@@ -1,0 +1,149 @@
+/* ============================================
+   CASE STUDY TRANSITION ANIMATION
+   ============================================ */
+
+/* Page visibility during transition */
+.cs-page--hidden {
+    opacity: 0;
+}
+
+.cs-page--visible {
+    opacity: 1;
+}
+
+/* Content reveal animation */
+.cs-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.5s var(--anim-easing),
+        transform 0.5s var(--anim-easing);
+}
+
+.cs-content--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   TRANSITION OVERLAY
+   ============================================ */
+
+.cs-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Expanding background - starts from info-top position */
+.cs-transition__bg {
+    position: absolute;
+    top: var(--start-top);
+    left: var(--start-left);
+    width: var(--start-width);
+    height: var(--start-height);
+    background: #8b4dd2;
+    transition:
+        top 0.5s var(--anim-easing),
+        left 0.5s var(--anim-easing),
+        width 0.5s var(--anim-easing),
+        height 0.5s var(--anim-easing),
+        background 0.3s var(--anim-easing);
+}
+
+.cs-transition--expanded .cs-transition__bg {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-bg);
+}
+
+/* Meta block - animates from teaser position to header position */
+.cs-transition__meta {
+    position: absolute;
+    top: var(--meta-top);
+    left: var(--meta-left);
+    width: var(--meta-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px;
+    transition:
+        top 0.5s var(--anim-easing) 0.1s,
+        left 0.5s var(--anim-easing) 0.1s,
+        width 0.5s var(--anim-easing) 0.1s;
+}
+
+.cs-transition--expanded .cs-transition__meta {
+    top: var(--page-padding);
+    left: var(--page-padding);
+    width: 25%;
+}
+
+.cs-transition__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.cs-transition__subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+/* Tags block - animates from teaser position to header position */
+.cs-transition__tags {
+    position: absolute;
+    top: var(--tags-top);
+    left: var(--tags-left);
+    width: var(--tags-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    padding: 8px;
+    transition:
+        top 0.5s var(--anim-easing) 0.1s,
+        left 0.5s var(--anim-easing) 0.1s,
+        width 0.5s var(--anim-easing) 0.1s;
+}
+
+.cs-transition--expanded .cs-transition__tags {
+    top: var(--page-padding);
+    left: calc(var(--page-padding) + 25%);
+    width: 25%;
+}
+
+.cs-transition__tags-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+.cs-transition__year {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #5e5e5e;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .cs-transition__bg,
+    .cs-transition__meta,
+    .cs-transition__tags,
+    .cs-content {
+        transition-duration: 0.01ms !important;
+    }
+}

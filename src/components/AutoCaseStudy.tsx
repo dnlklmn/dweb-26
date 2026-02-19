@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTransition } from "../context/TransitionContext";
 import Lightbox from "./Lightbox";
 import "./CaseStudyPage.css";
+import "./CaseStudyTransition.css";
 
 const images = {
   header: require("../assets/auto/header.png"),
@@ -25,6 +27,53 @@ const AutoCaseStudy: React.FC = () => {
     src: string;
     alt: string;
   } | null>(null);
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+  const { transitionData, clearTransition } = useTransition();
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!transitionData) {
+      // No transition data - show immediately
+      setIsAnimating(false);
+      setShowContent(true);
+      return;
+    }
+
+    // Set CSS custom properties for animation start positions
+    const overlay = overlayRef.current;
+    if (overlay) {
+      const { infoTop, meta, tags } = transitionData;
+      overlay.style.setProperty("--start-top", `${infoTop.top}px`);
+      overlay.style.setProperty("--start-left", `${infoTop.left}px`);
+      overlay.style.setProperty("--start-width", `${infoTop.width}px`);
+      overlay.style.setProperty("--start-height", `${infoTop.height}px`);
+      overlay.style.setProperty("--meta-top", `${meta.top}px`);
+      overlay.style.setProperty("--meta-left", `${meta.left}px`);
+      overlay.style.setProperty("--meta-width", `${meta.width}px`);
+      overlay.style.setProperty("--meta-height", `${meta.height}px`);
+      overlay.style.setProperty("--tags-top", `${tags.top}px`);
+      overlay.style.setProperty("--tags-left", `${tags.left}px`);
+      overlay.style.setProperty("--tags-width", `${tags.width}px`);
+      overlay.style.setProperty("--tags-height", `${tags.height}px`);
+    }
+
+    // Start animation after a frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsAnimating(false);
+      });
+    });
+
+    // Show content after header animation completes
+    const timer = setTimeout(() => {
+      setShowContent(true);
+      clearTransition();
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [transitionData, clearTransition]);
 
   const img = (src: string, alt: string, className?: string) => (
     <img

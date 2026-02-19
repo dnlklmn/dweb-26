@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
+import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
 
-const caseStudies = [
+const caseStudies: CaseStudy[] = [
   {
     title: "Auto",
     slug: "auto",
@@ -134,36 +134,10 @@ const LandingPage: React.FC = () => {
               className="case-study__reveal"
               style={{ transitionDelay: `${(i * 2 + 1) * 150}ms` }}
             >
-              <Link
-                to={`/${study.slug}`}
-                className="case-study"
-                onClick={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
-              >
-                <div className="case-study__image">
-                  {study.image && (
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="case-study__img"
-                    />
-                  )}
-                </div>
-                <div className="case-study__info">
-                  <div className="case-study__info-top" />
-                  <div className="case-study__info-bottom">
-                    <div className="case-study__meta">
-                      <span className="case-study__title">{study.title}</span>
-                      <span className="case-study__description">
-                        {study.description}
-                      </span>
-                    </div>
-                    <div className="case-study__tags">
-                      <span className="case-study__role">{study.role}</span>
-                      <span className="case-study__year">{study.year}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+              <CaseStudyCard
+                study={study}
+                onNavigate={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
+              />
             </div>
           </React.Fragment>
         ))}
