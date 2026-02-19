@@ -400,6 +400,56 @@
 .case-study {
     display: flex;
     border-bottom: var(--border);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Hover effect — purple block slides up in info-top on teaser hover */
+.case-study__info-top {
+    position: relative;
+    overflow: hidden;
+}
+
+.case-study__info-top::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: var(--color-border);
+    transform: translateY(calc(100% + 16px));
+    transition:
+        transform var(--anim-duration) var(--anim-easing),
+        background var(--anim-duration) var(--anim-easing);
+    z-index: 1;
+}
+
+.case-study__info-top:hover::before {
+    background: #8b4dd2;
+}
+
+.case-study__info-top::after {
+    content: "Case study →";
+    position: absolute;
+    inset: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+    color: var(--color-text);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity var(--anim-duration) var(--anim-easing);
+}
+
+.case-study:hover .case-study__info-top::before {
+    transform: translateY(0);
+}
+
+.case-study:hover .case-study__info-top::after {
+    opacity: 1;
+    transition-delay: 0.15s;
 }
 
 /* Left — image placeholder */
@@ -426,7 +476,7 @@
     min-width: 0;
 }
 
-/* Top area — empty bordered box */
+/* Top area — hover reveal box */
 .case-study__info-top {
     flex: 1;
     border-bottom: var(--border);

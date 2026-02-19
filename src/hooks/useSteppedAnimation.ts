@@ -6,6 +6,7 @@ interface UseSteppedAnimationOptions {
   stagger?: number;
   stepDelays?: Record<number, number>;
   autoStart?: boolean;
+  skipToEnd?: boolean;
 }
 
 function getStaggerFromCSS(): number {
@@ -21,8 +22,9 @@ export function useSteppedAnimation({
   stagger,
   stepDelays,
   autoStart = true,
+  skipToEnd = false,
 }: UseSteppedAnimationOptions) {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(skipToEnd ? totalSteps - 1 : 0);
   const [isRunning, setIsRunning] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 

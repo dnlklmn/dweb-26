@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import "./LandingPage.css";
 
 const caseStudies = [
   {
     title: "Auto",
+    slug: "auto",
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
@@ -12,23 +14,35 @@ const caseStudies = [
   },
   {
     title: "Radicle Desktop",
+    slug: "radicle-desktop",
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
   },
   {
     title: "Radicle Design System",
+    slug: "radicle-design-system",
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
   },
 ];
 
+const SKIP_ANIM_KEY = "landing-skip-anim";
+
 const LandingPage: React.FC = () => {
+  const skipAnim = sessionStorage.getItem(SKIP_ANIM_KEY) === "1";
+
   const { step, isComplete } = useSteppedAnimation({
     totalSteps: 6,
     stepDelays: { 2: 200, 5: 500 },
+    skipToEnd: skipAnim,
   });
+
+  // Clear the flag after reading it so a reload will animate again
+  React.useEffect(() => {
+    sessionStorage.removeItem(SKIP_ANIM_KEY);
+  }, []);
 
   const stepClasses = Array.from(
     { length: step + 1 },
@@ -120,7 +134,11 @@ const LandingPage: React.FC = () => {
               className="case-study__reveal"
               style={{ transitionDelay: `${(i * 2 + 1) * 150}ms` }}
             >
-              <div className="case-study">
+              <Link
+                to={`/${study.slug}`}
+                className="case-study"
+                onClick={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
+              >
                 <div className="case-study__image">
                   {study.image && (
                     <img
@@ -145,7 +163,7 @@ const LandingPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </React.Fragment>
         ))}
