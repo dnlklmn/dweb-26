@@ -1,0 +1,18 @@
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: var(--page-padding);
+}
+
+.lightbox__img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: default;
+}
