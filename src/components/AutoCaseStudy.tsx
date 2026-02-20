@@ -43,6 +43,7 @@ const AutoCaseStudy: React.FC = () => {
   } | null>(null);
   const [isAnimating, setIsAnimating] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const [showStickyTitles, setShowStickyTitles] = useState(false);
   const { transitionData, clearTransition } = useTransition();
   const overlayRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -89,6 +90,24 @@ const AutoCaseStudy: React.FC = () => {
     return () => clearTimeout(timer);
   }, [transitionData, clearTransition]);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowStickyTitles(!entry.isIntersecting);
+      },
+      {
+        threshold: 0,
+        rootMargin: "-48px 0px 0px 0px",
+      },
+    );
+
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   const img = (src: string, alt: string, className?: string) => (
     <img
       src={src}
@@ -111,11 +130,41 @@ const AutoCaseStudy: React.FC = () => {
             Daniel Kalman
           </span>
         </Link>
-        <div className="cs-back-row__cell cs-back-row__cell--spacer" />
+        <div
+          className={`cs-back-row__cell cs-back-row__cell--aux${
+            showStickyTitles ? " cs-back-row__cell--aux-active" : ""
+          }`}
+        >
+          {showStickyTitles ? (
+            <Link
+              to="/#selected-work"
+              className="cs-back-row__aux-action"
+              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+            >
+              <span className="cs-back-row__aux-label">Work</span>
+            </Link>
+          ) : null}
+        </div>
+        <div
+          className={`cs-back-row__cell cs-back-row__cell--aux${
+            showStickyTitles ? " cs-back-row__cell--aux-active" : ""
+          }`}
+        >
+          {showStickyTitles ? (
+            <button
+              type="button"
+              className="cs-back-row__aux-action"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <span className="cs-back-row__aux-label">Auto</span>
+            </button>
+          ) : null}
+        </div>
+        <div className="cs-back-row__cell cs-back-row__cell--aux" />
       </div>
 
       {/* Header — 4 cells in a row */}
-      <div className="cs-header">
+      <div className="cs-header" ref={headerRef}>
         <div className="cs-header__cell">
           <Link to="/" className="cs-header__title">
             Auto

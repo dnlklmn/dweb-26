@@ -8,24 +8,26 @@
     padding: var(--page-padding);
 }
 
-/* --- Back row: 1 column link + 3 column spacer --- */
+/* --- Back row: sticky 4-column strip --- */
 
 .cs-back-row {
     position: sticky;
     top: 0;
     height: 48px;
     display: flex;
+    z-index: 30;
+    background: var(--color-bg);
 }
 
 .cs-back-row__cell {
-    position: sticky;
-    top: 0;
     border-top: var(--border);
+    border-bottom: var(--border);
     border-left: var(--border);
+    width: 25%;
+    min-width: 0;
 }
 
 .cs-back-row__cell--link {
-    width: 25%;
     position: relative;
     overflow: hidden;
     text-decoration: none;
@@ -35,8 +37,16 @@
     padding: 8px;
 }
 
-.cs-back-row__cell--spacer {
-    width: 75%;
+.cs-back-row__cell--aux {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+}
+
+.cs-back-row__cell:last-child {
     border-right: var(--border);
 }
 
@@ -57,11 +67,53 @@
 .cs-back-row__label {
     font-size: 14px;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text);
     line-height: normal;
     position: relative;
     z-index: 2;
     display: inline-block;
+}
+
+.cs-back-row__aux-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: normal;
+    position: relative;
+    z-index: 2;
+}
+
+.cs-back-row__aux-action {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.cs-back-row__cell--aux::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: #8b4dd2;
+    transform: translateY(calc(100% + 16px));
+    transition: transform var(--anim-duration) var(--anim-easing);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cs-back-row__cell--aux-active:hover::before {
+    transform: translateY(0);
 }
 
 .cs-back-row__label::after {
@@ -82,8 +134,6 @@
 
 .cs-header {
     display: flex;
-    position: sticky;
-    top: 48px;
 }
 
 .cs-header__cell {
@@ -93,10 +143,8 @@
     align-items: flex-start;
     gap: 8px;
     padding: 8px;
-    padding-top: 48px;
     width: 25%;
     align-self: stretch;
-    border-top: var(--border);
     border-left: var(--border);
 }
 

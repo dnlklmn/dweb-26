@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
@@ -32,6 +33,7 @@ const caseStudies: CaseStudy[] = [
 const SKIP_ANIM_KEY = "landing-skip-anim";
 
 const LandingPage: React.FC = () => {
+  const location = useLocation();
   const skipAnim = sessionStorage.getItem(SKIP_ANIM_KEY) === "1";
 
   const { step, isComplete } = useSteppedAnimation({
@@ -44,6 +46,14 @@ const LandingPage: React.FC = () => {
   React.useEffect(() => {
     sessionStorage.removeItem(SKIP_ANIM_KEY);
   }, []);
+
+  React.useEffect(() => {
+    if (location.hash !== "#selected-work" || !isComplete) return;
+    const target = document.getElementById("selected-work");
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - 12;
+    window.scrollTo({ top, behavior: "smooth" });
+  }, [location.hash, isComplete]);
 
   const stepClasses = Array.from(
     { length: step + 1 },
@@ -112,7 +122,7 @@ const LandingPage: React.FC = () => {
         </div>
 
         {/* Footer — appears at step 5 */}
-        <div className="landing__footer">
+        <div id="selected-work" className="landing__footer">
           <div className="landing__footer-inner">
             <h2 className="landing__footer-title">Selected Work</h2>
           </div>
