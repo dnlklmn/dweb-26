@@ -1,0 +1,14 @@
+.dither-reveal {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dither-reveal__canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+}

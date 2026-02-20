@@ -1,7 +1,9 @@
 import React from "react";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
+import DitherReveal from "./DitherReveal";
 import "./LandingPage.css";
+import ditherPhoto from "../assets/auto/image 8.png";
 
 const caseStudies: CaseStudy[] = [
   {
@@ -55,7 +57,8 @@ const LandingPage: React.FC = () => {
         <div className="landing__main">
           <div className="landing__body">
             {/* Left column — identity */}
-            <div className="landing__left-col">
+            <div className="landing__left-col landing__panel">
+              <DitherReveal imageSrc={ditherPhoto} />
               <div className="landing__identity">
                 <div className="landing__identity-text">
                   <span className="landing__name">Daniel Kalman</span>
@@ -68,13 +71,15 @@ const LandingPage: React.FC = () => {
             <div className="landing__right-col">
               {/* Upper row — 192px when step 3+ */}
               <div className="landing__upper-row">
-                <div className="landing__location">
+                <div className="landing__location landing__panel">
+                  <DitherReveal imageSrc={ditherPhoto} />
                   <div className="landing__location-text">
                     <span className="landing__location-city">Berlin</span>
                     <span className="landing__location-country">Germany</span>
                   </div>
                 </div>
-                <div className="landing__nav">
+                <div className="landing__nav landing__panel">
+                  <DitherReveal imageSrc={ditherPhoto} />
                   <div className="landing__nav-row">
                     <span className="landing__nav-left">Work</span>
                     <span className="landing__nav-right">About</span>
@@ -87,7 +92,8 @@ const LandingPage: React.FC = () => {
               </div>
 
               {/* Middle row — hero, takes remaining space */}
-              <div className="landing__middle-row">
+              <div className="landing__middle-row landing__panel">
+                <DitherReveal imageSrc={ditherPhoto} revealRadius={180} />
                 <h1 className="landing__headline">
                   building Products that scratch an itch.
                 </h1>
@@ -95,8 +101,11 @@ const LandingPage: React.FC = () => {
 
               {/* Bottom row — 192px, appears at step 4 */}
               <div className="landing__bottom-row">
-                <div className="landing__bottom-left" />
-                <div className="landing__bottom-right">
+                <div className="landing__bottom-left landing__panel">
+                  <DitherReveal imageSrc={ditherPhoto} />
+                </div>
+                <div className="landing__bottom-right landing__panel">
+                  <DitherReveal imageSrc={ditherPhoto} />
                   <div className="landing__bio-text">
                     <p className="landing__bio">
                       I design and build digital products. From understanding
@@ -112,7 +121,8 @@ const LandingPage: React.FC = () => {
 
         {/* Footer — appears at step 5 */}
         <div className="landing__footer">
-          <div className="landing__footer-inner">
+          <div className="landing__footer-inner landing__panel">
+            <DitherReveal imageSrc={ditherPhoto} />
             <h2 className="landing__footer-title">Selected Work</h2>
           </div>
         </div>

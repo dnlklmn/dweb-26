@@ -10,6 +10,16 @@
     position: relative;
 }
 
+.landing__panel {
+    position: relative;
+    isolation: isolate;
+}
+
+.landing__panel > :not(.dither-reveal) {
+    position: relative;
+    z-index: 1;
+}
+
 .landing__main {
     display: flex;
     flex-direction: column;
