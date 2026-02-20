@@ -107,7 +107,9 @@ const AutoCaseStudy: React.FC = () => {
           className="cs-back-row__cell cs-back-row__cell--link"
           onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
-          <span className="cs-back-row__label">Daniel Kalman</span>
+          <span className="cs-back-row__label" data-text="Daniel Kalman">
+            Daniel Kalman
+          </span>
         </Link>
         <div className="cs-back-row__cell cs-back-row__cell--spacer" />
       </div>

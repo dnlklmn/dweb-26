@@ -11,11 +11,15 @@
 /* --- Back row: 1 column link + 3 column spacer --- */
 
 .cs-back-row {
+    position: sticky;
+    top: 0;
     height: 48px;
     display: flex;
 }
 
 .cs-back-row__cell {
+    position: sticky;
+    top: 0;
     border-top: var(--border);
     border-left: var(--border);
 }
@@ -57,12 +61,29 @@
     line-height: normal;
     position: relative;
     z-index: 2;
+    display: inline-block;
+}
+
+.cs-back-row__label::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #000;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path var(--anim-duration) var(--anim-easing);
+}
+
+.cs-back-row__cell--link:hover .cs-back-row__label::after {
+    clip-path: inset(0 0 0 0);
 }
 
 /* --- Header row: 4 equal columns --- */
 
 .cs-header {
     display: flex;
+    position: sticky;
+    top: 48px;
 }
 
 .cs-header__cell {
