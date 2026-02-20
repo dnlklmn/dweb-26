@@ -2,6 +2,7 @@ import React from "react";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
+import autoHeaderImage from "../assets/auto/header.png";
 
 const caseStudies: CaseStudy[] = [
   {
@@ -10,7 +11,7 @@ const caseStudies: CaseStudy[] = [
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
-    image: require("../assets/auto/header.png"),
+    image: autoHeaderImage,
   },
   {
     title: "Radicle Desktop",

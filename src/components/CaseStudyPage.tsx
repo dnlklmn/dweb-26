@@ -5,6 +5,10 @@ import AutoCaseStudy from "./AutoCaseStudy";
 const CaseStudyPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (slug === "auto") {
     return <AutoCaseStudy />;
   }

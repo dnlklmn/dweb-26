@@ -4,22 +4,36 @@ import { useTransition } from "../context/TransitionContext";
 import Lightbox from "./Lightbox";
 import "./CaseStudyPage.css";
 import "./CaseStudyTransition.css";
+import headerImage from "../assets/auto/header.png";
+import blocksGridImage from "../assets/auto/blocks-grid.png";
+import conditionsImage from "../assets/auto/conditions.png";
+import cryptoListenersImage from "../assets/auto/crypto-listeners.png";
+import generateWorkflowImage from "../assets/auto/generate-workflow.png";
+import gridAutomatorImage from "../assets/auto/grid-automator.png";
+import ifttentropyImage from "../assets/auto/ifttentropy.png";
+import image8Image from "../assets/auto/image 8.png";
+import mcpServerImage from "../assets/auto/mcp-server.png";
+import nestedBlocksImage from "../assets/auto/nested-blocks.png";
+import offTheChainImage from "../assets/auto/off-the-chain.png";
+import realTimeCollabImage from "../assets/auto/real-time-collab.png";
+import simplerBlocksImage from "../assets/auto/simpler-blocks.png";
+import nodeTypesImage from "../assets/auto/node-types.png";
 
 const images = {
-  header: require("../assets/auto/header.png"),
-  blocksGrid: require("../assets/auto/blocks-grid.png"),
-  conditions: require("../assets/auto/conditions.png"),
-  cryptoListeners: require("../assets/auto/crypto-listeners.png"),
-  generateWorkflow: require("../assets/auto/generate-workflow.png"),
-  gridAutomator: require("../assets/auto/grid-automator.png"),
-  ifttentropy: require("../assets/auto/ifttentropy.png"),
-  image8: require("../assets/auto/image 8.png"),
-  mcpServer: require("../assets/auto/mcp-server.png"),
-  nestedBlocks: require("../assets/auto/nested-blocks.png"),
-  offTheChain: require("../assets/auto/off-the-chain.png"),
-  realTimeCollab: require("../assets/auto/real-time-collab.png"),
-  simplerBlocks: require("../assets/auto/simpler-blocks.png"),
-  nodeTypes: require("../assets/auto/node-types.png"),
+  header: headerImage,
+  blocksGrid: blocksGridImage,
+  conditions: conditionsImage,
+  cryptoListeners: cryptoListenersImage,
+  generateWorkflow: generateWorkflowImage,
+  gridAutomator: gridAutomatorImage,
+  ifttentropy: ifttentropyImage,
+  image8: image8Image,
+  mcpServer: mcpServerImage,
+  nestedBlocks: nestedBlocksImage,
+  offTheChain: offTheChainImage,
+  realTimeCollab: realTimeCollabImage,
+  simplerBlocks: simplerBlocksImage,
+  nodeTypes: nodeTypesImage,
 };
 
 const AutoCaseStudy: React.FC = () => {
@@ -87,14 +101,21 @@ const AutoCaseStudy: React.FC = () => {
 
   return (
     <div className="cs-page">
+      <div className="cs-back-row">
+        <Link
+          to="/"
+          className="cs-back-row__cell cs-back-row__cell--link"
+          onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+        >
+          <span className="cs-back-row__label">Home</span>
+        </Link>
+        <div className="cs-back-row__cell cs-back-row__cell--spacer" />
+      </div>
+
       {/* Header — 4 cells in a row */}
       <div className="cs-header">
         <div className="cs-header__cell">
-          <Link
-            to="/"
-            className="cs-header__title"
-            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-          >
+          <Link to="/" className="cs-header__title">
             Auto
           </Link>
           <span className="cs-header__subtitle">
@@ -106,11 +127,14 @@ const AutoCaseStudy: React.FC = () => {
           <span className="cs-header__year">2025</span>
         </div>
         <div className="cs-header__cell cs-header__cell--spacer" />
-        <div className="cs-header__cell cs-header__cell--demo">
-          <a href="#demo" className="cs-header__link">
-            Demo →
-          </a>
-        </div>
+        <a
+          href="https://auto-workflow-builder.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="cs-header__cell cs-header__cell--demo"
+        >
+          <span className="cs-header__link">Demo →</span>
+        </a>
       </div>
 
       {/* Spacer */}
@@ -318,11 +342,15 @@ const AutoCaseStudy: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="cs-collab-intro__spacer cs-spacer--border-left">
-          <a href="#demo" className="cs-collab-intro__link">
-            Try it out →
-          </a>
-        </div>
+        <a
+          href="https://auto-workflow-builder.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="cs-collab-intro__cta cs-spacer--border-left"
+          aria-label="Try Auto workflow builder in a new tab"
+        >
+          <span className="cs-collab-intro__link">Try it out →</span>
+        </a>
       </div>
 
       {/* Collab images row */}
