@@ -107,7 +107,7 @@ const AutoCaseStudy: React.FC = () => {
           className="cs-back-row__cell cs-back-row__cell--link"
           onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
-          <span className="cs-back-row__label">Home</span>
+          <span className="cs-back-row__label">Daniel Kalman</span>
         </Link>
         <div className="cs-back-row__cell cs-back-row__cell--spacer" />
       </div>
@@ -366,15 +366,75 @@ const AutoCaseStudy: React.FC = () => {
       <div className="cs-section-heading">
         <h2>Other work</h2>
       </div>
-      <div className="cs-spacer cs-spacer--border-bottom" />
-      <div className="cs-content-row">
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.ifttentropy, "IFTTT-style exploration")}
-        </div>{" "}
-        <div className="cs-content-row__text"></div>
-        <div className="cs-content-row__text"></div>
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.nestedBlocks, "Nested blocks exploration")}
+
+      <div className="cs-other-section">
+        <div className="cs-other-nav">
+          <Link
+            to="/radicle-design-system"
+            className="cs-other-nav__cell cs-other-nav__cell--prev"
+          >
+            <span className="cs-other-nav__label">← Prev</span>
+          </Link>
+          <div className="cs-other-nav__cell cs-other-nav__cell--mid" />
+          <div className="cs-other-nav__cell cs-other-nav__cell--mid" />
+          <Link
+            to="/radicle-desktop"
+            className="cs-other-nav__cell cs-other-nav__cell--next"
+          >
+            <span className="cs-other-nav__label">Next →</span>
+          </Link>
+        </div>
+
+        <div className="cs-other-cards">
+          <Link
+            to="/radicle-design-system"
+            className="cs-other-card cs-other-card--prev"
+          >
+            <div className="cs-other-card__meta">
+              <div className="cs-other-card__text">
+                <span className="cs-other-card__title">
+                  Radicle Design System
+                </span>
+                <span className="cs-other-card__description">
+                  Collaborative workflow builder for blockchain automations
+                </span>
+              </div>
+              <div className="cs-other-card__image">
+                <img
+                  src={images.offTheChain}
+                  alt="Radicle Design System preview"
+                />
+              </div>
+              <div className="cs-other-card__tags">
+                <span className="cs-other-card__role">UX, UI, Front End</span>
+                <span className="cs-other-card__year">2025</span>
+              </div>
+            </div>
+          </Link>
+
+          <div className="cs-other-cards__spacer" />
+          <div className="cs-other-cards__spacer" />
+
+          <Link
+            to="/radicle-desktop"
+            className="cs-other-card cs-other-card--next"
+          >
+            <div className="cs-other-card__meta">
+              <div className="cs-other-card__text">
+                <span className="cs-other-card__title">Radicle Desktop</span>
+                <span className="cs-other-card__description">
+                  Collaborative workflow builder for blockchain automations
+                </span>
+              </div>
+              <div className="cs-other-card__image">
+                <img src={images.gridAutomator} alt="Radicle Desktop preview" />
+              </div>
+              <div className="cs-other-card__tags">
+                <span className="cs-other-card__role">UX, UI, Front End</span>
+                <span className="cs-other-card__year">2025</span>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
 

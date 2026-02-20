@@ -11,6 +11,7 @@
     --color-bg: #0f0f0f;
     --color-border: #272727;
     --color-text: #ffffff;
+    --color-primary: #8b4dd2;
     --page-padding: 48px;
     --border: 1px solid var(--color-border);
 }
