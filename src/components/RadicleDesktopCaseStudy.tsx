@@ -4,43 +4,29 @@ import { useTransition } from "../context/TransitionContext";
 import Lightbox from "./Lightbox";
 import "./CaseStudyPage.css";
 import "./CaseStudyTransition.css";
-import headerImage from "../assets/auto/header.png";
-import blocksGridImage from "../assets/auto/blocks-grid.png";
-import conditionsImage from "../assets/auto/conditions.png";
-import cryptoListenersImage from "../assets/auto/crypto-listeners.png";
-import generateWorkflowImage from "../assets/auto/generate-workflow.png";
-import gridAutomatorImage from "../assets/auto/grid-automator.png";
-import ifttentropyImage from "../assets/auto/ifttentropy.png";
-import image8Image from "../assets/auto/image 8.png";
-import mcpServerImage from "../assets/auto/mcp-server.png";
-import nestedBlocksImage from "../assets/auto/nested-blocks.png";
-import offTheChainImage from "../assets/auto/off-the-chain.png";
-import realTimeCollabImage from "../assets/auto/real-time-collab.png";
-import simplerBlocksImage from "../assets/auto/simpler-blocks.png";
-import nodeTypesImage from "../assets/auto/node-types.png";
+import patchPreview from "../assets/radicle-desktop/patch-preview.png";
+import patchReview from "../assets/radicle-desktop/patch-review.png";
+import wireframes from "../assets/radicle-desktop/wireframes.png";
+import wireframes2 from "../assets/radicle-desktop/wireframes-2.png";
+import empathyMap from "../assets/radicle-desktop/empathy-map.png";
+import peerSelector from "../assets/radicle-desktop/peer-selector.png";
+import cliAndApp from "../assets/radicle-desktop/cli-and-app.png";
+import simplerBlocks from "../assets/auto/simpler-blocks.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
-import radicleDesktopHeaderImage from "../assets/radicle-desktop/header.png";
 
 const images = {
-  header: headerImage,
-  blocksGrid: blocksGridImage,
-  conditions: conditionsImage,
-  cryptoListeners: cryptoListenersImage,
-  generateWorkflow: generateWorkflowImage,
-  gridAutomator: gridAutomatorImage,
-  ifttentropy: ifttentropyImage,
-  image8: image8Image,
-  mcpServer: mcpServerImage,
-  nestedBlocks: nestedBlocksImage,
-  offTheChain: offTheChainImage,
-  realTimeCollab: realTimeCollabImage,
-  simplerBlocks: simplerBlocksImage,
-  nodeTypes: nodeTypesImage,
-  radicleDesignSystemHeaderImage,
-  radicleDesktopHeaderImage,
+  patchPreview: patchPreview,
+  patchReview: patchReview,
+  wireframes: wireframes,
+  wireframes2: wireframes2,
+  empathyMap: empathyMap,
+  peerSelector: peerSelector,
+  cliAndApp: cliAndApp,
+  simplerBlocks: simplerBlocks,
+  radicleDesignSystemHeaderImage: radicleDesignSystemHeaderImage,
 };
 
-const AutoCaseStudy: React.FC = () => {
+const RadicleDesktopCaseStudy: React.FC = () => {
   const [lightbox, setLightbox] = useState<{
     src: string;
     alt: string;
@@ -160,7 +146,7 @@ const AutoCaseStudy: React.FC = () => {
               className="cs-back-row__aux-action"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <span className="cs-back-row__aux-label">Auto</span>
+              <span className="cs-back-row__aux-label">Radicle Desktop</span>
             </button>
           ) : null}
         </div>
@@ -171,24 +157,22 @@ const AutoCaseStudy: React.FC = () => {
       <div className="cs-header" ref={headerRef}>
         <div className="cs-header__cell">
           <Link to="/" className="cs-header__title">
-            Auto
+            Radicle Desktop
           </Link>
-          <span className="cs-header__subtitle">
-            Collaborative workflow builder for blockchain automations
-          </span>
+          <span className="cs-header__subtitle">Your Code on Your Machine</span>
         </div>
         <div className="cs-header__cell cs-header__cell--tags">
           <span className="cs-header__tags-text">UX, UI, Front End</span>
-          <span className="cs-header__year">2025</span>
+          <span className="cs-header__year">2024</span>
         </div>
         <div className="cs-header__cell cs-header__cell--spacer" />
         <a
-          href="https://auto-workflow-builder.netlify.app/"
+          href="https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/"
           target="_blank"
           rel="noreferrer"
           className="cs-header__cell cs-header__cell--demo"
         >
-          <span className="cs-header__link">Demo →</span>
+          <span className="cs-header__link">Get the app →</span>
         </a>
       </div>
 
@@ -200,26 +184,25 @@ const AutoCaseStudy: React.FC = () => {
         <div className="cs-intro__left" />
         <div className="cs-intro__description">
           <p className="cs-intro__text">
-            A visual workflow builder with real-time collaboration that bridges
-            on-chain and off-chain automation. Use blockchain triggers to kick
-            off workflows, or aggregate off-chain data to construct on-chain
-            transactions.
+            The Radicle desktop app lets you manage issues and patches, review
+            code, and stay on top of notifications. Write and review offline,
+            then sync with your peers when you're back online.
           </p>
         </div>
         <div className="cs-intro__meta">
           <div className="cs-intro__meta-group">
             <span className="cs-intro__meta-label">Company</span>
-            <span className="cs-intro__meta-value">Entropy Cryptography</span>
+            <span className="cs-intro__meta-value">Radicle</span>
           </div>
           <div className="cs-intro__meta-group">
             <span className="cs-intro__meta-label">Role</span>
             <span className="cs-intro__meta-value">
-              Ideation, Design, Prototype, User research, Front End
+              Design, Prototype, User research
             </span>
           </div>
           <div className="cs-intro__meta-group">
             <span className="cs-intro__meta-label">Tech</span>
-            <span className="cs-intro__meta-value">Figma, Svelte, Yjs</span>
+            <span className="cs-intro__meta-value">Figma, Svelte</span>
           </div>
         </div>
       </div>
@@ -228,13 +211,16 @@ const AutoCaseStudy: React.FC = () => {
 
       {/* Hero image — 3 columns */}
       <div className="cs-hero">
-        <div className="cs-hero__left" />
         <div className="cs-hero__center">
           <div className="cs-hero__image-wrapper">
-            {img(images.header, "Auto workflow builder interface")}
+            {img(images.patchPreview, "Auto workflow builder interface")}
+          </div>
+        </div>{" "}
+        <div className="cs-hero__center">
+          <div className="cs-hero__image-wrapper">
+            {img(images.patchReview, "Auto workflow builder interface")}
           </div>
         </div>
-        <div className="cs-hero__right" />
       </div>
 
       <div className="cs-spacer cs-spacer--border-top" />
@@ -246,135 +232,116 @@ const AutoCaseStudy: React.FC = () => {
           <div className="cs-text-block">
             <h3>Challenge and Goals</h3>
             <p>
-              The goal was to create a crypto-native workflow automation tool
-              that bridges on-chain and off-chain worlds. On-chain events should
-              trigger off-chain workflows, and off-chain data should construct
-              on-chain transactions.
+              The Radicle desktop app is a long-term project spanning multiple
+              features: patches, code review, notifications, and more. The goal
+              is to make peer-to-peer code collaboration feel as familiar as
+              centralized tools, without hiding what makes Radicle different.
             </p>
             <p>
-              The challenge: could we build a better workflow builder
-              altogether, or would making it crypto-native be our only
-              advantage? Use cases vary widely, and workflow builders already
-              exist.
+              The core challenge is that Radicle's underlying model
+              (peer-to-peer, local-first, tracable) doesn't map neatly onto the
+              mental models users bring from GitHub. Every design decision needs
+              to bridge that gap honestly.
             </p>
           </div>
           <div className="cs-text-block cs-spacer--border-top">
             <h3>Process and Responsibilities</h3>
             <p>
-              I started exploring how workflows can be built, what are common
-              structures for recurring crypto workflows, and where these 2 meet.
+              For each feature I followed the same loop: understand the user
+              need and the relevant protocol behaviour, formulate a hypothesis,
+              then sketch wireframes, try out simple prototypes, and at last
+              provide detailed designs to implement.
             </p>
             <p>
-              Once I landed on a set of requirements, I started designing the
-              interface with a limited set of nodes and connectors to check if
-              the structure meets works, the primary goal being to reduce
-              cognitive load.
-            </p>
-            <p>
-              Once the initial user tests eliminated the usability issues I
-              implemented a unique multiplayer experience using Yjs and WebRTC
-              to enable real-time collaboration. I am currently running user
-              tests on this prototype as the requirements for the production MVP
-              form.
+              Ideas were validated with both users and the engineering team
+              before moving to high-fidelity mockups and handoff.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Early Experiments */}
       <div className="cs-section-heading">
-        <h2>Early Experiments</h2>
+        <h2>Foundations</h2>
       </div>
 
       <div className="cs-spacer cs-spacer--border-bottom" />
 
-      {/* First experiment row: text + 3 images */}
       <div className="cs-content-row">
         <div className="cs-content-row__text">
           <p>
-            The initial research happened on 2 tracks: I wanted to explore
-            what's the best way to build workflow maps, and in parallel, find
-            out what a good workflow is that we'd like to help.
+            I started by learning about the Radicle protocol, different code
+            review workflows, and what a desktop app needs to surface in a
+            peer-to-peer setup.
           </p>
           <p>
-            I built multiple prototypes to explore different approaches to
-            building workflow maps. Should we direct the flow or let the user go
-            freeform? Should we build atomic nodes users can build anything from
-            simple ones to solve for particular use cases? Is a condition a
-            connector or a node?
+            I explored several structural options, weighing ease of navigation
+            against staying true to how Radicle actually works, avoiding
+            abstractions that would confuse users moving between the app and the
+            CLI.
+          </p>
+          <p>
+            Alongside this, I talked to users and noted patterns in how they
+            think about their current tools, and about switching to Radicle
+            which helped understand their mindset better.
           </p>
         </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.ifttentropy, "IFTTT-style exploration")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.blocksGrid, "Block grid exploration")}
-        </div>{" "}
+        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
+          {img(images.wireframes2, "Simpler block design")}
+        </div>
         <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.nestedBlocks, "Nested blocks exploration")}
+          {img(images.empathyMap, "Simpler block design")}
         </div>
       </div>
 
       <div className="cs-spacer cs-spacer--border-bottom" />
 
-      {/* Second experiment row: text + 2 images */}
       <div className="cs-content-row">
-        <div className="cs-content-row__text">
+        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right"></div>
+        <div className="cs-content-row__text ">
           <p>
-            I then forked n8n so I can experiment with a real workflow builder
-            and find out what users should be aiming for.
+            Patches in Radicle are more complex than typical pull requests: they
+            have revisions, and each peer in the network may be at a different
+            revision, or may not have fetched the latest updates at all.
           </p>
           <p>
-            What is a good workflow, what are the workflows we'd like to let
-            users build and what are some we don't need to accommodate?
-          </p>
-          <p>Do we need loops and recursion?</p>
-          <p>
-            What are the most commonond crypto workflows people struggle with
-            and how could we prototype them quickly?
+            Designing the patch page meant making this visible without
+            overwhelming users. Whose version am I looking at, what's changed
+            since I last fetched, and from whom?
           </p>
         </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.generateWorkflow, "Generate workflow")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.cryptoListeners, "Crypto listeners")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.mcpServer, "MCP server")}
+        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
+          {img(images.wireframes, "Simpler block design")}
         </div>
       </div>
 
-      {/* MVP Requirements */}
       <div className="cs-section-heading">
-        <h2>MVP Requirements</h2>
+        <h2>Local First</h2>
       </div>
       <div className="cs-spacer cs-spacer--border-bottom" />
 
       {/* MVP content row: text + 2 images */}
       <div className="cs-content-row">
+        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
+          {img(images.peerSelector, "Simpler block design")}
+        </div>
         <div className="cs-content-row__text">
           <p>
-            The requirements for the MVP are based on where the 2 research paths
-            met: simplified use cases we need to solve first, and a simplified
-            workflow builder we can build them with.
+            Because the desktop app only sees what your node sees it is crucial
+            that we rely on seed nodes accessible through the web app for peer
+            discovery.
           </p>
           <p>
-            A limited set of blocks, each serving a distinct purpose reduce
-            cognitive load. Good defaults educate users about ideal outcomes.
+            In local-first and peer-to-peer architectures, you're never entirely
+            sure if you're viewing the latest version. Users won't receive
+            updates from unknown peers, even if they've both contributed to the
+            same repository.
           </p>
         </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
-          {img(images.simplerBlocks, "Simpler block design")}
-        </div>
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.nodeTypes, "Node types")}
-        </div>
+        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right"></div>
       </div>
 
-      {/* Real-time Collaboration */}
       <div className="cs-section-heading">
-        <h2>Real-time Collaboration</h2>
+        <h2>True to Code</h2>
       </div>
 
       <div className="cs-spacer cs-spacer--border-bottom" />
@@ -385,15 +352,14 @@ const AutoCaseStudy: React.FC = () => {
         <div className="cs-collab-intro__content">
           <div className="cs-collab-intro__text">
             <p>
-              Real-time collaboration sets our platform apart, allowing users to
-              work together on projects in real-time. This feature is powered by
-              Yjs, which enables real-time communication between users through
-              WebRTC.
+              The app mirrors the underlying protocol and CLI tools closely.
+              This makes it easier for users to move between the desktop app and
+              command line without switching mental models.
             </p>
             <p>
-              CRDTs allow to share updates without a central server which is
-              good for privacy and traceability but also makes prototyping very
-              quick.
+              Everything in Radicle is immutable and signed, so the UI reflects
+              that: you can always see what's changed, by whom, and trace it
+              back to its source.
             </p>
           </div>
         </div>
@@ -412,7 +378,7 @@ const AutoCaseStudy: React.FC = () => {
       <div className="cs-content-row">
         <div className="cs-content-row__text"></div>
         <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
-          {img(images.realTimeCollab, "Real-time collaboration")}
+          {img(images.cliAndApp, "Real-time collaboration")}
         </div>
         <div className="cs-collab-intro__spacer"></div>
       </div>
@@ -462,7 +428,7 @@ const AutoCaseStudy: React.FC = () => {
               </div>
               <div className="cs-other-card__tags">
                 <span className="cs-other-card__role">UX, UI, Front End</span>
-                <span className="cs-other-card__year">2025</span>
+                <span className="cs-other-card__year">2024</span>
               </div>
             </div>
           </Link>
@@ -470,22 +436,16 @@ const AutoCaseStudy: React.FC = () => {
           <div className="cs-other-cards__spacer" />
           <div className="cs-other-cards__spacer" />
 
-          <Link
-            to="/radicle-desktop"
-            className="cs-other-card cs-other-card--next"
-          >
+          <Link to="/auto" className="cs-other-card cs-other-card--next">
             <div className="cs-other-card__meta">
               <div className="cs-other-card__text">
-                <span className="cs-other-card__title">Radicle Desktop</span>
+                <span className="cs-other-card__title">Auto</span>
                 <span className="cs-other-card__description">
                   Collaborative workflow builder for blockchain automations
                 </span>
               </div>
               <div className="cs-other-card__image">
-                <img
-                  src={images.radicleDesktopHeaderImage}
-                  alt="Radicle Desktop preview"
-                />
+                <img src={images.simplerBlocks} alt="Radicle Desktop preview" />
               </div>
               <div className="cs-other-card__tags">
                 <span className="cs-other-card__role">UX, UI, Front End</span>
@@ -508,4 +468,4 @@ const AutoCaseStudy: React.FC = () => {
   );
 };
 
-export default AutoCaseStudy;
+export default RadicleDesktopCaseStudy;

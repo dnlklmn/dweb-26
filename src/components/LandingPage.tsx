@@ -4,6 +4,8 @@ import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header.png";
+import radicleDesktopHeaderImage from "../assets/radicle-desktop/header.png";
+import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 
 const caseStudies: CaseStudy[] = [
   {
@@ -20,6 +22,7 @@ const caseStudies: CaseStudy[] = [
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
+    image: radicleDesktopHeaderImage,
   },
   {
     title: "Radicle Design System",
@@ -27,6 +30,7 @@ const caseStudies: CaseStudy[] = [
     description: "Collaborative workflow builder for blockchain automations",
     role: "UX, UI, Front End",
     year: "2025",
+    image: radicleDesignSystemHeaderImage,
   },
 ];
 
@@ -153,6 +157,7 @@ const LandingPage: React.FC = () => {
           </React.Fragment>
         ))}
       </div>
+      <div className="h-12" />
     </>
   );
 };

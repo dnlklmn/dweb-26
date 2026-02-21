@@ -378,7 +378,10 @@
 }
 
 .cs-text-block {
+    display: flex;
+    flex-direction: column;
     padding: 8px 25% 48px 8px;
+    gap: 16px;
 }
 
 .cs-text-block h3 {
@@ -391,7 +394,6 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: 12px;
 }
 
 .cs-text-block p:last-child {
@@ -425,7 +427,10 @@
 
 .cs-content-row__text {
     width: 25%;
+    display: flex;
+    flex-direction: column;
     flex-shrink: 0;
+    gap: 16px;
     padding: 8px;
     border-right: var(--border);
 }
@@ -441,7 +446,8 @@
 }
 
 .cs-content-row__images {
-    flex: 1;
+    width: 25%;
+    flex-shrink: 0;
     display: grid;
     min-height: 0;
     min-width: 0;
@@ -449,7 +455,7 @@
 }
 
 .cs-content-row__images--wide {
-    flex: 2;
+    width: 50%;
 }
 
 .cs-content-row__images--3 {
@@ -565,8 +571,8 @@
 }
 
 .cs-collab-intro__content {
-    flex: 1;
     width: 50%;
+    flex-shrink: 0;
     display: flex;
     padding: 8px 8px 48px 8px;
 }
