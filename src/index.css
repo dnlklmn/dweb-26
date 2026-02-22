@@ -8,10 +8,11 @@
     --anim-stagger: 450ms;
 
     /* Layout tokens */
-    --color-bg: #0f0f0f;
-    --color-border: #272727;
+    --color-bg: #6500d9;
+    --color-border: #7d0dfe;
     --color-text: #ffffff;
-    --color-primary: #8b4dd2;
+    --color-primary: #c084fc;
+    --color-accent: #f764a4;
     --page-padding: 48px;
     --border: 1px solid var(--color-border);
 }

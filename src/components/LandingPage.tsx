@@ -66,74 +66,95 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-      <div className={`landing ${stepClasses}`} data-step={step}>
+      <div className={`landing ${stepClasses}`}>
         <div className="landing__main">
-          <div className="landing__body">
-            {/* Left column — identity */}
-            <div className="landing__left-col">
-              <div className="landing__identity">
-                <div className="landing__identity-text">
-                  <span className="landing__name">Daniel Kalman</span>
-                  <span className="landing__role">Design Engineer</span>
+          {/* Left column — identity, width animated by step classes */}
+          <div className="landing__left-col flex items-start p-2">
+            <div className="landing__identity-text flex flex-col gap-2">
+              <span className="text-sm font-bold leading-[1.21] whitespace-nowrap text-(--color-accent)">
+                Daniel Kalman
+              </span>
+              <span className="text-sm font-normal leading-[1.21] whitespace-nowrap">
+                Design Engineer
+              </span>
+            </div>
+            <div className="h-4 w-full flex flex-col justify-center">
+              <div className="w-full h-px bg-(--color-border)" />
+            </div>
+          </div>
+
+          {/* Right column — flex animated by step classes */}
+          <div className="landing__right-col">
+            {/* Upper row — flex + border animated by step classes */}
+            <div className="landing__upper-row">
+              <div className="flex items-start p-2 flex-col gap-2 flex-1 min-w-0">
+                <span className="text-sm font-bold leading-[1.21]">Berlin</span>
+                <span className="text-sm font-normal leading-[1.21]">
+                  Germany
+                </span>
+              </div>
+              {/* Nav — flex + opacity animated by step classes */}
+              <div className="landing__nav">
+                <div className="flex justify-between whitespace-nowrap">
+                  <span className="text-sm font-medium leading-[1.21]">
+                    Work
+                  </span>
+                  <span className="text-sm font-medium leading-[1.21]">
+                    About
+                  </span>
+                </div>
+                {/* Bottom nav row — translateY animated by step classes */}
+                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap">
+                  <span className="text-sm font-medium leading-[1.21]">
+                    Services
+                  </span>
+                  <span className="text-sm font-medium leading-[1.21]">
+                    Blog
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Right column — grows in at step 2 */}
-            <div className="landing__right-col">
-              {/* Upper row — 192px when step 3+ */}
-              <div className="landing__upper-row">
-                <div className="landing__location">
-                  <div className="landing__location-text">
-                    <span className="landing__location-city">Berlin</span>
-                    <span className="landing__location-country">Germany</span>
-                  </div>
-                </div>
-                <div className="landing__nav">
-                  <div className="landing__nav-row">
-                    <span className="landing__nav-left">Work</span>
-                    <span className="landing__nav-right">About</span>
-                  </div>
-                  <div className="landing__nav-row landing__nav-row--bottom">
-                    <span className="landing__nav-left">Services</span>
-                    <span className="landing__nav-right">Blog</span>
-                  </div>
-                </div>
-              </div>
+            {/* Middle row — flex animated by step classes */}
+            <div className="landing__middle-row">
+              <h1 className="landing__headline">
+                building Products that scratch an{" "}
+                <span className="text-[var(--color-accent)]">itch.</span>
+              </h1>
+            </div>
 
-              {/* Middle row — hero, takes remaining space */}
-              <div className="landing__middle-row">
-                <h1 className="landing__headline">
-                  building Products that scratch an itch.
-                </h1>
-              </div>
-
-              {/* Bottom row — 192px, appears at step 4 */}
-              <div className="landing__bottom-row">
-                <div className="landing__bottom-left" />
-                <div className="landing__bottom-right">
-                  <div className="landing__bio-text">
-                    <p className="landing__bio">
-                      I design and build digital products. From understanding
-                      user needs to orchestrating implementation.
-                    </p>
-                    <span className="landing__since">Since 2012</span>
-                  </div>
+            {/* Bottom row — height animated by step classes */}
+            <div className="landing__bottom-row">
+              {/* Bottom-left spacer — flex animated by step classes */}
+              <div className="landing__bottom-left" />
+              <div className="flex flex-col justify-end p-2 flex-1 min-w-0">
+                {/* Bio text — opacity animated by step classes */}
+                <div className="landing__bio-text flex flex-col gap-2">
+                  <p className="text-sm font-normal leading-[1.21] max-w-[254px]">
+                    I design and build digital products. From understanding user
+                    needs to orchestrating implementation.
+                  </p>
+                  <span className="text-sm font-normal leading-[1.21]">
+                    Since 2012
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Footer — appears at step 5 */}
+        {/* Footer — height animated by step classes */}
         <div id="selected-work" className="landing__footer">
-          <div className="landing__footer-inner">
-            <h2 className="landing__footer-title">Selected Work</h2>
+          <div className="border-x border-b border-[var(--color-border)] pt-12 px-2 pb-2">
+            {/* Title — opacity animated by step classes */}
+            <h2 className="landing__footer-title text-xl font-bold leading-[1.21]">
+              Selected Work
+            </h2>
           </div>
         </div>
       </div>
 
-      {/* Case studies */}
+      {/* Case studies — visibility animated by case-studies--visible class */}
       <div
         className={`case-studies${isComplete ? " case-studies--visible" : ""}`}
       >

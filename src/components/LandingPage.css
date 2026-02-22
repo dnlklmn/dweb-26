@@ -1,5 +1,9 @@
 /* ============================================
-   LAYOUT
+   ANIMATED LAYOUT
+   All rules here are either:
+   - base state for CSS transition (starts at 0/hidden, animated to final)
+   - targeted by .landing.step-N selectors
+   Static layout/typography lives in Tailwind in LandingPage.tsx.
    ============================================ */
 
 .landing {
@@ -12,25 +16,15 @@
 
 .landing__main {
     display: flex;
-    flex-direction: column;
     flex: 1;
-    border: var(--border);
     min-height: 0;
+    border: var(--border);
     overflow: hidden;
 }
 
-/* --- Body (row: left-col + right-col) --- */
-
-.landing__body {
-    display: flex;
-    flex: 1;
-    min-height: 0;
-}
-
-/* Left column — always visible, holds identity */
+/* Left column — starts full width, shrinks to 25% at step 2 */
 .landing__left-col {
     display: flex;
-    flex-direction: column;
     width: 100%;
     flex-shrink: 0;
     border-right: var(--border);
@@ -40,32 +34,12 @@
         border-right-color var(--anim-duration) var(--anim-easing);
 }
 
-.landing__identity {
-    display: flex;
-    align-items: flex-start;
-    padding: 8px;
-}
-
+/* Identity text — translates from center to top-left */
 .landing__identity-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     transition: transform var(--anim-duration) var(--anim-easing);
 }
 
-.landing__name {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.21;
-}
-
-.landing__role {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.21;
-}
-
-/* Right column — starts at 0 width, grows via flex */
+/* Right column — starts at 0 width, grows to 75% at step 2 */
 .landing__right-col {
     display: flex;
     flex-direction: column;
@@ -76,7 +50,7 @@
     transition: flex var(--anim-duration) var(--anim-easing);
 }
 
-/* Upper row — starts filling all space, shrinks to 192px when rows appear below */
+/* Upper row — starts filling all space, shrinks to 192px at step 3 */
 .landing__upper-row {
     display: flex;
     flex: 1;
@@ -89,33 +63,7 @@
         border-bottom-color var(--anim-duration) var(--anim-easing);
 }
 
-.landing__location {
-    display: flex;
-    align-items: flex-start;
-    padding: 8px;
-    flex: 1;
-    min-width: 0;
-}
-
-.landing__location-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.landing__location-city {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.21;
-}
-
-.landing__location-country {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.21;
-}
-
-/* Nav — grows from 0 width at step 5 */
+/* Nav — starts at 0 width + opacity, grows at step 3 */
 .landing__nav {
     display: flex;
     flex-direction: column;
@@ -132,30 +80,12 @@
         opacity var(--anim-duration) var(--anim-easing);
 }
 
-.landing__nav-row {
-    display: flex;
-    justify-content: space-between;
-    white-space: nowrap;
-}
-
+/* Bottom nav row — slides down at step 4 */
 .landing__nav-row--bottom {
     transition: transform var(--anim-duration) var(--anim-easing);
 }
 
-.landing__nav-left {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.21;
-}
-
-.landing__nav-right {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.21;
-    text-align: right;
-}
-
-/* Middle row — hero, grows from 0 at step 3 */
+/* Middle row — starts at 0 flex, grows at step 3 */
 .landing__middle-row {
     display: flex;
     align-items: flex-end;
@@ -168,6 +98,7 @@
         padding var(--anim-duration) var(--anim-easing);
 }
 
+/* Headline — fades in at step 3 */
 .landing__headline {
     font-size: 64px;
     font-weight: 900;
@@ -178,7 +109,7 @@
     transition: opacity var(--anim-duration) var(--anim-easing);
 }
 
-/* Bottom row — grows from 0 height */
+/* Bottom row — starts at 0 height, grows to 192px at step 4 */
 .landing__bottom-row {
     display: flex;
     height: 0;
@@ -189,7 +120,7 @@
     transition: height var(--anim-duration) var(--anim-easing);
 }
 
-/* Bottom-left — grows from 0 width */
+/* Bottom-left spacer — starts at 0 flex, grows at step 4 */
 .landing__bottom-left {
     flex: 0 0 0%;
     min-width: 0;
@@ -198,37 +129,13 @@
     transition: flex var(--anim-duration) var(--anim-easing);
 }
 
-.landing__bottom-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 8px;
-    flex: 1;
-    min-width: 0;
-}
-
+/* Bio text — fades in at step 4 */
 .landing__bio-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     opacity: 0;
     transition: opacity var(--anim-duration) var(--anim-easing);
 }
 
-.landing__bio {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.21;
-    max-width: 254px;
-}
-
-.landing__since {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.21;
-}
-
-/* Footer — grows from 0 height */
+/* Footer — starts at 0 height, grows at step 5 */
 .landing__footer {
     overflow: hidden;
     height: 0;
@@ -236,16 +143,8 @@
     transition: height var(--anim-duration) var(--anim-easing);
 }
 
-.landing__footer-inner {
-    border: var(--border);
-    border-top: none;
-    padding: 48px 8px 8px;
-}
-
+/* Footer title — fades in at step 5 */
 .landing__footer-title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.21;
     opacity: 0;
     transition: opacity var(--anim-duration) var(--anim-easing);
 }
@@ -270,7 +169,7 @@
 }
 
 /* ============================================
-   STEP 2 — Identity moves left to top-left,
+   STEP 2 — Identity snaps to top-left,
    right column grows in, left column shrinks
    ============================================ */
 
@@ -290,8 +189,8 @@
 }
 
 /* ============================================
-   STEP 3 — Middle row grows, upper row shrinks,
-   headline fades in, nav appears (buttons at top)
+   STEP 3 — Middle row grows, upper shrinks,
+   headline fades in, nav appears
    ============================================ */
 
 .landing.step-3 .landing__upper-row {
@@ -315,8 +214,8 @@
 }
 
 /* ============================================
-   STEP 4 — Bottom row appears, bottom-left grows,
-   nav buttons slide to bottom, bio text fades in
+   STEP 4 — Bottom row appears, bio fades in,
+   bottom-left grows, nav slides down
    ============================================ */
 
 .landing.step-4 .landing__bottom-row {
@@ -336,7 +235,7 @@
 }
 
 /* ============================================
-   STEP 5 — Footer row grows from 0 height
+   STEP 5 — Footer grows, title fades in
    ============================================ */
 
 .landing.step-5 .landing__footer {
@@ -351,18 +250,6 @@
    CASE STUDIES
    ============================================ */
 
-/*
-   Border ownership (no doubling):
-   - case-studies container: left + right
-   - separator: bottom only (top comes from footer-inner or case-study above)
-   - separator-marker: right
-   - case-study: bottom
-   - image: right (divides image from info)
-   - info-top: bottom (divides top box from bottom bar)
-   - meta: left (divides from image column)
-   - tags: left + top
-*/
-
 .case-studies {
     margin: 0 var(--page-padding);
     border-left: var(--border);
@@ -374,7 +261,7 @@
     visibility: visible;
 }
 
-/* Reveal wrapper — each section grows from 0 */
+/* Reveal wrapper — each row grows from 0 height */
 .case-study__reveal {
     display: grid;
     grid-template-rows: 0fr;
@@ -390,7 +277,6 @@
     grid-template-rows: 1fr;
 }
 
-/* Separator between case studies */
 .case-study__separator {
     height: 48px;
     border-bottom: var(--border);
