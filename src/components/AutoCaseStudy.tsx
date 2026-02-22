@@ -1,511 +1,326 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useTransition } from "../context/TransitionContext";
-import Lightbox from "./Lightbox";
-import "./CaseStudyPage.css";
-import "./CaseStudyTransition.css";
+import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
 import headerImage from "../assets/auto/header.png";
 import blocksGridImage from "../assets/auto/blocks-grid.png";
-import conditionsImage from "../assets/auto/conditions.png";
 import cryptoListenersImage from "../assets/auto/crypto-listeners.png";
 import generateWorkflowImage from "../assets/auto/generate-workflow.png";
-import gridAutomatorImage from "../assets/auto/grid-automator.png";
 import ifttentropyImage from "../assets/auto/ifttentropy.png";
-import image8Image from "../assets/auto/image 8.png";
 import mcpServerImage from "../assets/auto/mcp-server.png";
 import nestedBlocksImage from "../assets/auto/nested-blocks.png";
-import offTheChainImage from "../assets/auto/off-the-chain.png";
 import realTimeCollabImage from "../assets/auto/real-time-collab.png";
 import simplerBlocksImage from "../assets/auto/simpler-blocks.png";
 import nodeTypesImage from "../assets/auto/node-types.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header.png";
 
-const images = {
-  header: headerImage,
-  blocksGrid: blocksGridImage,
-  conditions: conditionsImage,
-  cryptoListeners: cryptoListenersImage,
-  generateWorkflow: generateWorkflowImage,
-  gridAutomator: gridAutomatorImage,
-  ifttentropy: ifttentropyImage,
-  image8: image8Image,
-  mcpServer: mcpServerImage,
-  nestedBlocks: nestedBlocksImage,
-  offTheChain: offTheChainImage,
-  realTimeCollab: realTimeCollabImage,
-  simplerBlocks: simplerBlocksImage,
-  nodeTypes: nodeTypesImage,
-  radicleDesignSystemHeaderImage,
-  radicleDesktopHeaderImage,
+const meta: CaseStudyMeta = {
+  title: "Auto",
+  subtitle: "Collaborative workflow builder for blockchain automations",
+  tags: "UX, UI, Front End",
+  year: "2025",
+  demoLink: "https://auto-workflow-builder.netlify.app/",
+  demoLabel: "Demo →",
 };
 
-const AutoCaseStudy: React.FC = () => {
-  const [lightbox, setLightbox] = useState<{
-    src: string;
-    alt: string;
-  } | null>(null);
-  const [isAnimating, setIsAnimating] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-  const [showStickyTitles, setShowStickyTitles] = useState(false);
-  const { transitionData, clearTransition } = useTransition();
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
+// Border rule: row owns border-l border-r border-b.
+// Each child cell owns border-r except the last child.
+// All cells with content get p-2.
+const row = "flex border-l border-r border-b border-[var(--color-border)]";
+const cell = "border-r border-[var(--color-border)]";
 
-  useEffect(() => {
-    if (!transitionData) {
-      // No transition data - show immediately
-      setIsAnimating(false);
-      setShowContent(true);
-      return;
-    }
+const AutoCaseStudy: React.FC = () => (
+  <CaseStudyLayout meta={meta}>
+    {(img) => (
+      <>
+        {/* Spacer — border-t closes the header */}
+        <div className={`${row} border-t h-12`} />
 
-    // Set CSS custom properties for animation start positions
-    const overlay = overlayRef.current;
-    if (overlay) {
-      const { infoTop, meta, tags } = transitionData;
-      overlay.style.setProperty("--start-top", `${infoTop.top}px`);
-      overlay.style.setProperty("--start-left", `${infoTop.left}px`);
-      overlay.style.setProperty("--start-width", `${infoTop.width}px`);
-      overlay.style.setProperty("--start-height", `${infoTop.height}px`);
-      overlay.style.setProperty("--meta-top", `${meta.top}px`);
-      overlay.style.setProperty("--meta-left", `${meta.left}px`);
-      overlay.style.setProperty("--meta-width", `${meta.width}px`);
-      overlay.style.setProperty("--meta-height", `${meta.height}px`);
-      overlay.style.setProperty("--tags-top", `${tags.top}px`);
-      overlay.style.setProperty("--tags-left", `${tags.left}px`);
-      overlay.style.setProperty("--tags-width", `${tags.width}px`);
-      overlay.style.setProperty("--tags-height", `${tags.height}px`);
-    }
+        {/* Intro — 1col | 2col | 1col */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}>
+            <p className="text-xl font-normal leading-relaxed max-w-[75%]">
+              A visual workflow builder with real-time collaboration that bridges
+              on-chain and off-chain automation. Use blockchain triggers to kick
+              off workflows, or aggregate off-chain data to construct on-chain
+              transactions.
+            </p>
+          </div>
+          <div className="w-1/4 flex flex-col gap-6 p-2">
+            <div className="flex flex-col gap-2">
+              <span className="text-sm font-bold">Company</span>
+              <span className="text-sm">Entropy Cryptography</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-sm font-bold">Role</span>
+              <span className="text-sm">Ideation, Design, Prototype, User research, Front End</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-sm font-bold">Tech</span>
+              <span className="text-sm">Figma, Svelte, Yjs</span>
+            </div>
+          </div>
+        </div>
 
-    // Start animation after a frame
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setIsAnimating(false);
-      });
-    });
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
 
-    // Show content after header animation completes
-    const timer = setTimeout(() => {
-      setShowContent(true);
-      clearTransition();
-    }, 600);
+        {/* Hero image — 1col | 2col | 1col */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/2 p-2`}>
+            <div className="bg-[#181818] h-[366px] overflow-hidden">
+              {img(headerImage, "Auto workflow builder interface")}
+            </div>
+          </div>
+          <div className="w-1/4 p-2" />
+        </div>
 
-    return () => clearTimeout(timer);
-  }, [transitionData, clearTransition]);
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
 
-  useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
+        {/* Challenge + Process text — 2col empty | 2col text */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2`} />
+          <div className="w-1/2 flex flex-col">
+            <div className="flex flex-col gap-4 p-2 pb-12">
+              <h3 className="text-sm font-bold">Challenge and Goals</h3>
+              <p className="text-sm leading-relaxed">
+                The goal was to create a crypto-native workflow automation tool
+                that bridges on-chain and off-chain worlds. On-chain events should
+                trigger off-chain workflows, and off-chain data should construct
+                on-chain transactions.
+              </p>
+              <p className="text-sm leading-relaxed">
+                The challenge: could we build a better workflow builder altogether,
+                or would making it crypto-native be our only advantage? Use cases
+                vary widely, and workflow builders already exist.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
+              <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+              <p className="text-sm leading-relaxed">
+                I started exploring how workflows can be built, what are common
+                structures for recurring crypto workflows, and where these 2 meet.
+              </p>
+              <p className="text-sm leading-relaxed">
+                Once I landed on a set of requirements, I started designing the
+                interface with a limited set of nodes and connectors to check if
+                the structure works, the primary goal being to reduce cognitive load.
+              </p>
+              <p className="text-sm leading-relaxed">
+                Once the initial user tests eliminated the usability issues I
+                implemented a unique multiplayer experience using Yjs and WebRTC
+                to enable real-time collaboration. I am currently running user
+                tests on this prototype as the requirements for the production MVP
+                form.
+              </p>
+            </div>
+          </div>
+        </div>
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowStickyTitles(!entry.isIntersecting);
-      },
-      {
-        threshold: 0,
-        rootMargin: "-48px 0px 0px 0px",
-      },
-    );
+        {/* Section heading: Early Experiments */}
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-xl font-bold">Early Experiments</h2>
+        </div>
 
-    observer.observe(header);
-    return () => observer.disconnect();
-  }, []);
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
 
-  const img = (src: string, alt: string, className?: string) => (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      style={{ cursor: "zoom-in" }}
-      onClick={() => setLightbox({ src, alt })}
-    />
-  );
+        {/* Content row: text | img | img | img */}
+        <div className={`${row} h-96`}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+            <p className="text-sm leading-relaxed">
+              The initial research happened on 2 tracks: I wanted to explore
+              what's the best way to build workflow maps, and in parallel, find
+              out what a good workflow is that we'd like to help.
+            </p>
+            <p className="text-sm leading-relaxed">
+              I built multiple prototypes to explore different approaches. Should
+              we direct the flow or let the user go freeform? Should we build
+              atomic nodes or solve for particular use cases? Is a condition a
+              connector or a node?
+            </p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            {img(ifttentropyImage, "IFTTT-style exploration")}
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            {img(blocksGridImage, "Block grid exploration")}
+          </div>
+          <div className="w-1/4 p-2 overflow-hidden">
+            {img(nestedBlocksImage, "Nested blocks exploration")}
+          </div>
+        </div>
 
-  return (
-    <div className="cs-page">
-      <div className="cs-back-row">
-        <Link
-          to="/"
-          className="cs-back-row__cell cs-back-row__cell--link"
-          onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-        >
-          <span className="cs-back-row__label" data-text="Daniel Kalman">
-            Daniel Kalman
-          </span>
-        </Link>
-        <div
-          className={`cs-back-row__cell cs-back-row__cell--aux${
-            showStickyTitles ? " cs-back-row__cell--aux-active" : ""
-          }`}
-        >
-          {showStickyTitles ? (
-            <Link
-              to="/#selected-work"
-              className="cs-back-row__aux-action"
-              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-            >
-              <span className="cs-back-row__aux-label">Work</span>
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* Content row: text | img | img | img */}
+        <div className={`${row} h-96`}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+            <p className="text-sm leading-relaxed">
+              I then forked n8n so I can experiment with a real workflow builder
+              and find out what users should be aiming for.
+            </p>
+            <p className="text-sm leading-relaxed">
+              What is a good workflow, what are the workflows we'd like to let
+              users build and what are some we don't need to accommodate?
+            </p>
+            <p className="text-sm leading-relaxed">Do we need loops and recursion?</p>
+            <p className="text-sm leading-relaxed">
+              What are the most common crypto workflows people struggle with
+              and how could we prototype them quickly?
+            </p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            {img(generateWorkflowImage, "Generate workflow")}
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            {img(cryptoListenersImage, "Crypto listeners")}
+          </div>
+          <div className="w-1/4 p-2 overflow-hidden">
+            {img(mcpServerImage, "MCP server")}
+          </div>
+        </div>
+
+        {/* Section heading: MVP Requirements */}
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-xl font-bold">MVP Requirements</h2>
+        </div>
+
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* Content row: text | wide img | img */}
+        <div className={`${row} h-96`}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+            <p className="text-sm leading-relaxed">
+              The requirements for the MVP are based on where the 2 research
+              paths met: simplified use cases we need to solve first, and a
+              simplified workflow builder we can build them with.
+            </p>
+            <p className="text-sm leading-relaxed">
+              A limited set of blocks, each serving a distinct purpose reduce
+              cognitive load. Good defaults educate users about ideal outcomes.
+            </p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(simplerBlocksImage, "Simpler block design")}
+          </div>
+          <div className="w-1/4 p-2 overflow-hidden">
+            {img(nodeTypesImage, "Node types")}
+          </div>
+        </div>
+
+        {/* Section heading: Real-time Collaboration */}
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-xl font-bold">Real-time Collaboration</h2>
+        </div>
+
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* CTA row: empty | text | cta */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2 shrink-0`} />
+          <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
+            <div className="flex flex-col gap-3">
+              <p className="text-sm leading-relaxed">
+                Real-time collaboration sets our platform apart, allowing users to
+                work together on projects in real-time. This feature is powered by
+                Yjs, which enables real-time communication between users through
+                WebRTC.
+              </p>
+              <p className="text-sm leading-relaxed">
+                CRDTs allow to share updates without a central server which is
+                good for privacy and traceability but also makes prototyping very
+                quick.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://auto-workflow-builder.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="cs-collab-intro__cta"
+            aria-label="Try Auto workflow builder in a new tab"
+          >
+            <span className="cs-collab-intro__link">Try it out →</span>
+          </a>
+        </div>
+
+        {/* Collab image row */}
+        <div className={`${row} h-96`}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(realTimeCollabImage, "Real-time collaboration")}
+          </div>
+          <div className="w-1/4 p-2" />
+        </div>
+
+        {/* Spacer + Section heading: Other work */}
+        <div className={`${row} h-12`} />
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-xl font-bold">Other work</h2>
+        </div>
+
+        <div className="cs-other-section">
+          {/* Prev / Next nav row */}
+          <div className={row}>
+            <Link to="/radicle-design-system" className="cs-other-nav__cell">
+              <span className="cs-other-nav__label">← Prev</span>
             </Link>
-          ) : null}
-        </div>
-        <div
-          className={`cs-back-row__cell cs-back-row__cell--aux${
-            showStickyTitles ? " cs-back-row__cell--aux-active" : ""
-          }`}
-        >
-          {showStickyTitles ? (
-            <button
-              type="button"
-              className="cs-back-row__aux-action"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <span className="cs-back-row__aux-label">Auto</span>
-            </button>
-          ) : null}
-        </div>
-        <div className="cs-back-row__cell cs-back-row__cell--aux" />
-      </div>
-
-      {/* Header — 4 cells in a row */}
-      <div className="cs-header" ref={headerRef}>
-        <div className="cs-header__cell">
-          <Link to="/" className="cs-header__title">
-            Auto
-          </Link>
-          <span className="cs-header__subtitle">
-            Collaborative workflow builder for blockchain automations
-          </span>
-        </div>
-        <div className="cs-header__cell cs-header__cell--tags">
-          <span className="cs-header__tags-text">UX, UI, Front End</span>
-          <span className="cs-header__year">2025</span>
-        </div>
-        <div className="cs-header__cell cs-header__cell--spacer" />
-        <a
-          href="https://auto-workflow-builder.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-          className="cs-header__cell cs-header__cell--demo"
-        >
-          <span className="cs-header__link">Demo →</span>
-        </a>
-      </div>
-
-      {/* Spacer */}
-      <div className="cs-spacer cs-spacer--border-bottom cs-spacer--border-top" />
-
-      {/* Intro — 3 columns */}
-      <div className="cs-intro">
-        <div className="cs-intro__left" />
-        <div className="cs-intro__description">
-          <p className="cs-intro__text">
-            A visual workflow builder with real-time collaboration that bridges
-            on-chain and off-chain automation. Use blockchain triggers to kick
-            off workflows, or aggregate off-chain data to construct on-chain
-            transactions.
-          </p>
-        </div>
-        <div className="cs-intro__meta">
-          <div className="cs-intro__meta-group">
-            <span className="cs-intro__meta-label">Company</span>
-            <span className="cs-intro__meta-value">Entropy Cryptography</span>
+            <div className={`${cell} w-1/4 p-2`} />
+            <div className={`${cell} w-1/4 p-2`} />
+            <Link to="/radicle-desktop" className="cs-other-nav__cell cs-other-nav__cell--next">
+              <span className="cs-other-nav__label">Next →</span>
+            </Link>
           </div>
-          <div className="cs-intro__meta-group">
-            <span className="cs-intro__meta-label">Role</span>
-            <span className="cs-intro__meta-value">
-              Ideation, Design, Prototype, User research, Front End
-            </span>
-          </div>
-          <div className="cs-intro__meta-group">
-            <span className="cs-intro__meta-label">Tech</span>
-            <span className="cs-intro__meta-value">Figma, Svelte, Yjs</span>
-          </div>
-        </div>
-      </div>
 
-      <div className="cs-spacer cs-spacer--border-bottom cs-spacer--border-top" />
-
-      {/* Hero image — 3 columns */}
-      <div className="cs-hero">
-        <div className="cs-hero__left" />
-        <div className="cs-hero__center">
-          <div className="cs-hero__image-wrapper">
-            {img(images.header, "Auto workflow builder interface")}
-          </div>
-        </div>
-        <div className="cs-hero__right" />
-      </div>
-
-      <div className="cs-spacer cs-spacer--border-top" />
-
-      {/* Challenge and Goals */}
-      <div className="cs-text-section">
-        <div className="cs-text-section__left" />
-        <div className="cs-text-section__right">
-          <div className="cs-text-block">
-            <h3>Challenge and Goals</h3>
-            <p>
-              The goal was to create a crypto-native workflow automation tool
-              that bridges on-chain and off-chain worlds. On-chain events should
-              trigger off-chain workflows, and off-chain data should construct
-              on-chain transactions.
-            </p>
-            <p>
-              The challenge: could we build a better workflow builder
-              altogether, or would making it crypto-native be our only
-              advantage? Use cases vary widely, and workflow builders already
-              exist.
-            </p>
-          </div>
-          <div className="cs-text-block cs-spacer--border-top">
-            <h3>Process and Responsibilities</h3>
-            <p>
-              I started exploring how workflows can be built, what are common
-              structures for recurring crypto workflows, and where these 2 meet.
-            </p>
-            <p>
-              Once I landed on a set of requirements, I started designing the
-              interface with a limited set of nodes and connectors to check if
-              the structure meets works, the primary goal being to reduce
-              cognitive load.
-            </p>
-            <p>
-              Once the initial user tests eliminated the usability issues I
-              implemented a unique multiplayer experience using Yjs and WebRTC
-              to enable real-time collaboration. I am currently running user
-              tests on this prototype as the requirements for the production MVP
-              form.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Early Experiments */}
-      <div className="cs-section-heading">
-        <h2>Early Experiments</h2>
-      </div>
-
-      <div className="cs-spacer cs-spacer--border-bottom" />
-
-      {/* First experiment row: text + 3 images */}
-      <div className="cs-content-row">
-        <div className="cs-content-row__text">
-          <p>
-            The initial research happened on 2 tracks: I wanted to explore
-            what's the best way to build workflow maps, and in parallel, find
-            out what a good workflow is that we'd like to help.
-          </p>
-          <p>
-            I built multiple prototypes to explore different approaches to
-            building workflow maps. Should we direct the flow or let the user go
-            freeform? Should we build atomic nodes users can build anything from
-            simple ones to solve for particular use cases? Is a condition a
-            connector or a node?
-          </p>
-        </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.ifttentropy, "IFTTT-style exploration")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.blocksGrid, "Block grid exploration")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.nestedBlocks, "Nested blocks exploration")}
-        </div>
-      </div>
-
-      <div className="cs-spacer cs-spacer--border-bottom" />
-
-      {/* Second experiment row: text + 2 images */}
-      <div className="cs-content-row">
-        <div className="cs-content-row__text">
-          <p>
-            I then forked n8n so I can experiment with a real workflow builder
-            and find out what users should be aiming for.
-          </p>
-          <p>
-            What is a good workflow, what are the workflows we'd like to let
-            users build and what are some we don't need to accommodate?
-          </p>
-          <p>Do we need loops and recursion?</p>
-          <p>
-            What are the most commonond crypto workflows people struggle with
-            and how could we prototype them quickly?
-          </p>
-        </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.generateWorkflow, "Generate workflow")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1 cs-spacer--border-right">
-          {img(images.cryptoListeners, "Crypto listeners")}
-        </div>{" "}
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.mcpServer, "MCP server")}
-        </div>
-      </div>
-
-      {/* MVP Requirements */}
-      <div className="cs-section-heading">
-        <h2>MVP Requirements</h2>
-      </div>
-      <div className="cs-spacer cs-spacer--border-bottom" />
-
-      {/* MVP content row: text + 2 images */}
-      <div className="cs-content-row">
-        <div className="cs-content-row__text">
-          <p>
-            The requirements for the MVP are based on where the 2 research paths
-            met: simplified use cases we need to solve first, and a simplified
-            workflow builder we can build them with.
-          </p>
-          <p>
-            A limited set of blocks, each serving a distinct purpose reduce
-            cognitive load. Good defaults educate users about ideal outcomes.
-          </p>
-        </div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
-          {img(images.simplerBlocks, "Simpler block design")}
-        </div>
-        <div className="cs-content-row__images cs-content-row__images--1">
-          {img(images.nodeTypes, "Node types")}
-        </div>
-      </div>
-
-      {/* Real-time Collaboration */}
-      <div className="cs-section-heading">
-        <h2>Real-time Collaboration</h2>
-      </div>
-
-      <div className="cs-spacer cs-spacer--border-bottom" />
-
-      {/* Collab intro with Try it out link */}
-      <div className="cs-collab-intro">
-        <div className="cs-collab-intro__spacer cs-spacer--border-right" />
-        <div className="cs-collab-intro__content">
-          <div className="cs-collab-intro__text">
-            <p>
-              Real-time collaboration sets our platform apart, allowing users to
-              work together on projects in real-time. This feature is powered by
-              Yjs, which enables real-time communication between users through
-              WebRTC.
-            </p>
-            <p>
-              CRDTs allow to share updates without a central server which is
-              good for privacy and traceability but also makes prototyping very
-              quick.
-            </p>
-          </div>
-        </div>
-        <a
-          href="https://auto-workflow-builder.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-          className="cs-collab-intro__cta cs-spacer--border-left"
-          aria-label="Try Auto workflow builder in a new tab"
-        >
-          <span className="cs-collab-intro__link">Try it out →</span>
-        </a>
-      </div>
-
-      {/* Collab images row */}
-      <div className="cs-content-row">
-        <div className="cs-content-row__text"></div>
-        <div className="cs-content-row__images cs-content-row__images--1 cs-content-row__images--wide cs-spacer--border-right">
-          {img(images.realTimeCollab, "Real-time collaboration")}
-        </div>
-        <div className="cs-collab-intro__spacer"></div>
-      </div>
-
-      <div className="cs-spacer cs-spacer--border-bottom" />
-      <div className="cs-section-heading">
-        <h2>Other work</h2>
-      </div>
-
-      <div className="cs-other-section">
-        <div className="cs-other-nav">
-          <Link
-            to="/radicle-design-system"
-            className="cs-other-nav__cell cs-other-nav__cell--prev"
-          >
-            <span className="cs-other-nav__label">← Prev</span>
-          </Link>
-          <div className="cs-other-nav__cell cs-other-nav__cell--mid" />
-          <div className="cs-other-nav__cell cs-other-nav__cell--mid" />
-          <Link
-            to="/radicle-desktop"
-            className="cs-other-nav__cell cs-other-nav__cell--next"
-          >
-            <span className="cs-other-nav__label">Next →</span>
-          </Link>
-        </div>
-
-        <div className="cs-other-cards">
-          <Link
-            to="/radicle-design-system"
-            className="cs-other-card cs-other-card--prev"
-          >
-            <div className="cs-other-card__meta">
-              <div className="cs-other-card__text">
-                <span className="cs-other-card__title">
-                  Radicle Design System
-                </span>
-                <span className="cs-other-card__description">
-                  Collaborative workflow builder for blockchain automations
-                </span>
+          {/* Cards row */}
+          <div className={row}>
+            <Link to="/radicle-design-system" className="cs-other-card cs-other-card--prev">
+              <div className="cs-other-card__meta">
+                <div className="flex flex-col gap-2">
+                  <span className="text-xl font-bold">Radicle Design System</span>
+                  <span className="text-sm">Consistency by design</span>
+                </div>
+                <div className="cs-other-card__image">
+                  <img src={radicleDesignSystemHeaderImage} alt="Radicle Design System preview" />
+                </div>
+                <div className="flex justify-between items-end gap-2">
+                  <span className="text-sm font-bold">Design System, UI, Front End</span>
+                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                </div>
               </div>
-              <div className="cs-other-card__image">
-                <img
-                  src={images.radicleDesignSystemHeaderImage}
-                  alt="Radicle Design System preview"
-                />
+            </Link>
+            <div className="cs-other-cards__spacer" />
+            <div className="cs-other-cards__spacer" />
+            <Link to="/radicle-desktop" className="cs-other-card cs-other-card--next">
+              <div className="cs-other-card__meta">
+                <div className="flex flex-col gap-2">
+                  <span className="text-xl font-bold">Radicle Desktop</span>
+                  <span className="text-sm">Your code on your machine</span>
+                </div>
+                <div className="cs-other-card__image">
+                  <img src={radicleDesktopHeaderImage} alt="Radicle Desktop preview" />
+                </div>
+                <div className="flex justify-between items-end gap-2">
+                  <span className="text-sm font-bold">UX, UI, Front End</span>
+                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                </div>
               </div>
-              <div className="cs-other-card__tags">
-                <span className="cs-other-card__role">UX, UI, Front End</span>
-                <span className="cs-other-card__year">2025</span>
-              </div>
-            </div>
-          </Link>
-
-          <div className="cs-other-cards__spacer" />
-          <div className="cs-other-cards__spacer" />
-
-          <Link
-            to="/radicle-desktop"
-            className="cs-other-card cs-other-card--next"
-          >
-            <div className="cs-other-card__meta">
-              <div className="cs-other-card__text">
-                <span className="cs-other-card__title">Radicle Desktop</span>
-                <span className="cs-other-card__description">
-                  Collaborative workflow builder for blockchain automations
-                </span>
-              </div>
-              <div className="cs-other-card__image">
-                <img
-                  src={images.radicleDesktopHeaderImage}
-                  alt="Radicle Desktop preview"
-                />
-              </div>
-              <div className="cs-other-card__tags">
-                <span className="cs-other-card__role">UX, UI, Front End</span>
-                <span className="cs-other-card__year">2025</span>
-              </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="cs-spacer cs-spacer--border-bottom" />
 
-      {lightbox && (
-        <Lightbox
-          src={lightbox.src}
-          alt={lightbox.alt}
-          onClose={() => setLightbox(null)}
-        />
-      )}
-    </div>
-  );
-};
+        {/* Bottom spacer */}
+        <div className={`${row} h-12`} />
+      </>
+    )}
+  </CaseStudyLayout>
+);
 
 export default AutoCaseStudy;

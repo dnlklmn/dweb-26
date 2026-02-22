@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useTransition } from "../context/TransitionContext";
+import Lightbox from "./Lightbox";
 import "./CaseStudyPage.css";
-import "./CaseStudyTransition.css";
 
 export interface CaseStudyMeta {
   title: string;
@@ -10,97 +9,82 @@ export interface CaseStudyMeta {
   tags: string;
   year: string;
   demoLink?: string;
+  demoLabel?: string;
 }
+
+export type ImgHelper = (src: string, alt: string, className?: string) => React.ReactElement;
 
 interface CaseStudyLayoutProps {
   meta: CaseStudyMeta;
-  children: React.ReactNode;
+  children: (img: ImgHelper) => React.ReactNode;
 }
 
 const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => {
-  const [animationPhase, setAnimationPhase] = useState<
-    "initial" | "expanding" | "complete"
-  >("initial");
-  const { transitionData, clearTransition } = useTransition();
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [showStickyTitles, setShowStickyTitles] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!transitionData) {
-      // No transition data (direct navigation) - show immediately
-      setAnimationPhase("complete");
-      return;
-    }
+    const header = headerRef.current;
+    if (!header) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyTitles(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-48px 0px 0px 0px" },
+    );
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
-    // Set CSS custom properties for animation start positions
-    const overlay = overlayRef.current;
-    if (overlay) {
-      const { infoTop, meta, tags } = transitionData;
-      // Info-top box (expands to full screen)
-      overlay.style.setProperty("--start-top", `${infoTop.top}px`);
-      overlay.style.setProperty("--start-left", `${infoTop.left}px`);
-      overlay.style.setProperty("--start-width", `${infoTop.width}px`);
-      overlay.style.setProperty("--start-height", `${infoTop.height}px`);
-      // Meta block (title + description)
-      overlay.style.setProperty("--meta-top", `${meta.top}px`);
-      overlay.style.setProperty("--meta-left", `${meta.left}px`);
-      overlay.style.setProperty("--meta-width", `${meta.width}px`);
-      overlay.style.setProperty("--meta-height", `${meta.height}px`);
-      // Tags block (role + year)
-      overlay.style.setProperty("--tags-top", `${tags.top}px`);
-      overlay.style.setProperty("--tags-left", `${tags.left}px`);
-      overlay.style.setProperty("--tags-width", `${tags.width}px`);
-      overlay.style.setProperty("--tags-height", `${tags.height}px`);
-    }
-
-    // Start expansion animation after a frame
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setAnimationPhase("expanding");
-      });
-    });
-
-    // Complete animation and show content
-    const timer = setTimeout(() => {
-      setAnimationPhase("complete");
-      clearTransition();
-    }, 700);
-
-    return () => clearTimeout(timer);
-  }, [transitionData, clearTransition]);
-
-  const isTransitioning = transitionData && animationPhase !== "complete";
+  const img: ImgHelper = (src, alt, className) => (
+    <img
+      src={src}
+      alt={alt}
+      className={className ?? "w-full h-full object-cover block"}
+      style={{ cursor: "zoom-in" }}
+      onClick={() => setLightbox({ src, alt })}
+    />
+  );
 
   return (
     <>
-      {/* Transition overlay - only shown during animation */}
-      {isTransitioning && (
-        <div
-          ref={overlayRef}
-          className={`cs-transition ${animationPhase === "expanding" ? "cs-transition--expanded" : ""}`}
-        >
-          {/* Expanding background (from info-top) */}
-          <div className="cs-transition__bg" />
+      <div className="cs-page">
 
-          {/* Animated meta block */}
-          <div className="cs-transition__meta">
-            <span className="cs-transition__title">{meta.title}</span>
-            <span className="cs-transition__subtitle">{meta.subtitle}</span>
+        {/* Sticky back row */}
+        <div className="cs-back-row">
+          <Link
+            to="/"
+            className="cs-back-row__cell cs-back-row__cell--link"
+            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+          >
+            <span className="cs-back-row__label" data-text="Daniel Kalman">Daniel Kalman</span>
+          </Link>
+          <div className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}>
+            {showStickyTitles && (
+              <Link
+                to="/#selected-work"
+                className="cs-back-row__aux-action"
+                onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+              >
+                <span className="cs-back-row__aux-label">Work</span>
+              </Link>
+            )}
           </div>
-
-          {/* Animated tags block */}
-          <div className="cs-transition__tags">
-            <span className="cs-transition__tags-text">{meta.tags}</span>
-            <span className="cs-transition__year">{meta.year}</span>
+          <div className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}>
+            {showStickyTitles && (
+              <button
+                type="button"
+                className="cs-back-row__aux-action"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                <span className="cs-back-row__aux-label">{meta.title}</span>
+              </button>
+            )}
           </div>
+          <div className="cs-back-row__cell cs-back-row__cell--aux" />
         </div>
-      )}
 
-      {/* Actual page content */}
-      <div
-        className={`cs-page ${animationPhase !== "complete" ? "cs-page--hidden" : "cs-page--visible"}`}
-      >
-        {/* Header — 4 cells in a row */}
-        <div className="cs-header">
+        {/* Header */}
+        <div className="cs-header" ref={headerRef}>
           <div className="cs-header__cell">
             <Link
               to="/"
@@ -116,22 +100,24 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             <span className="cs-header__year">{meta.year}</span>
           </div>
           <div className="cs-header__cell cs-header__cell--spacer" />
-          <div className="cs-header__cell cs-header__cell--demo">
-            {meta.demoLink && (
-              <a href={meta.demoLink} className="cs-header__link">
-                Demo →
-              </a>
-            )}
-          </div>
+          <a
+            href={meta.demoLink}
+            target="_blank"
+            rel="noreferrer"
+            className="cs-header__cell cs-header__cell--demo"
+          >
+            <span className="cs-header__link">{meta.demoLabel ?? "Demo →"}</span>
+          </a>
         </div>
 
-        {/* Content with staggered reveal */}
-        <div
-          className={`cs-content ${animationPhase === "complete" ? "cs-content--visible" : ""}`}
-        >
-          {children}
+        <div className="cs-content cs-content--visible">
+          {children(img)}
         </div>
       </div>
+
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </>
   );
 };
