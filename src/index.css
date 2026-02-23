@@ -15,6 +15,57 @@
     --color-accent: #f764a4;
     --page-padding: 48px;
     --border: 1px solid var(--color-border);
+
+    /* Post-animation control center
+       ─────────────────────────────────────────────────────────────
+       --border-fade-duration   how long borders take to fade out
+       --post-anim-duration     how long post-anim elements fade in
+       --post-anim-delay        delay before post-anim elements appear
+       ─────────────────────────────────────────────────────────────
+       Usage:
+         • Add  transition: border-color var(--border-fade-duration) ...
+           to any border you want to fade out on .anim-complete.
+         • Add  .anim-complete [border rule] { border-color: transparent; }
+           to fade it out.
+         • Wrap hidden-until-complete content in .post-anim — it will
+           fade in automatically once .anim-complete is set.
+       ───────────────────────────────────────────────────────────── */
+    --border-fade-duration: 0.5s;
+    --post-anim-duration: 0.5s;
+    --post-anim-delay: 0s;
+}
+
+/* ── Post-animation utilities ──────────────────────────────────── */
+
+/* Elements hidden before animation completes */
+.post-anim {
+    opacity: 0;
+    transition: opacity var(--post-anim-duration) var(--anim-easing)
+        var(--post-anim-delay);
+}
+
+.post-anim-width {
+    width: 0;
+    transition: width var(--post-anim-duration) var(--anim-easing)
+        var(--post-anim-delay);
+}
+
+.post-anim-height {
+    height: 0;
+    transition: height var(--post-anim-duration) var(--anim-easing)
+        var(--post-anim-delay);
+}
+
+.anim-complete .post-anim {
+    opacity: 1;
+}
+
+.anim-complete .post-anim-width {
+    width: 100%;
+}
+
+.anim-complete .post-anim-height {
+    height: 100%;
 }
 
 @layer base {

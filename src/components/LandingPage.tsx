@@ -65,7 +65,7 @@ const LandingPage: React.FC = () => {
   ).join(" ");
 
   return (
-    <>
+    <div className={isComplete ? "anim-complete" : ""}>
       <div className={`landing ${stepClasses}`}>
         <div className="landing__main">
           {/* Left column — identity, width animated by step classes */}
@@ -79,7 +79,7 @@ const LandingPage: React.FC = () => {
               </span>
             </div>
             <div className="h-4 w-full flex flex-col justify-center">
-              <div className="w-full h-px bg-(--color-border)" />
+              <div className="h-px bg-(--color-border) post-anim-width" />
             </div>
           </div>
 
@@ -94,8 +94,8 @@ const LandingPage: React.FC = () => {
                 </span>
               </div>
               {/* Nav — flex + opacity animated by step classes */}
-              <div className="landing__nav">
-                <div className="flex justify-between whitespace-nowrap">
+              <div className="landing__nav justify-between items-center">
+                <div className="flex justify-between whitespace-nowrap w-full">
                   <span className="text-sm font-medium leading-[1.21]">
                     Work
                   </span>
@@ -103,8 +103,11 @@ const LandingPage: React.FC = () => {
                     About
                   </span>
                 </div>
+                <div className="w-8 flex flex-col justify-center flex-1 ">
+                  <div className="h-px bg-(--color-border) post-anim-width" />
+                </div>
                 {/* Bottom nav row — translateY animated by step classes */}
-                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap">
+                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full">
                   <span className="text-sm font-medium leading-[1.21]">
                     Services
                   </span>
@@ -119,7 +122,7 @@ const LandingPage: React.FC = () => {
             <div className="landing__middle-row">
               <h1 className="landing__headline">
                 building Products that scratch an{" "}
-                <span className="text-[var(--color-accent)]">itch.</span>
+                <span className="text-var(--color-accent)">itch.</span>
               </h1>
             </div>
 
@@ -127,6 +130,7 @@ const LandingPage: React.FC = () => {
             <div className="landing__bottom-row">
               {/* Bottom-left spacer — flex animated by step classes */}
               <div className="landing__bottom-left" />
+              <div className="w-px self-stretch bg-(--color-border) post-anim" />
               <div className="flex flex-col justify-end p-2 flex-1 min-w-0">
                 {/* Bio text — opacity animated by step classes */}
                 <div className="landing__bio-text flex flex-col gap-2">
@@ -145,7 +149,7 @@ const LandingPage: React.FC = () => {
 
         {/* Footer — height animated by step classes */}
         <div id="selected-work" className="landing__footer">
-          <div className="border-x border-b border-[var(--color-border)] pt-12 px-2 pb-2">
+          <div className="landing__footer-inner pt-12 px-2 pb-2">
             {/* Title — opacity animated by step classes */}
             <h2 className="landing__footer-title text-xl font-bold leading-[1.21]">
               Selected Work
@@ -179,7 +183,7 @@ const LandingPage: React.FC = () => {
         ))}
       </div>
       <div className="h-12" />
-    </>
+    </div>
   );
 };
 

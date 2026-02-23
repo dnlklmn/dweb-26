@@ -20,6 +20,11 @@
     min-height: 0;
     border: var(--border);
     overflow: hidden;
+    transition: border-color var(--border-fade-duration) var(--anim-easing);
+}
+
+.anim-complete .landing__main {
+    border-color: transparent;
 }
 
 /* Left column — starts full width, shrinks to 25% at step 2 */
@@ -67,7 +72,6 @@
 .landing__nav {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     padding: 0;
     flex: 0 0 0%;
     min-width: 0;
@@ -77,12 +81,12 @@
     transition:
         flex var(--anim-duration) var(--anim-easing),
         padding var(--anim-duration) var(--anim-easing),
-        opacity var(--anim-duration) var(--anim-easing);
+        opacity var(--anim-duration) var(--anim-easing),
+        border-left-color var(--border-fade-duration) var(--anim-easing);
 }
 
-/* Bottom nav row — slides down at step 4 */
-.landing__nav-row--bottom {
-    transition: transform var(--anim-duration) var(--anim-easing);
+.anim-complete .landing__nav {
+    border-left-color: transparent;
 }
 
 /* Middle row — starts at 0 flex, grows at step 3 */
@@ -117,7 +121,13 @@
     flex-shrink: 0;
     overflow: hidden;
     border-top: var(--border);
-    transition: height var(--anim-duration) var(--anim-easing);
+    transition:
+        height var(--anim-duration) var(--anim-easing),
+        border-top-color var(--border-fade-duration) var(--anim-easing);
+}
+
+.anim-complete .landing__bottom-row {
+    border-top-color: transparent;
 }
 
 /* Bottom-left spacer — starts at 0 flex, grows at step 4 */
@@ -126,7 +136,13 @@
     min-width: 0;
     border-right: var(--border);
     overflow: hidden;
-    transition: flex var(--anim-duration) var(--anim-easing);
+    transition:
+        flex var(--anim-duration) var(--anim-easing),
+        border-right-color var(--border-fade-duration) var(--anim-easing);
+}
+
+.anim-complete .landing__bottom-left {
+    border-right-color: transparent;
 }
 
 /* Bio text — fades in at step 4 */
@@ -141,6 +157,22 @@
     height: 0;
     flex-shrink: 0;
     transition: height var(--anim-duration) var(--anim-easing);
+}
+
+.landing__footer-inner {
+    border-left: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    transition:
+        border-left-color var(--border-fade-duration) var(--anim-easing),
+        border-right-color var(--border-fade-duration) var(--anim-easing),
+        border-bottom-color var(--border-fade-duration) var(--anim-easing);
+}
+
+.anim-complete .landing__footer-inner {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
 }
 
 /* Footer title — fades in at step 5 */
@@ -188,6 +220,12 @@
     transition-delay: 100ms;
 }
 
+.anim-complete .landing.step-2 .landing__left-col {
+    border-right-color: transparent;
+    transition: border-right-color var(--border-fade-duration)
+        var(--anim-easing);
+}
+
 /* ============================================
    STEP 3 — Middle row grows, upper shrinks,
    headline fades in, nav appears
@@ -196,6 +234,12 @@
 .landing.step-3 .landing__upper-row {
     flex: 0 0 192px;
     border-bottom-color: var(--color-border);
+}
+
+.anim-complete .landing.step-3 .landing__upper-row {
+    border-bottom-color: transparent;
+    transition: border-bottom-color var(--border-fade-duration)
+        var(--anim-easing);
 }
 
 .landing.step-3 .landing__middle-row {
@@ -230,10 +274,6 @@
     flex: 0 0 33.333%;
 }
 
-.landing.step-4 .landing__nav-row--bottom {
-    transform: translateY(calc(192px - 16px - 2 * 17px - 8px));
-}
-
 /* ============================================
    STEP 5 — Footer grows, title fades in
    ============================================ */
@@ -255,10 +295,18 @@
     border-left: var(--border);
     border-right: var(--border);
     visibility: hidden;
+    transition:
+        border-left-color var(--border-fade-duration) var(--anim-easing),
+        border-right-color var(--border-fade-duration) var(--anim-easing);
 }
 
 .case-studies--visible {
     visibility: visible;
+}
+
+.anim-complete .case-studies {
+    border-left-color: transparent;
+    border-right-color: transparent;
 }
 
 /* Reveal wrapper — each row grows from 0 height */
@@ -280,6 +328,12 @@
 .case-study__separator {
     height: 48px;
     border-bottom: var(--border);
+    transition: border-bottom-color var(--border-fade-duration)
+        var(--anim-easing);
+}
+
+.anim-complete .case-study__separator {
+    border-bottom-color: transparent;
 }
 
 /* ============================================
