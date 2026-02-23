@@ -23,6 +23,9 @@
     transition: border-right-color var(--border-fade-duration)
         var(--anim-easing);
 }
+.case-study__image img {
+    border-radius: 8px;
+}
 
 .anim-complete .case-study__image {
     border-right-color: transparent;
@@ -152,5 +155,4 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.21;
-    color: #5e5e5e;
 }

@@ -48,7 +48,6 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
   return (
     <>
       <div className="cs-page">
-
         {/* Sticky back row */}
         <div className="cs-back-row">
           <Link
@@ -56,9 +55,13 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             className="cs-back-row__cell cs-back-row__cell--link"
             onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
           >
-            <span className="cs-back-row__label" data-text="Daniel Kalman">Daniel Kalman</span>
+            <span className="cs-back-row__label" data-text="Daniel Kalman">
+              Daniel Kalman
+            </span>
           </Link>
-          <div className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}>
+          <div
+            className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
+          >
             {showStickyTitles && (
               <Link
                 to="/#selected-work"
@@ -69,7 +72,9 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
               </Link>
             )}
           </div>
-          <div className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}>
+          <div
+            className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
+          >
             {showStickyTitles && (
               <button
                 type="button"
@@ -82,7 +87,6 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
           </div>
           <div className="cs-back-row__cell cs-back-row__cell--aux" />
         </div>
-
         {/* Header */}
         <div className="cs-header" ref={headerRef}>
           <div className="cs-header__cell">
@@ -106,13 +110,13 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             rel="noreferrer"
             className="cs-header__cell cs-header__cell--demo"
           >
-            <span className="cs-header__link">{meta.demoLabel ?? "Demo →"}</span>
+            <span className="cs-header__link">
+              {meta.demoLabel ?? "Demo →"}
+            </span>
           </a>
         </div>
 
-        <div className="cs-content cs-content--visible">
-          {children(img)}
-        </div>
+        <div className="cs-content cs-content--visible">{children(img)}</div>
       </div>
 
       {lightbox && (

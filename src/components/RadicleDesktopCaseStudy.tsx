@@ -16,7 +16,8 @@ const meta: CaseStudyMeta = {
   subtitle: "Your Code on Your Machine",
   tags: "UX, UI, Front End",
   year: "2024",
-  demoLink: "https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/",
+  demoLink:
+    "https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/",
   demoLabel: "Get the app →",
 };
 
@@ -36,7 +37,9 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         {/* Intro — 1col | 2col | 1col */}
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}>
+          <div
+            className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
+          >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
               The Radicle desktop app lets you manage issues and patches, review
               code, and stay on top of notifications. Write and review offline,
@@ -87,24 +90,27 @@ const RadicleDesktopCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
               <p className="text-sm leading-relaxed">
                 The Radicle desktop app is a long-term project spanning multiple
-                features: patches, code review, notifications, and more. The goal
-                is to make peer-to-peer code collaboration feel as familiar as
-                centralized tools, without hiding what makes Radicle different.
+                features: patches, code review, notifications, and more. The
+                goal is to make peer-to-peer code collaboration feel as familiar
+                as centralized tools, without hiding what makes Radicle
+                different.
               </p>
               <p className="text-sm leading-relaxed">
                 The core challenge is that Radicle's underlying model
-                (peer-to-peer, local-first, traceable) doesn't map neatly onto the
-                mental models users bring from GitHub. Every design decision needs
-                to bridge that gap honestly.
+                (peer-to-peer, local-first, traceable) doesn't map neatly onto
+                the mental models users bring from GitHub. Every design decision
+                needs to bridge that gap honestly.
               </p>
             </div>
             <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
-              <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+              <h3 className="text-sm font-bold">
+                Process and Responsibilities
+              </h3>
               <p className="text-sm leading-relaxed">
                 For each feature I followed the same loop: understand the user
-                need and the relevant protocol behaviour, formulate a hypothesis,
-                then sketch wireframes, try out simple prototypes, and at last
-                provide detailed designs to implement.
+                need and the relevant protocol behaviour, formulate a
+                hypothesis, then sketch wireframes, try out simple prototypes,
+                and at last provide detailed designs to implement.
               </p>
               <p className="text-sm leading-relaxed">
                 Ideas were validated with both users and the engineering team
@@ -116,7 +122,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
 
         {/* Section heading: Foundations */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Foundations</h2>
+          <h2 className="text-3xl font-bold">Foundations</h2>
         </div>
 
         {/* Spacer */}
@@ -174,7 +180,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
 
         {/* Section heading: Local First */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Local First</h2>
+          <h2 className="text-3xl font-bold">Local First</h2>
         </div>
 
         {/* Spacer */}
@@ -187,15 +193,15 @@ const RadicleDesktopCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
-              Because the desktop app only sees what your node sees it is crucial
-              that we rely on seed nodes accessible through the web app for peer
-              discovery.
+              Because the desktop app only sees what your node sees it is
+              crucial that we rely on seed nodes accessible through the web app
+              for peer discovery.
             </p>
             <p className="text-sm leading-relaxed">
               In local-first and peer-to-peer architectures, you're never
               entirely sure if you're viewing the latest version. Users won't
-              receive updates from unknown peers, even if they've both contributed
-              to the same repository.
+              receive updates from unknown peers, even if they've both
+              contributed to the same repository.
             </p>
           </div>
           <div className="w-1/4 p-2" />
@@ -203,7 +209,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
 
         {/* Section heading: True to Code */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">True to Code</h2>
+          <h2 className="text-3xl font-bold">True to Code</h2>
         </div>
 
         {/* Spacer */}
@@ -220,9 +226,9 @@ const RadicleDesktopCaseStudy: React.FC = () => (
                 and command line without switching mental models.
               </p>
               <p className="text-sm leading-relaxed">
-                Everything in Radicle is immutable and signed, so the UI reflects
-                that: you can always see what's changed, by whom, and trace it
-                back to its source.
+                Everything in Radicle is immutable and signed, so the UI
+                reflects that: you can always see what's changed, by whom, and
+                trace it back to its source.
               </p>
             </div>
           </div>
@@ -259,23 +265,36 @@ const RadicleDesktopCaseStudy: React.FC = () => (
             </Link>
             <div className={`${cell} w-1/4 p-2`} />
             <div className={`${cell} w-1/4 p-2`} />
-            <Link to="/auto" className="cs-other-nav__cell cs-other-nav__cell--next">
+            <Link
+              to="/auto"
+              className="cs-other-nav__cell cs-other-nav__cell--next"
+            >
               <span className="cs-other-nav__label">Next →</span>
             </Link>
           </div>
 
           <div className={row}>
-            <Link to="/radicle-design-system" className="cs-other-card cs-other-card--prev">
+            <Link
+              to="/radicle-design-system"
+              className="cs-other-card cs-other-card--prev"
+            >
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
-                  <span className="text-xl font-bold">Radicle Design System</span>
+                  <span className="text-xl font-bold">
+                    Radicle Design System
+                  </span>
                   <span className="text-sm">Consistency by design</span>
                 </div>
                 <div className="cs-other-card__image">
-                  <img src={radicleDesignSystemHeaderImage} alt="Radicle Design System preview" />
+                  <img
+                    src={radicleDesignSystemHeaderImage}
+                    alt="Radicle Design System preview"
+                  />
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">Design System, UI, Front End</span>
+                  <span className="text-sm font-bold">
+                    Design System, UI, Front End
+                  </span>
                   <span className="text-sm text-[#5e5e5e]">2024</span>
                 </div>
               </div>
@@ -286,7 +305,9 @@ const RadicleDesktopCaseStudy: React.FC = () => (
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
                   <span className="text-xl font-bold">Auto</span>
-                  <span className="text-sm">Collaborative workflow builder for blockchain automations</span>
+                  <span className="text-sm">
+                    Collaborative workflow builder for blockchain automations
+                  </span>
                 </div>
                 <div className="cs-other-card__image">
                   <img src={autoHeaderImage} alt="Auto preview" />

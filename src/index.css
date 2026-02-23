@@ -8,10 +8,10 @@
     --anim-stagger: 450ms;
 
     /* Layout tokens */
-    --color-bg: #6500d9;
+    --color-bg: #5200b1;
     --color-border: #7d0dfe;
     --color-text: #ffffff;
-    --color-primary: #c084fc;
+    --color-primary: #851bff;
     --color-accent: #f764a4;
     --page-padding: 48px;
     --border: 1px solid var(--color-border);
@@ -30,9 +30,9 @@
          • Wrap hidden-until-complete content in .post-anim — it will
            fade in automatically once .anim-complete is set.
        ───────────────────────────────────────────────────────────── */
-    --border-fade-duration: 0.5s;
+    --border-fade-duration: 1.5s;
     --post-anim-duration: 0.5s;
-    --post-anim-delay: 0s;
+    --post-anim-delay: 1s;
 }
 
 /* ── Post-animation utilities ──────────────────────────────────── */

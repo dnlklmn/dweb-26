@@ -39,12 +39,14 @@ const AutoCaseStudy: React.FC = () => (
         {/* Intro — 1col | 2col | 1col */}
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}>
+          <div
+            className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
+          >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              A visual workflow builder with real-time collaboration that bridges
-              on-chain and off-chain automation. Use blockchain triggers to kick
-              off workflows, or aggregate off-chain data to construct on-chain
-              transactions.
+              A visual workflow builder with real-time collaboration that
+              bridges on-chain and off-chain automation. Use blockchain triggers
+              to kick off workflows, or aggregate off-chain data to construct
+              on-chain transactions.
             </p>
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
@@ -54,7 +56,9 @@ const AutoCaseStudy: React.FC = () => (
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Role</span>
-              <span className="text-sm">Ideation, Design, Prototype, User research, Front End</span>
+              <span className="text-sm">
+                Ideation, Design, Prototype, User research, Front End
+              </span>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Tech</span>
@@ -88,33 +92,38 @@ const AutoCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
               <p className="text-sm leading-relaxed">
                 The goal was to create a crypto-native workflow automation tool
-                that bridges on-chain and off-chain worlds. On-chain events should
-                trigger off-chain workflows, and off-chain data should construct
-                on-chain transactions.
+                that bridges on-chain and off-chain worlds. On-chain events
+                should trigger off-chain workflows, and off-chain data should
+                construct on-chain transactions.
               </p>
               <p className="text-sm leading-relaxed">
-                The challenge: could we build a better workflow builder altogether,
-                or would making it crypto-native be our only advantage? Use cases
-                vary widely, and workflow builders already exist.
+                The challenge: could we build a better workflow builder
+                altogether, or would making it crypto-native be our only
+                advantage? Use cases vary widely, and workflow builders already
+                exist.
               </p>
             </div>
             <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
-              <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+              <h3 className="text-sm font-bold">
+                Process and Responsibilities
+              </h3>
               <p className="text-sm leading-relaxed">
                 I started exploring how workflows can be built, what are common
-                structures for recurring crypto workflows, and where these 2 meet.
+                structures for recurring crypto workflows, and where these 2
+                meet.
               </p>
               <p className="text-sm leading-relaxed">
                 Once I landed on a set of requirements, I started designing the
                 interface with a limited set of nodes and connectors to check if
-                the structure works, the primary goal being to reduce cognitive load.
+                the structure works, the primary goal being to reduce cognitive
+                load.
               </p>
               <p className="text-sm leading-relaxed">
                 Once the initial user tests eliminated the usability issues I
                 implemented a unique multiplayer experience using Yjs and WebRTC
                 to enable real-time collaboration. I am currently running user
-                tests on this prototype as the requirements for the production MVP
-                form.
+                tests on this prototype as the requirements for the production
+                MVP form.
               </p>
             </div>
           </div>
@@ -122,7 +131,7 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Section heading: Early Experiments */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Early Experiments</h2>
+          <h2 className="text-3xl font-bold">Early Experiments</h2>
         </div>
 
         {/* Spacer */}
@@ -137,10 +146,10 @@ const AutoCaseStudy: React.FC = () => (
               out what a good workflow is that we'd like to help.
             </p>
             <p className="text-sm leading-relaxed">
-              I built multiple prototypes to explore different approaches. Should
-              we direct the flow or let the user go freeform? Should we build
-              atomic nodes or solve for particular use cases? Is a condition a
-              connector or a node?
+              I built multiple prototypes to explore different approaches.
+              Should we direct the flow or let the user go freeform? Should we
+              build atomic nodes or solve for particular use cases? Is a
+              condition a connector or a node?
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
@@ -168,10 +177,12 @@ const AutoCaseStudy: React.FC = () => (
               What is a good workflow, what are the workflows we'd like to let
               users build and what are some we don't need to accommodate?
             </p>
-            <p className="text-sm leading-relaxed">Do we need loops and recursion?</p>
             <p className="text-sm leading-relaxed">
-              What are the most common crypto workflows people struggle with
-              and how could we prototype them quickly?
+              Do we need loops and recursion?
+            </p>
+            <p className="text-sm leading-relaxed">
+              What are the most common crypto workflows people struggle with and
+              how could we prototype them quickly?
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
@@ -187,7 +198,7 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Section heading: MVP Requirements */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">MVP Requirements</h2>
+          <h2 className="text-3xl font-bold">MVP Requirements</h2>
         </div>
 
         {/* Spacer */}
@@ -216,7 +227,7 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Section heading: Real-time Collaboration */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Real-time Collaboration</h2>
+          <h2 className="text-3xl font-bold">Real-time Collaboration</h2>
         </div>
 
         {/* Spacer */}
@@ -228,15 +239,15 @@ const AutoCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
             <div className="flex flex-col gap-3">
               <p className="text-sm leading-relaxed">
-                Real-time collaboration sets our platform apart, allowing users to
-                work together on projects in real-time. This feature is powered by
-                Yjs, which enables real-time communication between users through
-                WebRTC.
+                Real-time collaboration sets our platform apart, allowing users
+                to work together on projects in real-time. This feature is
+                powered by Yjs, which enables real-time communication between
+                users through WebRTC.
               </p>
               <p className="text-sm leading-relaxed">
                 CRDTs allow to share updates without a central server which is
-                good for privacy and traceability but also makes prototyping very
-                quick.
+                good for privacy and traceability but also makes prototyping
+                very quick.
               </p>
             </div>
           </div>
@@ -263,7 +274,7 @@ const AutoCaseStudy: React.FC = () => (
         {/* Spacer + Section heading: Other work */}
         <div className={`${row} h-12`} />
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Other work</h2>
+          <h2 className="text-3xl font-bold">Other work</h2>
         </div>
 
         <div className="cs-other-section">
@@ -274,38 +285,57 @@ const AutoCaseStudy: React.FC = () => (
             </Link>
             <div className={`${cell} w-1/4 p-2`} />
             <div className={`${cell} w-1/4 p-2`} />
-            <Link to="/radicle-desktop" className="cs-other-nav__cell cs-other-nav__cell--next">
+            <Link
+              to="/radicle-desktop"
+              className="cs-other-nav__cell cs-other-nav__cell--next"
+            >
               <span className="cs-other-nav__label">Next →</span>
             </Link>
           </div>
 
           {/* Cards row */}
           <div className={row}>
-            <Link to="/radicle-design-system" className="cs-other-card cs-other-card--prev">
+            <Link
+              to="/radicle-design-system"
+              className="cs-other-card cs-other-card--prev"
+            >
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
-                  <span className="text-xl font-bold">Radicle Design System</span>
+                  <span className="text-xl font-bold">
+                    Radicle Design System
+                  </span>
                   <span className="text-sm">Consistency by design</span>
                 </div>
                 <div className="cs-other-card__image">
-                  <img src={radicleDesignSystemHeaderImage} alt="Radicle Design System preview" />
+                  <img
+                    src={radicleDesignSystemHeaderImage}
+                    alt="Radicle Design System preview"
+                  />
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">Design System, UI, Front End</span>
+                  <span className="text-sm font-bold">
+                    Design System, UI, Front End
+                  </span>
                   <span className="text-sm text-[#5e5e5e]">2024</span>
                 </div>
               </div>
             </Link>
             <div className="cs-other-cards__spacer" />
             <div className="cs-other-cards__spacer" />
-            <Link to="/radicle-desktop" className="cs-other-card cs-other-card--next">
+            <Link
+              to="/radicle-desktop"
+              className="cs-other-card cs-other-card--next"
+            >
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
                   <span className="text-xl font-bold">Radicle Desktop</span>
                   <span className="text-sm">Your code on your machine</span>
                 </div>
                 <div className="cs-other-card__image">
-                  <img src={radicleDesktopHeaderImage} alt="Radicle Desktop preview" />
+                  <img
+                    src={radicleDesktopHeaderImage}
+                    alt="Radicle Desktop preview"
+                  />
                 </div>
                 <div className="flex justify-between items-end gap-2">
                   <span className="text-sm font-bold">UX, UI, Front End</span>

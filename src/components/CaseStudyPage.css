@@ -85,7 +85,7 @@
 .cs-back-row__label {
     font-size: 14px;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-accent);
     position: relative;
     z-index: 2;
     display: inline-block;
@@ -97,7 +97,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    color: #000;
     clip-path: inset(100% 0 0 0);
     transition: clip-path var(--anim-duration) var(--anim-easing);
 }
@@ -207,7 +206,6 @@
 .cs-header__year {
     font-size: 14px;
     font-weight: 400;
-    color: #5e5e5e;
 }
 
 .cs-header__link {
@@ -345,8 +343,10 @@
 }
 
 /* Cross-element hover: highlight nav cell when card is hovered */
-.cs-other-section:has(.cs-other-card--prev:hover) .cs-other-nav__cell:first-child::before,
-.cs-other-section:has(.cs-other-card--next:hover) .cs-other-nav__cell--next::before {
+.cs-other-section:has(.cs-other-card--prev:hover)
+    .cs-other-nav__cell:first-child::before,
+.cs-other-section:has(.cs-other-card--next:hover)
+    .cs-other-nav__cell--next::before {
     transform: translateY(0);
     background: var(--color-border);
 }

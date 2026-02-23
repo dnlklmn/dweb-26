@@ -1,0 +1,55 @@
+.cs-anim {
+    --anim-duration: 500ms;
+    --anim-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --border-fade-duration: 300ms;
+}
+
+.cs-anim .cs-page {
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: var(--page-padding) var(--page-padding) 0;
+    position: relative;
+}
+
+.cs-anim:not(.cs-anim-step-1) .cs-back-row__label {
+    transform: translate(
+        calc(50vw - var(--page-padding) - 50%),
+        calc(50vh - var(--page-padding) - 50% - 20px)
+    );
+}
+
+.cs-anim-step-1 .cs-back-row__label {
+    transform: translate(0, 0);
+    transition: transform var(--anim-duration) var(--anim-easing);
+}
+
+.cs-anim-step-2 .cs-header {
+    max-height: calc(100vh - 48px);
+    transition: max-height var(--anim-duration) var(--anim-easing);
+}
+
+.cs-anim-step-3 .cs-header {
+    max-height: 144px; /* final height */
+    transition: max-height var(--anim-duration) var(--anim-easing);
+}
+
+.cs-anim-step-4 .cs-content > *:nth-child(1) {
+    max-height: 1000px;
+    transition: max-height var(--anim-duration) var(--anim-easing);
+}
+
+.cs-anim-step-5 .cs-content > *:not(:first-child) {
+    max-height: 1000px;
+    transition: max-height var(--anim-duration) var(--anim-easing);
+}
+
+.cs-header,
+.cs-content > * {
+    overflow: hidden;
+    max-height: 0;
+    transition:
+        max-height var(--anim-duration) var(--anim-easing),
+        opacity var(--anim-duration) var(--anim-easing);
+}

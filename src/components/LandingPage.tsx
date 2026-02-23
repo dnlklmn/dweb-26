@@ -151,7 +151,7 @@ const LandingPage: React.FC = () => {
         <div id="selected-work" className="landing__footer">
           <div className="landing__footer-inner pt-12 px-2 pb-2">
             {/* Title — opacity animated by step classes */}
-            <h2 className="landing__footer-title text-xl font-bold leading-[1.21]">
+            <h2 className="landing__footer-title text-3xl font-bold leading-[1.21]">
               Selected Work
             </h2>
           </div>
