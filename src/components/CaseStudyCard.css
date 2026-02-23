@@ -5,7 +5,8 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    transition: border-bottom-color var(--border-fade-duration) var(--anim-easing);
+    transition: border-bottom-color var(--border-fade-duration)
+        var(--anim-easing);
 }
 
 .anim-complete .case-study {
@@ -19,7 +20,8 @@
     min-height: 400px;
     padding: 8px;
     border-right: var(--border);
-    transition: border-right-color var(--border-fade-duration) var(--anim-easing);
+    transition: border-right-color var(--border-fade-duration)
+        var(--anim-easing);
 }
 
 .anim-complete .case-study__image {
@@ -48,7 +50,8 @@
     padding: 8px;
     position: relative;
     overflow: hidden;
-    transition: border-bottom-color var(--border-fade-duration) var(--anim-easing);
+    transition: border-bottom-color var(--border-fade-duration)
+        var(--anim-easing);
 }
 
 .anim-complete .case-study__info-top {
@@ -68,7 +71,7 @@
 }
 
 .case-study__info-top:hover::before {
-    background: #8b4dd2;
+    background: #851bff;
 }
 
 .case-study__info-top::after {
