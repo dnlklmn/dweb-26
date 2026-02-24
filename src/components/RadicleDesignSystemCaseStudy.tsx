@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
 import headerImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
-import autoHeaderImage from "../assets/auto/header.png";
+import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import ColorRange from "./ColorRange";
 import FontStyles from "../assets/radicle-design-system/font-styles";
 import SemanticIllustration from "../assets/radicle-design-system/SemanticIllustration";

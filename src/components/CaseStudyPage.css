@@ -63,7 +63,8 @@
     z-index: 1;
 }
 
-.cs-back-row__cell--link:hover::before {
+.cs-back-row__cell--link:hover::before,
+.cs-back-row__aux-action:hover + .cs-back-row__cell--aux::before {
     transform: translateY(0);
 }
 

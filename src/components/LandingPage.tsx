@@ -95,32 +95,38 @@ const LandingPage: React.FC = () => {
               </div>
               {/* Nav — flex + opacity animated by step classes */}
               <div className="landing__nav justify-between items-center flex gap-1">
-                <div className="flex justify-between whitespace-nowrap w-full h-full">
+                <div className="flex justify-between items-end whitespace-nowrap w-full h-full gap-1">
                   <Link
-                    className="w-full h-full text-sm font-medium leading-[1.21] hover:bg-[var(--color-primary)]"
+                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21]"
                     to="/#selected-work"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
-                    Work
+                    <span>Work</span>
                   </Link>
+                  <div className="h-2 flex flex-col justify-center">
+                    <div className="w-px bg-(--color-border) post-anim-height " />
+                  </div>
                   <Link
-                    className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end hover:bg-[var(--color-primary)]"
+                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
                     to="/about"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
-                    About
+                    <span>About</span>
                   </Link>
                 </div>
                 <div className="w-8 flex flex-col justify-center flex-1 ">
                   <div className="h-px bg-(--color-border) post-anim-width" />
                 </div>
                 {/* Bottom nav row — translateY animated by step classes */}
-                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full ">
-                  <div className="w-full h-full text-sm font-medium leading-[1.21] flex items-end hover:bg-[var(--color-primary)]">
-                    Services
+                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
+                  <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end">
+                    <span>Services</span>
                   </div>
-                  <div className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end hover:bg-[var(--color-primary)]">
-                    Blog
+                  <div className="h-2 flex flex-col justify-center">
+                    <div className="w-px bg-(--color-border) post-anim-height " />
+                  </div>
+                  <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end">
+                    <span>Blog</span>
                   </div>
                 </div>
               </div>

@@ -68,6 +68,31 @@
         border-bottom-color var(--anim-duration) var(--anim-easing);
 }
 
+/* Nav link — slide-up fill on hover, matching demo/other-nav cells */
+.landing__nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.landing__nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+    transform: translateY(calc(100% + 1px));
+    transition: transform var(--anim-duration) var(--anim-easing);
+    z-index: 1;
+}
+
+.landing__nav-link:hover::before {
+    transform: translateY(0);
+}
+
+.landing__nav-link > * {
+    position: relative;
+    z-index: 2;
+}
+
 /* Nav — starts at 0 width + opacity, grows at step 3 */
 .landing__nav {
     display: flex;

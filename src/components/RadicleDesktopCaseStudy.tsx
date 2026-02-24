@@ -8,7 +8,7 @@ import wireframes2 from "../assets/radicle-desktop/wireframes-2.png";
 import empathyMap from "../assets/radicle-desktop/empathy-map.png";
 import peerSelector from "../assets/radicle-desktop/peer-selector.png";
 import cliAndApp from "../assets/radicle-desktop/cli-and-app.png";
-import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header-2.png";
+import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
 
 const meta: CaseStudyMeta = {
@@ -255,7 +255,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         {/* Spacer + Section heading: Other work */}
         <div className={`${row} h-12`} />
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-xl font-bold">Other work</h2>
+          <h2 className="text-3xl font-bold">Other work</h2>
         </div>
 
         <div className="cs-other-section">
@@ -295,7 +295,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
                   <span className="text-sm font-bold">
                     Design System, UI, Front End
                   </span>
-                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                  <span className="text-sm ">2024</span>
                 </div>
               </div>
             </Link>
@@ -314,7 +314,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
                 </div>
                 <div className="flex justify-between items-end gap-2">
                   <span className="text-sm font-bold">UX, UI, Front End</span>
-                  <span className="text-sm text-[#5e5e5e]">2025</span>
+                  <span className="text-sm">2025</span>
                 </div>
               </div>
             </Link>
