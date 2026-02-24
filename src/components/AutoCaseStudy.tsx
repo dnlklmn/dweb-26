@@ -12,7 +12,7 @@ import realTimeCollabImage from "../assets/auto/real-time-collab.png";
 import simplerBlocksImage from "../assets/auto/simpler-blocks.png";
 import nodeTypesImage from "../assets/auto/node-types.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
-import radicleDesktopHeaderImage from "../assets/radicle-desktop/header.png";
+import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 
 const meta: CaseStudyMeta = {
   title: "Auto",

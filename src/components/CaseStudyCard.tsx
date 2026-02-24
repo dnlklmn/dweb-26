@@ -17,11 +17,7 @@ interface CaseStudyCardProps {
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => (
-  <Link
-    to={`/${study.slug}`}
-    className="case-study"
-    onClick={onNavigate}
-  >
+  <Link to={`/${study.slug}`} className="case-study" onClick={onNavigate}>
     <div className="case-study__image">
       {study.image && (
         <img src={study.image} alt={study.title} className="case-study__img" />

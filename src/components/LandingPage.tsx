@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
@@ -94,26 +94,34 @@ const LandingPage: React.FC = () => {
                 </span>
               </div>
               {/* Nav — flex + opacity animated by step classes */}
-              <div className="landing__nav justify-between items-center">
-                <div className="flex justify-between whitespace-nowrap w-full">
-                  <span className="text-sm font-medium leading-[1.21]">
+              <div className="landing__nav justify-between items-center flex gap-1">
+                <div className="flex justify-between whitespace-nowrap w-full h-full">
+                  <Link
+                    className="w-full h-full text-sm font-medium leading-[1.21] hover:bg-[var(--color-primary)]"
+                    to="/#selected-work"
+                    style={{ color: "inherit", fontSize: 14 }}
+                  >
                     Work
-                  </span>
-                  <span className="text-sm font-medium leading-[1.21]">
+                  </Link>
+                  <Link
+                    className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end hover:bg-[var(--color-primary)]"
+                    to="/about"
+                    style={{ color: "inherit", fontSize: 14 }}
+                  >
                     About
-                  </span>
+                  </Link>
                 </div>
                 <div className="w-8 flex flex-col justify-center flex-1 ">
                   <div className="h-px bg-(--color-border) post-anim-width" />
                 </div>
                 {/* Bottom nav row — translateY animated by step classes */}
-                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full">
-                  <span className="text-sm font-medium leading-[1.21]">
+                <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full ">
+                  <div className="w-full h-full text-sm font-medium leading-[1.21] flex items-end hover:bg-[var(--color-primary)]">
                     Services
-                  </span>
-                  <span className="text-sm font-medium leading-[1.21]">
+                  </div>
+                  <div className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end hover:bg-[var(--color-primary)]">
                     Blog
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
