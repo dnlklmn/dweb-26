@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
-import headerImage from "../assets/auto/header.png";
+import headerImage from "../assets/auto/header-2.jpeg";
 import blocksGridImage from "../assets/auto/blocks-grid.png";
 import cryptoListenersImage from "../assets/auto/crypto-listeners.png";
 import generateWorkflowImage from "../assets/auto/generate-workflow.png";

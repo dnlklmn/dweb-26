@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
-import autoHeaderImage from "../assets/auto/header.png";
-import radicleDesktopHeaderImage from "../assets/radicle-desktop/header.png";
+import autoHeaderImage from "../assets/auto/header-2.jpeg";
+import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 
 const caseStudies: CaseStudy[] = [
@@ -19,7 +19,7 @@ const caseStudies: CaseStudy[] = [
   {
     title: "Radicle Desktop",
     slug: "radicle-desktop",
-    description: "Collaborative workflow builder for blockchain automations",
+    description: "Your code, your machine",
     role: "UX, UI, Front End",
     year: "2025",
     image: radicleDesktopHeaderImage,
@@ -27,7 +27,7 @@ const caseStudies: CaseStudy[] = [
   {
     title: "Radicle Design System",
     slug: "radicle-design-system",
-    description: "Collaborative workflow builder for blockchain automations",
+    description: "Consistency by design",
     role: "UX, UI, Front End",
     year: "2025",
     image: radicleDesignSystemHeaderImage,

@@ -8,8 +8,8 @@ import wireframes2 from "../assets/radicle-desktop/wireframes-2.png";
 import empathyMap from "../assets/radicle-desktop/empathy-map.png";
 import peerSelector from "../assets/radicle-desktop/peer-selector.png";
 import cliAndApp from "../assets/radicle-desktop/cli-and-app.png";
-import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
-import autoHeaderImage from "../assets/auto/header.png";
+import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header-2.png";
+import autoHeaderImage from "../assets/auto/header-2.jpeg";
 
 const meta: CaseStudyMeta = {
   title: "Radicle Desktop",
