@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
+import Lightbox from "./Lightbox";
+import "./CaseStudyPage.css";
 import headerImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -13,16 +14,11 @@ import TokensInFigma from "../assets/radicle-design-system/tokens-in-figma.png";
 import CSSVariables from "../assets/radicle-design-system/css-variables.png";
 import Icons from "../assets/radicle-design-system/icons.png";
 import SeedIcon from "../assets/radicle-design-system/seed-icon.png";
-
-const meta: CaseStudyMeta = {
-  title: "Radicle Design System",
-  subtitle: "Consistency By Design",
-  tags: "Design System, UI, Front End",
-  year: "2024",
-  demoLink:
-    "https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/",
-  demoLabel: "Radicle design tokens →",
-};
+import EntropyLogo from "../assets/about/EntropyLogo";
+import RadicleLogo from "../assets/about/RadicleLogo";
+import ParityLogo from "../assets/about/ParityLogo";
+import quartersLogo from "../assets/about/quarters.png";
+import SatoshiPayLogo from "../assets/about/SatoshiPayLogo";
 
 export const pinks = [
   { color: "#FFEEFF", name: "pink 50" },
@@ -58,77 +54,341 @@ export const blues = [
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
 
-const About: React.FC = () => (
-  <CaseStudyLayout meta={meta}>
-    {(img) => (
-      <>
-        {/* Spacer */}
-        <div className={`${row} border-t h-12`} />
+const About: React.FC = () => {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(
+    null,
+  );
+  const [showStickyTitles, setShowStickyTitles] = useState(false);
+  const [animComplete, setAnimComplete] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setAnimComplete(true), 600);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyTitles(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-48px 0px 0px 0px" },
+    );
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  const img = (src: string, alt: string, className?: string) => (
+    <img
+      src={src}
+      alt={alt}
+      className={className ?? "w-full h-full object-cover block"}
+      style={{ cursor: "zoom-in" }}
+      onClick={() => setLightbox({ src, alt })}
+    />
+  );
+
+  const heightMultiplier = 24;
+
+  return (
+    <>
+      <div className={`cs-page${animComplete ? " anim-complete" : ""}`}>
+        {/* Sticky back row */}
+        <div className="cs-back-row">
+          <Link
+            to="/"
+            className="cs-back-row__cell cs-back-row__cell--link"
+            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+          >
+            <span className="cs-back-row__label" data-text="Daniel Kalman">
+              Daniel Kalman
+            </span>
+          </Link>
+
+          <div
+            className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
+          >
+            {showStickyTitles && (
+              <Link
+                to="/#selected-work"
+                className="cs-back-row__aux-action"
+                onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+              >
+                <span className="cs-back-row__aux-label">About</span>
+              </Link>
+            )}
+          </div>
+          <div
+            className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
+          >
+            {showStickyTitles && (
+              <button
+                type="button"
+                className="cs-back-row__aux-action"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                <span className="cs-back-row__aux-label">
+                  Radicle Design System
+                </span>
+              </button>
+            )}
+          </div>
+          <div className="cs-back-row__cell cs-back-row__cell--aux" />
+        </div>
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div
+            className={`${cell} w-1/2 min-h-48 flex flex-col gap-4 justify-end p-2`}
+          >
+            <p className="text-xl font-normal leading-relaxed max-w-[75%]">
+              I'm a design engineer with 15 years of design experience and 7
+              years on the front of front end. I live between design and code:
+              from exploring concepts to building functional prototypes and
+              creating design systems to formalize decisions as products evolve.
+            </p>
+            <p className="text-xl font-normal leading-relaxed max-w-[75%]">
+              AI has become integral to my workflow. My agents are with me from
+              problem space exploration and ideation to rapid prototyping and
+              orchestrating multiple agents to tackle complex production
+              challenges.
+            </p>
+          </div>
+          <div className="w-1/4 flex flex-col gap-6 p-2"></div>
+        </div>
 
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Semantic Definitions</h2>
+          <h2 className="text-3xl font-bold">Experience</h2>
         </div>
 
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
         {/* Content row: text | img | img | img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}></div>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
-            <p className="text-sm leading-relaxed">
-              Abstracting design decisions into meaningful, reusable tokens
-              improves collaboration between designers and developers by
-              providing a common language. This streamlines the workflow and
-              makes design systems more efficient.
-            </p>
-            <p className="text-sm leading-relaxed">
-              Semantic tokens should address known use cases, while global
-              tokens are available for new scenarios. With a shared
-              understanding of the naming conventions for semantic tokens,
-              developers can easily select the appropriate styles without
-              needing further consultation with designers.
-            </p>
+        <div className={row} style={{ height: 9 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Present</p>
+            <p className="text-sm leading-relaxed">June 2025</p>
           </div>
-          <div className="w-1/2 p-6 py-12 overflow-hidden flex flex-col justify-end">
-            <SemanticIllustration />
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Entropy - Blockchain workflow automation platform
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              I am responsible for everything design. Research and ideation,
+              building and testing prototypes and planning execution of the
+              front end.
+            </p>
+            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <EntropyLogo className="w-3/4 h-auto" />
           </div>
         </div>
 
         <div className={`${row} h-12`} />
 
-        {/* Intro — 1col | 2col | 1col */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2`} />
+        <div className={row} style={{ height: 25 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
           >
-            <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              I joined Radicle to improve consistency and create a unified
-              design system. Design consistency is crucial in any project, but
-              it can be particularly challenging in open source projects due to
-              the diverse and distributed nature of contributors.
-            </p>
+            <p className="text-sm leading-relaxed">June 2025</p>
+            <p className="text-sm leading-relaxed">May 2023</p>
           </div>
-          <div className="w-1/4 flex flex-col gap-6 p-2">
-            <div className="flex flex-col gap-2">
-              <span className="text-sm font-bold">Company</span>
-              <span className="text-sm">Radicle</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-sm font-bold">Role</span>
-              <span className="text-sm">
-                Design Audit, Design System, Design Tokens
-              </span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-sm font-bold">Tech</span>
-              <span className="text-sm">
-                Figma, Tokens Studio, Style Dictionary
-              </span>
-            </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Radicle - Sovereign code collaboration
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              I was responsible for the UX of the web and desktop apps, and the
+              design system. I also helped refine the front end, implement the
+              design system and work on the visual design of the apps once the
+              designs were done.
+            </p>
+            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <RadicleLogo className="w-3/4 h-auto" />
           </div>
         </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 27 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Jan 2024</p>
+            <p className="text-sm leading-relaxed">Oct 2021</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Parity Technologies - Products for Polkadot
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              As a product designer at Parity, I helped create the Polkadot
+              design system, and worked on decentralized apps like the
+              Delegation Dashboard and Multisig Commander.
+            </p>
+            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <ParityLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 7 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">May 2021</p>
+            <p className="text-sm leading-relaxed">November 2020</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Quarters - Co-living management platform
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              I joined Quarters as a (failed) attempt to return to web2. I
+              quickly realized my heart lies with decenrtralization and
+              distributed systems.
+            </p>
+            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <img src={quartersLogo} alt="Quarters" className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 32 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Nov 2020</p>
+            <p className="text-sm leading-relaxed">Mar 2018</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              SatoshiPay - Cryptocurrency payments and content monetization
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              As the first product designer I designed and build prototypes for
+              monetizing content using cryptocurrency, and an app to facilitate
+              cross-border payments.
+            </p>
+            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <SatoshiPayLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 6 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">July 2017</p>
+            <p className="text-sm leading-relaxed">January 2017</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Linkurious - Graph visualization and analysis
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              As a UX consultant I helped Linkurious improve the usability of
+              their graph visualization tool.
+            </p>
+            <p className="text-sm leading-relaxed">Paris, France</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <EntropyLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 30 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">July 2017</p>
+            <p className="text-sm leading-relaxed">January 2015</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              TOTL - Automatic journaling app
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              Joining this experimental project helped refine my skills in data
+              visualization and rapid prototyping. I also learned a lot about
+              the importance of user research and testing.
+            </p>
+            <p className="text-sm leading-relaxed">San Francisco, CA</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <EntropyLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 3 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Apr 2015</p>
+            <p className="text-sm leading-relaxed">Jan 2015</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Dotloop - Paperless real estate transaction management
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              I helped integrate a camera into the Dotloop app to make it easier
+              for real estate agents to document the acquisition of properties.
+              The company was acquired by Zillow shortly thereafter.
+            </p>
+            <p className="text-sm leading-relaxed">San Francisco, CA</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <EntropyLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row} style={{ height: 41 * heightMultiplier }}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Dec 2014</p>
+            <p className="text-sm leading-relaxed">Jul 2011</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
+            <p className="text-sm font-bold leading-relaxed w-3/4">
+              Prezi - Zooming presentation software
+            </p>
+            <p className="text-sm leading-relaxed w-3/4">
+              My first job with the time UX designer, I learned about the
+              importance of user research, A/B testing, and how rapid
+              prototyping helps with these efforts. I designed the capability to
+              reuse content from previous presentations.
+            </p>
+            <p className="text-sm leading-relaxed">Budapest, Hungary</p>
+          </div>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <EntropyLogo className="w-3/4 h-auto" />
+          </div>
+        </div>
+
+        {/* Intro — 1col | 2col | 1col */}
 
         {/* Spacer */}
         <div className={`${row} h-12`} />
@@ -235,7 +495,7 @@ const About: React.FC = () => (
               </p>
               <p className="text-sm leading-relaxed">
                 The behavior of components in Figma matches those in production.
-                It is often quicker to experiment with Figma’s properties to
+                It is often quicker to experiment with Figma's properties to
                 design the API than having to do it all in code.
               </p>
             </div>
@@ -396,9 +656,17 @@ const About: React.FC = () => (
 
         {/* Bottom spacer */}
         <div className={`${row} h-12`} />
-      </>
-    )}
-  </CaseStudyLayout>
-);
+      </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
+    </>
+  );
+};
 
 export default About;
