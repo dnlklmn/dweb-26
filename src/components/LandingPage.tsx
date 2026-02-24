@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
+import { useTypewriter } from "../hooks/useTypewriter";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -36,9 +37,56 @@ const caseStudies: CaseStudy[] = [
 
 const SKIP_ANIM_KEY = "landing-skip-anim";
 
+const TYPEWRITER_PHRASES = [
+  { text: "scratch an itch", accentWord: "itch" },
+  { text: "matter", accentWord: "matter" },
+  { text: "solve real problems", accentWord: "real" },
+  { text: "serve communities", accentWord: "communities" },
+  { text: "are fun to use", accentWord: "fun" },
+  { text: "make people's lives easier", accentWord: "easier" },
+  { text: "stand the test of time", accentWord: "time" },
+  { text: "feel inevitable", accentWord: "inevitable" },
+  { text: "earn trust", accentWord: "trust" },
+  { text: "spark curiosity", accentWord: "curiosity" },
+  { text: "change how people think", accentWord: "think" },
+  { text: "bring ideas to life", accentWord: "life" },
+  { text: "make the complex simple", accentWord: "simple" },
+  { text: "push the craft forward", accentWord: "craft" },
+  { text: "leave things better than we found them", accentWord: "better" },
+];
+
+/** Splits `displayed` around `accentWord` and wraps the accent part in a span.
+ *  Colors characters as they are typed, not all at once on full match. */
+function renderWithAccent(displayed: string, accentWord: string, fullText: string) {
+  if (!accentWord) return displayed;
+  // Find the accent word's position in the full phrase so we use the right index
+  const accentStart = fullText.indexOf(accentWord);
+  if (accentStart === -1) return displayed;
+  // How many accent chars have been typed so far
+  const accentTyped = displayed.slice(accentStart, accentStart + accentWord.length);
+  if (!accentTyped || !accentWord.startsWith(accentTyped)) return displayed;
+  return (
+    <>
+      {displayed.slice(0, accentStart)}
+      <span style={{ color: "var(--color-accent)" }}>{accentTyped}</span>
+      {displayed.slice(accentStart + accentTyped.length)}
+    </>
+  );
+}
+
+function shuffled<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 const LandingPage: React.FC = () => {
   const location = useLocation();
   const skipAnim = sessionStorage.getItem(SKIP_ANIM_KEY) === "1";
+  const [phrases] = React.useState(() => shuffled(TYPEWRITER_PHRASES));
 
   const { step, isComplete } = useSteppedAnimation({
     totalSteps: 6,
@@ -58,6 +106,15 @@ const LandingPage: React.FC = () => {
     const top = target.getBoundingClientRect().top + window.scrollY - 12;
     window.scrollTo({ top, behavior: "smooth" });
   }, [location.hash, isComplete]);
+
+  const { displayed: typewriterText, accentWord, currentPhrase } = useTypewriter({
+    phrases,
+    typeSpeed: 55,
+    deleteSpeed: 28,
+    pauseAfterType: 2200,
+    pauseAfterDelete: 350,
+    enabled: isComplete,
+  });
 
   const stepClasses = Array.from(
     { length: step + 1 },
@@ -135,8 +192,27 @@ const LandingPage: React.FC = () => {
             {/* Middle row — flex animated by step classes */}
             <div className="landing__middle-row">
               <h1 className="landing__headline">
-                building Products that scratch an{" "}
-                <span className="text-var(--color-accent)">itch.</span>
+                building Products that
+                <br />
+                <span className="landing__typewriter">
+                  {renderWithAccent(typewriterText, accentWord, currentPhrase)}
+                  {isComplete && (
+                    <span
+                      className="landing__cursor"
+                      aria-hidden="true"
+                      style={{
+                        color: (() => {
+                          const accentStart = currentPhrase.indexOf(accentWord);
+                          if (accentStart === -1) return "inherit";
+                          const partial = typewriterText.slice(accentStart, accentStart + accentWord.length);
+                          return partial.length > 0 && accentWord.startsWith(partial)
+                            ? "var(--color-accent)"
+                            : "inherit";
+                        })(),
+                      }}
+                    />
+                  )}
+                </span>
               </h1>
             </div>
 
