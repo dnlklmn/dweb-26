@@ -35,6 +35,60 @@
     --post-anim-delay: 1s;
 }
 
+/* ── Border visibility toggle ──────────────────────────────────── */
+/* "borders-visible" on <body> keeps all animated borders visible.
+   Toggled by the BorderToggle component; persisted in localStorage. */
+body.borders-visible {
+    --border-fade-duration: 9999s;
+}
+
+/* Restore all faded borders when borders-visible is active.
+   Must use all four longhands to override individual border-*-color rules. */
+body.borders-visible .anim-complete .landing__main,
+body.borders-visible .anim-complete .landing__nav,
+body.borders-visible .anim-complete .landing__bottom-row,
+body.borders-visible .anim-complete .landing__bottom-left,
+body.borders-visible .anim-complete .landing__footer-inner,
+body.borders-visible .anim-complete .landing.step-2 .landing__left-col,
+body.borders-visible .anim-complete .landing.step-3 .landing__upper-row,
+body.borders-visible .anim-complete .case-studies,
+body.borders-visible .anim-complete .case-study__separator,
+body.borders-visible .anim-complete .case-study,
+body.borders-visible .anim-complete .case-study__image,
+body.borders-visible .anim-complete .case-study__info-top,
+body.borders-visible .anim-complete .case-study__tags,
+body.borders-visible .cs-page.anim-complete .cs-back-row__cell,
+body.borders-visible .cs-page.anim-complete .cs-header__cell,
+body.borders-visible .cs-page.anim-complete .cs-other-nav__cell,
+body.borders-visible .cs-page.anim-complete .cs-other-card,
+body.borders-visible .cs-page.anim-complete .cs-other-cards__spacer,
+body.borders-visible .cs-page.anim-complete [class*="border-l"],
+body.borders-visible .cs-page.anim-complete [class*="border-r"],
+body.borders-visible .cs-page.anim-complete [class*="border-b"],
+body.borders-visible .cs-page.anim-complete [class*="border-t"] {
+    border-top-color: var(--color-border) !important;
+    border-right-color: var(--color-border) !important;
+    border-bottom-color: var(--color-border) !important;
+    border-left-color: var(--color-border) !important;
+    transition: none !important;
+}
+
+/* When borders-visible, collapse post-anim elements back to hidden */
+body.borders-visible .anim-complete .post-anim {
+    opacity: 0 !important;
+    transition: none !important;
+}
+
+body.borders-visible .anim-complete .post-anim-width {
+    width: 0 !important;
+    transition: none !important;
+}
+
+body.borders-visible .anim-complete .post-anim-height {
+    height: 0 !important;
+    transition: none !important;
+}
+
 /* ── Post-animation utilities ──────────────────────────────────── */
 
 /* Elements hidden before animation completes */

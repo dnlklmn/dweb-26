@@ -22,7 +22,13 @@ interface CaseStudyLayoutProps {
 const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
+  const [animComplete, setAnimComplete] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setAnimComplete(true), 600);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -47,7 +53,7 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
 
   return (
     <>
-      <div className="cs-page">
+      <div className={`cs-page${animComplete ? " anim-complete" : ""}`}>
         {/* Sticky back row */}
         <div className="cs-back-row">
           <Link

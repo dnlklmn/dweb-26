@@ -57,13 +57,20 @@ const TYPEWRITER_PHRASES = [
 
 /** Splits `displayed` around `accentWord` and wraps the accent part in a span.
  *  Colors characters as they are typed, not all at once on full match. */
-function renderWithAccent(displayed: string, accentWord: string, fullText: string) {
+function renderWithAccent(
+  displayed: string,
+  accentWord: string,
+  fullText: string,
+) {
   if (!accentWord) return displayed;
   // Find the accent word's position in the full phrase so we use the right index
   const accentStart = fullText.indexOf(accentWord);
   if (accentStart === -1) return displayed;
   // How many accent chars have been typed so far
-  const accentTyped = displayed.slice(accentStart, accentStart + accentWord.length);
+  const accentTyped = displayed.slice(
+    accentStart,
+    accentStart + accentWord.length,
+  );
   if (!accentTyped || !accentWord.startsWith(accentTyped)) return displayed;
   return (
     <>
@@ -107,7 +114,11 @@ const LandingPage: React.FC = () => {
     window.scrollTo({ top, behavior: "smooth" });
   }, [location.hash, isComplete]);
 
-  const { displayed: typewriterText, accentWord, currentPhrase } = useTypewriter({
+  const {
+    displayed: typewriterText,
+    accentWord,
+    currentPhrase,
+  } = useTypewriter({
     phrases,
     typeSpeed: 55,
     deleteSpeed: 28,
@@ -204,8 +215,12 @@ const LandingPage: React.FC = () => {
                         color: (() => {
                           const accentStart = currentPhrase.indexOf(accentWord);
                           if (accentStart === -1) return "inherit";
-                          const partial = typewriterText.slice(accentStart, accentStart + accentWord.length);
-                          return partial.length > 0 && accentWord.startsWith(partial)
+                          const partial = typewriterText.slice(
+                            accentStart,
+                            accentStart + accentWord.length,
+                          );
+                          return partial.length > 0 &&
+                            accentWord.startsWith(partial)
                             ? "var(--color-accent)"
                             : "inherit";
                         })(),
@@ -220,18 +235,14 @@ const LandingPage: React.FC = () => {
             <div className="landing__bottom-row">
               {/* Bottom-left spacer — flex animated by step classes */}
               <div className="landing__bottom-left" />
-              <div className="w-px self-stretch bg-(--color-border) post-anim" />
-              <div className="flex flex-col justify-end p-2 flex-1 min-w-0">
+
+              <div className="w-px mb-2 self-stretch bg-(--color-border) post-anim" />
+              <div className="flex flex-col justify-end p-2  flex-1 min-w-0">
                 {/* Bio text — opacity animated by step classes */}
-                <div className="landing__bio-text flex flex-col gap-2">
-                  <p className="text-sm font-normal leading-[1.21] max-w-[254px]">
-                    I design and build digital products. From understanding user
-                    needs to orchestrating implementation.
-                  </p>
-                  <span className="text-sm font-normal leading-[1.21]">
-                    Since 2012
-                  </span>
-                </div>
+                <p className="text-sm font-normal leading-[1.5] max-w-[254px]">
+                  I design and build digital products. From understanding user
+                  needs to orchestrating implementation.
+                </p>
               </div>
             </div>
           </div>

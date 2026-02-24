@@ -1,2 +1,2 @@
 - [] animate landing page -> case study
--
+- [] rounded corners on images

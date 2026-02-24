@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TransitionProvider } from "./context/TransitionContext";
 import LandingPage from "./components/LandingPage";
 import CaseStudyPage from "./components/CaseStudyPage";
+import About from "./components/About";
+import BorderToggle from "./components/BorderToggle";
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/:slug" element={<CaseStudyPage />} />
+          <Route path="/about" element={<About />} />
         </Routes>
+        <BorderToggle />
       </BrowserRouter>
     </TransitionProvider>
   );

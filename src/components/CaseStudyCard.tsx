@@ -31,7 +31,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => (
           <span className="case-study__description">{study.description}</span>
         </div>
         <div className="case-study__tags">
-          <span className="case-study__role">{study.role}</span>
+          <span className="case-study__role whitespace-nowrap">
+            {study.role}
+          </span>{" "}
+          <div className="h-4 w-full flex flex-col justify-center">
+            <div className="h-px bg-(--color-border) post-anim-width" />
+          </div>
           <span className="case-study__year">{study.year}</span>
         </div>
       </div>
