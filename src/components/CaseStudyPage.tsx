@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import AutoCaseStudy from "./AutoCaseStudy";
 import RadicleDesktopCaseStudy from "./RadicleDesktopCaseStudy";
 import RadicleDesignSystemCaseStudy from "./RadicleDesignSystemCaseStudy";
+import GoodListenerCaseStudy from "./GoodListenerCaseStudy";
 
 const CaseStudyPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -19,6 +20,10 @@ const CaseStudyPage: React.FC = () => {
   }
   if (slug === "radicle-design-system") {
     return <RadicleDesignSystemCaseStudy />;
+  }
+
+  if (slug === "good-listener") {
+    return <GoodListenerCaseStudy />;
   }
 
   return (

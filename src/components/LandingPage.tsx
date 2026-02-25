@@ -7,8 +7,17 @@ import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
+import glHeaderImage from "../assets/good-listener/header.jpeg";
 
 const caseStudies: CaseStudy[] = [
+  {
+    title: "Good Listener",
+    slug: "good-listener",
+    description: "Local audio transcription",
+    role: "UX, UI, Front End",
+    year: "2026",
+    image: glHeaderImage,
+  },
   {
     title: "Auto",
     slug: "auto",
@@ -250,7 +259,7 @@ const LandingPage: React.FC = () => {
 
         {/* Footer — height animated by step classes */}
         <div id="selected-work" className="landing__footer">
-          <div className="landing__footer-inner pt-12 px-2 pb-2">
+          <div className="landing__footer-inner pt-12 px-2 pb-2 h-full">
             {/* Title — opacity animated by step classes */}
             <h2 className="landing__footer-title text-3xl font-bold leading-[1.21]">
               Selected Work
