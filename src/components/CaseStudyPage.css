@@ -411,6 +411,43 @@ a:active {
     }
 }
 
+/* --- About page bottom link cells --- */
+
+.about-link-cell {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+}
+
+.about-link-cell::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: var(--color-border);
+    transform: translateY(calc(100% + 16px));
+    transition:
+        transform var(--anim-duration) var(--anim-easing),
+        background var(--anim-duration) var(--anim-easing);
+    z-index: 1;
+}
+
+.about-link-cell:hover::before {
+    background: #851bff;
+    transform: translateY(0);
+}
+
+.about-link-cell__label {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.21;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

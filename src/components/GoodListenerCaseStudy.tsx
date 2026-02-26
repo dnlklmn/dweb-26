@@ -10,6 +10,7 @@ import solutionSpace from "../assets/good-listener/solution-framework.png";
 import n8n from "../assets/good-listener/n8n.png";
 import dsmMcp from "../assets/good-listener/dsm-mcp.png";
 import dsmCover from "../assets/good-listener/dsm-cover.png";
+import listenerCLI from "../assets/good-listener/cli.png";
 
 const meta: CaseStudyMeta = {
   title: "Good Listener",
@@ -237,10 +238,13 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Experiments — text | 3 placeholders */}
         <div className={`${row} h-96`}>
           <div className="w-1/4 flex flex-1 p-2 items-center justify-center">
-            {img(dsmCover, "An n8n workflow using scriberr")}
+            {img(
+              dsmCover,
+              "DSM-5: Diagnostic and Statistical Manual of Mental Disorders",
+            )}
           </div>
           <div className="w-1/4 flex flex-1 p-2 border-l border-[var(--color-border)] items-center justify-center">
-            {img(dsmMcp, "An n8n workflow using scriberr")}
+            {img(dsmMcp, "MCP server wrapper around DSM-5")}
           </div>
           <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
             <p className="text-sm leading-relaxed">
@@ -258,6 +262,32 @@ const GoodListenerCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className="w-1/4 p-2 border-l border-[var(--color-boder)]" />
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        {/* Experiments — text | 3 placeholders */}
+        <div className={`${row} h-96`}>
+          <div className="w-1/4 flex flex-1 p-2 items-center justify-center"></div>
+          <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
+            <p className="text-sm leading-relaxed">
+              A CLI tool was the quickest way to experiment. I started with
+              small models (WhisperX, Pyannote) in the hopes of being able to
+              package it all up in a nice little bundle. The results were flaky
+              though, and even flakier as we started testing it in Dutch.
+            </p>
+            <p className="text-sm leading-relaxed">
+              I realized I'll have to use LLMs so I added Ollama integration and
+              started tracing my app on Langfuse to finally understand the
+              what's happening under the hood.
+            </p>
+          </div>
+          <div className="w-1/2 flex p-2 border-l border-[var(--color-border)] items-center justify-center">
+            {img(
+              listenerCLI,
+              "A CLI tool to record, transcribe, and diarize conversation",
+            )}
+          </div>
         </div>
 
         {/* Section heading */}

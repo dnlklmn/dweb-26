@@ -19,6 +19,12 @@ import RadicleLogo from "../assets/about/RadicleLogo";
 import ParityLogo from "../assets/about/ParityLogo";
 import quartersLogo from "../assets/about/quarters.png";
 import SatoshiPayLogo from "../assets/about/SatoshiPayLogo";
+import LinkuriousLogo from "../assets/about/LinkuriousLogo";
+import DotLoopLogo from "../assets/about/DotLoopLogo";
+import PreziLogo from "../assets/about/PreziLogo";
+import goodListener from "../assets/good-listener/header.jpeg";
+import auto from "../assets/auto/header-2.jpeg";
+import radicleDesktop from "../assets/radicle-desktop/header-2.png";
 
 export const pinks = [
   { color: "#FFEEFF", name: "pink 50" },
@@ -141,16 +147,13 @@ const About: React.FC = () => {
             className={`${cell} w-1/2 min-h-48 flex flex-col gap-4 justify-end p-2`}
           >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              I'm a design engineer with 15 years of design experience and 7
-              years on the front of front end. I live between design and code:
-              from exploring concepts to building functional prototypes and
-              creating design systems to formalize decisions as products evolve.
+              Designer who codes. Strong design foundations matter more than
+              ever when working with AI.
             </p>
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              AI has become integral to my workflow. My agents are with me from
-              problem space exploration and ideation to rapid prototyping and
-              orchestrating multiple agents to tackle complex production
-              challenges.
+              I build prototypes to validate ideas fast and build design systems
+              to keep things from falling apart. AI helps me move faster than I
+              should.
             </p>
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2"></div>
@@ -171,16 +174,20 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">Present</p>
             <p className="text-sm leading-relaxed">June 2025</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Entropy - Blockchain workflow automation platform
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              I am responsible for everything design. Research and ideation,
-              building and testing prototypes and planning execution of the
-              front end.
-            </p>
-            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Entropy - Blockchain workflow automation platform
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  I am responsible for everything design. Research and ideation,
+                  building and testing prototypes and planning execution of the
+                  front end.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Berlin, Germany</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <EntropyLogo className="w-3/4 h-auto" />
@@ -196,17 +203,21 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">June 2025</p>
             <p className="text-sm leading-relaxed">May 2023</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Radicle - Sovereign code collaboration
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              I was responsible for the UX of the web and desktop apps, and the
-              design system. I also helped refine the front end, implement the
-              design system and work on the visual design of the apps once the
-              designs were done.
-            </p>
-            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Radicle - Sovereign code collaboration
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  I was responsible for the UX of the web and desktop apps, and
+                  the design system. I also helped refine the front end,
+                  implement the design system and work on the visual design of
+                  the apps once the designs were done.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Berlin, Germany</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <RadicleLogo className="w-3/4 h-auto" />
@@ -222,16 +233,20 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">Jan 2024</p>
             <p className="text-sm leading-relaxed">Oct 2021</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Parity Technologies - Products for Polkadot
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              As a product designer at Parity, I helped create the Polkadot
-              design system, and worked on decentralized apps like the
-              Delegation Dashboard and Multisig Commander.
-            </p>
-            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Parity Technologies - Products for Polkadot
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  As a product designer at Parity, I helped create the Polkadot
+                  design system, and worked on decentralized apps like the
+                  Delegation Dashboard and Multisig Commander.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Berlin, Germany</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <ParityLogo className="w-3/4 h-auto" />
@@ -247,16 +262,20 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">May 2021</p>
             <p className="text-sm leading-relaxed">November 2020</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Quarters - Co-living management platform
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              I joined Quarters as a (failed) attempt to return to web2. I
-              quickly realized my heart lies with decenrtralization and
-              distributed systems.
-            </p>
-            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Quarters - Co-living management platform
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  I joined Quarters as a (failed) attempt to return to web2. I
+                  quickly realized my heart lies with decenrtralization and
+                  distributed systems.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Berlin, Germany</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <img src={quartersLogo} alt="Quarters" className="w-3/4 h-auto" />
@@ -272,16 +291,20 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">Nov 2020</p>
             <p className="text-sm leading-relaxed">Mar 2018</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              SatoshiPay - Cryptocurrency payments and content monetization
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              As the first product designer I designed and build prototypes for
-              monetizing content using cryptocurrency, and an app to facilitate
-              cross-border payments.
-            </p>
-            <p className="text-sm leading-relaxed">Berlin, Germany</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  SatoshiPay - Cryptocurrency payments and content monetization
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  As the first product designer I designed and build prototypes
+                  for monetizing content using cryptocurrency, and an app to
+                  facilitate cross-border payments.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Berlin, Germany</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <SatoshiPayLogo className="w-3/4 h-auto" />
@@ -297,18 +320,22 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">July 2017</p>
             <p className="text-sm leading-relaxed">January 2017</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Linkurious - Graph visualization and analysis
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              As a UX consultant I helped Linkurious improve the usability of
-              their graph visualization tool.
-            </p>
-            <p className="text-sm leading-relaxed">Paris, France</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Linkurious - Graph visualization and analysis
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  As a UX consultant I helped Linkurious improve the usability
+                  of their graph visualization tool.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Paris, France</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            <EntropyLogo className="w-3/4 h-auto" />
+            <LinkuriousLogo className="w-3/4 h-auto" />
           </div>
         </div>
 
@@ -321,16 +348,20 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">July 2017</p>
             <p className="text-sm leading-relaxed">January 2015</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              TOTL - Automatic journaling app
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              Joining this experimental project helped refine my skills in data
-              visualization and rapid prototyping. I also learned a lot about
-              the importance of user research and testing.
-            </p>
-            <p className="text-sm leading-relaxed">San Francisco, CA</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  TOTL - Automatic journaling app
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  Joining this experimental project helped refine my skills in
+                  data visualization and rapid prototyping. I also learned a lot
+                  about the importance of user research and testing.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">San Francisco, CA</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <EntropyLogo className="w-3/4 h-auto" />
@@ -339,26 +370,31 @@ const About: React.FC = () => {
 
         <div className={`${row} h-12`} />
 
-        <div className={row} style={{ height: 3 * heightMultiplier }}>
+        <div className={row}>
           <div
             className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
           >
             <p className="text-sm leading-relaxed">Apr 2015</p>
             <p className="text-sm leading-relaxed">Jan 2015</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Dotloop - Paperless real estate transaction management
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              I helped integrate a camera into the Dotloop app to make it easier
-              for real estate agents to document the acquisition of properties.
-              The company was acquired by Zillow shortly thereafter.
-            </p>
-            <p className="text-sm leading-relaxed">San Francisco, CA</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Dotloop - Paperless real estate transaction management
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  I helped integrate a camera into the Dotloop app to make it
+                  easier for real estate agents to document the acquisition of
+                  properties. The company was acquired by Zillow shortly
+                  thereafter.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">San Francisco, CA</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            <EntropyLogo className="w-3/4 h-auto" />
+            <DotLoopLogo className="w-3/4 h-auto" />
           </div>
         </div>
 
@@ -371,291 +407,54 @@ const About: React.FC = () => {
             <p className="text-sm leading-relaxed">Dec 2014</p>
             <p className="text-sm leading-relaxed">Jul 2011</p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden flex flex-col`}>
-            <p className="text-sm font-bold leading-relaxed w-3/4">
-              Prezi - Zooming presentation software
-            </p>
-            <p className="text-sm leading-relaxed w-3/4">
-              My first job with the time UX designer, I learned about the
-              importance of user research, A/B testing, and how rapid
-              prototyping helps with these efforts. I designed the capability to
-              reuse content from previous presentations.
-            </p>
-            <p className="text-sm leading-relaxed">Budapest, Hungary</p>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-3/4">
+                  Prezi - Zooming presentation software
+                </p>
+                <p className="text-sm leading-relaxed w-3/4">
+                  My first job with the time UX designer, I learned about the
+                  importance of user research, A/B testing, and how rapid
+                  prototyping helps with these efforts. I designed the
+                  capability to reuse content from previous presentations.
+                </p>
+              </div>
+              <p className="text-sm opacity-50">Budapest, Hungary</p>
+            </div>
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            <EntropyLogo className="w-3/4 h-auto" />
+            <PreziLogo className="w-3/4 h-auto" />
           </div>
         </div>
-
-        {/* Intro — 1col | 2col | 1col */}
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* Hero image — 1col | 2col | 1col */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 p-2`}>
-            <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(headerImage, "Radicle Design System")}
-            </div>
-          </div>
-          <div className="w-1/4 p-2" />
-        </div>
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* Challenge + Process text — 2col empty | 2col text */}
-        <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12 w-3/4">
-              <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed">
-                Radicle Explorer is an open-source web application that anyone
-                can deploy on their own. To ensure its success and usability, it
-                is crucial that the design is consistent, easy to extend, and
-                low maintenance.
-              </p>
-              <p className="text-sm leading-relaxed">
-                Contributors should be able to navigate the application
-                effortlessly, match colors and text styles with specific use
-                cases.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)] ">
-              <h3 className="text-sm font-bold">
-                Process and Responsibilities
-              </h3>
-              <p className="text-sm leading-relaxed w-3/4">
-                After carefully auditing the current UI and its patterns, I
-                developed a color system, a typographic scale, and components in
-                Figma.
-              </p>
-              <p className="text-sm leading-relaxed w-3/4">
-                Once all stakeholders agreed I created the pipeline to export
-                and transform tokens into stylesheets and implemented these in
-                the Svelte front end.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Section heading: Foundations */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Stable Base Scales</h2>
+          <h2 className="text-3xl font-bold">More about Daniel</h2>
+        </div>
+        <div className={`${row} h-12`} />
+
+        <div className={`${row} h-48`}>
+          <div className={`${cell} w-1/4 overflow-hidden`}>
+            {img(auto, "Radicle Design System")}
+          </div>
+          <Link
+            to="/"
+            className={`${cell} w-1/4 about-link-cell`}
+            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+          >
+            <span className="about-link-cell__label">Work →</span>
+          </Link>
+          <a
+            href="mailto:daniel@kalman.design"
+            className={`${cell} w-1/4 about-link-cell`}
+          >
+            <span className="about-link-cell__label">Contact →</span>
+          </a>
+          <div className="w-1/4 about-link-cell">
+            <span className="about-link-cell__label">Blog →</span>
+          </div>
         </div>
 
         {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* Content row: text | wide img | empty */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
-            <p className="text-sm leading-relaxed">
-              Selecting a harmonious set of base colors limits the palette to a
-              manageable number while providing enough flexibility to address
-              new and unforeseen use cases.
-            </p>
-            <p className="text-sm leading-relaxed">
-              Contributors can be confident that any two colors will work well
-              together. Neighboring colors can highlight accents and suggest
-              interactions, while colors further apart indicate hierarchy and
-              relationships.
-            </p>
-          </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            <div className="h-full flex flex-col gap-4 justify-center text-center">
-              <ColorRange range={blues} />
-              <ColorRange range={pinks} />
-            </div>
-          </div>
-          <div className="flex flex-col justify-center w-1/4 p-2">
-            <FontStyles />
-          </div>
-        </div>
-
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Components</h2>
-        </div>
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* CTA row: empty | text | cta */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2 shrink-0`} />
-          <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
-            <div className="flex flex-col gap-3 w-3/4">
-              <p className="text-sm leading-relaxed">
-                The UI kit consists only of the components currently used in the
-                app. No unused button variants or typography styles allowed.
-              </p>
-              <p className="text-sm leading-relaxed">
-                The behavior of components in Figma matches those in production.
-                It is often quicker to experiment with Figma's properties to
-                design the API than having to do it all in code.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Image row */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(UIKit, "UI Kit in Figma")}
-          </div>
-          <div className="w-1/4 p-2">
-            {img(ComponentAPI, "Component props")}
-          </div>
-        </div>
-
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Seamless Implementation</h2>
-        </div>
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* CTA row: empty | text | cta */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2 shrink-0`} />
-          <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
-            <div className="flex flex-col gap-3">
-              <p className="text-sm leading-relaxed w-3/4">
-                Colors and font styles are managed in Figma, where they are
-                incorporated into the UI kit and optimized for both dark and
-                light modes.
-              </p>
-              <p className="text-sm leading-relaxed w-3/4">
-                These tokenized design elements are then exported and converted
-                into specific style sheets, which can be utilized in production
-                components. The tokens are stored in a shared repo on Radicle
-                that serves as a single source of truth.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Image row */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2`}>
-            {img(CSSVariables, "CSS Variables and how to use them")}
-          </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(TokensInFigma, "Design Tokens in Figma")}
-          </div>
-          <div className="w-1/4 p-2" />
-        </div>
-
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Delightful Details</h2>
-        </div>
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* CTA row: empty | text | cta */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2 shrink-0`} />
-          <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
-            <div className="flex flex-col gap-3">
-              <p className="text-sm leading-relaxed w-3/4">
-                At Radicle we're building developer tools. It's crucial to
-                prioritize readability and a clear, easy-to-understand hierarchy
-                while keeping decorative elements to a minimum.
-              </p>
-              <p className="text-sm leading-relaxed w-3/4">
-                However, a design system should also have character. Radicle's
-                style pays homage to the barefoot developers, drawing
-                inspiration from the aesthetics of 90s programming games and
-                interfaces.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Image row */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2`}></div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(Icons, "Design Tokens in Figma")}
-          </div>
-          <div className="w-1/4 p-2">
-            {img(SeedIcon, "Design Tokens in Figma")}
-          </div>
-        </div>
-
-        {/* Spacer + Section heading: Other work */}
-        <div className={`${row} h-12`} />
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Other work</h2>
-        </div>
-
-        <div className="cs-other-section">
-          <div className={row}>
-            <Link to="/auto" className="cs-other-nav__cell">
-              <span className="cs-other-nav__label">← Prev</span>
-            </Link>
-            <div className={`${cell} w-1/4 p-2`} />
-            <div className={`${cell} w-1/4 p-2`} />
-            <Link
-              to="/radicle-desktop"
-              className="cs-other-nav__cell cs-other-nav__cell--next"
-            >
-              <span className="cs-other-nav__label">Next →</span>
-            </Link>
-          </div>
-
-          <div className={row}>
-            <Link to="/auto" className="cs-other-card cs-other-card--prev">
-              <div className="cs-other-card__meta">
-                <div className="flex flex-col gap-2">
-                  <span className="text-xl font-bold">Auto</span>
-                  <span className="text-sm">
-                    Collaborative workflow builder for blockchain automations
-                  </span>
-                </div>
-                <div className="cs-other-card__image">
-                  <img src={autoHeaderImage} alt="Auto preview" />
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">UX, UI, Front End</span>
-                  <span className="text-sm text-[#5e5e5e]">2025</span>
-                </div>
-              </div>
-            </Link>
-            <div className="cs-other-cards__spacer" />
-            <div className="cs-other-cards__spacer" />
-            <Link
-              to="/radicle-desktop"
-              className="cs-other-card cs-other-card--next"
-            >
-              <div className="cs-other-card__meta">
-                <div className="flex flex-col gap-2">
-                  <span className="text-xl font-bold">Radicle Desktop</span>
-                  <span className="text-sm">Your code on your machine</span>
-                </div>
-                <div className="cs-other-card__image">
-                  <img
-                    src={radicleDesktopHeaderImage}
-                    alt="Radicle Desktop preview"
-                  />
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">UX, UI, Front End</span>
-                  <span className="text-sm text-[#5e5e5e]">2024</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-
-        {/* Bottom spacer */}
-        <div className={`${row} h-12`} />
       </div>
 
       {lightbox && (

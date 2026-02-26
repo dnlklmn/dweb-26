@@ -197,13 +197,13 @@ const LandingPage: React.FC = () => {
                 {/* Bottom nav row — translateY animated by step classes */}
                 <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
                   <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end">
-                    <span>Services</span>
+                    <span>Blog</span>
                   </div>
                   <div className="h-2 flex flex-col justify-center">
                     <div className="w-px bg-(--color-border) post-anim-height " />
                   </div>
                   <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end">
-                    <span>Blog</span>
+                    <span>Contact</span>
                   </div>
                 </div>
               </div>
