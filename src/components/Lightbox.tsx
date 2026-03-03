@@ -26,12 +26,21 @@ const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
 
   return (
     <div className="lightbox" onClick={onClose}>
-      <img
-        className="lightbox__img"
-        src={src}
-        alt={alt}
-        onClick={(e) => e.stopPropagation()}
-      />
+      {src.endsWith(".svg") ? (
+        <object
+          className="lightbox__img"
+          data={src}
+          type="image/svg+xml"
+          onClick={(e) => e.stopPropagation()}
+        />
+      ) : (
+        <img
+          className="lightbox__img"
+          src={src}
+          alt={alt}
+          onClick={(e) => e.stopPropagation()}
+        />
+      )}
     </div>
   );
 };

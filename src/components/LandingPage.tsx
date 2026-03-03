@@ -7,7 +7,7 @@ import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
-import glHeaderImage from "../assets/good-listener/header.jpeg";
+import glHeaderImage from "../assets/good-listener/app.png";
 
 const caseStudies: CaseStudy[] = [
   {
@@ -196,15 +196,23 @@ const LandingPage: React.FC = () => {
                 </div>
                 {/* Bottom nav row — translateY animated by step classes */}
                 <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
-                  <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end">
+                  <Link
+                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
+                    to="/blog"
+                    style={{ color: "inherit", fontSize: 14 }}
+                  >
                     <span>Blog</span>
-                  </div>
+                  </Link>
                   <div className="h-2 flex flex-col justify-center">
                     <div className="w-px bg-(--color-border) post-anim-height " />
                   </div>
-                  <div className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end">
+                  <Link
+                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
+                    to="/contact"
+                    style={{ color: "inherit", fontSize: 14 }}
+                  >
                     <span>Contact</span>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>

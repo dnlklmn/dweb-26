@@ -11,6 +11,15 @@ import n8n from "../assets/good-listener/n8n.png";
 import dsmMcp from "../assets/good-listener/dsm-mcp.png";
 import dsmCover from "../assets/good-listener/dsm-cover.png";
 import listenerCLI from "../assets/good-listener/cli.png";
+import pencil from "../assets/good-listener/pencil.png";
+import appArchitecture from "../assets/good-listener/app-architecture.png";
+import appScreens from "../assets/good-listener/app-screens.png";
+import Pipeline from "../assets/good-listener/Pipeline";
+import badOutput from "../assets/good-listener/bad-output.png";
+import tracing from "../assets/good-listener/tracing.png";
+import experiment from "../assets/good-listener/experiment.png";
+import evals from "../assets/good-listener/evals.png";
+import install from "../assets/good-listener/install.jpeg";
 
 const meta: CaseStudyMeta = {
   title: "Good Listener",
@@ -29,7 +38,7 @@ const cell = "border-r border-[var(--color-border)]";
 
 const GoodListenerCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
-    {(img) => (
+    {(img, openLightbox, openLightboxNode) => (
       <>
         {/* Spacer — border-t closes the header */}
         <div className={`${row} border-t h-12`} />
@@ -41,8 +50,8 @@ const GoodListenerCaseStudy: React.FC = () => (
             className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
           >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              A quiet, private companion that frees up therapists' time — so
-              they can focus on their patients instead of paperwork.
+              A quiet, private companion that frees up therapists' time so they
+              can focus on what really matters, their patients.
             </p>
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
@@ -173,9 +182,8 @@ const GoodListenerCaseStudy: React.FC = () => (
               eats the time Sarah most needs for her patients.
             </p>
             <p className="text-sm leading-relaxed">
-              This made documentation assistance the clear opportunity: high
-              frequency, high pain, and well-suited to AI. As long as we can
-              manage privacy.
+              This made documentation assistance the clear opportunity: happens
+              often, hurts a lot, and well-suited to AI.
             </p>
           </div>
           <div className="border-l border-[var(--color-border)] w-1/4 p-2" />
@@ -290,6 +298,32 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
         </div>
 
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-3xl font-bold">MVP Requirements</h2>
+        </div>
+
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* App description — 2col empty | 2col text */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`}></div>
+          <div className="w-1/4 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+            <p className="text-sm leading-relaxed">
+              After showing the prototypes and painting a vision where this
+              could all lead, we decided on the initial requirements for the
+              MVP:
+              <br />- record, transcribe, and diarize
+              <br />- run entirely locally
+              <br />- easy to install
+            </p>
+          </div>
+          <div className={`${cell} w-1/4 p-2`}>
+            {img(install, "Initial designs created using pencil.dev")}
+          </div>
+          <div className={`${cell} w-1/4 p-2`}></div>
+        </div>
+
         {/* Section heading */}
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold">The App</h2>
@@ -301,29 +335,140 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* App description — 2col empty | 2col text */}
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
-            <h3 className="text-sm font-bold">Design and Build</h3>
-            <p className="text-sm leading-relaxed">
-              Designed for the therapist's office: easy to install, runs
-              entirely on the local machine, no data leaves the device. Pencil
-              sketches established the core flows before moving into Figma, then
-              Tauri wrapped the Svelte frontend into a native macOS app.
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+            <h3 className="text-sm font-bold w-3/4">Design</h3>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              3 main areas: record, list of sessions, session details. Let's see
+              what AI design tools think.
             </p>
-            <p className="text-sm leading-relaxed">
-              The interface is deliberately minimal — record, review, export.
-              The cognitive load of the documentation pipeline is absorbed by
-              the app, not the therapist.
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="bg-[#181818] h-full overflow-hidden">
+              {img(pencil, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+          <div className="w-1/2 p-2" />
+        </div>
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2`} />
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+            <p className="text-sm leading-relaxed w-3/4">
+              But this isn't great. These 3 areas aren't meant to be equal.
+            </p>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              I'd prefer a home page with all of my sessions and either open an
+              already transcribed session, or record a new one that will then be
+              transcribed and become a session in my list.
+            </p>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              I have opened Figma after months of neglecting it.
+            </p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className=" h-full overflow-hidden">
+              {img(appArchitecture, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className=" h-full overflow-hidden">
+              {img(appScreens, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+        </div>
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`}></div>
+          <div
+            className={`${cell} w-1/4 p-2 `}
+            style={{ cursor: "zoom-in" }}
+            onClick={() => openLightboxNode(<Pipeline />)}
+          >
+            <Pipeline />
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <h3 className="text-sm font-bold w-3/4">Build</h3>
+            <p className="text-sm leading-relaxed w-3/4">
+              As we're still in validation phase, I decided to wrap the CLI in a
+              Tauri app, and bundle the transcription and diarization models
+              with it so users can quickly install it without having to get
+              access tokens from HuggingFace or waiting for initial model
+              downloads to finish on first start.
             </p>
           </div>
         </div>
 
+        {/* Section heading */}
+        <div className={`${row} px-2 pt-12 pb-2`}>
+          <h2 className="text-3xl font-bold">Evaluation</h2>
+        </div>
+
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* App description — 2col empty | 2col text */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2`} />
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+            <p className="text-sm leading-relaxed w-3/4 ">
+              The results were still flaky. If we offer this product for
+              practitioners even to try out we need to make sure it produces
+              good results.
+            </p>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              Or at least we understand why it doesn't.
+            </p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="bg-[#181818] h-full overflow-hidden">
+              {img(badOutput, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+          <div className="w-1/2 p-2" />
+        </div>
+        <div className={row}>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+            <p className="text-sm leading-relaxed w-3/4">
+              To understand what was happening I integrated Langfuse and started
+              digging into the data.
+            </p>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              Tracing shows me what exact steps are happening under the hood.
+            </p>
+            <p className="text-sm leading-relaxed w-3/4 ">
+              Generating an initial dataset gives me a sense of good outcomes I
+              can evaluate against.
+            </p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className=" h-full overflow-hidden">
+              {img(tracing, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className=" h-full overflow-hidden">
+              {img(experiment, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+          <div className="w-1/2 p-2 overflow-hidden">
+            <div className=" h-full overflow-hidden">
+              {img(evals, "Initial designs created using pencil.dev")}
+            </div>
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
         {/* App image */}
         <div className={`${row} h-96`}>
           <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            <div className="bg-[#181818] h-full overflow-hidden">
-              {img(appImage, "Good Listener desktop app interface")}
-            </div>
+          <div className={`${cell} w-1/2  p-2 overflow-hidden`}>
+            <p className="text-xl leading-relaxed w-3/4 ">
+              Evals gives me a metric I can check against while I make
+              improvements.
+            </p>
+            <p className="text-xl leading-relaxed w-3/4 ">
+              Be it quality improvements or decreasing costs, I'll be able to
+              tell whether I'm moving forward.
+            </p>
           </div>
           <div className="w-1/4 p-2" />
         </div>

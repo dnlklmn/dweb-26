@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Lightbox from "./Lightbox";
 import "./CaseStudyPage.css";
+import "./ContactPage.css";
 import headerImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -115,33 +116,19 @@ const About: React.FC = () => {
             className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
           >
             {showStickyTitles && (
-              <Link
-                to="/#selected-work"
-                className="cs-back-row__aux-action"
-                onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-              >
-                <span className="cs-back-row__aux-label">About</span>
-              </Link>
-            )}
-          </div>
-          <div
-            className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
-          >
-            {showStickyTitles && (
               <button
                 type="button"
                 className="cs-back-row__aux-action"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                <span className="cs-back-row__aux-label">
-                  Radicle Design System
-                </span>
+                <span className="cs-back-row__aux-label">About</span>
               </button>
             )}
           </div>
           <div className="cs-back-row__cell cs-back-row__cell--aux" />
+          <div className="cs-back-row__cell cs-back-row__cell--aux" />
         </div>
-        <div className={row}>
+        <div ref={headerRef} className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div
             className={`${cell} w-1/2 min-h-48 flex flex-col gap-4 justify-end p-2`}
@@ -152,11 +139,39 @@ const About: React.FC = () => {
             </p>
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
               I build prototypes to validate ideas fast and build design systems
-              to keep things from falling apart. AI helps me move faster than I
+              to keep things from falling apart. AI makes me move faster than I
               should.
             </p>
           </div>
-          <div className="w-1/4 flex flex-col gap-6 p-2"></div>
+          <div className="w-1/4 flex flex-col gap-2 justify-end p-2">
+            <a
+              href="https://www.linkedin.com/in/dnlklmn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-nav-link text-sm leading-relaxed"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span>LinkedIn →</span>
+            </a>
+            <a
+              href="https://github.com/dnlklmn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-nav-link text-sm leading-relaxed"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span>GitHub →</span>
+            </a>
+            <a
+              href="https://bsky.app/profile/dnlklmn.online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-nav-link text-sm leading-relaxed"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span>Bluesky →</span>
+            </a>
+          </div>
         </div>
 
         <div className={`${row} px-2 pt-12 pb-2`}>
@@ -186,10 +201,12 @@ const About: React.FC = () => {
                   front end.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Berlin, Germany</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <EntropyLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -216,10 +233,12 @@ const About: React.FC = () => {
                   the apps once the designs were done.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Berlin, Germany</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <RadicleLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -245,10 +264,12 @@ const About: React.FC = () => {
                   Delegation Dashboard and Multisig Commander.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Berlin, Germany</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <ParityLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -274,10 +295,12 @@ const About: React.FC = () => {
                   distributed systems.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Berlin, Germany</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <img src={quartersLogo} alt="Quarters" className="w-3/4 h-auto" />
           </div>
         </div>
@@ -303,10 +326,12 @@ const About: React.FC = () => {
                   facilitate cross-border payments.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Berlin, Germany</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <SatoshiPayLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -331,10 +356,12 @@ const About: React.FC = () => {
                   of their graph visualization tool.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Paris, France</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Paris, France
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <LinkuriousLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -360,12 +387,12 @@ const About: React.FC = () => {
                   about the importance of user research and testing.
                 </p>
               </div>
-              <p className="text-sm opacity-50">San Francisco, CA</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                San Francisco, CA
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            <EntropyLogo className="w-3/4 h-auto" />
-          </div>
+          <div className={`w-1/4 p-2 overflow-hidden`}></div>
         </div>
 
         <div className={`${row} h-12`} />
@@ -390,10 +417,12 @@ const About: React.FC = () => {
                   thereafter.
                 </p>
               </div>
-              <p className="text-sm opacity-50">San Francisco, CA</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                San Francisco, CA
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2`}>
             <DotLoopLogo className="w-3/4 h-auto" />
           </div>
         </div>
@@ -420,37 +449,56 @@ const About: React.FC = () => {
                   capability to reuse content from previous presentations.
                 </p>
               </div>
-              <p className="text-sm opacity-50">Budapest, Hungary</p>
+              <p className="text-sm leading-relaxed opacity-50">
+                Budapest, Hungary
+              </p>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
             <PreziLogo className="w-3/4 h-auto" />
           </div>
         </div>
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">More about Daniel</h2>
-        </div>
+
         <div className={`${row} h-12`} />
 
         <div className={`${row} h-48`}>
-          <div className={`${cell} w-1/4 overflow-hidden`}>
-            {img(auto, "Radicle Design System")}
-          </div>
-          <Link
-            to="/"
-            className={`${cell} w-1/4 about-link-cell`}
-            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-          >
-            <span className="about-link-cell__label">Work →</span>
-          </Link>
-          <a
-            href="mailto:daniel@kalman.design"
-            className={`${cell} w-1/4 about-link-cell`}
-          >
-            <span className="about-link-cell__label">Contact →</span>
-          </a>
-          <div className="w-1/4 about-link-cell">
-            <span className="about-link-cell__label">Blog →</span>
+          <div
+            className={`${cell} w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
+          />
+          <div className="w-1/4 flex flex-col p-2 gap-1">
+            <div className="flex justify-between items-end whitespace-nowrap w-full flex-1 gap-1">
+              <Link
+                className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21]"
+                to="/"
+                style={{ color: "inherit", textDecoration: "none" }}
+                onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+              >
+                <span>Work</span>
+              </Link>
+              <div className="h-full flex flex-col justify-center">
+                <div className="w-px h-2 bg-(--color-border)" />
+              </div>
+              <div className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end"></div>
+            </div>
+            <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
+              <Link
+                className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
+                to="/blog"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <span>Blog</span>
+              </Link>
+              <div className="h-full flex flex-col justify-center">
+                <div className="w-px h-2 bg-(--color-border)" />
+              </div>
+              <Link
+                className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
+                to="/contact"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <span>Contact</span>
+              </Link>
+            </div>
           </div>
         </div>
 

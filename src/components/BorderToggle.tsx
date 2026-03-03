@@ -4,7 +4,7 @@ const STORAGE_KEY = "borders-visible";
 
 const BorderToggle: React.FC = () => {
   const [visible, setVisible] = useState(
-    () => localStorage.getItem(STORAGE_KEY) === "1",
+    () => localStorage.getItem(STORAGE_KEY) !== "0",
   );
 
   useEffect(() => {

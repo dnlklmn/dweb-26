@@ -13,14 +13,17 @@ export interface CaseStudyMeta {
 }
 
 export type ImgHelper = (src: string, alt: string, className?: string) => React.ReactElement;
+export type OpenLightbox = (src: string, alt: string) => void;
+export type OpenLightboxNode = (node: React.ReactNode) => void;
 
 interface CaseStudyLayoutProps {
   meta: CaseStudyMeta;
-  children: (img: ImgHelper) => React.ReactNode;
+  children: (img: ImgHelper, openLightbox: OpenLightbox, openLightboxNode: OpenLightboxNode) => React.ReactNode;
 }
 
 const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [lightboxNode, setLightboxNode] = useState<React.ReactNode | null>(null);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
   const [animComplete, setAnimComplete] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -29,6 +32,13 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
     const t = setTimeout(() => setAnimComplete(true), 600);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    if (!lightboxNode) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxNode(null); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [lightboxNode]);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -122,11 +132,18 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
           </a>
         </div>
 
-        <div className="cs-content cs-content--visible">{children(img)}</div>
+        <div className="cs-content cs-content--visible">{children(img, (src, alt) => setLightbox({ src, alt }), (node) => setLightboxNode(node))}</div>
       </div>
 
       {lightbox && (
         <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
+      {lightboxNode && (
+        <div className="lightbox" onClick={() => setLightboxNode(null)}>
+          <div onClick={(e) => e.stopPropagation()} style={{ width: "90vw", maxHeight: "90vh", overflow: "auto", cursor: "default" }}>
+            {lightboxNode}
+          </div>
+        </div>
       )}
     </>
   );

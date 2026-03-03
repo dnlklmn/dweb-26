@@ -4,6 +4,9 @@ import { TransitionProvider } from "./context/TransitionContext";
 import LandingPage from "./components/LandingPage";
 import CaseStudyPage from "./components/CaseStudyPage";
 import About from "./components/About";
+import BlogPage from "./components/BlogPage";
+import BlogPostPage from "./components/BlogPostPage";
+import ContactPage from "./components/ContactPage";
 import BorderToggle from "./components/BorderToggle";
 
 function App() {
@@ -12,8 +15,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/:slug" element={<CaseStudyPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/:slug" element={<CaseStudyPage />} />
         </Routes>
         <BorderToggle />
       </BrowserRouter>
