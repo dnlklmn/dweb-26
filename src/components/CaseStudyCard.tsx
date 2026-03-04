@@ -9,6 +9,7 @@ export interface CaseStudy {
   role: string;
   year: string;
   image?: string;
+  foregroundImage?: string;
 }
 
 interface CaseStudyCardProps {
@@ -31,7 +32,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => {
       // progress: 0 when top of card is at bottom of viewport, 1 when bottom is at top
       const progress = 1 - rect.bottom / (vh + rect.height);
       // map progress [0..1] to translateY [-5%..5%] — change 10 to adjust amount
-      const offset = (progress - 0.5) * 15;
+      const offset = (progress - 0.6) * 18;
       img.style.setProperty("--parallax-offset", `${offset}%`);
     };
 
@@ -54,6 +55,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => {
               src={study.image}
               alt={study.title}
               className="case-study__img"
+            />
+          )}
+          {study.foregroundImage && (
+            <img
+              src={study.foregroundImage}
+              alt=""
+              className="case-study__foreground-img"
             />
           )}
         </div>

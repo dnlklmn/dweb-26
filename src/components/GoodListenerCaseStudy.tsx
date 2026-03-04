@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
-import appImage from "../assets/good-listener/app.png";
+import header from "../assets/good-listener/app.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import blueprint from "../assets/good-listener/blueprint.png";
@@ -40,6 +40,9 @@ const GoodListenerCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
     {(img, openLightbox, openLightboxNode) => (
       <>
+        <div className="px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
+        </div>
         {/* Spacer — border-t closes the header */}
         <div className={`${row} border-t h-12`} />
 
@@ -53,6 +56,9 @@ const GoodListenerCaseStudy: React.FC = () => (
               A quiet, private companion that frees up therapists' time so they
               can focus on what really matters, their patients.
             </p>
+          </div>
+          <div className="self-stretch py-2">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
@@ -80,7 +86,7 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(appImage, "Good Listener desktop app")}
+              {img(header, "Good Listener desktop app")}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -92,15 +98,18 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Challenge + Process — 2col empty | 2col text */}
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
+          <div className="self-stretch pt-2 pb-12">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
+          </div>
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 Psychology practices are buried in admin. Contracts, reminders,
                 session notes, official forms — the manual labor that gets in
                 the way of meaningful work is relentless.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 The goal was to find the highest-leverage entry point for AI in
                 a traditional, privacy-sensitive practice — and build something
                 a therapist could actually trust and use.
@@ -110,20 +119,20 @@ const GoodListenerCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 I started with a 1-hour interview with Sarah, a practicing
                 psychologist. We mapped her full workflow — scheduling,
                 sessions, documentation, billing — and identified where friction
                 was highest.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 From the process map I built a pain points framework with
                 Claude, categorising friction across cognitive, administrative,
                 and relational dimensions. Documentation emerged as the most
                 consistently painful category across every stage of the
                 practice.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 I then built a series of demos to pressure-test different
                 opportunities: a DSM-5 assistant with an MCP client, an n8n
                 transcription workflow using Scriberr, and a CLI proof of
@@ -134,9 +143,11 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
         </div>
 
-        {/* Section heading */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Research</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">Research</h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -174,6 +185,9 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
+          <div className="self-stretch pt-2 pb-12">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
+          </div>
           <div className="w-1/4 flex flex-col gap-4 p-2 pb-12">
             <h3 className="text-sm font-bold">Key Insight</h3>
             <p className="text-sm leading-relaxed">
@@ -213,9 +227,13 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className="border-l border-[var(--color-border)] w-1/4 p-2" />
         </div>
 
-        {/* Section heading */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Early Experiments</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">
+            Early Experiments
+          </h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -277,6 +295,9 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Experiments — text | 3 placeholders */}
         <div className={`${row} h-96`}>
           <div className="w-1/4 flex flex-1 p-2 items-center justify-center"></div>
+          <div className="self-stretch py-2">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
+          </div>
           <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
             <p className="text-sm leading-relaxed">
               A CLI tool was the quickest way to experiment. I started with
@@ -299,7 +320,12 @@ const GoodListenerCaseStudy: React.FC = () => (
         </div>
 
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">MVP Requirements</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">
+            MVP Requirements
+          </h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -324,9 +350,11 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`}></div>
         </div>
 
-        {/* Section heading */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">The App</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">The App</h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -396,9 +424,11 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
         </div>
 
-        {/* Section heading */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Evaluation</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">Evaluation</h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -475,8 +505,12 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         {/* Spacer + Other work */}
         <div className={`${row} h-12`} />
+
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Other work</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">Other work</h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         <div className="cs-other-section">

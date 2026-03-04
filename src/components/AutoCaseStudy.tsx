@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
-import headerImage from "../assets/auto/header-2.jpeg";
+import headerImage from "../assets/auto/app.png";
 import blocksGridImage from "../assets/auto/blocks-grid.png";
 import cryptoListenersImage from "../assets/auto/crypto-listeners.png";
 import generateWorkflowImage from "../assets/auto/generate-workflow.png";
@@ -13,6 +13,8 @@ import simplerBlocksImage from "../assets/auto/simpler-blocks.png";
 import nodeTypesImage from "../assets/auto/node-types.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
+import presence from "../assets/auto/presence.png";
+import header2 from "../assets/auto/header-2.jpeg";
 
 const meta: CaseStudyMeta = {
   title: "Auto",
@@ -33,12 +35,15 @@ const AutoCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
     {(img) => (
       <>
-        {/* Spacer — border-t closes the header */}
+        <div className="px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
+        </div>
         <div className={`${row} border-t h-12`} />
-
         {/* Intro — 1col | 2col | 1col */}
         <div className={row}>
-          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/4 h-full p-2`}>
+            {img(header2, "Auto workflow builder interface")}
+          </div>
           <div
             className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
           >
@@ -48,6 +53,9 @@ const AutoCaseStudy: React.FC = () => (
               to kick off workflows, or aggregate off-chain data to construct
               on-chain transactions.
             </p>
+          </div>
+          <div className="self-stretch py-2">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
@@ -74,7 +82,7 @@ const AutoCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            <div className="bg-[#181818] h-[366px] overflow-hidden">
+            <div className="overflow-hidden">
               {img(headerImage, "Auto workflow builder interface")}
             </div>
           </div>
@@ -86,17 +94,20 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Challenge + Process text — 2col empty | 2col text */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
+          <div className={`${cell} w-1/2 p-2`}></div>
+          <div className="self-stretch pt-2 pb-12">
+            <div className="w-px h-full bg-(--color-border) post-anim" />
+          </div>
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 The goal was to create a crypto-native workflow automation tool
                 that bridges on-chain and off-chain worlds. On-chain events
                 should trigger off-chain workflows, and off-chain data should
                 construct on-chain transactions.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 The challenge: could we build a better workflow builder
                 altogether, or would making it crypto-native be our only
                 advantage? Use cases vary widely, and workflow builders already
@@ -107,18 +118,18 @@ const AutoCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 I started exploring how workflows can be built, what are common
                 structures for recurring crypto workflows, and where these 2
                 meet.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 Once I landed on a set of requirements, I started designing the
                 interface with a limited set of nodes and connectors to check if
                 the structure works, the primary goal being to reduce cognitive
                 load.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 Once the initial user tests eliminated the usability issues I
                 implemented a unique multiplayer experience using Yjs and WebRTC
                 to enable real-time collaboration. I am currently running user
@@ -129,9 +140,13 @@ const AutoCaseStudy: React.FC = () => (
           </div>
         </div>
 
-        {/* Section heading: Early Experiments */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Early Experiments</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">
+            Early Experiments
+          </h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -191,17 +206,23 @@ const AutoCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             {img(cryptoListenersImage, "Crypto listeners")}
           </div>
-          <div className="w-1/4 p-2 overflow-hidden">
-            {img(mcpServerImage, "MCP server")}
+          <div className="w-1/4  p-2 overflow-hidden">
+            <div className="bg-black w-full h-full">
+              {img(mcpServerImage, "MCP server")}
+            </div>
           </div>
         </div>
 
         {/* Section heading: MVP Requirements */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">MVP Requirements</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">
+            MVP Requirements
+          </h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
-        {/* Spacer */}
         <div className={`${row} h-12`} />
 
         {/* Content row: text | wide img | img */}
@@ -225,12 +246,15 @@ const AutoCaseStudy: React.FC = () => (
           </div>
         </div>
 
-        {/* Section heading: Real-time Collaboration */}
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Real-time Collaboration</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">
+            Real-time Collaboration
+          </h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
-        {/* Spacer */}
         <div className={`${row} h-12`} />
 
         {/* CTA row: empty | text | cta */}
@@ -263,18 +287,21 @@ const AutoCaseStudy: React.FC = () => (
         </div>
 
         {/* Collab image row */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2`} />
+        <div className={`${row} `}>
+          <div className={`${cell} w-1/4 p-2`}>
+            {img(presence, "Real-time collaboration")}
+          </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             {img(realTimeCollabImage, "Real-time collaboration")}
           </div>
           <div className="w-1/4 p-2" />
         </div>
 
-        {/* Spacer + Section heading: Other work */}
-        <div className={`${row} h-12`} />
         <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold">Other work</h2>
+          <h2 className="text-3xl font-bold whitespace-nowrap">Other work</h2>
+        </div>
+        <div className="w-full px-2">
+          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         <div className="cs-other-section">
@@ -313,10 +340,13 @@ const AutoCaseStudy: React.FC = () => (
                   />
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">
+                  <span className="text-sm font-bold whitespace-nowrap">
                     Design System, UI, Front End
                   </span>
-                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                  <div className="flex flex-col justify-center h-full w-full px-2">
+                    <div className="h-px bg-(--color-border) post-anim-width" />
+                  </div>
+                  <span className="text-sm">2024</span>
                 </div>
               </div>
             </Link>
@@ -338,8 +368,13 @@ const AutoCaseStudy: React.FC = () => (
                   />
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="text-sm font-bold">UX, UI, Front End</span>
-                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                  <span className="text-sm font-bold whitespace-nowrap">
+                    UX, UI, Front End
+                  </span>
+                  <div className="flex flex-col justify-center h-full w-full px-2">
+                    <div className="h-px bg-(--color-border) post-anim-width" />
+                  </div>
+                  <span className="text-sm">2024</span>
                 </div>
               </div>
             </Link>

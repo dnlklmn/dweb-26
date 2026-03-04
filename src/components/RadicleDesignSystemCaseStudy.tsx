@@ -13,6 +13,7 @@ import TokensInFigma from "../assets/radicle-design-system/tokens-in-figma.png";
 import CSSVariables from "../assets/radicle-design-system/css-variables.png";
 import Icons from "../assets/radicle-design-system/icons.png";
 import SeedIcon from "../assets/radicle-design-system/seed-icon.png";
+import components from "../assets/radicle-design-system/components.png";
 
 const meta: CaseStudyMeta = {
   title: "Radicle Design System",
@@ -105,8 +106,8 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(headerImage, "Radicle Design System")}
+            <div className="overflow-hidden">
+              {img(components, "Radicle Design System")}
             </div>
           </div>
           <div className="w-1/4 p-2" />

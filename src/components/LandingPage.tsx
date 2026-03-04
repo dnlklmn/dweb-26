@@ -7,24 +7,30 @@ import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
-import glHeaderImage from "../assets/good-listener/app.png";
+import glHeaderImage from "../assets/good-listener/header.jpeg";
+import glForegroundImage from "../assets/good-listener/app-frame.png";
+import radicleForegroundImage from "../assets/radicle-desktop/patch-preview.png";
+import autoForegroundImage from "../assets/auto/foreground.png";
+import components from "../assets/radicle-design-system/foreground.png";
 
 const caseStudies: CaseStudy[] = [
   {
     title: "Good Listener",
     slug: "good-listener",
     description: "Local audio transcription",
-    role: "UX, UI, Front End",
+    role: "Product, UX, Agent orchestration",
     year: "2026",
     image: glHeaderImage,
+    foregroundImage: glForegroundImage,
   },
   {
     title: "Auto",
     slug: "auto",
     description: "Collaborative workflow builder for blockchain automations",
-    role: "UX, UI, Front End",
+    role: "UX, UI, Agent orchestration",
     year: "2025",
     image: autoHeaderImage,
+    foregroundImage: autoForegroundImage,
   },
   {
     title: "Radicle Desktop",
@@ -33,6 +39,7 @@ const caseStudies: CaseStudy[] = [
     role: "UX, UI, Front End",
     year: "2025",
     image: radicleDesktopHeaderImage,
+    foregroundImage: radicleForegroundImage,
   },
   {
     title: "Radicle Design System",
@@ -41,6 +48,7 @@ const caseStudies: CaseStudy[] = [
     role: "UX, UI, Front End",
     year: "2025",
     image: radicleDesignSystemHeaderImage,
+    foregroundImage: components,
   },
 ];
 

@@ -30,7 +30,9 @@ const BlogPage: React.FC = () => {
   }, []);
 
   return (
-    <div className={`cs-page${animComplete ? " anim-complete" : ""}`}>
+    <div
+      className={`cs-page min-h-screen flex flex-col${animComplete ? " anim-complete" : ""}`}
+    >
       {/* Sticky back row */}
       <div className="cs-back-row">
         <Link
@@ -104,7 +106,7 @@ const BlogPage: React.FC = () => {
       ))}
 
       {/* Spacer */}
-      <div className={`${row} h-12`} />
+      <div className={`${row} flex-1`} />
 
       {/* Footer links */}
       <div className={`${row} h-48`}>
@@ -133,9 +135,7 @@ const BlogPage: React.FC = () => {
             </Link>
           </div>
           <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
-            <div className="w-full h-full text-sm font-medium leading-[1.21] flex items-end">
-              <span>Blog</span>
-            </div>
+            <div className="w-full h-full text-sm font-medium leading-[1.21] flex items-end"></div>
             <div className="h-full flex flex-col justify-center">
               <div className="w-px h-2 bg-(--color-border)" />
             </div>
