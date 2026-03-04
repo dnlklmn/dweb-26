@@ -23,6 +23,7 @@ const AskPage: React.FC = () => {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
   const [animComplete, setAnimComplete] = useState(false);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
@@ -77,7 +78,7 @@ const AskPage: React.FC = () => {
         {
           role: "assistant",
           content:
-            "Something went wrong. Try again or [contact Daniel directly](/contact).",
+            "Something went wrong. Try again or [reach out directly](/ask).",
         },
       ]);
     } finally {
@@ -112,7 +113,7 @@ const AskPage: React.FC = () => {
               className="cs-back-row__aux-action"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <span className="cs-back-row__aux-label">Contact</span>
+              <span className="cs-back-row__aux-label">Ask</span>
             </button>
           )}
         </div>
@@ -133,55 +134,56 @@ const AskPage: React.FC = () => {
         <div className="w-1/4 p-2" />
       </div>
 
-      {/* Messages */}
-      <div className="flex flex-col">
-        {messages.map((msg, i) => (
-          <div key={i} className={row}>
-            <div className={`${cell} w-1/4 shrink-0`} />
+      {/* Messages — single cell */}
+      <div className={`${row} flex-1`}>
+        <div className={`${cell} w-1/4 shrink-0`} />
+        <div className={`${cell} w-1/2 flex flex-col`}>
+          {messages.map((msg, i) => (
             <div
-              className={`${cell} w-1/2 p-2 ask-message${msg.role === "user" ? " ask-message--user" : ""}`}
+              key={i}
+              className={`p-2 ask-message${msg.role === "user" ? " ask-message--user" : ""}`}
               dangerouslySetInnerHTML={{
                 __html: marked.parse(msg.content) as string,
               }}
             />
-            <div className="w-1/4 shrink-0" />
-          </div>
-        ))}
-
-        {loading && (
-          <div className={row}>
-            <div className={`${cell} w-1/4 shrink-0`} />
-            <div className={`${cell} w-1/2 p-2`}>
+          ))}
+          {loading && (
+            <div className="p-2">
               <span className="ask-loading">···</span>
             </div>
-            <div className="w-1/4 shrink-0" />
-          </div>
-        )}
-
-        <div ref={bottomRef} />
+          )}
+          <div ref={bottomRef} />
+        </div>
+        <div className="w-1/4 shrink-0" />
       </div>
-
-      {/* Spacer */}
-      <div className={`${row} flex-1 min-h-12`} />
 
       {/* Input */}
       <form onSubmit={handleSubmit}>
         <div className={row}>
           <div className={`${cell} w-1/4 shrink-0`} />
           <div
-            className={`${cell} w-1/2 p-2 flex items-center contact-textarea-cell${input ? " is-focused" : ""}`}
+            className={`${cell} w-1/2 p-2 flex ask-input-cell${focused ? " is-focused" : ""}`}
+            style={{ minHeight: "calc(var(--page-padding) * 3)" }}
           >
-            <input
-              type="text"
+            <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSubmit(e as any);
+                }
+                if (e.key === "Escape") {
+                  (e.target as HTMLTextAreaElement).blur();
+                }
+              }}
               placeholder={
-                done
-                  ? "Reach out at /contact to continue the conversation."
-                  : "Your reply…"
+                done ? "That's all for now." : "Ask anything (Enter to send)"
               }
               disabled={loading || done}
-              className="ask-input"
+              className="ask-input ask-textarea"
               autoFocus
             />
           </div>

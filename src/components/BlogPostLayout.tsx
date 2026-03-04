@@ -102,8 +102,8 @@ const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
         >
           <span className="about-link-cell__label">Work →</span>
         </Link>
-        <Link to="/contact" className={`${cell} w-1/4 about-link-cell`}>
-          <span className="about-link-cell__label">Contact →</span>
+        <Link to="/ask" className={`${cell} w-1/4 about-link-cell`}>
+          <span className="about-link-cell__label">Ask →</span>
         </Link>
         <div className="w-1/4" />
       </div>

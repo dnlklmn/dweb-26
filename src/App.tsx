@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/contact" element={<AskPage />} />
+          <Route path="/ask" element={<AskPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/:slug" element={<CaseStudyPage />} />
         </Routes>

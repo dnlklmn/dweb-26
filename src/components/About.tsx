@@ -493,10 +493,10 @@ const About: React.FC = () => {
               </div>
               <Link
                 className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
-                to="/contact"
+                to="/ask"
                 style={{ color: "inherit", textDecoration: "none" }}
               >
-                <span>Contact</span>
+                <span>Ask</span>
               </Link>
             </div>
           </div>

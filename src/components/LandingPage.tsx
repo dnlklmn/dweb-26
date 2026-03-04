@@ -267,11 +267,11 @@ const LandingPage: React.FC = () => {
               </Link>
               <Link
                 className="landing__mobile-menu__link"
-                to="/contact"
+                to="/ask"
                 onClick={() => setMenuOpen(false)}
                 style={{ color: "inherit" }}
               >
-                Contact
+                Ask
               </Link>
             </div>
           )}
@@ -325,10 +325,10 @@ const LandingPage: React.FC = () => {
                   </div>
                   <Link
                     className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
-                    to="/contact"
+                    to="/ask"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
-                    <span>Contact</span>
+                    <span>Ask</span>
                   </Link>
                 </div>
               </div>

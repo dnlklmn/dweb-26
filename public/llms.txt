@@ -1,0 +1,100 @@
+# Daniel Kalman — Portfolio
+
+> Design engineer with 10+ years of experience. Bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy (blockchain workflow automation platform, since June 2025). Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay.
+
+Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
+
+Open to new opportunities and collaborations.
+
+---
+
+## Case Studies
+
+### Good Listener (https://dnlklmn.online/good-listener) — 2026
+Local AI transcription app for therapists. Built entirely by Daniel: product strategy, UX research, UI design, Tauri/Svelte frontend. Privacy-first — runs entirely locally using Whisper models, no cloud uploads.
+
+The problem: psychology practices are buried in admin. The "transcribe-anonymise-summarise-write report" pipeline repeats at every session, eating the time therapists most need for patients.
+
+Process: 1-hour user interview with a practicing psychologist, pain points framework built with Claude, multiple prototypes (DSM-5 MCP client, n8n/Scriberr transcription workflow, CLI with local models), Langfuse integration for tracing and eval-driven improvement.
+
+Tech: Figma, Tauri, Svelte, Whisper, n8n, MCP servers, Langfuse, Claude API.
+Best for: AI product teams, health/privacy-sensitive tools, eval-driven development, full-stack design engineering roles.
+
+---
+
+### Auto (https://dnlklmn.online/auto) — 2025
+Visual workflow builder for blockchain automations with real-time multiplayer. Built at Entropy Cryptography. Bridges on-chain triggers and off-chain actions.
+
+Process: parallel research tracks (workflow map structure + crypto use cases), multiple prototypes (directed vs. freeform, atomic vs. use-case nodes), forked n8n for real-world experimentation, then designed with a limited node set to reduce cognitive load. Implemented multiplayer with Yjs CRDTs + WebRTC.
+
+Live demo available at https://dnlklmn.online/auto.
+
+Tech: Figma, Svelte, Yjs, WebRTC.
+Best for: Web3/blockchain companies, complex data-heavy apps, collaborative/multiplayer SaaS.
+
+---
+
+### Radicle Desktop (https://dnlklmn.online/radicle-desktop) — 2024
+Desktop app for Radicle, a decentralized peer-to-peer code collaboration platform. Manage issues, patches, code review, and notifications. Write and review offline, sync when back online.
+
+Process: per-feature research → hypothesis → wireframes → prototype → high-fidelity handoff, validated with both users and engineering team. Key challenge: making Radicle's peer-to-peer model (peers at different revisions, no central source of truth) legible without hiding what makes it different from GitHub.
+
+Tech: Figma, Svelte.
+Best for: Developer tools, open source products, rigorous user research, local-first/offline-first apps.
+
+---
+
+### Radicle Design System (https://dnlklmn.online/radicle-design-system) — 2024
+Complete design system for the Radicle ecosystem. Design tokens, component library, Figma integration, CSS variables, icon system — connecting design tooling directly to code.
+
+Process: UI audit → color system + typographic scale + components in Figma → token export pipeline → Svelte implementation. Tokens stored in a shared Radicle repo as single source of truth. Dark and light mode support.
+
+Tech: Figma, Tokens Studio, Style Dictionary, Svelte.
+Best for: Companies scaling a design system, design-engineering collaboration, platform teams.
+
+---
+
+## Writing (https://dnlklmn.online/blog)
+
+### Why I design again (https://dnlklmn.online/blog/do-design) — Dec 2025
+On the temptation to skip design when AI can ship working software by lunch — and why that's a trap. Design is a decision-making framework. In multi-agent workflows, bad problem framing cascades through every layer. "AI didn't make design obsolete. It made it the highest-leverage thing I can spend time on."
+
+### A design system is documented decisions (https://dnlklmn.online/blog/design-systems-make-vibe-coding-real) — Feb 2026
+Design tokens aren't just a component library — they're documented decisions. Without them, each agent prompt reinvents spacing, color, and layout from scratch. With a design system, decisions compound in your favor. "I build the system first. Then I vibe as hard as I want."
+
+---
+
+## AI Interfaces
+
+This portfolio exposes two AI interfaces for agents and LLMs:
+
+### Conversational chat API
+Endpoint: https://dnlklmn.online/api/chat
+Method: POST
+Content-Type: application/json
+Body: { "messages": [{ "role": "user", "content": "..." }] }
+Returns: { "reply": "..." }
+
+An AI guide (powered by Claude) that understands who you are and recommends relevant case studies. Maintains conversation context across up to 6 exchanges.
+
+### MCP Server
+URL: https://dnlklmn.online/api/mcp
+Protocol: Model Context Protocol (MCP), StreamableHTTP transport
+
+Tools available:
+- get_overview — Daniel's bio, philosophy, availability
+- list_case_studies — all case studies with summaries
+- get_case_study(slug) — full detail for a specific case study
+- list_blog_posts — published blog posts
+- get_blog_post(slug) — full post content
+- ask_daniel(question) — conversational query answered by Claude
+
+To use in Claude Desktop, add to your config:
+{
+  "mcpServers": {
+    "daniel-kalman": {
+      "type": "http",
+      "url": "https://dnlklmn.online/api/mcp"
+    }
+  }
+}
