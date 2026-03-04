@@ -10,7 +10,7 @@ Open to new opportunities and collaborations.
 
 ## Case Studies
 
-### Good Listener (https://dnlklmn.online/good-listener) — 2026
+### Good Listener (https://danielkalman.design/good-listener) — 2026
 Local AI transcription app for therapists. Built entirely by Daniel: product strategy, UX research, UI design, Tauri/Svelte frontend. Privacy-first — runs entirely locally using Whisper models, no cloud uploads.
 
 The problem: psychology practices are buried in admin. The "transcribe-anonymise-summarise-write report" pipeline repeats at every session, eating the time therapists most need for patients.
@@ -22,19 +22,19 @@ Best for: AI product teams, health/privacy-sensitive tools, eval-driven developm
 
 ---
 
-### Auto (https://dnlklmn.online/auto) — 2025
+### Auto (https://danielkalman.design/auto) — 2025
 Visual workflow builder for blockchain automations with real-time multiplayer. Built at Entropy Cryptography. Bridges on-chain triggers and off-chain actions.
 
 Process: parallel research tracks (workflow map structure + crypto use cases), multiple prototypes (directed vs. freeform, atomic vs. use-case nodes), forked n8n for real-world experimentation, then designed with a limited node set to reduce cognitive load. Implemented multiplayer with Yjs CRDTs + WebRTC.
 
-Live demo available at https://dnlklmn.online/auto.
+Live demo available at https://danielkalman.design/auto.
 
 Tech: Figma, Svelte, Yjs, WebRTC.
 Best for: Web3/blockchain companies, complex data-heavy apps, collaborative/multiplayer SaaS.
 
 ---
 
-### Radicle Desktop (https://dnlklmn.online/radicle-desktop) — 2024
+### Radicle Desktop (https://danielkalman.design/radicle-desktop) — 2024
 Desktop app for Radicle, a decentralized peer-to-peer code collaboration platform. Manage issues, patches, code review, and notifications. Write and review offline, sync when back online.
 
 Process: per-feature research → hypothesis → wireframes → prototype → high-fidelity handoff, validated with both users and engineering team. Key challenge: making Radicle's peer-to-peer model (peers at different revisions, no central source of truth) legible without hiding what makes it different from GitHub.
@@ -44,7 +44,7 @@ Best for: Developer tools, open source products, rigorous user research, local-f
 
 ---
 
-### Radicle Design System (https://dnlklmn.online/radicle-design-system) — 2024
+### Radicle Design System (https://danielkalman.design/radicle-design-system) — 2024
 Complete design system for the Radicle ecosystem. Design tokens, component library, Figma integration, CSS variables, icon system — connecting design tooling directly to code.
 
 Process: UI audit → color system + typographic scale + components in Figma → token export pipeline → Svelte implementation. Tokens stored in a shared Radicle repo as single source of truth. Dark and light mode support.
@@ -54,12 +54,12 @@ Best for: Companies scaling a design system, design-engineering collaboration, p
 
 ---
 
-## Writing (https://dnlklmn.online/blog)
+## Writing (https://danielkalman.design/notes)
 
-### Why I design again (https://dnlklmn.online/blog/do-design) — Dec 2025
+### Why I design again (https://danielkalman.design/notes/do-design) — Dec 2025
 On the temptation to skip design when AI can ship working software by lunch — and why that's a trap. Design is a decision-making framework. In multi-agent workflows, bad problem framing cascades through every layer. "AI didn't make design obsolete. It made it the highest-leverage thing I can spend time on."
 
-### A design system is documented decisions (https://dnlklmn.online/blog/design-systems-make-vibe-coding-real) — Feb 2026
+### A design system is documented decisions (https://danielkalman.design/notes/design-systems-make-vibe-coding-real) — Feb 2026
 Design tokens aren't just a component library — they're documented decisions. Without them, each agent prompt reinvents spacing, color, and layout from scratch. With a design system, decisions compound in your favor. "I build the system first. Then I vibe as hard as I want."
 
 ---
@@ -69,7 +69,7 @@ Design tokens aren't just a component library — they're documented decisions. 
 This portfolio exposes two AI interfaces for agents and LLMs:
 
 ### Conversational chat API
-Endpoint: https://dnlklmn.online/api/chat
+Endpoint: https://danielkalman.design/api/chat
 Method: POST
 Content-Type: application/json
 Body: { "messages": [{ "role": "user", "content": "..." }] }
@@ -78,7 +78,7 @@ Returns: { "reply": "..." }
 An AI guide (powered by Claude) that understands who you are and recommends relevant case studies. Maintains conversation context across up to 6 exchanges.
 
 ### MCP Server
-URL: https://dnlklmn.online/api/mcp
+URL: https://danielkalman.design/api/mcp
 Protocol: Model Context Protocol (MCP), StreamableHTTP transport
 
 Tools available:
@@ -94,7 +94,7 @@ To use in Claude Desktop, add to your config:
   "mcpServers": {
     "daniel-kalman": {
       "type": "http",
-      "url": "https://dnlklmn.online/api/mcp"
+      "url": "https://danielkalman.design/api/mcp"
     }
   }
 }

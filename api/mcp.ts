@@ -14,7 +14,7 @@ const OVERVIEW = {
     "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart.",
   skills: ["Figma", "React", "Svelte", "TypeScript", "design systems", "user research", "prototyping"],
   available: true,
-  contact: "https://dnlklmn.online/ask",
+  contact: "https://danielkalman.design/ask",
 };
 
 const CASE_STUDIES: Record<string, object> = {
@@ -24,7 +24,7 @@ const CASE_STUDIES: Record<string, object> = {
     subtitle: "Local transcriptions for therapists",
     year: 2026,
     tags: ["UX", "UI", "Front End"],
-    url: "https://dnlklmn.online/good-listener",
+    url: "https://danielkalman.design/good-listener",
     summary:
       "Local AI transcription app for therapists. Privacy-first — runs entirely locally using Whisper models, no cloud uploads.",
     problem:
@@ -47,7 +47,7 @@ const CASE_STUDIES: Record<string, object> = {
     subtitle: "Collaborative workflow builder for blockchain automations",
     year: 2025,
     tags: ["UX", "UI", "Front End"],
-    url: "https://dnlklmn.online/auto",
+    url: "https://danielkalman.design/auto",
     demo: "https://auto-workflow-builder.netlify.app/",
     summary:
       "Visual workflow builder with real-time multiplayer (Figma-like). Bridges on-chain triggers and off-chain actions. Built at Entropy Cryptography.",
@@ -65,7 +65,7 @@ const CASE_STUDIES: Record<string, object> = {
     subtitle: "Your Code on Your Machine",
     year: 2024,
     tags: ["UX", "UI", "Front End"],
-    url: "https://dnlklmn.online/radicle-desktop",
+    url: "https://danielkalman.design/radicle-desktop",
     summary:
       "Desktop app for Radicle, a decentralized peer-to-peer code collaboration platform. Manage issues, patches, code review, and notifications. Write and review offline, sync when back online.",
     problem:
@@ -87,7 +87,7 @@ const CASE_STUDIES: Record<string, object> = {
     subtitle: "Consistency By Design",
     year: 2024,
     tags: ["Design System", "UI", "Front End"],
-    url: "https://dnlklmn.online/radicle-design-system",
+    url: "https://danielkalman.design/radicle-design-system",
     summary:
       "Complete design system for the Radicle ecosystem. Design tokens, component library, Figma integration, CSS variables, icon system — connecting design tooling directly to code.",
     problem:
@@ -116,7 +116,7 @@ const BLOG_POSTS: Record<string, object> = {
     slug: "do-design",
     title: "Why I design again",
     date: "2025 Dec 29",
-    url: "https://dnlklmn.online/blog/do-design",
+    url: "https://danielkalman.design/notes/do-design",
     description:
       "AI agents can have working software ready by lunch. What I've come to understand is that I was confusing activity with progress.",
     content: `Design is a decision-making framework. It reduces the solution space and turns vague ambition into a well-defined problem.
@@ -131,7 +131,7 @@ What I do differently now: frame the problem before decomposing work into agent-
     slug: "design-systems-make-vibe-coding-real",
     title: "A design system is documented decisions",
     date: "2026 Feb 18",
-    url: "https://dnlklmn.online/blog/design-systems-make-vibe-coding-real",
+    url: "https://danielkalman.design/notes/design-systems-make-vibe-coding-real",
     description:
       "A design system isn't only a component library. When I structure tokens, components, and rules, I'm solidifying the choices I've made deliberately.",
     content: `Each token is a decision. Each component is a bundle of decisions. Each rule is a constraint chosen deliberately.
@@ -146,7 +146,7 @@ Decisions compound. When documented, they compound in your favor. When implicit,
   },
 };
 
-const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Daniel Kalman's portfolio, work, and thinking. Answer concisely and accurately using only the information provided. If you don't know something, say so and suggest visiting https://dnlklmn.online/ask for a fuller conversation.
+const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Daniel Kalman's portfolio, work, and thinking. Answer concisely and accurately using only the information provided. If you don't know something, say so and suggest visiting https://danielkalman.design/ask for a fuller conversation.
 
 Daniel Kalman is a design engineer with 10+ years of experience. He bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy. Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay. Open to new opportunities.
 
