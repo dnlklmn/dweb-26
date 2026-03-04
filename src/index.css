@@ -35,6 +35,20 @@
     --post-anim-delay: 1s;
 }
 
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+
+    :root {
+        --page-padding: 16px;
+        --border-fade-duration: 0s;
+        --post-anim-duration: 0s;
+        --post-anim-delay: 0s;
+        --anim-duration: 0s;
+    }
+}
+
 /* ── Border visibility toggle ──────────────────────────────────── */
 /* "borders-visible" on <body> keeps all animated borders visible.
    Toggled by the BorderToggle component; persisted in localStorage. */

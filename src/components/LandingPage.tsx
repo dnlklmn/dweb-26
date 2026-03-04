@@ -109,8 +109,11 @@ function shuffled<T>(arr: T[]): T[] {
 
 const LandingPage: React.FC = () => {
   const location = useLocation();
-  const skipAnim = sessionStorage.getItem(SKIP_ANIM_KEY) === "1";
+  const skipAnim =
+    sessionStorage.getItem(SKIP_ANIM_KEY) === "1" ||
+    window.matchMedia("(max-width: 767px)").matches;
   const [phrases] = React.useState(() => shuffled(TYPEWRITER_PHRASES));
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   const { step, isComplete } = useSteppedAnimation({
     totalSteps: 6,
@@ -155,7 +158,7 @@ const LandingPage: React.FC = () => {
         <div className="landing__main">
           {/* Left column — identity, width animated by step classes */}
           <div className="landing__left-col flex items-start p-2">
-            <div className="landing__identity-text flex flex-col gap-2">
+            <div className="landing__identity-text flex md:flex-col gap-2">
               <span className="text-sm font-bold leading-[1.21] whitespace-nowrap text-(--color-accent)">
                 Daniel Kalman
               </span>
@@ -163,21 +166,127 @@ const LandingPage: React.FC = () => {
                 Design Engineer
               </span>
             </div>
-            <div className="h-4 w-full flex flex-col justify-center">
+            {/* Mobile menu button — hidden on desktop */}
+            <button
+              className="landing__menu-btn"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                {menuOpen ? (
+                  <>
+                    <line
+                      x1="4"
+                      y1="4"
+                      x2="16"
+                      y2="16"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="16"
+                      y1="4"
+                      x2="4"
+                      y2="16"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <line
+                      x1="3"
+                      y1="6"
+                      x2="17"
+                      y2="6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="3"
+                      y1="10"
+                      x2="17"
+                      y2="10"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="3"
+                      y1="14"
+                      x2="17"
+                      y2="14"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  </>
+                )}
+              </svg>
+            </button>
+            <div className="landing__identity-line h-4 w-full flex flex-col justify-center">
               <div className="h-px bg-(--color-border) post-anim-width" />
             </div>
           </div>
+
+          {/* Mobile nav — renders below header bar, hidden on desktop */}
+          {menuOpen && (
+            <div className="landing__mobile-menu">
+              <Link
+                className="landing__mobile-menu__link"
+                to="/#selected-work"
+                onClick={() => setMenuOpen(false)}
+                style={{ color: "inherit" }}
+              >
+                Work
+              </Link>
+              <Link
+                className="landing__mobile-menu__link"
+                to="/about"
+                onClick={() => setMenuOpen(false)}
+                style={{ color: "inherit" }}
+              >
+                About
+              </Link>
+              <Link
+                className="landing__mobile-menu__link"
+                to="/blog"
+                onClick={() => setMenuOpen(false)}
+                style={{ color: "inherit" }}
+              >
+                Blog
+              </Link>
+              <Link
+                className="landing__mobile-menu__link"
+                to="/contact"
+                onClick={() => setMenuOpen(false)}
+                style={{ color: "inherit" }}
+              >
+                Contact
+              </Link>
+            </div>
+          )}
 
           {/* Right column — flex animated by step classes */}
           <div className="landing__right-col">
             {/* Upper row — flex + border animated by step classes */}
             <div className="landing__upper-row">
-              <div className="flex items-start p-2 flex-col gap-2 flex-1 min-w-0">
+              <div className="landing__location flex items-start p-2 flex-col gap-2 flex-1 min-w-0">
                 <span className="text-sm font-bold leading-[1.21]">Berlin</span>
                 <span className="text-sm font-normal leading-[1.21]">
                   Germany
                 </span>
               </div>
+
               {/* Nav — flex + opacity animated by step classes */}
               <div className="landing__nav justify-between items-center flex gap-1">
                 <div className="flex justify-between items-end whitespace-nowrap w-full h-full gap-1">
@@ -229,7 +338,7 @@ const LandingPage: React.FC = () => {
             <div className="landing__middle-row">
               <h1 className="landing__headline">
                 building Products that
-                <br />
+                <br />{" "}
                 <span className="landing__typewriter">
                   {renderWithAccent(typewriterText, accentWord, currentPhrase)}
                   {isComplete && (
@@ -261,7 +370,7 @@ const LandingPage: React.FC = () => {
               {/* Bottom-left spacer — flex animated by step classes */}
               <div className="landing__bottom-left" />
 
-              <div className="w-px mb-2 self-stretch bg-(--color-border) post-anim" />
+              <div className="landing__bottom-divider w-px mb-2 self-stretch bg-(--color-border) post-anim" />
               <div className="flex flex-col justify-end p-2  flex-1 min-w-0">
                 {/* Bio text — opacity animated by step classes */}
                 <p className="text-sm font-normal leading-[1.5] max-w-[254px]">

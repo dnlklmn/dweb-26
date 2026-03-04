@@ -391,6 +391,131 @@
    REDUCED MOTION
    ============================================ */
 
+/* ============================================
+   MOBILE NAV
+   ============================================ */
+
+/* Mobile menu hidden by default (desktop); overridden in media query below */
+.landing__mobile-menu {
+    display: none;
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.landing__menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    /* Show hamburger button */
+    .landing__menu-btn {
+        display: flex;
+    }
+
+    /* Hide desktop nav */
+    .landing__nav {
+        display: none !important;
+    }
+
+    /* Smaller headline on mobile, natural height, no forced line break */
+    .landing__headline {
+        font-size: 22px;
+    }
+
+    .landing__headline br {
+        display: none;
+    }
+
+    /* Allow typewriter text to wrap naturally */
+    .landing__typewriter {
+        white-space: normal;
+    }
+
+
+    /* Skip centering animation — identity text stays top-left */
+    .landing:not(.step-1) .landing__identity-text,
+    .landing.step-1 .landing__identity-text {
+        transform: translate(0, 0);
+    }
+
+    /* Row layout: stack left-col and right-col vertically */
+    .landing__main {
+        flex-direction: column;
+    }
+
+    /* Row 1: header bar — identity + menu button */
+    .landing__left-col,
+    .landing.step-2 .landing__left-col {
+        width: 100%;
+        height: 44px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+        border-right: none;
+        border-bottom: var(--border);
+    }
+
+    /* Hide the decorative horizontal line inside the header */
+    .landing__identity-line {
+        display: none;
+    }
+
+    /* Row 2 + 3: right col fills remaining space */
+    .landing__right-col,
+    .landing.step-2 .landing__right-col {
+        flex: 1 !important;
+        min-height: 0;
+    }
+
+    /* Hide upper-row (Berlin/Germany — location already hidden, no menu btn here anymore) */
+    .landing__upper-row {
+        display: none !important;
+    }
+
+    /* Hide left spacer and vertical divider in bottom row */
+    .landing__bottom-left {
+        display: none;
+    }
+
+    .landing__bottom-divider {
+        display: none;
+    }
+
+    /* Mobile nav — single box, 4 labels at corners */
+    .landing__mobile-menu {
+        display: block;
+        position: relative;
+        width: 100%;
+        min-height: 160px;
+        border-bottom: var(--border);
+    }
+
+    .landing__mobile-menu__link {
+        position: absolute;
+        padding: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.21;
+        text-decoration: none;
+    }
+
+    .landing__mobile-menu__link:nth-child(1) { top:    0; left:  0; } /* Work    */
+    .landing__mobile-menu__link:nth-child(2) { top:    0; right: 0; } /* About   */
+    .landing__mobile-menu__link:nth-child(3) { bottom: 0; left:  0; } /* Blog    */
+    .landing__mobile-menu__link:nth-child(4) { bottom: 0; right: 0; } /* Contact */
+}
+
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
