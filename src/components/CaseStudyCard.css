@@ -85,11 +85,15 @@
     position: absolute;
     inset: 8px;
     background: var(--color-border);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: center;
+    z-index: 1;
+}
+
+.anim-complete .case-study__info-top::before {
     transition:
         transform var(--anim-duration) var(--anim-easing),
         background var(--anim-duration) var(--anim-easing);
-    z-index: 1;
 }
 
 .case-study__info-top:hover::before {
@@ -113,7 +117,7 @@
 }
 
 .case-study:hover .case-study__info-top::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .case-study:hover .case-study__info-top::after {

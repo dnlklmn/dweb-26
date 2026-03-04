@@ -152,15 +152,58 @@ const LandingPage: React.FC = () => {
     (_, i) => `step-${i}`,
   ).join(" ");
 
+  const tickerItems = [
+    {
+      label: " NEW! ",
+      text: "You can now ask questions about my work using Claude!",
+    },
+    {
+      label: " TRY IT OUT! ",
+      text: "No more plowing through boring case studies, just ask away!",
+    },
+    {
+      label: " IT'S AI! ",
+      text: "Why read if Claude can read it for you!",
+    },
+  ];
+  const TICKER_COPIES = 6;
+
   return (
     <div className={isComplete ? "anim-complete" : ""}>
+      {/* Full-width ticker — outside padded landing frame */}
+      <Link
+        to="/ask"
+        className="landing__ticker"
+        style={{ color: "inherit", textDecoration: "none" }}
+      >
+        <div className="landing__ticker-track">
+          {Array.from({ length: TICKER_COPIES }, (_, copy) => (
+            <span
+              key={copy}
+              className="landing__ticker-unit"
+              aria-hidden={copy > 0 ? "true" : undefined}
+            >
+              {tickerItems.flatMap((item, i) => [
+                <span key={`${i}-label`} className="landing__ticker-label">
+                  {item.label}
+                </span>,
+                <span key={`${i}-text`} className="landing__ticker-text">
+                  {item.text}
+                </span>,
+              ])}
+            </span>
+          ))}
+        </div>
+      </Link>
+
       <div className={`landing ${stepClasses}`}>
         <div className="landing__main">
           {/* Left column — identity, width animated by step classes */}
           <div className="landing__left-col flex items-start p-2">
             <div className="landing__identity-text flex md:flex-col gap-2">
               <span className="text-sm font-bold leading-[1.21] whitespace-nowrap text-(--color-accent)">
-                <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
+                <span className="name-full">Daniel Kalman</span>
+                <span className="name-short">Daniel</span>
               </span>
               <span className="text-sm font-normal leading-[1.21] whitespace-nowrap">
                 Design Engineer
@@ -301,7 +344,7 @@ const LandingPage: React.FC = () => {
                     <div className="w-px bg-(--color-border) post-anim-height " />
                   </div>
                   <Link
-                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
+                    className="landing__nav-link landing__nav-link--tr w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
                     to="/about"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
@@ -314,7 +357,7 @@ const LandingPage: React.FC = () => {
                 {/* Bottom nav row — translateY animated by step classes */}
                 <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
                   <Link
-                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
+                    className="landing__nav-link landing__nav-link--bl w-full h-full text-sm font-medium leading-[1.21] flex items-end"
                     to="/notes"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
@@ -324,7 +367,7 @@ const LandingPage: React.FC = () => {
                     <div className="w-px bg-(--color-border) post-anim-height " />
                   </div>
                   <Link
-                    className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
+                    className="landing__nav-link landing__nav-link--br w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
                     to="/ask"
                     style={{ color: "inherit", fontSize: 14 }}
                   >

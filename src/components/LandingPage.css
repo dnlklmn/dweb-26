@@ -6,10 +6,78 @@
    Static layout/typography lives in Tailwind in LandingPage.tsx.
    ============================================ */
 
+/* ============================================
+   TICKER / MARQUEE
+   ============================================ */
+
+.landing__ticker {
+    height: 48px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: var(--color-primary);
+    position: relative;
+    cursor: pointer;
+}
+
+.landing__ticker::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-border);
+    transform: scale(0);
+    transform-origin: center;
+    z-index: 0;
+}
+
+.anim-complete .landing__ticker::before {
+    transition: transform var(--anim-duration) var(--anim-easing);
+}
+
+.landing__ticker:hover::before {
+    transform: scale(1);
+}
+
+.landing__ticker-track {
+    display: flex;
+    gap: 0.25em;
+    white-space: nowrap;
+    animation: ticker-scroll 24s linear infinite;
+    will-change: transform;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.landing__ticker-track span {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.landing__ticker-label,
+.landing__ticker-track .landing__ticker-sep {
+    color: var(--color-accent);
+    font-weight: 800;
+}
+
+.landing__ticker-text {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% / 6));
+    }
+}
+
 .landing {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 48px);
     padding: var(--page-padding) var(--page-padding) 0;
     position: relative;
 }
@@ -68,7 +136,7 @@
         border-bottom-color var(--anim-duration) var(--anim-easing);
 }
 
-/* Nav link — slide-up fill on hover, matching demo/other-nav cells */
+/* Nav link — grow-from-text fill on hover */
 .landing__nav-link {
     position: relative;
     overflow: hidden;
@@ -79,13 +147,29 @@
     position: absolute;
     inset: 0;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 1px));
-    transition: transform var(--anim-duration) var(--anim-easing);
+    transform: scale(0);
+    transform-origin: top left;
     z-index: 1;
 }
 
+/* Enable transition only after page animation completes (prevents flash on load) */
+.anim-complete .landing__nav-link::before {
+    transition: transform var(--anim-duration) var(--anim-easing);
+}
+
+/* Per-link transform origins matching text position */
+.landing__nav-link--tr::before {
+    transform-origin: top right;
+}
+.landing__nav-link--bl::before {
+    transform-origin: bottom left;
+}
+.landing__nav-link--br::before {
+    transform-origin: bottom right;
+}
+
 .landing__nav-link:hover::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .landing__nav-link > * {
@@ -239,7 +323,7 @@
 .landing:not(.step-1) .landing__identity-text {
     transform: translate(
         calc(50vw - var(--page-padding) - 50%),
-        calc(50vh - var(--page-padding) - 50% - 20px)
+        calc(50vh - 24px - var(--page-padding) - 50% - 20px)
     );
 }
 
@@ -416,6 +500,10 @@
 }
 
 @media (max-width: 767px) {
+    .landing__ticker-track span {
+        font-size: 10px;
+    }
+
     /* Show hamburger button */
     .landing__menu-btn {
         display: flex;
@@ -439,7 +527,6 @@
     .landing__typewriter {
         white-space: normal;
     }
-
 
     /* Skip centering animation — identity text stays top-left */
     .landing:not(.step-1) .landing__identity-text,
@@ -509,12 +596,23 @@
         text-decoration: none;
     }
 
-    .landing__mobile-menu__link:nth-child(1) { top:    0; left:  0; } /* Work    */
-    .landing__mobile-menu__link:nth-child(2) { top:    0; right: 0; } /* About   */
-    .landing__mobile-menu__link:nth-child(3) { bottom: 0; left:  0; } /* Blog    */
-    .landing__mobile-menu__link:nth-child(4) { bottom: 0; right: 0; } /* Contact */
+    .landing__mobile-menu__link:nth-child(1) {
+        top: 0;
+        left: 0;
+    } /* Work    */
+    .landing__mobile-menu__link:nth-child(2) {
+        top: 0;
+        right: 0;
+    } /* About   */
+    .landing__mobile-menu__link:nth-child(3) {
+        bottom: 0;
+        left: 0;
+    } /* Blog    */
+    .landing__mobile-menu__link:nth-child(4) {
+        bottom: 0;
+        right: 0;
+    } /* Contact */
 }
-
 
 @media (prefers-reduced-motion: reduce) {
     *,
