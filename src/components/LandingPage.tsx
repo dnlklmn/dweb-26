@@ -9,7 +9,7 @@ import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import glHeaderImage from "../assets/good-listener/header.jpeg";
 import glForegroundImage from "../assets/good-listener/app-frame.png";
-import radicleForegroundImage from "../assets/radicle-desktop/patch-preview.png";
+import radicleForegroundImage from "../assets/radicle-desktop/Patch-Preview.png";
 import autoForegroundImage from "../assets/auto/foreground.png";
 import components from "../assets/radicle-design-system/foreground.png";
 

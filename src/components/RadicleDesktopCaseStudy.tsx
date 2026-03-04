@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
-import patchPreview from "../assets/radicle-desktop/patch-preview.png";
-import patchReview from "../assets/radicle-desktop/patch-review.png";
+import patchPreview from "../assets/radicle-desktop/Patch-Preview.png";
+import patchReview from "../assets/radicle-desktop/Patch-Review.png";
 import wireframes from "../assets/radicle-desktop/wireframes.png";
 import wireframes2 from "../assets/radicle-desktop/wireframes-2.png";
 import empathyMap from "../assets/radicle-desktop/empathy-map.png";
