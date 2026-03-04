@@ -2,7 +2,7 @@ import React from "react";
 import DoDesignPost from "./DoDesignPost";
 import DesignSystemsVibePost from "./DesignSystemsVibePost";
 
-export interface BlogPostMeta {
+export interface NotesMeta {
   slug: string;
   title: string;
   date: string;
@@ -10,7 +10,7 @@ export interface BlogPostMeta {
   component: React.ComponentType;
 }
 
-export const blogPosts: BlogPostMeta[] = [
+export const notesPosts: NotesMeta[] = [
   {
     slug: "design-systems-make-vibe-coding-real",
     title: "A design system is documented decisions",
@@ -29,6 +29,6 @@ export const blogPosts: BlogPostMeta[] = [
   },
 ];
 
-export function getPost(slug: string): BlogPostMeta | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+export function getNote(slug: string): NotesMeta | undefined {
+  return notesPosts.find((p) => p.slug === slug);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import BlogPostLayout, { row, cell } from "../../components/BlogPostLayout";
+import NotesPostLayout, { row, cell } from "../../components/NotesPostLayout";
 
 const meta = {
   title: "Why I design again",
@@ -7,7 +7,7 @@ const meta = {
 };
 
 const DoDesignPost: React.FC = () => (
-  <BlogPostLayout meta={meta}>
+  <NotesPostLayout meta={meta}>
     {/* Spacer */}
     <div className={`${row} h-12`} />
 
@@ -174,7 +174,7 @@ const DoDesignPost: React.FC = () => (
         </p>
       </div>
     </div>
-  </BlogPostLayout>
+  </NotesPostLayout>
 );
 
 export default DoDesignPost;

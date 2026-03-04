@@ -259,11 +259,11 @@ const LandingPage: React.FC = () => {
               </Link>
               <Link
                 className="landing__mobile-menu__link"
-                to="/blog"
+                to="/notes"
                 onClick={() => setMenuOpen(false)}
                 style={{ color: "inherit" }}
               >
-                Blog
+                Notes
               </Link>
               <Link
                 className="landing__mobile-menu__link"
@@ -315,10 +315,10 @@ const LandingPage: React.FC = () => {
                 <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
                   <Link
                     className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
-                    to="/blog"
+                    to="/notes"
                     style={{ color: "inherit", fontSize: 14 }}
                   >
-                    <span>Blog</span>
+                    <span>Notes</span>
                   </Link>
                   <div className="h-2 flex flex-col justify-center">
                     <div className="w-px bg-(--color-border) post-anim-height " />

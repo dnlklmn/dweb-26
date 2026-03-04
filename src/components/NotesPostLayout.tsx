@@ -2,20 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./CaseStudyPage.css";
 
-export interface BlogPostMeta {
+export interface NotePostMeta {
   title: string;
   date: string;
 }
 
-interface BlogPostLayoutProps {
-  meta: BlogPostMeta;
+interface NotesPostLayoutProps {
+  meta: NotePostMeta;
   children: React.ReactNode;
 }
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
 
-const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
+const NotesPostLayout: React.FC<NotesPostLayoutProps> = ({ meta, children }) => {
   const [showStickyTitles, setShowStickyTitles] = useState(false);
   const [animComplete, setAnimComplete] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -45,13 +45,13 @@ const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
       {/* Sticky back row */}
       <div className="cs-back-row">
         <Link to="/" className="cs-back-row__cell cs-back-row__cell--link">
-          <span className="cs-back-row__label" data-text="Blog">
+          <span className="cs-back-row__label" data-text="Notes">
             <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
           </span>
         </Link>
 
-        <Link to="/blog" className="cs-back-row__cell cs-back-row__cell--link">
-          <span className="cs-back-row__aux-label">Blog</span>
+        <Link to="/notes" className="cs-back-row__cell cs-back-row__cell--link">
+          <span className="cs-back-row__aux-label">Notes</span>
         </Link>
         <div
           className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
@@ -92,7 +92,7 @@ const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
 
       {/* Footer links */}
       <div className={`${row} h-48`}>
-        <Link to="/blog" className={`${cell} w-1/4 about-link-cell`}>
+        <Link to="/notes" className={`${cell} w-1/4 about-link-cell`}>
           <span className="about-link-cell__label">← All posts</span>
         </Link>
         <Link
@@ -112,4 +112,4 @@ const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
 };
 
 export { row, cell };
-export default BlogPostLayout;
+export default NotesPostLayout;

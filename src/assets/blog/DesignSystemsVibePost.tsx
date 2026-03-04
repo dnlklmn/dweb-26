@@ -1,5 +1,5 @@
 import React from "react";
-import BlogPostLayout, { row, cell } from "../../components/BlogPostLayout";
+import NotesPostLayout, { row, cell } from "../../components/NotesPostLayout";
 
 const meta = {
   title: "A design system is documented decisions",
@@ -7,7 +7,7 @@ const meta = {
 };
 
 const DesignSystemsVibePost: React.FC = () => (
-  <BlogPostLayout meta={meta}>
+  <NotesPostLayout meta={meta}>
     {/* Spacer */}
     <div className={`${row} h-12`} />
 
@@ -145,7 +145,7 @@ const DesignSystemsVibePost: React.FC = () => (
       </div>
       <div className="w-1/4 p-2" />
     </div>
-  </BlogPostLayout>
+  </NotesPostLayout>
 );
 
 export default DesignSystemsVibePost;

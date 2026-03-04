@@ -1,11 +1,11 @@
-.blog-post-card__reveal {
+.notes-post-card__reveal {
   width: 25%;
   padding: 8px;
   position: relative;
   overflow: hidden;
 }
 
-.blog-post-card__reveal::before {
+.notes-post-card__reveal::before {
   content: "";
   position: absolute;
   inset: 8px;
@@ -17,7 +17,7 @@
   z-index: 1;
 }
 
-.blog-post-card__reveal::after {
+.notes-post-card__reveal::after {
   content: "Read →";
   position: absolute;
   inset: 8px;
@@ -33,15 +33,15 @@
   transition: opacity var(--anim-duration) var(--anim-easing);
 }
 
-.blog-post-card__reveal:hover::before {
+.notes-post-card__reveal:hover::before {
   background: #851bff;
 }
 
-a:hover .blog-post-card__reveal::before {
+a:hover .notes-post-card__reveal::before {
   transform: translateY(0);
 }
 
-a:hover .blog-post-card__reveal::after {
+a:hover .notes-post-card__reveal::after {
   opacity: 1;
   transition-delay: 0.15s;
 }

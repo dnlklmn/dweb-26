@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { blogPosts } from "../assets/blog/blogPosts";
+import { notesPosts } from "../assets/blog/blogPosts";
 import "./CaseStudyPage.css";
-import "./BlogPage.css";
+import "./NotesPage.css";
 import "./ContactPage.css";
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
 
-const BlogPage: React.FC = () => {
+const NotesPage: React.FC = () => {
   const [showStickyTitles, setShowStickyTitles] = useState(false);
   const [animComplete, setAnimComplete] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +41,8 @@ const BlogPage: React.FC = () => {
           onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
           <span className="cs-back-row__label" data-text="Daniel Kalman">
-            <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
+            <span className="name-full">Daniel Kalman</span>
+            <span className="name-short">Daniel</span>
           </span>
         </Link>
         <div
@@ -53,7 +54,7 @@ const BlogPage: React.FC = () => {
               className="cs-back-row__aux-action"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <span className="cs-back-row__aux-label">Blog</span>
+              <span className="cs-back-row__aux-label">Notes</span>
             </button>
           )}
         </div>
@@ -76,17 +77,17 @@ const BlogPage: React.FC = () => {
 
       {/* Section title */}
       <div className={`${row} px-2 pt-12 pb-2`}>
-        <h2 className="text-3xl font-bold">Posts</h2>
+        <h2 className="text-3xl font-bold">Notes</h2>
       </div>
 
       {/* Spacer */}
       <div className={`${row} h-12`} />
 
       {/* Post list */}
-      {blogPosts.map((post) => (
+      {notesPosts.map((post) => (
         <Link
           key={post.slug}
-          to={`/blog/${post.slug}`}
+          to={`/notes/${post.slug}`}
           className={`${row} group cursor-pointer no-underline`}
           style={{ color: "inherit" }}
         >
@@ -101,7 +102,7 @@ const BlogPage: React.FC = () => {
               {post.description}
             </p>
           </div>
-          <div className="blog-post-card__reveal" />
+          <div className="notes-post-card__reveal" />
         </Link>
       ))}
 
@@ -153,4 +154,4 @@ const BlogPage: React.FC = () => {
   );
 };
 
-export default BlogPage;
+export default NotesPage;

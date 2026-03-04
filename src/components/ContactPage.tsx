@@ -264,10 +264,10 @@ const ContactPage: React.FC = () => {
           <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
             <Link
               className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
-              to="/blog"
+              to="/notes"
               style={{ color: "inherit", textDecoration: "none" }}
             >
-              <span>Blog</span>
+              <span>Notes</span>
             </Link>
             <div className="h-full flex flex-col justify-center">
               <div className="w-px h-2 bg-(--color-border)" />
