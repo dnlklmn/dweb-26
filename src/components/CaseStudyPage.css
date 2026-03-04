@@ -448,6 +448,24 @@ a:active {
     line-height: 1.21;
 }
 
+@media (max-width: 767px) {
+    .cs-back-row__label,
+    .cs-back-row__aux-label,
+    .cs-header__subtitle,
+    .cs-header__tags-text,
+    .cs-header__year,
+    .cs-header__link,
+    .cs-collab-intro__link,
+    .cs-other-nav__label,
+    .about-link-cell__label {
+        font-size: 12px;
+    }
+
+    .cs-header__title {
+        font-size: 16px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

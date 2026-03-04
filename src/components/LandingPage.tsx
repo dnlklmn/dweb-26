@@ -160,7 +160,7 @@ const LandingPage: React.FC = () => {
           <div className="landing__left-col flex items-start p-2">
             <div className="landing__identity-text flex md:flex-col gap-2">
               <span className="text-sm font-bold leading-[1.21] whitespace-nowrap text-(--color-accent)">
-                Daniel Kalman
+                <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
               </span>
               <span className="text-sm font-normal leading-[1.21] whitespace-nowrap">
                 Design Engineer

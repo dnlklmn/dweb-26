@@ -88,14 +88,14 @@ const RadicleDesktopCaseStudy: React.FC = () => (
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 The Radicle desktop app is a long-term project spanning multiple
                 features: patches, code review, notifications, and more. The
                 goal is to make peer-to-peer code collaboration feel as familiar
                 as centralized tools, without hiding what makes Radicle
                 different.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 The core challenge is that Radicle's underlying model
                 (peer-to-peer, local-first, traceable) doesn't map neatly onto
                 the mental models users bring from GitHub. Every design decision
@@ -106,7 +106,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed w-3/4">
                 For each feature I followed the same loop: understand the user
                 need and the relevant protocol behaviour, formulate a
                 hypothesis, then sketch wireframes, try out simple prototypes,
@@ -131,18 +131,18 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         {/* Content row: text | wide img | img */}
         <div className={`${row} h-96`}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed w-3/4">
               I started by learning about the Radicle protocol, different code
               review workflows, and what a desktop app needs to surface in a
               peer-to-peer setup.
             </p>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed w-3/4">
               I explored several structural options, weighing ease of navigation
               against staying true to how Radicle actually works, avoiding
               abstractions that would confuse users moving between the app and
               the CLI.
             </p>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed w-3/4">
               Alongside this, I talked to users and noted patterns in how they
               think about their current tools, and about switching to Radicle.
             </p>

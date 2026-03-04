@@ -35,6 +35,10 @@
     --post-anim-delay: 1s;
 }
 
+.name-short {
+    display: none;
+}
+
 @media (max-width: 767px) {
     html {
         font-size: 14px;
@@ -46,6 +50,14 @@
         --post-anim-duration: 0s;
         --post-anim-delay: 0s;
         --anim-duration: 0s;
+    }
+
+    .name-full {
+        display: none;
+    }
+
+    .name-short {
+        display: inline;
     }
 }
 

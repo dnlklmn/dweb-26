@@ -46,7 +46,7 @@ const BlogPostLayout: React.FC<BlogPostLayoutProps> = ({ meta, children }) => {
       <div className="cs-back-row">
         <Link to="/" className="cs-back-row__cell cs-back-row__cell--link">
           <span className="cs-back-row__label" data-text="Blog">
-            Daniel Kalman
+            <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
           </span>
         </Link>
 

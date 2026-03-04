@@ -86,7 +86,7 @@ const ContactPage: React.FC = () => {
           onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
           <span className="cs-back-row__label" data-text="Daniel Kalman">
-            Daniel Kalman
+            <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
           </span>
         </Link>
         <div
