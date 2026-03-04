@@ -1,0 +1,77 @@
+.ask-message {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ask-message--user {
+    opacity: 0.5;
+    text-align: right;
+}
+
+.ask-message p {
+    margin-bottom: 0.5em;
+}
+
+.ask-message p:last-child {
+    margin-bottom: 0;
+}
+
+.ask-message a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    opacity: 0.8;
+}
+
+.ask-message ul,
+.ask-message ol {
+    padding-left: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.ask-message li {
+    margin-bottom: 0.25em;
+}
+
+.ask-loading {
+    font-size: 18px;
+    letter-spacing: 4px;
+    animation: ask-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ask-pulse {
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.ask-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-text);
+    font: inherit;
+    font-size: 14px;
+}
+
+.ask-input::placeholder {
+    color: var(--color-text);
+    opacity: 0.4;
+}
+
+.ask-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+    .ask-message,
+    .ask-input {
+        font-size: 12px;
+    }
+}

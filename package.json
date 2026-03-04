@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@emailjs/browser": "^4.4.1",
     "@types/marked": "^5.0.2",
     "marked": "^17.0.3",
