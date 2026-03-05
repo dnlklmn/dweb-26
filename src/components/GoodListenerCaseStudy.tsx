@@ -40,9 +40,6 @@ const GoodListenerCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
     {(img, openLightbox, openLightboxNode) => (
       <>
-        <div className="px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
         {/* Spacer — border-t closes the header */}
         <div className={`${row} border-t h-12`} />
 
@@ -56,9 +53,6 @@ const GoodListenerCaseStudy: React.FC = () => (
               A quiet, private companion that frees up therapists' time so they
               can focus on what really matters, their patients.
             </p>
-          </div>
-          <div className="self-stretch py-2">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
@@ -98,9 +92,6 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Challenge + Process — 2col empty | 2col text */}
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
-          <div className="self-stretch pt-2 pb-12">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
-          </div>
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
@@ -146,9 +137,6 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">Research</h2>
         </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
 
         {/* Spacer */}
         <div className={`${row} h-12`} />
@@ -185,9 +173,6 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
-          <div className="self-stretch pt-2 pb-12">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
-          </div>
           <div className="w-1/4 flex flex-col gap-4 p-2 pb-12">
             <h3 className="text-sm font-bold">Key Insight</h3>
             <p className="text-sm leading-relaxed">
@@ -231,9 +216,6 @@ const GoodListenerCaseStudy: React.FC = () => (
           <h2 className="text-3xl font-bold whitespace-nowrap">
             Early Experiments
           </h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -295,9 +277,6 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Experiments — text | 3 placeholders */}
         <div className={`${row} h-96`}>
           <div className="w-1/4 flex flex-1 p-2 items-center justify-center"></div>
-          <div className="self-stretch py-2">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
-          </div>
           <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
             <p className="text-sm leading-relaxed">
               A CLI tool was the quickest way to experiment. I started with
@@ -324,9 +303,6 @@ const GoodListenerCaseStudy: React.FC = () => (
             MVP Requirements
           </h2>
         </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
 
         {/* Spacer */}
         <div className={`${row} h-12`} />
@@ -352,9 +328,6 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">The App</h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -426,9 +399,6 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">Evaluation</h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -508,9 +478,6 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">Other work</h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         <div className="cs-other-section">

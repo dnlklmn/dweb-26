@@ -27,23 +27,7 @@
     --page-padding: 48px;
     --border: 1px solid var(--color-border);
 
-    /* Post-animation control center
-       ─────────────────────────────────────────────────────────────
-       --border-fade-duration   how long borders take to fade out
-       --post-anim-duration     how long post-anim elements fade in
-       --post-anim-delay        delay before post-anim elements appear
-       ─────────────────────────────────────────────────────────────
-       Usage:
-         • Add  transition: border-color var(--border-fade-duration) ...
-           to any border you want to fade out on .anim-complete.
-         • Add  .anim-complete [border rule] { border-color: transparent; }
-           to fade it out.
-         • Wrap hidden-until-complete content in .post-anim — it will
-           fade in automatically once .anim-complete is set.
-       ───────────────────────────────────────────────────────────── */
-    --border-fade-duration: 1.5s;
-    --post-anim-duration: 0.5s;
-    --post-anim-delay: 1s;
+    --border-fade-duration: 9999s;
 }
 
 .name-short {
@@ -58,8 +42,6 @@
     :root {
         --page-padding: 16px;
         --border-fade-duration: 0s;
-        --post-anim-duration: 0s;
-        --post-anim-delay: 0s;
         --anim-duration: 0s;
     }
 
@@ -70,93 +52,6 @@
     .name-short {
         display: inline;
     }
-}
-
-/* ── Border visibility toggle ──────────────────────────────────── */
-/* "borders-visible" on <body> keeps all animated borders visible.
-   Toggled by the BorderToggle component; persisted in localStorage. */
-body.borders-visible {
-    --border-fade-duration: 9999s;
-}
-
-/* Restore all faded borders when borders-visible is active.
-   Must use all four longhands to override individual border-*-color rules. */
-body.borders-visible .anim-complete .landing__main,
-body.borders-visible .anim-complete .landing__nav,
-body.borders-visible .anim-complete .landing__bottom-row,
-body.borders-visible .anim-complete .landing__bottom-left,
-body.borders-visible .anim-complete .landing__footer-inner,
-body.borders-visible .anim-complete .landing.step-2 .landing__left-col,
-body.borders-visible .anim-complete .landing.step-3 .landing__upper-row,
-body.borders-visible .anim-complete .case-studies,
-body.borders-visible .anim-complete .case-study__separator,
-body.borders-visible .anim-complete .case-study,
-body.borders-visible .anim-complete .case-study__image,
-body.borders-visible .anim-complete .case-study__info-top,
-body.borders-visible .anim-complete .case-study__tags,
-body.borders-visible .cs-page.anim-complete .cs-back-row__cell,
-body.borders-visible .cs-page.anim-complete .cs-header__cell,
-body.borders-visible .cs-page.anim-complete .cs-other-nav__cell,
-body.borders-visible .cs-page.anim-complete .cs-other-card,
-body.borders-visible .cs-page.anim-complete .cs-other-cards__spacer,
-body.borders-visible .cs-page.anim-complete [class*="border-l"],
-body.borders-visible .cs-page.anim-complete [class*="border-r"],
-body.borders-visible .cs-page.anim-complete [class*="border-b"],
-body.borders-visible .cs-page.anim-complete [class*="border-t"] {
-    border-top-color: var(--color-border) !important;
-    border-right-color: var(--color-border) !important;
-    border-bottom-color: var(--color-border) !important;
-    border-left-color: var(--color-border) !important;
-    transition: none !important;
-}
-
-/* When borders-visible, collapse post-anim elements back to hidden */
-body.borders-visible .anim-complete .post-anim {
-    opacity: 0 !important;
-    transition: none !important;
-}
-
-body.borders-visible .anim-complete .post-anim-width {
-    width: 0 !important;
-    transition: none !important;
-}
-
-body.borders-visible .anim-complete .post-anim-height {
-    height: 0 !important;
-    transition: none !important;
-}
-
-/* ── Post-animation utilities ──────────────────────────────────── */
-
-/* Elements hidden before animation completes */
-.post-anim {
-    opacity: 0;
-    transition: opacity var(--post-anim-duration) var(--anim-easing)
-        var(--post-anim-delay);
-}
-
-.post-anim-width {
-    width: 0;
-    transition: width var(--post-anim-duration) var(--anim-easing)
-        var(--post-anim-delay);
-}
-
-.post-anim-height {
-    height: 0;
-    transition: height var(--post-anim-duration) var(--anim-easing)
-        var(--post-anim-delay);
-}
-
-.anim-complete .post-anim {
-    opacity: 1;
-}
-
-.anim-complete .post-anim-width {
-    width: 100%;
-}
-
-.anim-complete .post-anim-height {
-    height: 100%;
 }
 
 @layer base {

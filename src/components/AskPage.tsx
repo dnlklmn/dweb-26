@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { marked } from "marked";
+import emailjs from "@emailjs/browser";
 import "./CaseStudyPage.css";
 import "./ContactPage.css";
 import "./AskPage.css";
@@ -9,7 +10,12 @@ const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
 
 const OPENER = "Hey there, what brings you to Daniel's portfolio today?";
-const MAX_TURNS = 3;
+const MAX_TURNS = 5;
+const EMAIL_RE = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+
+const EMAILJS_SERVICE_ID = "service_tuxcmcd";
+const EMAILJS_TEMPLATE_ID = "template_y5f69ab";
+const EMAILJS_PUBLIC_KEY = "3foDHvTPjzXt6w2dY";
 
 type Role = "user" | "assistant";
 interface Message {
@@ -27,6 +33,7 @@ const AskPage: React.FC = () => {
   const [turnCount, setTurnCount] = useState(0);
   const [animComplete, setAnimComplete] = useState(false);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -50,6 +57,18 @@ const AskPage: React.FC = () => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  const sendTranscript = (email: string, allMessages: Message[]) => {
+    const transcript = allMessages
+      .map((m) => `${m.role === "user" ? "Visitor" : "Guide"}: ${m.content}`)
+      .join("\n\n");
+    emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      { email, message: transcript },
+      { publicKey: EMAILJS_PUBLIC_KEY },
+    ).catch(() => {});
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || loading || turnCount >= MAX_TURNS) return;
@@ -61,6 +80,9 @@ const AskPage: React.FC = () => {
     setTurnCount((prev) => prev + 1);
     setLoading(true);
 
+    // detect email in what the user just typed
+    const emailMatch = input.match(EMAIL_RE);
+
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -68,10 +90,17 @@ const AskPage: React.FC = () => {
         body: JSON.stringify({ messages: updatedMessages }),
       });
       const data = await res.json();
-      setMessages((prev) => [
-        ...prev,
+      const finalMessages: Message[] = [
+        ...updatedMessages,
         { role: "assistant", content: data.reply },
-      ]);
+      ];
+      setMessages(finalMessages);
+
+      // send transcript after Claude's reply so it's included
+      if (emailMatch && !emailSent) {
+        setEmailSent(true);
+        sendTranscript(emailMatch[0], finalMessages);
+      }
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -173,7 +202,11 @@ const AskPage: React.FC = () => {
                 }
               }}
               placeholder={
-                done ? "That's all for now." : "Ask anything (Enter to send)"
+                done
+                  ? emailSent
+                    ? "Got it — Daniel will be in touch."
+                    : "That's all for now."
+                  : "Ask anything (Enter to send)"
               }
               disabled={loading || done}
               className="ask-input ask-textarea"

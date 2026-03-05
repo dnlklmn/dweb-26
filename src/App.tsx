@@ -8,8 +8,6 @@ import NotesPage from "./components/NotesPage";
 import NotesPostPage from "./components/NotesPostPage";
 import ContactPage from "./components/ContactPage";
 import AskPage from "./components/AskPage";
-import BorderToggle from "./components/BorderToggle";
-
 function App() {
   return (
     <TransitionProvider>
@@ -22,7 +20,6 @@ function App() {
           <Route path="/notes/:slug" element={<NotesPostPage />} />
           <Route path="/:slug" element={<CaseStudyPage />} />
         </Routes>
-        <BorderToggle />
       </BrowserRouter>
     </TransitionProvider>
   );

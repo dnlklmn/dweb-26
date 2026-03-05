@@ -92,7 +92,7 @@ function renderWithAccent(
   return (
     <>
       {displayed.slice(0, accentStart)}
-      <span style={{ color: "var(--color-accent)", fontFamily: "DxBurst, sans-serif", lineHeight: 1.21, position: "relative", top: "-4px" }}>{accentTyped}</span>
+      <span style={{ color: "var(--color-accent)", fontFamily: "Geist, sans-serif" }}>{accentTyped}</span>
       {displayed.slice(accentStart + accentTyped.length)}
     </>
   );
@@ -276,9 +276,6 @@ const LandingPage: React.FC = () => {
                 )}
               </svg>
             </button>
-            <div className="landing__identity-line h-4 w-full flex flex-col justify-center">
-              <div className="h-px bg-(--color-border) post-anim-width" />
-            </div>
           </div>
 
           {/* Mobile nav — renders below header bar, hidden on desktop */}
@@ -340,9 +337,6 @@ const LandingPage: React.FC = () => {
                   >
                     <span>Work</span>
                   </Link>
-                  <div className="h-2 flex flex-col justify-center">
-                    <div className="w-px bg-(--color-border) post-anim-height " />
-                  </div>
                   <Link
                     className="landing__nav-link landing__nav-link--tr w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
                     to="/about"
@@ -350,9 +344,6 @@ const LandingPage: React.FC = () => {
                   >
                     <span>About</span>
                   </Link>
-                </div>
-                <div className="w-8 flex flex-col justify-center flex-1 ">
-                  <div className="h-px bg-(--color-border) post-anim-width" />
                 </div>
                 {/* Bottom nav row — translateY animated by step classes */}
                 <div className="landing__nav-row--bottom flex justify-between whitespace-nowrap w-full h-full gap-1">
@@ -363,9 +354,6 @@ const LandingPage: React.FC = () => {
                   >
                     <span>Notes</span>
                   </Link>
-                  <div className="h-2 flex flex-col justify-center">
-                    <div className="w-px bg-(--color-border) post-anim-height " />
-                  </div>
                   <Link
                     className="landing__nav-link landing__nav-link--br w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
                     to="/ask"
@@ -412,7 +400,6 @@ const LandingPage: React.FC = () => {
               {/* Bottom-left spacer — flex animated by step classes */}
               <div className="landing__bottom-left" />
 
-              <div className="landing__bottom-divider w-px mb-2 self-stretch bg-(--color-border) post-anim" />
               <div className="flex flex-col justify-end p-2  flex-1 min-w-0">
                 {/* Bio text — opacity animated by step classes */}
                 <p className="text-sm font-normal leading-[1.5] max-w-[254px]">

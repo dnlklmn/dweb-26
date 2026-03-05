@@ -31,7 +31,6 @@ img {
     border-left: var(--border);
     width: 25%;
     min-width: 0;
-    transition: border-color var(--border-fade-duration) var(--anim-easing);
 }
 
 .cs-back-row__cell--link {
@@ -152,7 +151,6 @@ img {
     width: 25%;
     align-self: stretch;
     border-left: var(--border);
-    transition: border-color var(--border-fade-duration) var(--anim-easing);
 }
 
 .cs-header__cell:last-child {
@@ -279,7 +277,6 @@ img {
     color: var(--color-text);
     position: relative;
     overflow: hidden;
-    transition: border-color var(--border-fade-duration) var(--anim-easing);
 }
 
 .cs-other-nav__cell:last-child,
@@ -357,29 +354,6 @@ img {
     width: 25%;
     min-height: 440px;
     border-right: var(--border);
-    transition: border-color var(--border-fade-duration) var(--anim-easing);
-}
-
-/* ============================================
-   BORDER FADE — triggered by .anim-complete on .cs-page
-   ============================================ */
-
-/* CSS-managed borders */
-.cs-page.anim-complete .cs-back-row__cell,
-.cs-page.anim-complete .cs-header__cell,
-.cs-page.anim-complete .cs-other-nav__cell,
-.cs-page.anim-complete .cs-other-card,
-.cs-page.anim-complete .cs-other-cards__spacer {
-    border-color: transparent;
-}
-
-/* Tailwind-managed borders (border-l, border-r, border-b on rows/cells) */
-.cs-page.anim-complete [class*="border-l"],
-.cs-page.anim-complete [class*="border-r"],
-.cs-page.anim-complete [class*="border-b"],
-.cs-page.anim-complete [class*="border-t"] {
-    border-color: transparent;
-    transition: border-color var(--border-fade-duration) var(--anim-easing);
 }
 
 /* Cross-element hover: highlight nav cell when card is hovered */

@@ -103,8 +103,8 @@ CONVERSATION RULES:
 - Use markdown links: [Good Listener](/good-listener)
 - Keep every response to 2-4 sentences max. Be warm but direct.
 - You can answer specific questions about his case studies, process, and philosophy using the content above.
-- If asked something you don't know about Daniel, say you're not sure and suggest they reach out at [/ask](/ask).
-- Never make up information about Daniel.`;
+- Never make up information about Daniel.
+- Near the end of the conversation (your last or second-to-last message), naturally offer to connect the visitor with Daniel directly. Ask for their email address in the chat — something like: "If you'd like to get in touch, just reply with your email and I'll send Daniel a summary of our conversation."`;
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {

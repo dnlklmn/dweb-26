@@ -35,9 +35,6 @@ const AutoCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
     {(img) => (
       <>
-        <div className="px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
         <div className={`${row} border-t h-12`} />
         {/* Intro — 1col | 2col | 1col */}
         <div className={row}>
@@ -53,9 +50,6 @@ const AutoCaseStudy: React.FC = () => (
               to kick off workflows, or aggregate off-chain data to construct
               on-chain transactions.
             </p>
-          </div>
-          <div className="self-stretch py-2">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
           </div>
           <div className="w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
@@ -95,9 +89,6 @@ const AutoCaseStudy: React.FC = () => (
         {/* Challenge + Process text — 2col empty | 2col text */}
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`}></div>
-          <div className="self-stretch pt-2 pb-12">
-            <div className="w-px h-full bg-(--color-border) post-anim" />
-          </div>
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
@@ -144,9 +135,6 @@ const AutoCaseStudy: React.FC = () => (
           <h2 className="text-3xl font-bold whitespace-nowrap">
             Early Experiments
           </h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         {/* Spacer */}
@@ -219,9 +207,6 @@ const AutoCaseStudy: React.FC = () => (
             MVP Requirements
           </h2>
         </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
 
         <div className={`${row} h-12`} />
 
@@ -250,9 +235,6 @@ const AutoCaseStudy: React.FC = () => (
           <h2 className="text-3xl font-bold whitespace-nowrap">
             Real-time Collaboration
           </h2>
-        </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
         </div>
 
         <div className={`${row} h-12`} />
@@ -300,9 +282,6 @@ const AutoCaseStudy: React.FC = () => (
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">Other work</h2>
         </div>
-        <div className="w-full px-2">
-          <div className="h-px bg-(--color-border) post-anim-width" />
-        </div>
 
         <div className="cs-other-section">
           {/* Prev / Next nav row */}
@@ -343,9 +322,6 @@ const AutoCaseStudy: React.FC = () => (
                   <span className="text-sm font-bold whitespace-nowrap">
                     Design System, UI, Front End
                   </span>
-                  <div className="flex flex-col justify-center h-full w-full px-2">
-                    <div className="h-px bg-(--color-border) post-anim-width" />
-                  </div>
                   <span className="text-sm">2024</span>
                 </div>
               </div>
@@ -371,9 +347,6 @@ const AutoCaseStudy: React.FC = () => (
                   <span className="text-sm font-bold whitespace-nowrap">
                     UX, UI, Front End
                   </span>
-                  <div className="flex flex-col justify-center h-full w-full px-2">
-                    <div className="h-px bg-(--color-border) post-anim-width" />
-                  </div>
                   <span className="text-sm">2024</span>
                 </div>
               </div>
