@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @source "./**/*.{js,jsx,ts,tsx}";
 
+@theme {
+    --text-sm: 1rem; /* 16px on desktop, 14px on mobile */
+}
+
 :root {
     /* Animation tuning — single source of truth */
     --anim-duration: 0.4s;

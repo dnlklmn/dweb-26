@@ -91,7 +91,7 @@
 }
 
 .cs-transition__subtitle {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: normal;
     color: var(--color-text);
@@ -122,14 +122,14 @@
 }
 
 .cs-transition__tags-text {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 700;
     line-height: normal;
     color: var(--color-text);
 }
 
 .cs-transition__year {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: normal;
     color: #5e5e5e;

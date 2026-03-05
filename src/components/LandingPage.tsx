@@ -336,7 +336,7 @@ const LandingPage: React.FC = () => {
                   <Link
                     className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21]"
                     to="/#selected-work"
-                    style={{ color: "inherit", fontSize: 14 }}
+                    style={{ color: "inherit" }}
                   >
                     <span>Work</span>
                   </Link>
@@ -346,7 +346,7 @@ const LandingPage: React.FC = () => {
                   <Link
                     className="landing__nav-link landing__nav-link--tr w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
                     to="/about"
-                    style={{ color: "inherit", fontSize: 14 }}
+                    style={{ color: "inherit" }}
                   >
                     <span>About</span>
                   </Link>
@@ -359,7 +359,7 @@ const LandingPage: React.FC = () => {
                   <Link
                     className="landing__nav-link landing__nav-link--bl w-full h-full text-sm font-medium leading-[1.21] flex items-end"
                     to="/notes"
-                    style={{ color: "inherit", fontSize: 14 }}
+                    style={{ color: "inherit" }}
                   >
                     <span>Notes</span>
                   </Link>
@@ -369,7 +369,7 @@ const LandingPage: React.FC = () => {
                   <Link
                     className="landing__nav-link landing__nav-link--br w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
                     to="/ask"
-                    style={{ color: "inherit", fontSize: 14 }}
+                    style={{ color: "inherit" }}
                   >
                     <span>Ask</span>
                   </Link>

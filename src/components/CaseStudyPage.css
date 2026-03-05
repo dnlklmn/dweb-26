@@ -88,7 +88,7 @@ img {
 }
 
 .cs-back-row__label {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-accent);
     position: relative;
@@ -111,7 +111,7 @@ img {
 }
 
 .cs-back-row__aux-label {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text);
     position: relative;
@@ -200,22 +200,22 @@ img {
 }
 
 .cs-header__subtitle {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .cs-header__tags-text {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 .cs-header__year {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .cs-header__link {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
@@ -252,7 +252,7 @@ img {
 }
 
 .cs-collab-intro__link {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--color-text);
     white-space: nowrap;
@@ -299,7 +299,7 @@ img {
 }
 
 .cs-other-nav__label {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 500;
     position: relative;
     z-index: 2;
@@ -443,7 +443,7 @@ a:active {
 .about-link-cell__label {
     position: relative;
     z-index: 2;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.21;
 }
