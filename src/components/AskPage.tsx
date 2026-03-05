@@ -106,19 +106,8 @@ const AskPage: React.FC = () => {
         </Link>
         <div
           className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
-        >
-          {showStickyTitles && (
-            <button
-              type="button"
-              className="cs-back-row__aux-action"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <span className="cs-back-row__aux-label">Ask</span>
-            </button>
-          )}
-        </div>
-        <div className="cs-back-row__cell cs-back-row__cell--aux" />
-        <div className="cs-back-row__cell cs-back-row__cell--aux" />
+          style={{ width: "75%" }}
+        ></div>
       </div>
 
       {/* Header */}
@@ -141,11 +130,15 @@ const AskPage: React.FC = () => {
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`p-2 ask-message${msg.role === "user" ? " ask-message--user" : ""}`}
-              dangerouslySetInnerHTML={{
-                __html: marked.parse(msg.content) as string,
-              }}
-            />
+              className={`p-2${msg.role === "user" ? " ask-message-row--user" : ""}`}
+            >
+              <div
+                className={`ask-message${msg.role === "user" ? " ask-message--user" : ""}`}
+                dangerouslySetInnerHTML={{
+                  __html: marked.parse(msg.content) as string,
+                }}
+              />
+            </div>
           ))}
           {loading && (
             <div className="p-2">
@@ -190,7 +183,7 @@ const AskPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading || done || !input.trim()}
-            className="w-1/4 about-link-cell"
+            className="w-1/4 ask-send-btn"
           >
             <span className="about-link-cell__label">
               {loading ? "…" : done ? "Done" : "Send →"}

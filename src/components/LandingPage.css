@@ -219,12 +219,13 @@
     text-transform: uppercase;
     max-width: 1024px;
     opacity: 0;
+    margin-left: 8px;
     transition: opacity var(--anim-duration) var(--anim-easing);
 }
 
 /* Typewriter suffix — inline, color handled per-word in JSX */
 .landing__typewriter {
-    white-space: nowrap;
+    white-space: normal;
 }
 
 /* Blinking cursor */
@@ -514,19 +515,10 @@
         display: none !important;
     }
 
-    /* Smaller headline on mobile, natural height, no forced line break */
     .landing__headline {
         font-size: 22px;
     }
 
-    .landing__headline br {
-        display: none;
-    }
-
-    /* Allow typewriter text to wrap naturally */
-    .landing__typewriter {
-        white-space: normal;
-    }
 
     /* Skip centering animation — identity text stays top-left */
     .landing:not(.step-1) .landing__identity-text,

@@ -380,8 +380,7 @@ const LandingPage: React.FC = () => {
             {/* Middle row — flex animated by step classes */}
             <div className="landing__middle-row">
               <h1 className="landing__headline">
-                building Products that
-                <br />{" "}
+                building Products that{" "}
                 <span className="landing__typewriter">
                   {renderWithAccent(typewriterText, accentWord, currentPhrase)}
                   {isComplete && (

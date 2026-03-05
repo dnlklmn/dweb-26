@@ -7,21 +7,16 @@
     content: "";
     position: absolute;
     inset: 8px;
-    background: var(--color-border);
-    transform: translateY(0);
-    transition:
-        transform var(--anim-duration) var(--anim-easing),
-        background var(--anim-duration) var(--anim-easing);
+    background: var(--color-primary);
+    transform: scale(1);
+    transform-origin: top left;
+    transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 0;
     pointer-events: none;
 }
 
-.ask-input-cell:hover::before {
-    background: var(--color-primary);
-}
-
 .ask-input-cell.is-focused::before {
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
 }
 
 .ask-input-cell textarea {
@@ -32,11 +27,20 @@
 .ask-message {
     font-size: 14px;
     line-height: 1.6;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75em 1em;
+    width: fit-content;
+    max-width: 85%;
+}
+
+.ask-message-row--user {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .ask-message--user {
-    opacity: 0.5;
-    text-align: right;
+    background: var(--color-accent);
 }
 
 .ask-message p {
@@ -48,7 +52,7 @@
 }
 
 .ask-message a {
-    color: var(--color-text);
+    color: white;
     text-decoration: underline;
     text-underline-offset: 2px;
     opacity: 0.8;
@@ -101,6 +105,44 @@
 }
 
 .ask-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.ask-send-btn {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+}
+
+.ask-send-btn::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: var(--color-primary);
+    transform: scale(0);
+    transform-origin: top left;
+    transition: transform var(--anim-duration) var(--anim-easing);
+    z-index: 1;
+}
+
+.ask-send-btn:hover:not(:disabled)::before {
+    transform: scale(1);
+}
+
+.ask-send-btn > * {
+    position: relative;
+    z-index: 2;
+}
+
+.ask-send-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
