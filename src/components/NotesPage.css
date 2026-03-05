@@ -10,7 +10,8 @@
   position: absolute;
   inset: 8px;
   background: var(--color-border);
-  transform: translateY(calc(100% + 16px));
+  transform: scale(0);
+  transform-origin: center;
   transition:
     transform var(--anim-duration) var(--anim-easing),
     background var(--anim-duration) var(--anim-easing);
@@ -38,7 +39,7 @@
 }
 
 a:hover .notes-post-card__reveal::before {
-  transform: translateY(0);
+  transform: scale(1);
 }
 
 a:hover .notes-post-card__reveal::after {

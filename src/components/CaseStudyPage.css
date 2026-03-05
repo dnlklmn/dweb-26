@@ -62,14 +62,15 @@ img {
     position: absolute;
     inset: 8px;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: left;
     transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 1;
 }
 
 .cs-back-row__cell--link:hover::before,
 .cs-back-row__aux-action:hover + .cs-back-row__cell--aux::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .cs-back-row__cell--aux::before {
@@ -77,14 +78,15 @@ img {
     position: absolute;
     inset: 8px;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: left;
     transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 1;
     pointer-events: none;
 }
 
 .cs-back-row__cell--aux-active:hover::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .cs-back-row__label {
@@ -183,13 +185,14 @@ img {
     position: absolute;
     inset: 8px;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: bottom right;
     transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 1;
 }
 
 .cs-header__cell--demo:hover::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .cs-header__title {
@@ -242,13 +245,14 @@ img {
     position: absolute;
     inset: 8px;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: top left;
     transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 1;
 }
 
 .cs-collab-intro__cta:hover::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .cs-collab-intro__link {
@@ -289,13 +293,18 @@ img {
     position: absolute;
     inset: 8px;
     background: var(--color-primary);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: bottom left;
     transition: transform var(--anim-duration) var(--anim-easing);
     z-index: 1;
 }
 
+.cs-other-nav__cell--next::before {
+    transform-origin: bottom right;
+}
+
 .cs-other-nav__cell:hover::before {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .cs-other-nav__label {
@@ -428,7 +437,8 @@ a:active {
     position: absolute;
     inset: 8px;
     background: var(--color-border);
-    transform: translateY(calc(100% + 16px));
+    transform: scale(0);
+    transform-origin: top left;
     transition:
         transform var(--anim-duration) var(--anim-easing),
         background var(--anim-duration) var(--anim-easing);
@@ -437,7 +447,7 @@ a:active {
 
 .about-link-cell:hover::before {
     background: #851bff;
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .about-link-cell__label {

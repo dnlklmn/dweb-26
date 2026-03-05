@@ -29,7 +29,7 @@
 }
 
 .about-link-cell.about-link-cell--disabled:hover::before {
-  transform: translateY(calc(100% + 16px));
+  transform: scale(0);
   background: var(--color-border);
 }
 
@@ -43,13 +43,14 @@
   position: absolute;
   inset: 0;
   background: var(--color-primary);
-  transform: translateY(calc(100% + 1px));
+  transform: scale(0);
+  transform-origin: top left;
   transition: transform var(--anim-duration) var(--anim-easing);
   z-index: 1;
 }
 
 .contact-nav-link:hover::before {
-  transform: translateY(0);
+  transform: scale(1);
 }
 
 .contact-nav-link > * {

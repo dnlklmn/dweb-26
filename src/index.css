@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @source "./**/*.{js,jsx,ts,tsx}";
 
+@font-face {
+    font-family: "Geist";
+    src: url("/node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
 @theme {
     --text-sm: 1rem; /* 16px on desktop, 14px on mobile */
 }
@@ -170,6 +177,7 @@ body.borders-visible .anim-complete .post-anim-height {
 
     body {
         font-family:
+            "Geist",
             "Inter",
             -apple-system,
             BlinkMacSystemFont,

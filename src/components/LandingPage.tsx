@@ -92,7 +92,7 @@ function renderWithAccent(
   return (
     <>
       {displayed.slice(0, accentStart)}
-      <span style={{ color: "var(--color-accent)" }}>{accentTyped}</span>
+      <span style={{ color: "var(--color-accent)", fontFamily: "DxBurst, sans-serif", lineHeight: 1.21, position: "relative", top: "-4px" }}>{accentTyped}</span>
       {displayed.slice(accentStart + accentTyped.length)}
     </>
   );

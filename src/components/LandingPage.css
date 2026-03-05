@@ -1,3 +1,61 @@
+@font-face {
+    font-family: "DxBurst";
+    src: url("../assets/fonts/DxBurst-Smooth.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Giamlass";
+    src: url("../assets/fonts/giamlass-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Magtis";
+    src: url("../assets/fonts/Magtis-ExtraBold-free personal use.otf")
+        format("opentype");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Elanor";
+    src: url("../assets/fonts/ElanorFreePersonalUse-ExtLt.otf")
+        format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Elanor";
+    src: url("../assets/fonts/ElanorFreePersonalUse-ExBdIt.otf")
+        format("opentype");
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Harmond";
+    src: url("../assets/fonts/Harmond-ExtraBoldExpanded.otf") format("opentype");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Harmond";
+    src: url("../assets/fonts/Harmond-ExtBdItaExp.otf") format("opentype");
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Harmond";
+    src: url("../assets/fonts/Harmond-SemiBoldCondensed.otf") format("opentype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Harmond";
+    src: url("../assets/fonts/Harmond-SemBdItaCond.otf") format("opentype");
+    font-weight: 600;
+    font-style: italic;
+}
+
 /* ============================================
    ANIMATED LAYOUT
    All rules here are either:
@@ -46,7 +104,6 @@
     will-change: transform;
     position: relative;
     z-index: 1;
-    font-style: italic;
 }
 
 .landing__ticker-track span {
@@ -54,10 +111,12 @@
     letter-spacing: 0.05em;
 }
 
-.landing__ticker-label,
+.landing__ticker-track .landing__ticker-label,
 .landing__ticker-track .landing__ticker-sep {
     color: var(--color-accent);
     font-weight: 800;
+    font-family: "DxBurst", sans-serif;
+    font-size: 1.5rem;
 }
 
 .landing__ticker-text {
@@ -518,7 +577,6 @@
     .landing__headline {
         font-size: 22px;
     }
-
 
     /* Skip centering animation — identity text stays top-left */
     .landing:not(.step-1) .landing__identity-text,
