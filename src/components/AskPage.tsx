@@ -8,7 +8,7 @@ import "./AskPage.css";
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
 
-const OPENER = "Hey — what brings you to Daniel's portfolio today?";
+const OPENER = "Hey there, what brings you to Daniel's portfolio today?";
 const MAX_TURNS = 3;
 
 type Role = "user" | "assistant";
