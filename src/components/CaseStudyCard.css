@@ -167,7 +167,9 @@
     /* Full-width image with fixed height */
     .case-study__image {
         width: 100%;
-        min-height: 220px;
+        height: 220px;
+        min-height: unset;
+        padding: 0;
         border-right: none;
         border-bottom: var(--border);
     }
@@ -184,6 +186,7 @@
 
     /* Row 1: title + description */
     .case-study__meta {
+        width: 100%;
         padding: 8px;
     }
 
@@ -199,6 +202,7 @@
 
     /* Row 2: role — year on one line */
     .case-study__tags {
+        width: 100%;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;

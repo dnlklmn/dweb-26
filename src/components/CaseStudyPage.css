@@ -448,6 +448,108 @@ a:active {
     .cs-header__title {
         font-size: 16px;
     }
+
+    /* --- Back row: 2 cells only --- */
+    .cs-back-row__cell:nth-child(n + 3) {
+        display: none;
+    }
+    .cs-back-row__cell {
+        width: 50%;
+    }
+    .cs-back-row__cell:nth-child(2) {
+        border-right: var(--border);
+    }
+
+    /* --- Header: title full-width, tags + demo as 2-col row --- */
+    .cs-header {
+        flex-wrap: wrap;
+    }
+    .cs-header__cell:first-child {
+        width: 100%;
+        border-right: var(--border);
+        border-bottom: var(--border);
+    }
+    .cs-header__cell--tags {
+        width: 100%;
+        border-right: var(--border);
+        border-bottom: var(--border);
+    }
+    .cs-header__cell--spacer {
+        display: none;
+    }
+    .cs-header__cell--demo {
+        width: 100%;
+        border-right: var(--border);
+    }
+
+    /* --- Content rows: stack cells vertically --- */
+    .cs-content > div {
+        flex-wrap: wrap;
+    }
+    /* Cancel the row's own border-b for non-empty rows on mobile.
+       Stacked cells already provide individual border-bottom separators.
+       Empty spacer rows (h-12) keep their border-b for visual rhythm. */
+    .cs-content > div:not(:empty) {
+        border-bottom: none;
+    }
+    /* Remove fixed heights so stacked cells can breathe */
+    .cs-content [class~="h-96"] {
+        height: auto;
+        min-height: 0;
+    }
+    /* All Tailwind-width cells go full-width, with a bottom border as separator.
+       Use direct-child combinator so inner text elements (h3, p with w-3/4 etc.)
+       don't accidentally get borders. */
+    .cs-content > div > [class~="w-1/4"],
+    .cs-content > div > [class~="w-1/2"],
+    .cs-content > div > [class~="w-3/4"] {
+        width: 100%;
+        border-right: 0;
+        border-bottom: var(--border);
+    }
+    /* Section headings: reduce top padding to 16px, remove bottom padding */
+    .cs-content > div[class~="pt-12"] {
+        padding-top: 16px !important;
+        padding-bottom: 0 !important;
+    }
+    /* Images: natural aspect ratio, capped so they don't go enormous */
+    .cs-content img {
+        height: auto;
+        max-height: 70vw;
+        width: 100%;
+        object-fit: cover;
+    }
+    /* Inner wrappers (bg-black, bg-[#181818], h-full etc.) shrink to image */
+    .cs-content > div > * > div:has(> img) {
+        height: auto !important;
+    }
+    /* Hide truly empty spacer cells (not spacer rows) */
+    .cs-content > div > :empty {
+        display: none;
+    }
+
+    /* --- CTA cell --- */
+    .cs-collab-intro__cta {
+        width: 100%;
+    }
+
+    /* --- Other nav: keep prev + next side-by-side --- */
+    .cs-other-nav__cell {
+        width: 50%;
+    }
+
+    /* --- Other cards: full-width stacked --- */
+    .cs-other-card {
+        width: 100%;
+        min-height: auto;
+        border-right: var(--border);
+    }
+    .cs-other-cards__spacer {
+        display: none;
+    }
+    .cs-other-card__image {
+        min-height: 200px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
