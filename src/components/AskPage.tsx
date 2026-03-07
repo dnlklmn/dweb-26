@@ -119,7 +119,7 @@ const AskPage: React.FC = () => {
 
   return (
     <div
-      className={`cs-page min-h-screen flex flex-col${animComplete ? " anim-complete" : ""}`}
+      className={`cs-page ask-page min-h-screen flex flex-col${animComplete ? " anim-complete" : ""}`}
     >
       {/* Sticky back row */}
       <div className="cs-back-row">
@@ -135,7 +135,7 @@ const AskPage: React.FC = () => {
         </Link>
         <div
           className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
-          style={{ width: "75%" }}
+          style={{ flex: 1 }}
         ></div>
       </div>
 

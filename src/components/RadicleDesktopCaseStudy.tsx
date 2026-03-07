@@ -19,6 +19,9 @@ const meta: CaseStudyMeta = {
   demoLink:
     "https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/",
   demoLabel: "Get the app →",
+  company: "Radicle",
+  role: "Design, Prototype, User research",
+  tech: "Figma, Svelte",
 };
 
 // Border rule: row owns border-l border-r border-b.
@@ -46,7 +49,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
               then sync with your peers when you're back online.
             </p>
           </div>
-          <div className="w-1/4 flex flex-col gap-6 p-2">
+          <div className="cs-intro-meta w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Company</span>
               <span className="text-sm">Radicle</span>

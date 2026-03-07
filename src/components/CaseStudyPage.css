@@ -371,6 +371,12 @@ a:active {
     text-decoration: none;
 }
 
+/* Details toggle and meta-details are mobile-only elements */
+.cs-header__details-toggle,
+.cs-header__meta-details {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .cs-other-card,
     .cs-other-cards__spacer {
@@ -460,7 +466,7 @@ a:active {
         border-right: var(--border);
     }
 
-    /* --- Header: title full-width, tags + demo as 2-col row --- */
+    /* --- Header: title full-width, collapsible details below --- */
     .cs-header {
         flex-wrap: wrap;
     }
@@ -469,8 +475,37 @@ a:active {
         border-right: var(--border);
         border-bottom: var(--border);
     }
-    .cs-header__cell--tags {
+    /* Details toggle button */
+    .cs-header__details-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
+        min-height: 42px;
+        border-left: var(--border);
+        border-right: var(--border);
+        border-bottom: var(--border);
+        padding: 8px;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-text);
+        font: inherit;
+    }
+    .cs-header__details-label {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.21;
+    }
+    .cs-header__details-icon {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+    }
+    /* Tags and demo cells hidden by default, revealed when details open */
+    .cs-header__cell--tags {
+        display: none;
+        width: 100%;
+        min-height: 42px;
         border-right: var(--border);
         border-bottom: var(--border);
     }
@@ -478,8 +513,38 @@ a:active {
         display: none;
     }
     .cs-header__cell--demo {
+        display: none;
         width: 100%;
+        min-height: 42px;
         border-right: var(--border);
+        border-bottom: var(--border);
+    }
+    .cs-page--details-open .cs-header__cell--tags {
+        display: flex;
+    }
+    .cs-page--details-open .cs-header__meta-details {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        min-height: 42px;
+        border-left: var(--border);
+        border-right: var(--border);
+        border-bottom: var(--border);
+        padding: 8px;
+        font-size: 12px;
+    }
+    .cs-page--details-open .cs-header__cell--demo:not(.cs-header__cell--demo--no-link) {
+        display: flex;
+    }
+    /* Company/role/tech metadata cell — hidden on mobile (shown in header instead) */
+    .cs-intro-meta {
+        display: none;
+    }
+    /* Remove the header-closing border-t on mobile — the toggle already
+       ends with border-bottom so the spacer's border-t creates a double line */
+    .cs-content > div[class~="border-t"] {
+        border-top: none;
     }
 
     /* --- Content rows: stack cells vertically --- */
@@ -507,10 +572,12 @@ a:active {
         border-right: 0;
         border-bottom: var(--border);
     }
-    /* Section headings: reduce top padding to 16px, remove bottom padding */
+    /* Section headings: reduce top padding to 16px, remove bottom padding,
+       restore border-bottom that was cancelled by the :not(:empty) rule above */
     .cs-content > div[class~="pt-12"] {
         padding-top: 16px !important;
         padding-bottom: 0 !important;
+        border-bottom: var(--border);
     }
     /* Images: natural aspect ratio, capped so they don't go enormous */
     .cs-content img {
@@ -533,22 +600,32 @@ a:active {
         width: 100%;
     }
 
-    /* --- Other nav: keep prev + next side-by-side --- */
+    /* --- Other nav: 2 columns (prev + next), hide empty spacer cells --- */
     .cs-other-nav__cell {
         width: 50%;
     }
+    .cs-other-section > div > :empty {
+        display: none;
+    }
 
-    /* --- Other cards: full-width stacked --- */
+    /* --- Other cards: 2-column grid --- */
     .cs-other-card {
-        width: 100%;
+        width: 50%;
         min-height: auto;
         border-right: var(--border);
     }
     .cs-other-cards__spacer {
         display: none;
     }
+    /* Push image (and year row below it) to the bottom of the card */
     .cs-other-card__image {
-        min-height: 200px;
+        flex: none;
+        min-height: 0;
+        margin-top: auto;
+    }
+    /* Year color: override the hardcoded gray to match page text */
+    .cs-other-card__meta > .flex.justify-between > span:last-child {
+        color: var(--color-text);
     }
 }
 

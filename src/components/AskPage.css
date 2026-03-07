@@ -152,4 +152,45 @@
     .ask-input {
         font-size: 1rem;
     }
+
+    /* Hide w-1/4 spacer cells only (not back-row aux) */
+    .ask-page > div > [class~="w-1/4"]:empty,
+    .ask-page > form > div > [class~="w-1/4"]:empty {
+        display: none;
+    }
+
+    /* Expand content cells to full width */
+    .ask-page > div > [class~="w-1/2"],
+    .ask-page > div > [class~="w-1/4"] {
+        width: 100%;
+        border-right: none;
+    }
+
+    /* Header text full width */
+    .ask-page > div > [class~="w-1/2"] p {
+        max-width: 100%;
+    }
+
+    /* Sticky input form */
+    .ask-page > form {
+        position: sticky;
+        bottom: 0;
+        background: var(--color-bg);
+        z-index: 10;
+    }
+
+    /* Input cell fills space beside send button */
+    .ask-page > form > div > .ask-input-cell {
+        flex: 1;
+        width: auto;
+    }
+
+    /* Send button stays at natural width, filled when active */
+    .ask-send-btn {
+        width: auto;
+    }
+
+    .ask-send-btn:not(:disabled)::before {
+        transform: scale(1);
+    }
 }

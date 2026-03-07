@@ -23,6 +23,9 @@ const meta: CaseStudyMeta = {
   year: "2025",
   demoLink: "https://auto-workflow-builder.netlify.app/",
   demoLabel: "Demo →",
+  company: "Entropy Cryptography",
+  role: "Ideation, Design, Prototype, User research, Front End",
+  tech: "Figma, Svelte, Yjs",
 };
 
 // Border rule: row owns border-l border-r border-b.
@@ -51,7 +54,7 @@ const AutoCaseStudy: React.FC = () => (
               on-chain transactions.
             </p>
           </div>
-          <div className="w-1/4 flex flex-col gap-6 p-2">
+          <div className="cs-intro-meta w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Company</span>
               <span className="text-sm">Entropy Cryptography</span>

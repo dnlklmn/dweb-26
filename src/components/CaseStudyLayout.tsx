@@ -10,6 +10,9 @@ export interface CaseStudyMeta {
   year: string;
   demoLink?: string;
   demoLabel?: string;
+  company?: string;
+  role?: string;
+  tech?: string;
 }
 
 export type ImgHelper = (src: string, alt: string, className?: string) => React.ReactElement;
@@ -26,6 +29,7 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
   const [lightboxNode, setLightboxNode] = useState<React.ReactNode | null>(null);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
   const [animComplete, setAnimComplete] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,7 +67,7 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
 
   return (
     <>
-      <div className={`cs-page${animComplete ? " anim-complete" : ""}`}>
+      <div className={`cs-page${animComplete ? " anim-complete" : ""}${detailsOpen ? " cs-page--details-open" : ""}`}>
         {/* Sticky back row */}
         <div className="cs-back-row">
           <Link
@@ -115,16 +119,51 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             </Link>
             <span className="cs-header__subtitle">{meta.subtitle}</span>
           </div>
+          {/* Details toggle — only visible on mobile via CSS */}
+          <button
+            type="button"
+            className="cs-header__details-toggle"
+            onClick={() => setDetailsOpen(o => !o)}
+            aria-expanded={detailsOpen}
+          >
+            <span className="cs-header__details-label">Details</span>
+            <span className="cs-header__details-icon" aria-hidden="true">
+              {detailsOpen ? "−" : "+"}
+            </span>
+          </button>
           <div className="cs-header__cell cs-header__cell--tags">
             <span className="cs-header__tags-text">{meta.tags}</span>
             <span className="cs-header__year">{meta.year}</span>
           </div>
+          {/* Company/role/tech — mobile-only, inside the collapsible details */}
+          {(meta.company || meta.role || meta.tech) && (
+            <div className="cs-header__meta-details">
+              {meta.company && (
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm font-bold">Company</span>
+                  <span className="text-sm">{meta.company}</span>
+                </div>
+              )}
+              {meta.role && (
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm font-bold">Role</span>
+                  <span className="text-sm">{meta.role}</span>
+                </div>
+              )}
+              {meta.tech && (
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm font-bold">Tech</span>
+                  <span className="text-sm">{meta.tech}</span>
+                </div>
+              )}
+            </div>
+          )}
           <div className="cs-header__cell cs-header__cell--spacer" />
           <a
             href={meta.demoLink}
             target="_blank"
             rel="noreferrer"
-            className="cs-header__cell cs-header__cell--demo"
+            className={`cs-header__cell cs-header__cell--demo${!meta.demoLink ? " cs-header__cell--demo--no-link" : ""}`}
           >
             <span className="cs-header__link">
               {meta.demoLabel ?? "Demo →"}

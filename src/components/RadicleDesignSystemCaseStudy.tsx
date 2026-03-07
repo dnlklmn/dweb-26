@@ -23,6 +23,9 @@ const meta: CaseStudyMeta = {
   demoLink:
     "https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/",
   demoLabel: "Radicle design tokens →",
+  company: "Radicle",
+  role: "Design Audit, Design System, Design Tokens",
+  tech: "Figma, Tokens Studio, Style Dictionary",
 };
 
 export const pinks = [
@@ -79,7 +82,7 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
               the diverse and distributed nature of contributors.
             </p>
           </div>
-          <div className="w-1/4 flex flex-col gap-6 p-2">
+          <div className="cs-intro-meta w-1/4 flex flex-col gap-6 p-2">
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Company</span>
               <span className="text-sm">Radicle</span>
