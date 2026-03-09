@@ -30,6 +30,7 @@ const AskPage: React.FC = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState(false);
+  const [sessionId] = useState(() => crypto.randomUUID());
   const [turnCount, setTurnCount] = useState(0);
   const [animComplete, setAnimComplete] = useState(false);
   const [showStickyTitles, setShowStickyTitles] = useState(false);
@@ -87,7 +88,7 @@ const AskPage: React.FC = () => {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: updatedMessages }),
+        body: JSON.stringify({ messages: updatedMessages, sessionId, turnNumber: turnCount + 1 }),
       });
       const data = await res.json();
       const finalMessages: Message[] = [

@@ -112,7 +112,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).end();
   }
 
-  const { messages } = req.body;
+  const { messages, sessionId, turnNumber } = req.body;
 
   if (!Array.isArray(messages) || messages.length > 12) {
     return res.status(400).json({ error: "Invalid request" });
@@ -123,7 +123,7 @@ export default async function handler(req: any, res: any) {
     publicKey: process.env.LANGFUSE_PUBLIC_KEY,
   });
 
-  const trace = langfuse.trace({ name: "portfolio-chat" });
+  const trace = langfuse.trace({ name: "portfolio-chat", sessionId });
 
   try {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -151,6 +151,16 @@ export default async function handler(req: any, res: any) {
       usage: {
         promptTokens: response.usage.input_tokens,
         completionTokens: response.usage.output_tokens,
+      },
+    });
+
+    const contactOfferMade = /email|get in touch|reach out|i'll send daniel|send daniel/i.test(content.text);
+    trace.update({
+      metadata: {
+        turnNumber,
+        totalMessages: messages.length + 1,
+        contactOfferMade,
+        ...(contactOfferMade ? { turnAtOffer: turnNumber } : {}),
       },
     });
 
