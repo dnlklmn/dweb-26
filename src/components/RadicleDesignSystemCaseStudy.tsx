@@ -123,7 +123,7 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
           <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12 w-3/4">
+            <div className="flex flex-col gap-4 p-2 pb-12 w-full md:w-3/4">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
               <p className="text-sm leading-relaxed">
                 Radicle Explorer is an open-source web application that anyone
@@ -141,12 +141,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 After carefully auditing the current UI and its patterns, I
                 developed a color system, a typographic scale, and components in
                 Figma.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 Once all stakeholders agreed I created the pipeline to export
                 and transform tokens into stylesheets and implemented these in
                 the Svelte front end.
@@ -230,7 +230,7 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2 shrink-0`} />
           <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
-            <div className="flex flex-col gap-3 w-3/4">
+            <div className="flex flex-col gap-3 w-full md:w-3/4">
               <p className="text-sm leading-relaxed">
                 The UI kit consists only of the components currently used in the
                 app. No unused button variants or typography styles allowed.
@@ -267,12 +267,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2 shrink-0`} />
           <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
             <div className="flex flex-col gap-3">
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 Colors and font styles are managed in Figma, where they are
                 incorporated into the UI kit and optimized for both dark and
                 light modes.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 These tokenized design elements are then exported and converted
                 into specific style sheets, which can be utilized in production
                 components. The tokens are stored in a shared repo on Radicle
@@ -305,12 +305,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2 shrink-0`} />
           <div className={`${cell} w-1/2 shrink-0 p-2 pb-12`}>
             <div className="flex flex-col gap-3">
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 At Radicle we're building developer tools. It's crucial to
                 prioritize readability and a clear, easy-to-understand hierarchy
                 while keeping decorative elements to a minimum.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 However, a design system should also have character. Radicle's
                 style pays homage to the barefoot developers, drawing
                 inspiration from the aesthetics of 90s programming games and

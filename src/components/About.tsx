@@ -192,10 +192,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Entropy - Blockchain workflow automation platform
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   I am responsible for everything design. Research and ideation,
                   building and testing prototypes and planning execution of the
                   front end.
@@ -207,7 +207,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <EntropyLogo className="w-3/4 h-auto" />
+            <EntropyLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -223,10 +223,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Radicle - Sovereign code collaboration
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   I was responsible for the UX of the web and desktop apps, and
                   the design system. I also helped refine the front end,
                   implement the design system and work on the visual design of
@@ -239,7 +239,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <RadicleLogo className="w-3/4 h-auto" />
+            <RadicleLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -255,10 +255,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Parity Technologies - Products for Polkadot
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   As a product designer at Parity, I helped create the Polkadot
                   design system, and worked on decentralized apps like the
                   Delegation Dashboard and Multisig Commander.
@@ -270,7 +270,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <ParityLogo className="w-3/4 h-auto" />
+            <ParityLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -286,10 +286,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Quarters - Co-living management platform
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   I joined Quarters as a (failed) attempt to return to web2. I
                   quickly realized my heart lies with decenrtralization and
                   distributed systems.
@@ -301,7 +301,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <img src={quartersLogo} alt="Quarters" className="w-3/4 h-auto" />
+            <img src={quartersLogo} alt="Quarters" className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -317,10 +317,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   SatoshiPay - Cryptocurrency payments and content monetization
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   As the first product designer I designed and build prototypes
                   for monetizing content using cryptocurrency, and an app to
                   facilitate cross-border payments.
@@ -332,7 +332,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <SatoshiPayLogo className="w-3/4 h-auto" />
+            <SatoshiPayLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -348,10 +348,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Linkurious - Graph visualization and analysis
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   As a UX consultant I helped Linkurious improve the usability
                   of their graph visualization tool.
                 </p>
@@ -362,7 +362,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <LinkuriousLogo className="w-3/4 h-auto" />
+            <LinkuriousLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -378,10 +378,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   TOTL - Automatic journaling app
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   Joining this experimental project helped refine my skills in
                   data visualization and rapid prototyping. I also learned a lot
                   about the importance of user research and testing.
@@ -407,10 +407,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Dotloop - Paperless real estate transaction management
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   I helped integrate a camera into the Dotloop app to make it
                   easier for real estate agents to document the acquisition of
                   properties. The company was acquired by Zillow shortly
@@ -423,7 +423,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2`}>
-            <DotLoopLogo className="w-3/4 h-auto" />
+            <DotLoopLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -439,10 +439,10 @@ const About: React.FC = () => {
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">
               <div className="flex flex-col gap-1">
-                <p className="text-sm font-bold leading-relaxed w-3/4">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
                   Prezi - Zooming presentation software
                 </p>
-                <p className="text-sm leading-relaxed w-3/4">
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
                   My first job with the time UX designer, I learned about the
                   importance of user research, A/B testing, and how rapid
                   prototyping helps with these efforts. I designed the
@@ -455,7 +455,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <PreziLogo className="w-3/4 h-auto" />
+            <PreziLogo className="w-full md:w-3/4 h-auto" />
           </div>
         </div>
 
@@ -463,7 +463,7 @@ const About: React.FC = () => {
 
         <div className={`${row} h-48`}>
           <div
-            className={`${cell} w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
+            className={`${cell} w-full md:w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
           />
           <div className="w-1/4 flex flex-col p-2 gap-1">
             <div className="flex justify-between items-end whitespace-nowrap w-full flex-1 gap-1">

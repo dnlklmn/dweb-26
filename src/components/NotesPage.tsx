@@ -112,7 +112,7 @@ const NotesPage: React.FC = () => {
       {/* Footer links */}
       <div className={`${row} h-48`}>
         <div
-          className={`${cell} w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
+          className={`${cell} w-full md:w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
         />
         <div className="w-1/4 flex flex-col p-2 gap-1">
           <div className="flex justify-between items-end whitespace-nowrap w-full flex-1 gap-1">

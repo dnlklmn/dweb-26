@@ -27,7 +27,7 @@ const meta: CaseStudyMeta = {
   tags: "UX, UI, Front End",
   year: "2026",
   demoLink: "",
-  demoLabel: "GitHub →",
+  demoLabel: "",
   company: "Client work",
   role: "Research, Ideation, Design, Prototype, Front End",
   tech: "Figma, Tauri, Svelte, Whisper",
@@ -98,12 +98,12 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 Psychology practices are buried in admin. Contracts, reminders,
                 session notes, official forms — the manual labor that gets in
                 the way of meaningful work is relentless.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 The goal was to find the highest-leverage entry point for AI in
                 a traditional, privacy-sensitive practice — and build something
                 a therapist could actually trust and use.
@@ -113,20 +113,20 @@ const GoodListenerCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 I started with a 1-hour interview with Sarah, a practicing
                 psychologist. We mapped her full workflow — scheduling,
                 sessions, documentation, billing — and identified where friction
                 was highest.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 From the process map I built a pain points framework with
                 Claude, categorising friction across cognitive, administrative,
                 and relational dimensions. Documentation emerged as the most
                 consistently painful category across every stage of the
                 practice.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 I then built a series of demos to pressure-test different
                 opportunities: a DSM-5 assistant with an MCP client, an n8n
                 transcription workflow using Scriberr, and a CLI proof of
@@ -340,8 +340,8 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
-            <h3 className="text-sm font-bold w-3/4">Design</h3>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <h3 className="text-sm font-bold w-full md:w-3/4">Design</h3>
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               3 main areas: record, list of sessions, session details. Let's see
               what AI design tools think.
             </p>
@@ -356,15 +356,15 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
-            <p className="text-sm leading-relaxed w-3/4">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
               But this isn't great. These 3 areas aren't meant to be equal.
             </p>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               I'd prefer a home page with all of my sessions and either open an
               already transcribed session, or record a new one that will then be
               transcribed and become a session in my list.
             </p>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               I have opened Figma after months of neglecting it.
             </p>
           </div>
@@ -389,8 +389,8 @@ const GoodListenerCaseStudy: React.FC = () => (
             <Pipeline />
           </div>
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
-            <h3 className="text-sm font-bold w-3/4">Build</h3>
-            <p className="text-sm leading-relaxed w-3/4">
+            <h3 className="text-sm font-bold w-full md:w-3/4">Build</h3>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
               As we're still in validation phase, I decided to wrap the CLI in a
               Tauri app, and bundle the transcription and diarization models
               with it so users can quickly install it without having to get
@@ -411,12 +411,12 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`} />
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               The results were still flaky. If we offer this product for
               practitioners even to try out we need to make sure it produces
               good results.
             </p>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               Or at least we understand why it doesn't.
             </p>
           </div>
@@ -429,14 +429,14 @@ const GoodListenerCaseStudy: React.FC = () => (
         </div>
         <div className={row}>
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
-            <p className="text-sm leading-relaxed w-3/4">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
               To understand what was happening I integrated Langfuse and started
               digging into the data.
             </p>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               Tracing shows me what exact steps are happening under the hood.
             </p>
-            <p className="text-sm leading-relaxed w-3/4 ">
+            <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               Generating an initial dataset gives me a sense of good outcomes I
               can evaluate against.
             </p>
@@ -464,11 +464,11 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={`${row} h-96`}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2  p-2 overflow-hidden`}>
-            <p className="text-xl leading-relaxed w-3/4 ">
+            <p className="text-xl leading-relaxed w-full md:w-3/4 ">
               Evals gives me a metric I can check against while I make
               improvements.
             </p>
-            <p className="text-xl leading-relaxed w-3/4 ">
+            <p className="text-xl leading-relaxed w-full md:w-3/4 ">
               Be it quality improvements or decreasing costs, I'll be able to
               tell whether I'm moving forward.
             </p>

@@ -165,9 +165,11 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             rel="noreferrer"
             className={`cs-header__cell cs-header__cell--demo${!meta.demoLink ? " cs-header__cell--demo--no-link" : ""}`}
           >
-            <span className="cs-header__link">
-              {meta.demoLabel ?? "Demo →"}
-            </span>
+            {meta.demoLink && (
+              <span className="cs-header__link">
+                {meta.demoLabel ?? "Demo →"}
+              </span>
+            )}
           </a>
         </div>
 

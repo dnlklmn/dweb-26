@@ -41,8 +41,8 @@ const AutoCaseStudy: React.FC = () => (
         <div className={`${row} border-t h-12`} />
         {/* Intro — 1col | 2col | 1col */}
         <div className={row}>
-          <div className={`${cell} w-1/4 h-full p-2`}>
-            {img(header2, "Auto workflow builder interface")}
+          <div className={`${cell} w-1/4 relative overflow-hidden`}>
+            {img(header2, "Auto workflow builder interface", "absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover block")}
           </div>
           <div
             className={`${cell} w-1/2 min-h-48 flex flex-col justify-end p-2`}
@@ -95,13 +95,13 @@ const AutoCaseStudy: React.FC = () => (
           <div className="w-1/2 flex flex-col">
             <div className="flex flex-col gap-4 p-2 pb-12">
               <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 The goal was to create a crypto-native workflow automation tool
                 that bridges on-chain and off-chain worlds. On-chain events
                 should trigger off-chain workflows, and off-chain data should
                 construct on-chain transactions.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 The challenge: could we build a better workflow builder
                 altogether, or would making it crypto-native be our only
                 advantage? Use cases vary widely, and workflow builders already
@@ -112,18 +112,18 @@ const AutoCaseStudy: React.FC = () => (
               <h3 className="text-sm font-bold">
                 Process and Responsibilities
               </h3>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 I started exploring how workflows can be built, what are common
                 structures for recurring crypto workflows, and where these 2
                 meet.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 Once I landed on a set of requirements, I started designing the
                 interface with a limited set of nodes and connectors to check if
                 the structure works, the primary goal being to reduce cognitive
                 load.
               </p>
-              <p className="text-sm leading-relaxed w-3/4">
+              <p className="text-sm leading-relaxed w-full md:w-3/4">
                 Once the initial user tests eliminated the usability issues I
                 implemented a unique multiplayer experience using Yjs and WebRTC
                 to enable real-time collaboration. I am currently running user
@@ -145,7 +145,7 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Content row: text | img | img | img */}
         <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
             <p className="text-sm leading-relaxed">
               The initial research happened on 2 tracks: I wanted to explore
               what's the best way to build workflow maps, and in parallel, find
@@ -174,7 +174,7 @@ const AutoCaseStudy: React.FC = () => (
 
         {/* Content row: text | img | img | img */}
         <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
             <p className="text-sm leading-relaxed">
               I then forked n8n so I can experiment with a real workflow builder
               and find out what users should be aiming for.

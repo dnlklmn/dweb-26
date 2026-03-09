@@ -607,6 +607,115 @@
     } /* Contact */
 }
 
+/* ============================================
+   STICKY HEADER
+   ============================================ */
+
+.landing__sticky-header {
+    position: fixed;
+    top: 0;
+    left: var(--page-padding);
+    right: var(--page-padding);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    height: 44px;
+    background: var(--color-bg);
+    border-left: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.landing__sticky-header--visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Desktop nav links in sticky header */
+.landing__sticky-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.landing__sticky-nav-extra {
+    display: flex;
+    gap: 32px;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.3s ease, opacity 0.3s ease;
+}
+
+.landing__sticky-nav-extra--visible {
+    max-width: 200px;
+    opacity: 1;
+}
+
+/* Mobile dropdown from sticky header */
+.landing__sticky-dropdown {
+    position: fixed;
+    top: 44px;
+    left: var(--page-padding);
+    right: var(--page-padding);
+    z-index: 99;
+    background: var(--color-bg);
+    border-left: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    min-height: 160px;
+    display: none;
+}
+
+.landing__sticky-dropdown a {
+    position: absolute;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.21;
+    text-decoration: none;
+}
+
+.landing__sticky-dropdown a:nth-child(1) { top: 0; left: 0; }
+.landing__sticky-dropdown a:nth-child(2) { top: 0; right: 0; }
+.landing__sticky-dropdown a:nth-child(3) { bottom: 0; left: 0; }
+.landing__sticky-dropdown a:nth-child(4) { bottom: 0; right: 0; }
+
+/* Mobile hamburger in sticky header — hidden on desktop */
+.landing__sticky-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0;
+    margin-right: -8px;
+}
+
+@media (max-width: 767px) {
+    .landing__sticky-nav {
+        display: none;
+    }
+
+    .landing__sticky-menu-btn {
+        display: flex;
+    }
+
+    .landing__sticky-dropdown {
+        display: block;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

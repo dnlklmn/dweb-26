@@ -114,6 +114,20 @@ const LandingPage: React.FC = () => {
     window.matchMedia("(max-width: 767px)").matches;
   const [phrases] = React.useState(() => shuffled(TYPEWRITER_PHRASES));
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+  const [navHidden, setNavHidden] = React.useState(false);
+  const navRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+      if (navRef.current) {
+        setNavHidden(navRef.current.getBoundingClientRect().bottom < 0);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const { step, isComplete } = useSteppedAnimation({
     totalSteps: 6,
@@ -170,6 +184,53 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className={isComplete ? "anim-complete" : ""}>
+      {/* Sticky header — appears on scroll */}
+      <div className={`landing__sticky-header${scrolled ? " landing__sticky-header--visible" : ""}`}>
+        <span className="text-sm font-bold leading-[1.21] text-(--color-accent)">
+          Daniel Kalman
+        </span>
+        {/* Desktop nav */}
+        <div className="landing__sticky-nav">
+          <Link className="text-sm font-medium" to="/#selected-work" style={{ color: "inherit" }}>Work</Link>
+          <Link className="text-sm font-medium" to="/about" style={{ color: "inherit" }}>About</Link>
+          <span className={`landing__sticky-nav-extra${navHidden ? " landing__sticky-nav-extra--visible" : ""}`}>
+            <Link className="text-sm font-medium" to="/notes" style={{ color: "inherit" }}>Notes</Link>
+            <Link className="text-sm font-medium" to="/ask" style={{ color: "inherit" }}>Ask</Link>
+          </span>
+        </div>
+        {/* Mobile hamburger */}
+        <button
+          className="landing__sticky-menu-btn"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            {menuOpen ? (
+              <>
+                <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile dropdown from sticky header */}
+      {menuOpen && scrolled && (
+        <div className="landing__sticky-dropdown">
+          <Link to="/#selected-work" onClick={() => setMenuOpen(false)} style={{ color: "inherit" }}>Work</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)} style={{ color: "inherit" }}>About</Link>
+          <Link to="/notes" onClick={() => setMenuOpen(false)} style={{ color: "inherit" }}>Notes</Link>
+          <Link to="/ask" onClick={() => setMenuOpen(false)} style={{ color: "inherit" }}>Ask</Link>
+        </div>
+      )}
+
       {/* Full-width ticker — outside padded landing frame */}
       <Link
         to="/ask"
@@ -328,7 +389,7 @@ const LandingPage: React.FC = () => {
               </div>
 
               {/* Nav — flex + opacity animated by step classes */}
-              <div className="landing__nav justify-between items-center flex gap-1">
+              <div ref={navRef} className="landing__nav justify-between items-center flex gap-1">
                 <div className="flex justify-between items-end whitespace-nowrap w-full h-full gap-1">
                   <Link
                     className="landing__nav-link w-full h-full text-sm font-medium leading-[1.21]"
