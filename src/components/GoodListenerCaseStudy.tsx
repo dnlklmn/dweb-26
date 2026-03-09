@@ -92,48 +92,51 @@ const GoodListenerCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Challenge + Process — 2col empty | 2col text */}
+        {/* Challenge row */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12">
-              <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                Psychology practices are buried in admin. Contracts, reminders,
-                session notes, official forms — the manual labor that gets in
-                the way of meaningful work is relentless.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                The goal was to find the highest-leverage entry point for AI in
-                a traditional, privacy-sensitive practice — and build something
-                a therapist could actually trust and use.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
-              <h3 className="text-sm font-bold">
-                Process and Responsibilities
-              </h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                I started with a 1-hour interview with Sarah, a practicing
-                psychologist. We mapped her full workflow — scheduling,
-                sessions, documentation, billing — and identified where friction
-                was highest.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                From the process map I built a pain points framework with
-                Claude, categorising friction across cognitive, administrative,
-                and relational dimensions. Documentation emerged as the most
-                consistently painful category across every stage of the
-                practice.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                I then built a series of demos to pressure-test different
-                opportunities: a DSM-5 assistant with an MCP client, an n8n
-                transcription workflow using Scriberr, and a CLI proof of
-                concept bundling local models. The app was designed in Figma and
-                wrapped in Tauri for a native macOS experience.
-              </p>
-            </div>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Challenge and Goals</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Psychology practices are buried in admin. Contracts, reminders,
+              session notes, official forms — the manual labor that gets in
+              the way of meaningful work is relentless.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The goal was to find the highest-leverage entry point for AI in
+              a traditional, privacy-sensitive practice — and build something
+              a therapist could actually trust and use.
+            </p>
+          </div>
+        </div>
+
+        {/* Process row */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              I started with a 1-hour interview with Sarah, a practicing
+              psychologist. We mapped her full workflow — scheduling,
+              sessions, documentation, billing — and identified where friction
+              was highest.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              From the process map I built a pain points framework with
+              Claude, categorising friction across cognitive, administrative,
+              and relational dimensions. Documentation emerged as the most
+              consistently painful category across every stage of the
+              practice.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              I then built a series of demos to pressure-test different
+              opportunities: a DSM-5 assistant with an MCP client, an n8n
+              transcription workflow using Scriberr, and a CLI proof of
+              concept bundling local models. The app was designed in Figma and
+              wrapped in Tauri for a native macOS experience.
+            </p>
           </div>
         </div>
 
@@ -175,9 +178,10 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         <div className={row}>
-          <div className={`${cell} w-1/4 p-2`} />
-          <div className="w-1/4 flex flex-col gap-4 p-2 pb-12">
+          <div className={`${cell} w-1/4 flex items-start justify-start md:justify-end p-2`}>
             <h3 className="text-sm font-bold">Key Insight</h3>
+          </div>
+          <div className="w-1/4 flex flex-col gap-4 p-2 pb-12">
             <p className="text-sm leading-relaxed">
               The "transcribe-anonymise-summarise-write report" pipeline repeats
               at every session touchpoint. It's repetitive, rule-governed, and
@@ -241,7 +245,7 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className="w-1/2 flex flex-1 p-2 items-center justify-center">
             {img(n8n, "An n8n workflow using scriberr")}
           </div>
-          <div className="w-1/4 p-2 border-l border-[var(--color-boder)]" />
+          <div className="w-1/4 p-2 border-l border-[var(--color-border)]" />
         </div>
 
         <div className={`${row} h-12`} />
@@ -272,7 +276,7 @@ const GoodListenerCaseStudy: React.FC = () => (
               she needs for filing the reports.
             </p>
           </div>
-          <div className="w-1/4 p-2 border-l border-[var(--color-boder)]" />
+          <div className="w-1/4 p-2 border-l border-[var(--color-border)]" />
         </div>
 
         <div className={`${row} h-12`} />
@@ -338,24 +342,25 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         {/* App description — 2col empty | 2col text */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
-            <h3 className="text-sm font-bold w-full md:w-3/4">Design</h3>
+          <div className={`${cell} w-1/4 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Design</h3>
+          </div>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 pb-12`}>
             <p className="text-sm leading-relaxed w-full md:w-3/4 ">
               3 main areas: record, list of sessions, session details. Let's see
               what AI design tools think.
             </p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <div className="bg-[#181818] h-full overflow-hidden">
               {img(pencil, "Initial designs created using pencil.dev")}
             </div>
           </div>
-          <div className="w-1/2 p-2" />
+          <div className="w-1/4 p-2" />
         </div>
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12 border-r border-[var(--color-border)]">
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 pb-12`}>
             <p className="text-sm leading-relaxed w-full md:w-3/4">
               But this isn't great. These 3 areas aren't meant to be equal.
             </p>
@@ -368,19 +373,21 @@ const GoodListenerCaseStudy: React.FC = () => (
               I have opened Figma after months of neglecting it.
             </p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            <div className=" h-full overflow-hidden">
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            <div className="h-full overflow-hidden">
               {img(appArchitecture, "Initial designs created using pencil.dev")}
             </div>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            <div className=" h-full overflow-hidden">
+          <div className="w-1/4 p-2 overflow-hidden">
+            <div className="h-full overflow-hidden">
               {img(appScreens, "Initial designs created using pencil.dev")}
             </div>
           </div>
         </div>
         <div className={row}>
-          <div className={`${cell} w-1/4 p-2`}></div>
+          <div className={`${cell} w-1/4 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Build</h3>
+          </div>
           <div
             className={`${cell} w-1/4 p-2 `}
             style={{ cursor: "zoom-in" }}
@@ -389,7 +396,6 @@ const GoodListenerCaseStudy: React.FC = () => (
             <Pipeline />
           </div>
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
-            <h3 className="text-sm font-bold w-full md:w-3/4">Build</h3>
             <p className="text-sm leading-relaxed w-full md:w-3/4">
               As we're still in validation phase, I decided to wrap the CLI in a
               Tauri app, and bundle the transcription and diarization models

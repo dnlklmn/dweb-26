@@ -85,41 +85,44 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Challenge + Process text — 2col empty | 2col text */}
+        {/* Challenge row */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12">
-              <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                The Radicle desktop app is a long-term project spanning multiple
-                features: patches, code review, notifications, and more. The
-                goal is to make peer-to-peer code collaboration feel as familiar
-                as centralized tools, without hiding what makes Radicle
-                different.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                The core challenge is that Radicle's underlying model
-                (peer-to-peer, local-first, traceable) doesn't map neatly onto
-                the mental models users bring from GitHub. Every design decision
-                needs to bridge that gap honestly.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
-              <h3 className="text-sm font-bold">
-                Process and Responsibilities
-              </h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                For each feature I followed the same loop: understand the user
-                need and the relevant protocol behaviour, formulate a
-                hypothesis, then sketch wireframes, try out simple prototypes,
-                and at last provide detailed designs to implement.
-              </p>
-              <p className="text-sm leading-relaxed">
-                Ideas were validated with both users and the engineering team
-                before moving to high-fidelity mockups and handoff.
-              </p>
-            </div>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Challenge and Goals</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The Radicle desktop app is a long-term project spanning multiple
+              features: patches, code review, notifications, and more. The
+              goal is to make peer-to-peer code collaboration feel as familiar
+              as centralized tools, without hiding what makes Radicle
+              different.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The core challenge is that Radicle's underlying model
+              (peer-to-peer, local-first, traceable) doesn't map neatly onto
+              the mental models users bring from GitHub. Every design decision
+              needs to bridge that gap honestly.
+            </p>
+          </div>
+        </div>
+
+        {/* Process row */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              For each feature I followed the same loop: understand the user
+              need and the relevant protocol behaviour, formulate a
+              hypothesis, then sketch wireframes, try out simple prototypes,
+              and at last provide detailed designs to implement.
+            </p>
+            <p className="text-sm leading-relaxed">
+              Ideas were validated with both users and the engineering team
+              before moving to high-fidelity mockups and handoff.
+            </p>
           </div>
         </div>
 

@@ -89,48 +89,51 @@ const AutoCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Challenge + Process text — 2col empty | 2col text */}
+        {/* Challenge row */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`}></div>
-          <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12">
-              <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                The goal was to create a crypto-native workflow automation tool
-                that bridges on-chain and off-chain worlds. On-chain events
-                should trigger off-chain workflows, and off-chain data should
-                construct on-chain transactions.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                The challenge: could we build a better workflow builder
-                altogether, or would making it crypto-native be our only
-                advantage? Use cases vary widely, and workflow builders already
-                exist.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)]">
-              <h3 className="text-sm font-bold">
-                Process and Responsibilities
-              </h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                I started exploring how workflows can be built, what are common
-                structures for recurring crypto workflows, and where these 2
-                meet.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                Once I landed on a set of requirements, I started designing the
-                interface with a limited set of nodes and connectors to check if
-                the structure works, the primary goal being to reduce cognitive
-                load.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                Once the initial user tests eliminated the usability issues I
-                implemented a unique multiplayer experience using Yjs and WebRTC
-                to enable real-time collaboration. I am currently running user
-                tests on this prototype as the requirements for the production
-                MVP form.
-              </p>
-            </div>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Challenge and Goals</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The goal was to create a crypto-native workflow automation tool
+              that bridges on-chain and off-chain worlds. On-chain events
+              should trigger off-chain workflows, and off-chain data should
+              construct on-chain transactions.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The challenge: could we build a better workflow builder
+              altogether, or would making it crypto-native be our only
+              advantage? Use cases vary widely, and workflow builders already
+              exist.
+            </p>
+          </div>
+        </div>
+
+        {/* Process row */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              I started exploring how workflows can be built, what are common
+              structures for recurring crypto workflows, and where these 2
+              meet.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Once I landed on a set of requirements, I started designing the
+              interface with a limited set of nodes and connectors to check if
+              the structure works, the primary goal being to reduce cognitive
+              load.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Once the initial user tests eliminated the usability issues I
+              implemented a unique multiplayer experience using Yjs and WebRTC
+              to enable real-time collaboration. I am currently running user
+              tests on this prototype as the requirements for the production
+              MVP form.
+            </p>
           </div>
         </div>
 

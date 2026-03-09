@@ -119,39 +119,42 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Challenge + Process text — 2col empty | 2col text */}
+        {/* Challenge row */}
         <div className={row}>
-          <div className={`${cell} w-1/2 p-2`} />
-          <div className="w-1/2 flex flex-col">
-            <div className="flex flex-col gap-4 p-2 pb-12 w-full md:w-3/4">
-              <h3 className="text-sm font-bold">Challenge and Goals</h3>
-              <p className="text-sm leading-relaxed">
-                Radicle Explorer is an open-source web application that anyone
-                can deploy on their own. To ensure its success and usability, it
-                is crucial that the design is consistent, easy to extend, and
-                low maintenance.
-              </p>
-              <p className="text-sm leading-relaxed">
-                Contributors should be able to navigate the application
-                effortlessly, match colors and text styles with specific use
-                cases.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 p-2 pb-12 border-t border-[var(--color-border)] ">
-              <h3 className="text-sm font-bold">
-                Process and Responsibilities
-              </h3>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                After carefully auditing the current UI and its patterns, I
-                developed a color system, a typographic scale, and components in
-                Figma.
-              </p>
-              <p className="text-sm leading-relaxed w-full md:w-3/4">
-                Once all stakeholders agreed I created the pipeline to export
-                and transform tokens into stylesheets and implemented these in
-                the Svelte front end.
-              </p>
-            </div>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Challenge and Goals</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Radicle Explorer is an open-source web application that anyone
+              can deploy on their own. To ensure its success and usability, it
+              is crucial that the design is consistent, easy to extend, and
+              low maintenance.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Contributors should be able to navigate the application
+              effortlessly, match colors and text styles with specific use
+              cases.
+            </p>
+          </div>
+        </div>
+
+        {/* Process row */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}>
+            <h3 className="text-sm font-bold">Process and Responsibilities</h3>
+          </div>
+          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              After carefully auditing the current UI and its patterns, I
+              developed a color system, a typographic scale, and components in
+              Figma.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Once all stakeholders agreed I created the pipeline to export
+              and transform tokens into stylesheets and implemented these in
+              the Svelte front end.
+            </p>
           </div>
         </div>
 
