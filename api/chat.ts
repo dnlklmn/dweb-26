@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { Langfuse } from "langfuse";
 
 const SYSTEM_PROMPT = `You are an interactive guide for Daniel Kalman's portfolio.
 
@@ -117,8 +118,21 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: "Invalid request" });
   }
 
+  const langfuse = new Langfuse({
+    secretKey: process.env.LANGFUSE_SECRET_KEY,
+    publicKey: process.env.LANGFUSE_PUBLIC_KEY,
+  });
+
+  const trace = langfuse.trace({ name: "portfolio-chat" });
+
   try {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+    const generation = trace.generation({
+      name: "claude-reply",
+      model: "claude-haiku-4-5-20251001",
+      input: messages,
+    });
 
     const response = await anthropic.messages.create({
       model: "claude-haiku-4-5-20251001",
@@ -132,8 +146,19 @@ export default async function handler(req: any, res: any) {
       throw new Error("Unexpected content type");
     }
 
+    generation.end({
+      output: content.text,
+      usage: {
+        promptTokens: response.usage.input_tokens,
+        completionTokens: response.usage.output_tokens,
+      },
+    });
+
+    await langfuse.flushAsync();
     return res.json({ reply: content.text });
   } catch (error) {
+    trace.update({ metadata: { error: String(error) } });
+    await langfuse.flushAsync();
     console.error("Anthropic error:", error);
     return res.status(500).json({ error: "Failed to get response" });
   }
