@@ -107,7 +107,7 @@ const NotesPage: React.FC = () => {
       ))}
 
       {/* Spacer */}
-      <div className={`${row} flex-1`} />
+      <div className={`${row} flex-1 min-h-12`} />
 
       {/* Footer links */}
       <div className={`${row} h-48`}>
@@ -127,16 +127,16 @@ const NotesPage: React.FC = () => {
             <div className="h-full flex flex-col justify-center">
               <div className="w-px h-2 bg-(--color-border)" />
             </div>
+            <div className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end"></div>
+          </div>
+          <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
             <Link
-              className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end"
+              className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
               to="/about"
               style={{ color: "inherit", textDecoration: "none" }}
             >
               <span>About</span>
             </Link>
-          </div>
-          <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
-            <div className="w-full h-full text-sm font-medium leading-[1.21] flex items-end"></div>
             <div className="h-full flex flex-col justify-center">
               <div className="w-px h-2 bg-(--color-border)" />
             </div>

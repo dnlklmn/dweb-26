@@ -73,27 +73,25 @@ const TYPEWRITER_PHRASES = [
 ];
 
 /** Splits `displayed` around `accentWord` and wraps the accent part in a span.
- *  Colors characters as they are typed, not all at once on full match. */
+ *  Always returns the same fragment structure to avoid DOM churn / flicker. */
 function renderWithAccent(
   displayed: string,
   accentWord: string,
   fullText: string,
 ) {
-  if (!accentWord) return displayed;
-  // Find the accent word's position in the full phrase so we use the right index
-  const accentStart = fullText.indexOf(accentWord);
-  if (accentStart === -1) return displayed;
-  // How many accent chars have been typed so far
-  const accentTyped = displayed.slice(
-    accentStart,
-    accentStart + accentWord.length,
-  );
-  if (!accentTyped || !accentWord.startsWith(accentTyped)) return displayed;
+  const accentStart = accentWord ? fullText.indexOf(accentWord) : -1;
+  if (!accentWord || accentStart === -1) return <>{displayed}</>;
+
+  const before = displayed.slice(0, accentStart);
+  const accentTyped = displayed.slice(accentStart, accentStart + accentWord.length);
+  const after = displayed.slice(accentStart + accentWord.length);
+  const isColored = accentTyped.length > 0 && accentWord.startsWith(accentTyped);
+
   return (
     <>
-      {displayed.slice(0, accentStart)}
-      <span style={{ color: "var(--color-accent)", fontFamily: "Geist, sans-serif" }}>{accentTyped}</span>
-      {displayed.slice(accentStart + accentTyped.length)}
+      {before}
+      <span style={{ color: isColored ? "var(--color-accent)" : "inherit" }}>{accentTyped}</span>
+      {after}
     </>
   );
 }
@@ -155,9 +153,9 @@ const LandingPage: React.FC = () => {
   } = useTypewriter({
     phrases,
     typeSpeed: 55,
-    deleteSpeed: 28,
-    pauseAfterType: 2200,
-    pauseAfterDelete: 350,
+    deleteSpeed: 32,
+    pauseAfterType: 3000,
+    pauseAfterDelete: 400,
     enabled: isComplete,
   });
 

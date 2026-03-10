@@ -1,6 +1,7 @@
 import React from "react";
 import DoDesignPost from "./DoDesignPost";
 import DesignSystemsVibePost from "./DesignSystemsVibePost";
+import AIWebsitePost from "./AIWebsitePost";
 
 export interface NotesMeta {
   slug: string;
@@ -11,6 +12,14 @@ export interface NotesMeta {
 }
 
 export const notesPosts: NotesMeta[] = [
+  {
+    slug: "ai-website",
+    title: "A website for the AI age",
+    date: "2026 Mar 10",
+    description:
+      "Most websites are made for humans. I added one constraint when rebuilding this portfolio: it should work as well for AI agents as it does for people.",
+    component: AIWebsitePost,
+  },
   {
     slug: "design-systems-make-vibe-coding-real",
     title: "A design system is documented decisions",

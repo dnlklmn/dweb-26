@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./CaseStudyPage.css";
+import "./ContactPage.css";
 
 export interface NotePostMeta {
   title: string;
@@ -45,7 +46,7 @@ const NotesPostLayout: React.FC<NotesPostLayoutProps> = ({ meta, children }) => 
       {/* Sticky back row */}
       <div className="cs-back-row">
         <Link to="/" className="cs-back-row__cell cs-back-row__cell--link">
-          <span className="cs-back-row__label" data-text="Notes">
+          <span className="cs-back-row__label" data-text="Daniel Kalman">
             <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
           </span>
         </Link>
@@ -92,20 +93,44 @@ const NotesPostLayout: React.FC<NotesPostLayoutProps> = ({ meta, children }) => 
 
       {/* Footer links */}
       <div className={`${row} h-48`}>
-        <Link to="/notes" className={`${cell} w-1/4 about-link-cell`}>
-          <span className="about-link-cell__label">← All posts</span>
-        </Link>
-        <Link
-          to="/"
-          className={`${cell} w-1/4 about-link-cell`}
-          onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
-        >
-          <span className="about-link-cell__label">Work →</span>
-        </Link>
-        <Link to="/ask" className={`${cell} w-1/4 about-link-cell`}>
-          <span className="about-link-cell__label">Ask →</span>
-        </Link>
-        <div className="w-1/4" />
+        <div
+          className={`${cell} w-full md:w-3/4 flex flex-col justify-end items-end p-2 shrink-0`}
+        />
+        <div className="w-1/4 flex flex-col p-2 gap-1">
+          <div className="flex justify-between items-end whitespace-nowrap w-full flex-1 gap-1">
+            <Link
+              className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21]"
+              to="/"
+              style={{ color: "inherit", textDecoration: "none" }}
+              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
+            >
+              <span>Work</span>
+            </Link>
+            <div className="h-full flex flex-col justify-center">
+              <div className="w-px h-2 bg-(--color-border)" />
+            </div>
+            <div className="w-full h-full text-sm font-medium leading-[1.21] flex justify-end"></div>
+          </div>
+          <div className="flex justify-between whitespace-nowrap w-full flex-1 gap-1">
+            <Link
+              className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex items-end"
+              to="/about"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span>About</span>
+            </Link>
+            <div className="h-full flex flex-col justify-center">
+              <div className="w-px h-2 bg-(--color-border)" />
+            </div>
+            <Link
+              className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21] flex justify-end items-end"
+              to="/ask"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span>Ask</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

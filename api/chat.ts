@@ -96,6 +96,9 @@ About the temptation to skip design when AI can generate working software by lun
 ## A design system is documented decisions (/blog/design-systems-make-vibe-coding-real) — Feb 2026
 Design tokens aren't just a component library — they're documented decisions made explicit. When AI agents work within a design system, they don't reinvent spacing, color, and layout with each prompt. Without documented decisions, each agent prompt starts from zero and inconsistencies stack up faster than you can catch them. With a design system, decisions compound in your favor. "I build the system first. Then I vibe as hard as I want."
 
+## A website for the AI age (/blog/ai-website) — Mar 2026
+A website that only works for humans is increasingly invisible to how people and their agents actually explore the web. Daniel rebuilt his portfolio to work as well for AI agents as for people: all meaningful content exists as plain text, an MCP server exposes the portfolio as queryable tools (case studies, writing, bio, contact) at https://danielkalman.design/api/mcp, and a chat interface backed by Claude helps visitors find the most relevant work. Three ways to consume it: read it yourself, point your AI agent at the MCP server, or just ask.
+
 ---
 
 CONVERSATION RULES:

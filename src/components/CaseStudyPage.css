@@ -91,6 +91,7 @@ img {
 .cs-back-row__label {
     font-size: 1rem;
     font-weight: 700;
+    line-height: 1;
     color: var(--color-accent);
     position: relative;
     z-index: 2;
@@ -103,6 +104,10 @@ img {
     position: absolute;
     left: 0;
     top: 0;
+    line-height: 1;
+    white-space: nowrap;
+    width: 100%;
+    background-color: var(--color-primary);
     clip-path: inset(100% 0 0 0);
     transition: clip-path var(--anim-duration) var(--anim-easing);
 }

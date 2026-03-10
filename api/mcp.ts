@@ -144,6 +144,25 @@ Decisions compound. When documented, they compound in your favor. When implicit,
 
 "I build the system first. Then I vibe as hard as I want."`,
   },
+  "ai-website": {
+    slug: "ai-website",
+    title: "A website for the AI age",
+    date: "2026 Mar 10",
+    url: "https://danielkalman.design/notes/ai-website",
+    description:
+      "Most websites are made for humans. I added one constraint when rebuilding this portfolio: it should work as well for AI agents as it does for people.",
+    content: `A website that only works for humans is increasingly invisible to how people and their agents actually explore the web.
+
+Making it readable: all meaningful content exists as plain text, structured so a language model can read it as fluently as a person skimming it.
+
+Making it usable: an MCP server exposes the portfolio as queryable tools — case studies with full process descriptions, writing with the actual arguments, bio, contact. Any agent that can use tools can query this portfolio directly at https://danielkalman.design/api/mcp.
+
+Adding the LLM guide: a chat interface backed by Claude with the full portfolio as a briefing document. Understands who's visiting and what they're after, then recommends the most relevant work. Conversations traced through Langfuse.
+
+Three ways to consume it: read it yourself, point your AI agent at the MCP server, or just ask.
+
+The portfolio doesn't care how you show up.`,
+  },
 };
 
 const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Daniel Kalman's portfolio, work, and thinking. Answer concisely and accurately using only the information provided. If you don't know something, say so and suggest visiting https://danielkalman.design/ask for a fuller conversation.
@@ -233,7 +252,7 @@ function createMcpServer() {
   server.tool(
     "get_blog_post",
     "Get the full content of a blog post",
-    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real") },
+    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real, ai-website") },
     async ({ slug }) => {
       const post = BLOG_POSTS[slug];
       if (!post) {

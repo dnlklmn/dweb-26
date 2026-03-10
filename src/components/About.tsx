@@ -97,6 +97,15 @@ const About: React.FC = () => {
 
   const heightMultiplier = 24;
 
+  const YearMarker = ({ year, topPct }: { year: number; topPct: number }) => (
+    <span
+      className="text-sm leading-relaxed opacity-50 absolute right-2 pointer-events-none"
+      style={{ top: `${topPct}%`, transform: "translateY(-50%)" }}
+    >
+      {year}
+    </span>
+  );
+
   return (
     <>
       <div className={`cs-page${animComplete ? " anim-complete" : ""}`}>
@@ -184,9 +193,10 @@ const About: React.FC = () => {
         {/* Content row: text | img | img | img */}
         <div className={row} style={{ height: 9 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">Present</p>
+            <YearMarker year={2026} topPct={22} />
             <p className="text-sm leading-relaxed">June 2025</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -215,9 +225,11 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 25 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">June 2025</p>
+            <YearMarker year={2025} topPct={20} />
+            <YearMarker year={2024} topPct={68} />
             <p className="text-sm leading-relaxed">May 2023</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -247,9 +259,11 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 27 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">Jan 2024</p>
+            <YearMarker year={2023} topPct={44} />
+            <YearMarker year={2022} topPct={89} />
             <p className="text-sm leading-relaxed">Oct 2021</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -278,9 +292,10 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 7 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">May 2021</p>
+            <YearMarker year={2021} topPct={67} />
             <p className="text-sm leading-relaxed">November 2020</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -309,9 +324,11 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 32 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">Nov 2020</p>
+            <YearMarker year={2020} topPct={31} />
+            <YearMarker year={2019} topPct={69} />
             <p className="text-sm leading-relaxed">Mar 2018</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -370,9 +387,11 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 30 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">July 2017</p>
+            <YearMarker year={2017} topPct={20} />
+            <YearMarker year={2016} topPct={60} />
             <p className="text-sm leading-relaxed">January 2015</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
@@ -431,9 +450,12 @@ const About: React.FC = () => {
 
         <div className={row} style={{ height: 41 * heightMultiplier }}>
           <div
-            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
             <p className="text-sm leading-relaxed">Dec 2014</p>
+            <YearMarker year={2014} topPct={27} />
+            <YearMarker year={2013} topPct={56} />
+            <YearMarker year={2012} topPct={85} />
             <p className="text-sm leading-relaxed">Jul 2011</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>

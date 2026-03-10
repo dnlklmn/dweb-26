@@ -33,25 +33,12 @@ const AskPage: React.FC = () => {
   const [sessionId] = useState(() => crypto.randomUUID());
   const [turnCount, setTurnCount] = useState(0);
   const [animComplete, setAnimComplete] = useState(false);
-  const [showStickyTitles, setShowStickyTitles] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setAnimComplete(true), 600);
     return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowStickyTitles(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "-48px 0px 0px 0px" },
-    );
-    observer.observe(header);
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -134,23 +121,7 @@ const AskPage: React.FC = () => {
             <span className="name-short">Daniel</span>
           </span>
         </Link>
-        <div
-          className={`cs-back-row__cell cs-back-row__cell--aux${showStickyTitles ? " cs-back-row__cell--aux-active" : ""}`}
-          style={{ flex: 1 }}
-        ></div>
-      </div>
-
-      {/* Header */}
-      <div ref={headerRef} className={row}>
-        <div className={`${cell} w-1/4 p-2`} />
-        <div
-          className={`${cell} w-1/2 min-h-48 flex flex-col gap-4 justify-end p-2`}
-        >
-          <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-            Not sure where to start? Tell me what you're looking for.
-          </p>
-        </div>
-        <div className="w-1/4 p-2" />
+        <div className="cs-back-row__cell cs-back-row__cell--aux" style={{ flex: 1 }}></div>
       </div>
 
       {/* Messages — single cell */}
