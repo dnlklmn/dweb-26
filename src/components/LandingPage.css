@@ -115,7 +115,10 @@
 .landing__ticker-track .landing__ticker-sep {
     color: var(--color-accent);
     font-weight: 800;
-    font-family: "Geist", sans-serif;
+    font-family: "DxBurst", sans-serif;
+    line-height: 1.21;
+    position: relative;
+    top: -0.12em;
 }
 
 .landing__ticker-text {

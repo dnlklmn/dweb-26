@@ -116,8 +116,9 @@ const About: React.FC = () => {
             className="cs-back-row__cell cs-back-row__cell--link"
             onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
           >
-            <span className="cs-back-row__label" data-text="Daniel Kalman">
-              <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
+            <span className="cs-back-row__label cs-back-row__label--name" data-text="Daniel Kalman">
+              <span className="name-full">Daniel Kalman</span>
+              <span className="name-short">Daniel</span>
             </span>
           </Link>
 
@@ -140,16 +141,11 @@ const About: React.FC = () => {
         <div ref={headerRef} className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div
-            className={`${cell} w-1/2 min-h-48 flex flex-col gap-4 justify-end p-2`}
+            className={`${cell} w-1/2 pt-12 flex flex-col gap-4 justify-end p-2`}
           >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              Designer who codes. Strong design foundations matter more than
-              ever when working with AI.
-            </p>
-            <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              I build prototypes to validate ideas fast and build design systems
-              to keep things from falling apart. AI makes me move faster than I
-              should.
+              I believe strong design foundations matter more than ever when
+              working with AI.
             </p>
           </div>
           <div className="w-1/4 flex flex-col gap-2 justify-end p-2">
@@ -316,7 +312,11 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className={`w-1/4 p-2 overflow-hidden`}>
-            <img src={quartersLogo} alt="Quarters" className="w-full md:w-3/4 h-auto" />
+            <img
+              src={quartersLogo}
+              alt="Quarters"
+              className="w-full md:w-3/4 h-auto"
+            />
           </div>
         </div>
 

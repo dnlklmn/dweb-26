@@ -1,6 +1,6 @@
 # Daniel Kalman — Portfolio
 
-> Design engineer with 10+ years of experience. Bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy (blockchain workflow automation platform, since June 2025). Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay.
+> Product designer with 10+ years of experience. Bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy (blockchain workflow automation platform, since June 2025). Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay.
 
 Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
 
@@ -18,7 +18,7 @@ The problem: psychology practices are buried in admin. The "transcribe-anonymise
 Process: 1-hour user interview with a practicing psychologist, pain points framework built with Claude, multiple prototypes (DSM-5 MCP client, n8n/Scriberr transcription workflow, CLI with local models), Langfuse integration for tracing and eval-driven improvement.
 
 Tech: Figma, Tauri, Svelte, Whisper, n8n, MCP servers, Langfuse, Claude API.
-Best for: AI product teams, health/privacy-sensitive tools, eval-driven development, full-stack design engineering roles.
+Best for: AI product teams, health/privacy-sensitive tools, eval-driven development, full-stack product design roles.
 
 ---
 

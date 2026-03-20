@@ -40,7 +40,7 @@ const NotesPage: React.FC = () => {
           className="cs-back-row__cell cs-back-row__cell--link"
           onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
-          <span className="cs-back-row__label" data-text="Daniel Kalman">
+          <span className="cs-back-row__label cs-back-row__label--name" data-text="Daniel Kalman">
             <span className="name-full">Daniel Kalman</span>
             <span className="name-short">Daniel</span>
           </span>

@@ -46,7 +46,7 @@ const NotesPostLayout: React.FC<NotesPostLayoutProps> = ({ meta, children }) => 
       {/* Sticky back row */}
       <div className="cs-back-row">
         <Link to="/" className="cs-back-row__cell cs-back-row__cell--link">
-          <span className="cs-back-row__label" data-text="Daniel Kalman">
+          <span className="cs-back-row__label cs-back-row__label--name" data-text="Daniel Kalman">
             <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
           </span>
         </Link>

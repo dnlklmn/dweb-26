@@ -90,7 +90,7 @@ function renderWithAccent(
   return (
     <>
       {before}
-      <span style={{ color: isColored ? "var(--color-accent)" : "inherit" }}>{accentTyped}</span>
+      <span style={{ color: isColored ? "var(--color-accent)" : "inherit", fontFamily: isColored ? '"DxBurst", sans-serif' : "inherit", position: "relative" as const, top: isColored ? "-0.12em" : undefined }}>{accentTyped}</span>
       {after}
     </>
   );
@@ -167,15 +167,15 @@ const LandingPage: React.FC = () => {
   const tickerItems = [
     {
       label: " NEW! ",
-      text: "You can now ask questions about my work using Claude!",
+      text: "Ask Claude anything about my work.",
     },
     {
-      label: " TRY IT OUT! ",
-      text: "No more plowing through boring case studies, just ask away!",
+      label: " TRY IT! ",
+      text: "Short on time? Get the highlights in seconds.",
     },
     {
-      label: " IT'S AI! ",
-      text: "Why read if Claude can read it for you!",
+      label: " ASK ME ",
+      text: "Skip the scrolling. Just ask.",
     },
   ];
   const TICKER_COPIES = 6;
@@ -265,7 +265,7 @@ const LandingPage: React.FC = () => {
                 <span className="name-short">Daniel</span>
               </span>
               <span className="text-sm font-normal leading-[1.21] whitespace-nowrap">
-                Design Engineer
+                Product Designer
               </span>
             </div>
             {/* Mobile menu button — hidden on desktop */}
