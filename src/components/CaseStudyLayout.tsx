@@ -59,7 +59,7 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
     <img
       src={src}
       alt={alt}
-      className={className ?? "w-full h-full object-cover block"}
+      className={className ?? "w-full h-auto block"}
       style={{ cursor: "zoom-in" }}
       onClick={() => setLightbox({ src, alt })}
     />

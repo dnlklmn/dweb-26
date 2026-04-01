@@ -8,12 +8,17 @@ import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import glHeaderImage from "../assets/good-listener/header.jpeg";
+import openGovHeaderImage from "../assets/open-gov/dashboard-home.png";
+import polkadotDsHeaderImage from "../assets/polkadot-design-system/cover.png";
+import solarWalletHeaderImage from "../assets/solar-wallet/cover.png";
+import oneFamilyHeaderImage from "../assets/one-family/cover.jpg";
+import satoshiPayHeaderImage from "../assets/satoshi-pay/containers.jpg";
 import glForegroundImage from "../assets/good-listener/app-frame.png";
 import radicleForegroundImage from "../assets/radicle-desktop/Patch-Preview.png";
 import autoForegroundImage from "../assets/auto/foreground.png";
 import components from "../assets/radicle-design-system/foreground.png";
 
-const caseStudies: CaseStudy[] = [
+const featuredStudies: CaseStudy[] = [
   {
     title: "Good Listener",
     slug: "good-listener",
@@ -49,6 +54,49 @@ const caseStudies: CaseStudy[] = [
     year: "2025",
     image: radicleDesignSystemHeaderImage,
     foregroundImage: components,
+  },
+];
+
+const otherStudies: CaseStudy[] = [
+  {
+    title: "Open Gov Delegation Dashboard",
+    slug: "open-gov-delegation-dashboard",
+    description: "Making Polkadot governance accessible",
+    role: "UX, UI, Front End",
+    year: "2023",
+    image: openGovHeaderImage,
+  },
+  {
+    title: "Polkadot Design System",
+    slug: "polkadot-design-system",
+    description: "One system, many products",
+    role: "Design System, UI, Front End",
+    year: "2023",
+    image: polkadotDsHeaderImage,
+  },
+  {
+    title: "Solar Wallet",
+    slug: "solar-wallet",
+    description: "A Stellar wallet built for simplicity",
+    role: "User Research, UX, Prototyping",
+    year: "2019",
+    image: solarWalletHeaderImage,
+  },
+  {
+    title: "One Family",
+    slug: "one-family",
+    description: "Baby tracking supercharged",
+    role: "Concept Design, UX, Prototyping",
+    year: "2020",
+    image: oneFamilyHeaderImage,
+  },
+  {
+    title: "SatoshiPay Micropayments",
+    slug: "satoshi-pay",
+    description: "Micropayments for the web",
+    role: "UX, UI",
+    year: "2019",
+    image: satoshiPayHeaderImage,
   },
 ];
 
@@ -485,7 +533,7 @@ const LandingPage: React.FC = () => {
       <div
         className={`case-studies${isComplete ? " case-studies--visible" : ""}`}
       >
-        {caseStudies.map((study, i) => (
+        {featuredStudies.map((study, i) => (
           <React.Fragment key={study.title}>
             <div
               className="case-study__reveal"
@@ -504,6 +552,49 @@ const LandingPage: React.FC = () => {
             </div>
           </React.Fragment>
         ))}
+
+        {/* Other Projects section */}
+        <div
+          className="case-study__reveal"
+          style={{ transitionDelay: `${featuredStudies.length * 2 * 150}ms` }}
+        >
+          <div className="case-study__separator" />
+        </div>
+        <div
+          className="case-study__reveal"
+          style={{ transitionDelay: `${(featuredStudies.length * 2 + 1) * 150}ms` }}
+        >
+          <div className="other-projects__heading">
+            <h2 className="text-3xl font-bold leading-[1.21]">Other Projects</h2>
+          </div>
+        </div>
+
+        {(() => {
+          const pairs: CaseStudy[][] = [];
+          for (let i = 0; i < otherStudies.length; i += 2) {
+            pairs.push(otherStudies.slice(i, i + 2));
+          }
+          const baseDelay = (featuredStudies.length * 2 + 2) * 150;
+          return pairs.map((pair, pi) => (
+            <div
+              key={pi}
+              className="case-study__reveal"
+              style={{ transitionDelay: `${baseDelay + pi * 150}ms` }}
+            >
+              <div className="other-projects-row">
+                {pair.map((study) => (
+                  <CaseStudyCard
+                    key={study.slug}
+                    study={study}
+                    compact
+                    onNavigate={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
+                  />
+                ))}
+                {pair.length === 1 && <div className="other-projects-row__placeholder" />}
+              </div>
+            </div>
+          ));
+        })()}
       </div>
       <div className="h-12" />
     </div>

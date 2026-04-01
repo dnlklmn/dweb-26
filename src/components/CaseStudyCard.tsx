@@ -15,9 +15,10 @@ export interface CaseStudy {
 interface CaseStudyCardProps {
   study: CaseStudy;
   onNavigate?: () => void;
+  compact?: boolean;
 }
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => {
+const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate, compact }) => {
   const imgRef = React.useRef<HTMLImageElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -46,7 +47,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate }) => {
   }, []);
 
   return (
-    <Link to={`/${study.slug}`} className="case-study" onClick={onNavigate}>
+    <Link to={`/${study.slug}`} className={`case-study${compact ? " case-study--compact" : ""}`} onClick={onNavigate}>
       <div className="case-study__image" ref={containerRef}>
         <div className="case-study__image-clip">
           {study.image && (
