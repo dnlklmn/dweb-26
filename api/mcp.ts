@@ -109,6 +109,93 @@ const CASE_STUDIES: Record<string, object> = {
     ],
     role: "Design Audit, Design System, Design Tokens",
   },
+  "open-gov-delegation-dashboard": {
+    slug: "open-gov-delegation-dashboard",
+    title: "Open Gov Delegation Dashboard",
+    subtitle: "Making Polkadot governance accessible",
+    year: 2023,
+    tags: ["UX", "UI", "Front End"],
+    url: "https://danielkalman.design/open-gov-delegation-dashboard",
+    summary:
+      "Governance delegation tool for Polkadot. Lets token holders browse delegate profiles, understand voting history, and delegate tokens across governance tracks.",
+    problem:
+      "Polkadot's OpenGov system gives every token holder a vote, but most lack time or expertise to vote on every proposal. Delegation existed on-chain but had no accessible dedicated interface.",
+    process:
+      "Designed the full delegation flow and built the frontend using the Polkadot design system. Real on-chain data. One-pager delegation view consolidated everything needed to make a decision without navigating multiple screens.",
+    tech: ["Figma", "React", "Polkadot.js"],
+    bestFor: ["Web3/blockchain teams", "civic tech", "data-dense dashboards", "design systems integration"],
+    role: "UX Design, UI Design, Front End",
+  },
+  "polkadot-design-system": {
+    slug: "polkadot-design-system",
+    title: "Polkadot Design System",
+    subtitle: "A system to define the look and experience of web3",
+    year: 2023,
+    tags: ["Design System", "UI", "Front End"],
+    url: "https://danielkalman.design/polkadot-design-system",
+    demo: "https://github.com/dnlklmn/polkadot-theme",
+    summary:
+      "Shared design language for the Polkadot ecosystem. Token pipeline: Figma → Token Studio → Style Dictionary → CSS variables + Tailwind config.",
+    problem:
+      "Brand designers, product teams, and external builders all worked in isolation. A shared system was needed to improve consistency, collaboration, and speed across a diverse, distributed ecosystem.",
+    process:
+      "Aligned designers org-wide, collected web3 best practices, defined shared principles. Built the token system: style primitives from Figma via Token Studio → Style Dictionary → CSS + Tailwind. Internal contributions first, with a Treasury-funded ecosystem vision that wasn't realized before company shutdown.",
+    tech: ["Figma", "Token Studio", "Style Dictionary", "React"],
+    bestFor: ["Companies scaling a design system", "design-engineering collaboration", "platform teams", "web3 ecosystem"],
+    role: "Design System, Design, Front End",
+  },
+  "solar-wallet": {
+    slug: "solar-wallet",
+    title: "Solar Wallet",
+    subtitle: "A Stellar wallet built for simplicity",
+    year: 2019,
+    tags: ["UX", "UI", "Prototyping"],
+    url: "https://danielkalman.design/solar-wallet",
+    demo: "http://solarwallet.io/",
+    summary:
+      "Stellar wallet designed for simplicity. In-app onboarding, unified send/withdraw, multi-signature support — one of the first Stellar wallets to offer enterprise-grade multi-sig.",
+    problem:
+      "Stellar wallets were difficult to use, near-impossible for beginners. Three pain points: complicated withdrawals (KYC), fragmented onboarding, no enterprise multi-sig.",
+    process:
+      "Surveys, user journey mapping, card sorting, Twitter polls. Three focused design solutions: entirely in-app onboarding, unified send/withdraw flow, multi-signature support across devices.",
+    tech: ["Figma"],
+    bestFor: ["Fintech/crypto products", "user research-driven design", "simplifying complex technical flows"],
+    role: "User Research, UX Design, Prototyping",
+  },
+  "one-family": {
+    slug: "one-family",
+    title: "One Family",
+    subtitle: "Baby tracking supercharged",
+    year: 2020,
+    tags: ["UX", "UI", "Concept Design"],
+    url: "https://danielkalman.design/one-family",
+    summary:
+      "Baby tracking concept app. Tracks feeds, naps, and routines then generates a personalised schedule. Sleep coach and contextual knowledge base included.",
+    problem:
+      "Parents spend huge mental energy tracking baby routines. Existing apps captured data but didn't act on it — nights remained unpredictable.",
+    process:
+      "Concept design exploring how collected tracking data could generate personalized schedules. Sleep coach feature for group or 1:1 sessions with experts. Contextual knowledge base surfaces articles at the right moment.",
+    tech: ["Figma"],
+    bestFor: ["Consumer app roles", "healthcare/parenting products", "concept-driven UX"],
+    role: "Concept Design, UX Design, Prototyping",
+  },
+  "satoshi-pay": {
+    slug: "satoshi-pay",
+    title: "SatoshiPay Micropayments",
+    subtitle: "Micropayments for the web",
+    year: 2019,
+    tags: ["UX", "UI"],
+    url: "https://danielkalman.design/satoshi-pay",
+    summary:
+      "Redesigned micropayment UI for SatoshiPay. Streamlined purchasing flow, new account creation, adaptable containers that blend into any publisher's website.",
+    problem:
+      "The micropayment service lacked a clean, user-friendly interface. Major publisher clients required a complete overhaul — faster, simpler, and adaptable to any website context.",
+    process:
+      "Customer interviews and market research on digital monetization. Identified three core consumer needs. Designed streamlined purchasing flow, trust-building account creation, and flexible containers consistent across any website.",
+    tech: ["Figma"],
+    bestFor: ["Fintech/payments products", "B2B SaaS", "publisher/consumer contexts"],
+    role: "UX Design, UI Design",
+  },
 };
 
 const BLOG_POSTS: Record<string, object> = {
@@ -169,9 +256,11 @@ const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Dan
 
 Daniel Kalman is a product designer with 10+ years of experience. He bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy. Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay. Open to new opportunities.
 
-Case studies: Good Listener (2026, local AI transcription for therapists, Tauri/Svelte/Whisper/Claude), Auto (2025, blockchain workflow builder with multiplayer, Svelte/Yjs), Radicle Desktop (2024, P2P code collaboration desktop app, Svelte), Radicle Design System (2024, full design token pipeline, Tokens Studio/Style Dictionary/Svelte).
+Featured case studies: Good Listener (2026, local AI transcription for therapists, Tauri/Svelte/Whisper/Claude), Auto (2025, blockchain workflow builder with multiplayer, Svelte/Yjs), Radicle Desktop (2024, P2P code collaboration desktop app, Svelte), Radicle Design System (2024, full design token pipeline, Tokens Studio/Style Dictionary/Svelte).
 
-Writing: "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development.`;
+Older case studies: Open Gov Delegation Dashboard (2023, Polkadot governance delegation tool, React), Polkadot Design System (2023, shared design language for Polkadot ecosystem, Token Studio/Style Dictionary/React), Solar Wallet (2019, Stellar wallet with multi-sig, Figma), One Family (2020, baby tracking concept app, Figma), SatoshiPay Micropayments (2019, redesigned micropayment UI, Figma).
+
+Writing: "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development. "A website for the AI age" — building a portfolio that works for humans and AI agents alike.`;
 
 function createMcpServer() {
   const server = new McpServer({

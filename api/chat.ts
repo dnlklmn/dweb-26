@@ -88,6 +88,68 @@ Best for: Companies scaling a design system, design-engineering collaboration ro
 
 ---
 
+## Open Gov Delegation Dashboard (/open-gov-delegation-dashboard) — 2023
+Governance delegation tool for Polkadot. Tags: UX, UI, Front End.
+
+The problem: Polkadot's OpenGov system gives every token holder a vote, but most holders lack the time or expertise to vote on every proposal. Delegation exists on-chain but there was no dedicated interface to make it accessible.
+
+Process: Daniel designed the full flow — browsing delegate profiles, understanding their voting history and stance, and delegating tokens across governance tracks. He built the frontend using the Polkadot design system he had developed in parallel, with real on-chain data. The one-pager delegation view consolidated everything needed to make a decision without navigating multiple screens.
+
+Tech: Figma, React, Polkadot.js.
+Best for: Web3/blockchain teams, civic tech, data-dense dashboard design, design systems integration.
+
+---
+
+## Polkadot Design System (/polkadot-design-system) — 2023
+Shared design language for the Polkadot ecosystem. Tags: Design System, UI, Front End.
+
+The problem: Brand designers, product teams, and external builders all worked in isolation — inconsistency everywhere. A shared system was needed to improve consistency, collaboration, and speed across a diverse, distributed ecosystem.
+
+Process: Daniel aligned designers across the org, collected best practices from web3 ecosystems, and defined shared principles. He designed and built the token system: style primitives exported from Figma via Token Studio, processed by Style Dictionary into CSS variables and a Tailwind config. Internal contributions first, with a longer-term vision of ecosystem funding via the Polkadot Treasury (company shut down app-building before this was realized).
+
+Implementations: Open Gov Delegation Dashboard, Validator Picker, Asset Menu Demo — each validated the system's flexibility and fed new components back into the library.
+
+Tech: Figma, Token Studio, Style Dictionary, React.
+Best for: Companies scaling a design system, design-engineering collaboration, platform teams, web3 ecosystem work.
+
+---
+
+## Solar Wallet (/solar-wallet) — 2019
+A Stellar wallet designed for simplicity. Tags: UX, UI, Prototyping.
+
+The problem: Stellar wallets were difficult to use, near-impossible for beginners. Three pain points: withdrawals were complicated by KYC, onboarding fragmented users out of the app, and there was no enterprise-grade multi-signature security.
+
+Process: Surveys, user journey mapping, card sorting, and Twitter polls to understand how people used wallets and where they got stuck. Three focused design solutions: entirely in-app onboarding flow, unified send/withdraw experience, and multi-signature support across devices — one of the first Stellar wallets to offer this.
+
+Tech: Figma.
+Best for: Fintech/crypto products, user research-driven design, simplifying complex technical flows.
+
+---
+
+## One Family (/one-family) — 2020
+Baby tracking app — personal concept project. Tags: UX, UI, Concept Design.
+
+The problem: Parents of young babies spend huge amounts of mental energy tracking feeds, naps, and routines — and nights are unpredictable. Existing baby trackers captured data but didn't do anything useful with it.
+
+Concept: Track feeds, naps, and routines → generate a personalized schedule → save the nights by planning the day. Sleep coach feature connects parents with experts for group sessions or 1:1 talks. Contextual knowledge base surfaces the right article at the right moment.
+
+Tech: Figma.
+Best for: Consumer app roles, healthcare/parenting products, concept-driven UX work.
+
+---
+
+## SatoshiPay Micropayments (/satoshi-pay) — 2019
+Redesigned micropayment UI for SatoshiPay. Tags: UX, UI.
+
+The problem: The micropayment service lacked a clean, user-friendly interface. In preparation for major publishers, the payment experience needed a complete overhaul — faster, simpler, and adaptable to any website's context.
+
+Process: Customer interviews and market research on digital monetization patterns. Identified three core consumer needs. Designed streamlined purchasing flow (the "faster" animation), new account creation that builds trust, and adaptable containers that blend into any website while staying consistent.
+
+Tech: Figma.
+Best for: Fintech/payments products, B2B SaaS, designing for publisher/consumer contexts.
+
+---
+
 HIS WRITING (/blog):
 
 ## Why I design again (/blog/do-design) — Dec 2025
