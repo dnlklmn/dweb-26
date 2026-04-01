@@ -158,6 +158,75 @@
     line-height: 1.21;
 }
 
+/* Compact variant — used in "Other Projects" 2-per-row grid */
+.case-study--compact {
+    height: 320px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Image stretches full height of the card */
+.case-study--compact .case-study__image {
+    min-height: unset;
+    height: 320px;
+    flex-shrink: 0;
+}
+
+.case-study--compact .case-study__info-top {
+    min-height: unset;
+}
+
+/* Info column: stack meta then tags vertically */
+.case-study--compact .case-study__info-bottom {
+    flex-direction: column;
+}
+
+.case-study--compact .case-study__meta {
+    padding: 8px;
+    flex: 1;
+    width: 100%;
+}
+
+.case-study--compact .case-study__tags {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-left: none;
+    border-top: var(--border);
+}
+
+.case-study--compact .case-study__title {
+    font-size: 16px;
+}
+
+.case-study--compact .case-study__description,
+.case-study--compact .case-study__role,
+.case-study--compact .case-study__year {
+    font-size: 12px;
+}
+
+.other-projects-row {
+    display: flex;
+    border-top: var(--border);
+}
+
+.other-projects-row .case-study--compact:not(:last-child) {
+    border-right: var(--border);
+}
+
+/* Placeholder for odd item — fills the empty half */
+.other-projects-row__placeholder {
+    flex: 1;
+    min-width: 0;
+    border-left: var(--border);
+}
+
+.other-projects__heading {
+    padding: 48px 8px 8px 8px;
+    border-bottom: var(--border);
+}
+
 @media (max-width: 767px) {
     /* Stack image above info */
     .case-study {

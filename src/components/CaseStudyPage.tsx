@@ -4,6 +4,11 @@ import AutoCaseStudy from "./AutoCaseStudy";
 import RadicleDesktopCaseStudy from "./RadicleDesktopCaseStudy";
 import RadicleDesignSystemCaseStudy from "./RadicleDesignSystemCaseStudy";
 import GoodListenerCaseStudy from "./GoodListenerCaseStudy";
+import OpenGovCaseStudy from "./OpenGovCaseStudy";
+import PolkadotDesignSystemCaseStudy from "./PolkadotDesignSystemCaseStudy";
+import SolarWalletCaseStudy from "./SolarWalletCaseStudy";
+import OneFamilyCaseStudy from "./OneFamilyCaseStudy";
+import SatoshiPayCaseStudy from "./SatoshiPayCaseStudy";
 
 const CaseStudyPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,6 +29,26 @@ const CaseStudyPage: React.FC = () => {
 
   if (slug === "good-listener") {
     return <GoodListenerCaseStudy />;
+  }
+
+  if (slug === "open-gov-delegation-dashboard") {
+    return <OpenGovCaseStudy />;
+  }
+
+  if (slug === "polkadot-design-system") {
+    return <PolkadotDesignSystemCaseStudy />;
+  }
+
+  if (slug === "solar-wallet") {
+    return <SolarWalletCaseStudy />;
+  }
+
+  if (slug === "one-family") {
+    return <OneFamilyCaseStudy />;
+  }
+
+  if (slug === "satoshi-pay") {
+    return <SatoshiPayCaseStudy />;
   }
 
   return (
