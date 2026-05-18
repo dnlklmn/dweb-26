@@ -199,6 +199,27 @@ const CASE_STUDIES: Record<string, object> = {
 };
 
 const BLOG_POSTS: Record<string, object> = {
+  "ax-has-two-faces": {
+    slug: "ax-has-two-faces",
+    title: "AX has two faces",
+    date: "2026 May 18",
+    url: "https://danielkalman.design/notes/ax-has-two-faces",
+    description:
+      "Agent Experience is half the story. Agents need to use your product, and humans need to trust your agentic features. Both are design work.",
+    content: `AX — Agent Experience. Matt Biilmann at Netlify (https://biilmann.blog/articles/introducing-ax/) coined it: make your product usable by AI agents, the way UX is about making it usable by people. Good idea. About to be everywhere. But the framing only covers half.
+
+Agents using your product: agents will interact with your products, so you need to make sure they can. They need to find their way in, understand what your product does, and use it without getting stuck. This is the part of AX that gets talked about — MCP servers, clean APIs, docs that read well to a model, errors that an LLM can actually recover from.
+
+Humans using your agentic features: humans will interact with your agentic features, so you need to make sure they can too. People need to trust what your agent is doing, see what it's about to do before it happens, and stop it or steer it when something looks off. This part gets talked about a lot less, even though it's where most of the friction is right now.
+
+Both are design work. Most teams are doing one and ignoring the other. Some ship an MCP server and call the agent question handled. Others bolt a chat window onto their product and call the human question handled.
+
+You really need both. Two audiences, two surfaces, one product. Neither one excuses neglecting the other.
+
+When I rebuilt my portfolio (https://danielkalman.design/notes/ai-website) I tried to cover both sides. It reads cleanly for people, and it serves an MCP server so agents can query my case studies the same way you can browse them. The next few posts go deeper into each side: what I've learned making products that agents can use, and what I've learned making agentic features that humans can trust.
+
+"If you're working on either side, I'm open for work or projects."`,
+  },
   "do-design": {
     slug: "do-design",
     title: "Why I design again",
@@ -260,7 +281,7 @@ Featured case studies: Good Listener (2026, local AI transcription for therapist
 
 Older case studies: Open Gov Delegation Dashboard (2023, Polkadot governance delegation tool, React), Polkadot Design System (2023, shared design language for Polkadot ecosystem, Token Studio/Style Dictionary/React), Solar Wallet (2019, Stellar wallet with multi-sig, Figma), One Family (2020, baby tracking concept app, Figma), SatoshiPay Micropayments (2019, redesigned micropayment UI, Figma).
 
-Writing: "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development. "A website for the AI age" — building a portfolio that works for humans and AI agents alike.`;
+Writing: "AX has two faces" — Agent Experience covers agents using your product, but humans using your agentic features need design too. "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development. "A website for the AI age" — building a portfolio that works for humans and AI agents alike.`;
 
 function createMcpServer() {
   const server = new McpServer({
@@ -341,7 +362,7 @@ function createMcpServer() {
   server.tool(
     "get_blog_post",
     "Get the full content of a blog post",
-    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real, ai-website") },
+    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real, ai-website, ax-has-two-faces") },
     async ({ slug }) => {
       const post = BLOG_POSTS[slug];
       if (!post) {
