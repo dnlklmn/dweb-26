@@ -2,6 +2,7 @@ import React from "react";
 import DoDesignPost from "./DoDesignPost";
 import DesignSystemsVibePost from "./DesignSystemsVibePost";
 import AIWebsitePost from "./AIWebsitePost";
+import AXTwoFacesPost from "./AXTwoFacesPost";
 
 export interface NotesMeta {
   slug: string;
@@ -12,6 +13,14 @@ export interface NotesMeta {
 }
 
 export const notesPosts: NotesMeta[] = [
+  {
+    slug: "ax-has-two-faces",
+    title: "AX has two faces",
+    date: "2026 May 18",
+    description:
+      "Agent Experience is half the story. Agents need to use your product, and humans need to trust your agentic features. Both are design work.",
+    component: AXTwoFacesPost,
+  },
   {
     slug: "ai-website",
     title: "A website for the AI age",
