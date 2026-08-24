@@ -61,6 +61,10 @@ export const blues = [
 // All cells with content get p-2.
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const RadicleDesignSystemCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -110,7 +114,7 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="overflow-hidden">
-              {img(components, "Radicle Design System")}
+              {img(components, "Radicle Design System", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -248,13 +252,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         </div>
 
         {/* Image row */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(UIKit, "UI Kit in Figma")}
+        <div className={row}>
+          <div className={`${cell} w-3/4 p-2 overflow-hidden`}>
+            {img(UIKit, "UI Kit in Figma", fillImg)}
           </div>
           <div className="w-1/4 p-2">
-            {img(ComponentAPI, "Component props")}
+            {img(ComponentAPI, "Component props", fillImg)}
           </div>
         </div>
 
@@ -286,12 +289,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         </div>
 
         {/* Image row */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(CSSVariables, "CSS Variables and how to use them")}
+            {img(CSSVariables, "CSS Variables and how to use them", fillImg)}
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(TokensInFigma, "Design Tokens in Figma")}
+            {img(TokensInFigma, "Design Tokens in Figma", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -324,13 +327,13 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
         </div>
 
         {/* Image row */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 p-2`}></div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(Icons, "Design Tokens in Figma")}
+            {img(Icons, "Design Tokens in Figma", fillImg)}
           </div>
           <div className="w-1/4 p-2">
-            {img(SeedIcon, "Design Tokens in Figma")}
+            {img(SeedIcon, "Design Tokens in Figma", fillImg)}
           </div>
         </div>
 

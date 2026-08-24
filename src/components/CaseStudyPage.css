@@ -607,6 +607,16 @@ a:active {
     .cs-content > div > * > div:has(> img) {
         height: auto !important;
     }
+    /* Intro cover images are absolutely positioned inside a fixed-height cell
+       on desktop. Here the cell has no height to position against, so it
+       collapses and the image spills out — let them flow in normal flow. */
+    .cs-content img.absolute {
+        position: static;
+        inset: auto;
+    }
+    .cs-content > div > div:has(> img.absolute) {
+        padding: 8px;
+    }
     /* Hide truly empty spacer cells (not spacer rows) */
     .cs-content > div > :empty {
         display: none;
