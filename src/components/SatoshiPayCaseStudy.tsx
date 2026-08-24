@@ -21,6 +21,10 @@ const meta: CaseStudyMeta = {
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const SatoshiPayCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -82,7 +86,7 @@ const SatoshiPayCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="overflow-hidden">
-              {img(oldUiImage, "Original SatoshiPay UI")}
+              {img(oldUiImage, "Original SatoshiPay UI", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -140,12 +144,12 @@ const SatoshiPayCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/4 p-2`}>
             <div className="overflow-hidden">
-              {img(mainFlowImage, "Customer interviews and market research")}
+              {img(mainFlowImage, "Customer interviews and market research", fillImg)}
             </div>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
             <div className="overflow-hidden">
-              {img(yellowFlowchartsImage, "Information architecture and customer journey")}
+              {img(yellowFlowchartsImage, "Information architecture and customer journey", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -188,8 +192,8 @@ const SatoshiPayCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Streamlined purchasing */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm font-bold">Streamlined purchasing process</p>
             <p className="text-sm leading-relaxed">
               Allowing consumers to access their content first, and deal
@@ -197,15 +201,15 @@ const SatoshiPayCaseStudy: React.FC = () => (
               a €1.00 trial version too.
             </p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(fasterGif, "Streamlined purchasing flow")}
+          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
+            {img(fasterGif, "Streamlined purchasing flow", fillImg)}
           </div>
-          <div className="w-1/4 p-2" />
+          <div className="w-1/2 p-2" />
         </div>
 
         {/* Account creation */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm font-bold">Account creation</p>
             <p className="text-sm leading-relaxed">
               Unlike most blockchain applications we decided to provide an
@@ -214,14 +218,14 @@ const SatoshiPayCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(newWalletsImage, "New wallet account creation")}
+            {img(newWalletsImage, "New wallet account creation", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
 
         {/* Adaptable containers */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm font-bold">Adaptable containers</p>
             <p className="text-sm leading-relaxed">
               The redesigned containers accommodate the most often used
@@ -230,10 +234,16 @@ const SatoshiPayCaseStudy: React.FC = () => (
               enough flexibility to blend in to the given website.
             </p>
           </div>
-          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(containersImage, "Adaptable payment containers")}
+          <div className="w-3/4 p-2" />
+        </div>
+
+        {/* 7.14:1 — the widest image on the site. Its own row, so the text
+            column beside it can't force it taller than its aspect ratio. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className="w-3/4 p-2 overflow-hidden">
+            {img(containersImage, "Adaptable payment containers", fillImg)}
           </div>
-          <div className="w-1/4 p-2" />
         </div>
 
         {/* Spacer */}

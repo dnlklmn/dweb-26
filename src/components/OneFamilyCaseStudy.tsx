@@ -22,6 +22,10 @@ const meta: CaseStudyMeta = {
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const OneFamilyCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -77,7 +81,7 @@ const OneFamilyCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2`}>
-            {img(trackingImage, "Baby tracking interface")}
+            {img(trackingImage, "Baby tracking interface", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -106,7 +110,7 @@ const OneFamilyCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2`}>
-            {img(scheduleImage, "Dynamic schedule interface")}
+            {img(scheduleImage, "Dynamic schedule interface", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -133,10 +137,10 @@ const OneFamilyCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(multiDeviceImage, "Tracking on multiple devices")}
+            {img(multiDeviceImage, "Tracking on multiple devices", fillImg)}
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(dataImage, "Data and insights view")}
+            {img(dataImage, "Data and insights view", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -181,7 +185,7 @@ const OneFamilyCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2`}>
-            {img(knowledgeBaseImage, "Contextual knowledge base")}
+            {img(knowledgeBaseImage, "Contextual knowledge base", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>

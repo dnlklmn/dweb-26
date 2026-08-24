@@ -29,6 +29,10 @@ const meta: CaseStudyMeta = {
 // All cells with content get p-2.
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const RadicleDesktopCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -71,13 +75,13 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         {/* Hero — 2col | 2col */}
         <div className={row}>
           <div className={`${cell} w-1/2 p-2`}>
-            <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(patchPreview, "Patch preview")}
+            <div className="bg-[#181818] aspect-[3/2] overflow-hidden">
+              {img(patchPreview, "Patch preview", fillImg)}
             </div>
           </div>
           <div className="w-1/2 p-2">
-            <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(patchReview, "Patch review")}
+            <div className="bg-[#181818] aspect-[3/2] overflow-hidden">
+              {img(patchReview, "Patch review", fillImg)}
             </div>
           </div>
         </div>
@@ -135,7 +139,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: text | wide img | img */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed w-full md:w-3/4">
               I started by learning about the Radicle protocol, different code
@@ -154,10 +158,10 @@ const RadicleDesktopCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(wireframes2, "Wireframes")}
+            {img(wireframes2, "Wireframes", fillImg)}
           </div>
           <div className="w-1/4 p-2 overflow-hidden">
-            {img(empathyMap, "Empathy map")}
+            {img(empathyMap, "Empathy map", fillImg)}
           </div>
         </div>
 
@@ -165,7 +169,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: empty | text | wide img */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
@@ -180,7 +184,7 @@ const RadicleDesktopCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className="w-1/2 p-2 overflow-hidden">
-            {img(wireframes, "Patch wireframes")}
+            {img(wireframes, "Patch wireframes", fillImg)}
           </div>
         </div>
 
@@ -193,9 +197,9 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: wide img | text | empty */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(peerSelector, "Peer selector")}
+            {img(peerSelector, "Peer selector", fillImg)}
           </div>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
@@ -250,10 +254,12 @@ const RadicleDesktopCaseStudy: React.FC = () => (
         </div>
 
         {/* CLI and app image row */}
-        <div className={`${row} h-96`}>
+        {/* No fixed height: image-only row, so the cell sizes to the image
+            (2.41:1) instead of cropping it into a 16:9 box. */}
+        <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(cliAndApp, "CLI and app parity")}
+            {img(cliAndApp, "CLI and app parity", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>

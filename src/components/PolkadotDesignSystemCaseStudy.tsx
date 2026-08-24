@@ -26,6 +26,10 @@ const meta: CaseStudyMeta = {
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const PolkadotDesignSystemCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -121,7 +125,7 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2`}>
-            {img(buildingBlocksImage, "Design system building blocks diagram")}
+            {img(buildingBlocksImage, "Design system building blocks diagram", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -262,9 +266,11 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
           </div>
         </div>
 
-        {/* Token system: text | img | img | img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        {/* Token system: text | wide JSON banner, then the two CSS shots 2-up.
+            These are 5:1 and 2.2:1 screenshots — quarter-width cells cropped
+            80%+ off them, so they get the width their aspect ratios need. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               A set of style properties: colors, text styles, border radii,
               shadows, and assets like icons, fonts, and illustrations, available
@@ -275,14 +281,17 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
               variables and a Tailwind config that teams plug into directly.
             </p>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(tokensJsonImage, "Design tokens JSON structure")}
+          <div className="w-3/4 p-2 overflow-hidden">
+            {img(tokensJsonImage, "Design tokens JSON structure", fillImg)}
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(cssVariablesImage, "CSS variables output")}
+        </div>
+
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(cssVariablesImage, "CSS variables output", fillImg)}
           </div>
-          <div className="w-1/4 p-2 overflow-hidden">
-            {img(implementationCssImage, "Implementation in CSS")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(implementationCssImage, "Implementation in CSS", fillImg)}
           </div>
         </div>
 
@@ -297,8 +306,10 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Semantic: text | wide img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        {/* No fixed height: the library shot is 1.24:1, so h-96 cropped a third
+            off it. The row now sizes to the image. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               Component libraries tailored to each team's needs assign semantic
               roles to the common styles and assets settled in the foundation
@@ -316,7 +327,7 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(productLibraryImage, "Product team's component library")}
+            {img(productLibraryImage, "Product team's component library", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -408,7 +419,7 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            {img(openGovHeaderImage, "Open Gov Delegation Dashboard")}
+            {img(openGovHeaderImage, "Open Gov Delegation Dashboard", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -430,7 +441,7 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            {img(validatorPickerImage, "Validator Picker implementation")}
+            {img(validatorPickerImage, "Validator Picker implementation", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -452,7 +463,7 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            {img(assetMenuImage, "Asset Menu Demo implementation")}
+            {img(assetMenuImage, "Asset Menu Demo implementation", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>

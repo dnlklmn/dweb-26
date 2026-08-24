@@ -25,6 +25,10 @@ const meta: CaseStudyMeta = {
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const OpenGovCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -69,7 +73,7 @@ const OpenGovCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="overflow-hidden">
-              {img(dashboardHomeImage, "Governance portal home")}
+              {img(dashboardHomeImage, "Governance portal home", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -137,7 +141,7 @@ const OpenGovCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Swiping Interface: text | img | img */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
             <p className="text-sm leading-relaxed">
               Inspired by a public forum post, the swiping interface was meant
@@ -162,14 +166,19 @@ const OpenGovCaseStudy: React.FC = () => (
               </div>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(flowSimpleImage, "Flow overview — simplified")}
-          </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(flowDetailedImage, "Flow overview — detailed")}
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(flowSimpleImage, "Flow overview — simplified", fillImg)}
           </div>
           <div className="w-1/4 p-2 overflow-hidden">
-            {img(threeInOneImage, "Swiping interface mockups")}
+            {img(flowDetailedImage, "Flow overview — detailed", fillImg)}
+          </div>
+        </div>
+
+        {/* The mockup strip is 3.92:1 — it needs width, not height. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className="w-3/4 p-2 overflow-hidden">
+            {img(threeInOneImage, "Swiping interface mockups", fillImg)}
           </div>
         </div>
 
@@ -184,8 +193,9 @@ const OpenGovCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Governance Portal: text | img | img | img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        {/* No fixed height — the portal shot is 1.06:1 and h-96 cropped 41%. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               In a second iteration the goal was to be more explicit, and offer
               a view with referenda one is interested in voting on. A full
@@ -209,14 +219,18 @@ const OpenGovCaseStudy: React.FC = () => (
               </div>
             </div>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(dashboardHomeImage, "Governance portal home")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(dashboardHomeImage, "Governance portal home", fillImg)}
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(proposalsImage, "Proposals view")}
+        </div>
+
+        {/* Both 2.33:1 — half width each lets them fill without cropping. */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(proposalsImage, "Proposals view", fillImg)}
           </div>
-          <div className="w-1/4 p-2 overflow-hidden">
-            {img(delegatesImage, "Delegates list")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(delegatesImage, "Delegates list", fillImg)}
           </div>
         </div>
 
@@ -231,7 +245,8 @@ const OpenGovCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Delegation First: text | wide img */}
-        <div className={`${row} h-96`}>
+        {/* No fixed height — the interface shot is nearly square. */}
+        <div className={row}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
             <p className="text-sm leading-relaxed">
               After more testing and further aligning with the goals of the
@@ -246,7 +261,7 @@ const OpenGovCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(delegationOnePageImage, "Delegation one-page interface")}
+            {img(delegationOnePageImage, "Delegation one-page interface", fillImg)}
           </div>
           <div className="w-1/4 flex flex-col gap-4 p-2 overflow-y-auto">
             <div className="flex flex-col gap-2">

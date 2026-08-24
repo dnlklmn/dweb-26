@@ -38,6 +38,10 @@ const meta: CaseStudyMeta = {
 // All cells with content get p-2.
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const GoodListenerCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -83,7 +87,7 @@ const GoodListenerCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="bg-[#181818] h-[366px] overflow-hidden">
-              {img(header, "Good Listener desktop app")}
+              {img(header, "Good Listener desktop app", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -168,10 +172,11 @@ const GoodListenerCaseStudy: React.FC = () => (
             {img(
               blueprint,
               "The process of a therapy praxis working with a client",
+              fillImg,
             )}
           </div>
           <div className="w-1/4 border-l border-[var(--color-border)] p-2 flex flex-1 items-center justify-center">
-            {img(problemSpace, "Problem space framework table")}
+            {img(problemSpace, "Problem space framework table", fillImg)}
           </div>
         </div>
 
@@ -200,8 +205,10 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className={row}>
           <div className={`${cell} w-1/4 p-2 `} />
-          <div className="w-1/4 flex p-2 h-64 items-center justify-center">
-            {img(solutionSpace, "Problem space framework table")}
+          {/* w-1/2 + no fixed height: the table is 2:1, so a quarter-width
+              cell cropped both its edge columns off. */}
+          <div className="w-1/2 flex p-2 items-center justify-center">
+            {img(solutionSpace, "Solution space framework table", fillImg)}
           </div>
           <div className="w-1/4 flex flex-col border-l border-[var(--color-border)] gap-4 p-2 pb-12">
             <p className="text-sm leading-relaxed">
@@ -216,7 +223,6 @@ const GoodListenerCaseStudy: React.FC = () => (
               users to use.
             </p>
           </div>
-          <div className="border-l border-[var(--color-border)] w-1/4 p-2" />
         </div>
 
         <div className={`${row} px-2 pt-12 pb-2`}>
@@ -229,7 +235,7 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Experiments — text | 3 placeholders */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               The n8n transcription workflow listens to a specific folder for
@@ -243,7 +249,7 @@ const GoodListenerCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className="w-1/2 flex flex-1 p-2 items-center justify-center">
-            {img(n8n, "An n8n workflow using scriberr")}
+            {img(n8n, "An n8n workflow using scriberr", fillImg)}
           </div>
           <div className="w-1/4 p-2 border-l border-[var(--color-border)]" />
         </div>
@@ -251,15 +257,19 @@ const GoodListenerCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Experiments — text | 3 placeholders */}
-        <div className={`${row} h-96`}>
-          <div className="w-1/4 flex flex-1 p-2 items-center justify-center">
+        {/* Portrait book cover next to a landscape screenshot: giving the MCP
+            shot half width brings the two natural heights close together, so
+            the crop stays put instead of growing with the viewport. */}
+        <div className={row}>
+          <div className="w-1/4 flex p-2 items-center justify-center">
             {img(
               dsmCover,
               "DSM-5: Diagnostic and Statistical Manual of Mental Disorders",
+              fillImg,
             )}
           </div>
-          <div className="w-1/4 flex flex-1 p-2 border-l border-[var(--color-border)] items-center justify-center">
-            {img(dsmMcp, "MCP server wrapper around DSM-5")}
+          <div className="w-1/2 flex p-2 border-l border-[var(--color-border)] items-center justify-center">
+            {img(dsmMcp, "MCP server wrapper around DSM-5", fillImg)}
           </div>
           <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
             <p className="text-sm leading-relaxed">
@@ -276,13 +286,12 @@ const GoodListenerCaseStudy: React.FC = () => (
               she needs for filing the reports.
             </p>
           </div>
-          <div className="w-1/4 p-2 border-l border-[var(--color-border)]" />
         </div>
 
         <div className={`${row} h-12`} />
 
         {/* Experiments — text | 3 placeholders */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className="w-1/4 flex flex-1 p-2 items-center justify-center"></div>
           <div className="w-1/4 flex flex-col gap-4 p-2  border-l border-[var(--color-border)] shrink-0">
             <p className="text-sm leading-relaxed">
@@ -301,6 +310,7 @@ const GoodListenerCaseStudy: React.FC = () => (
             {img(
               listenerCLI,
               "A CLI tool to record, transcribe, and diarize conversation",
+              fillImg,
             )}
           </div>
         </div>
@@ -328,7 +338,7 @@ const GoodListenerCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(install, "Initial designs created using pencil.dev")}
+            {img(install, "Initial designs created using pencil.dev", fillImg)}
           </div>
           <div className={`${cell} w-1/4 p-2`}></div>
         </div>
@@ -353,7 +363,7 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <div className="bg-[#181818] h-full overflow-hidden">
-              {img(pencil, "Initial designs created using pencil.dev")}
+              {img(pencil, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -375,12 +385,12 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
             <div className="h-full overflow-hidden">
-              {img(appArchitecture, "Initial designs created using pencil.dev")}
+              {img(appArchitecture, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2 overflow-hidden">
             <div className="h-full overflow-hidden">
-              {img(appScreens, "Initial designs created using pencil.dev")}
+              {img(appScreens, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
         </div>
@@ -428,7 +438,7 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="bg-[#181818] h-full overflow-hidden">
-              {img(badOutput, "Initial designs created using pencil.dev")}
+              {img(badOutput, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
           <div className="w-1/2 p-2" />
@@ -449,17 +459,17 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className=" h-full overflow-hidden">
-              {img(tracing, "Initial designs created using pencil.dev")}
+              {img(tracing, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className=" h-full overflow-hidden">
-              {img(experiment, "Initial designs created using pencil.dev")}
+              {img(experiment, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
           <div className="w-1/2 p-2 overflow-hidden">
             <div className=" h-full overflow-hidden">
-              {img(evals, "Initial designs created using pencil.dev")}
+              {img(evals, "Initial designs created using pencil.dev", fillImg)}
             </div>
           </div>
         </div>

@@ -33,6 +33,10 @@ const meta: CaseStudyMeta = {
 // All cells with content get p-2.
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const AutoCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -80,7 +84,7 @@ const AutoCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="overflow-hidden">
-              {img(headerImage, "Auto workflow builder interface")}
+              {img(headerImage, "Auto workflow builder interface", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -147,8 +151,8 @@ const AutoCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: text | img | img | img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               The initial research happened on 2 tracks: I wanted to explore
               what's the best way to build workflow maps, and in parallel, find
@@ -161,14 +165,18 @@ const AutoCaseStudy: React.FC = () => (
               condition a connector or a node?
             </p>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(ifttentropyImage, "IFTTT-style exploration")}
+          <div className="w-3/4 p-2 overflow-hidden">
+            {img(ifttentropyImage, "IFTTT-style exploration", fillImg)}
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(blocksGridImage, "Block grid exploration")}
+        </div>
+
+        {/* Both 1.55:1 — half width each, so neither needs cropping. */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(blocksGridImage, "Block grid exploration", fillImg)}
           </div>
-          <div className="w-1/4 p-2 overflow-hidden">
-            {img(nestedBlocksImage, "Nested blocks exploration")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(nestedBlocksImage, "Nested blocks exploration", fillImg)}
           </div>
         </div>
 
@@ -176,8 +184,8 @@ const AutoCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: text | img | img | img */}
-        <div className={`${row} h-96`}>
-          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0 overflow-y-auto`}>
+        <div className={row}>
+          <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               I then forked n8n so I can experiment with a real workflow builder
               and find out what users should be aiming for.
@@ -194,15 +202,25 @@ const AutoCaseStudy: React.FC = () => (
               how could we prototype them quickly?
             </p>
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(generateWorkflowImage, "Generate workflow")}
+          <div className="w-3/4 p-2" />
+        </div>
+
+        {/* 2.85:1 and 2.92:1 — near-identical ratios, so they pair cleanly. */}
+        <div className={row}>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            {img(generateWorkflowImage, "Generate workflow", fillImg)}
           </div>
-          <div className={`${cell} w-1/4 p-2 overflow-hidden`}>
-            {img(cryptoListenersImage, "Crypto listeners")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(cryptoListenersImage, "Crypto listeners", fillImg)}
           </div>
-          <div className="w-1/4  p-2 overflow-hidden">
+        </div>
+
+        {/* 5.17:1 — needs width, not height. */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className="w-3/4 p-2 overflow-hidden">
             <div className="bg-black w-full h-full">
-              {img(mcpServerImage, "MCP server")}
+              {img(mcpServerImage, "MCP server", fillImg)}
             </div>
           </div>
         </div>
@@ -217,7 +235,7 @@ const AutoCaseStudy: React.FC = () => (
         <div className={`${row} h-12`} />
 
         {/* Content row: text | wide img | img */}
-        <div className={`${row} h-96`}>
+        <div className={row}>
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
             <p className="text-sm leading-relaxed">
               The requirements for the MVP are based on where the 2 research
@@ -229,11 +247,16 @@ const AutoCaseStudy: React.FC = () => (
               cognitive load. Good defaults educate users about ideal outcomes.
             </p>
           </div>
+          <div className="w-3/4 p-2" />
+        </div>
+
+        {/* 1.55:1 and 1.57:1 — pair at half width each. */}
+        <div className={row}>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(simplerBlocksImage, "Simpler block design")}
+            {img(simplerBlocksImage, "Simpler block design", fillImg)}
           </div>
-          <div className="w-1/4 p-2 overflow-hidden">
-            {img(nodeTypesImage, "Node types")}
+          <div className="w-1/2 p-2 overflow-hidden">
+            {img(nodeTypesImage, "Node types", fillImg)}
           </div>
         </div>
 
@@ -274,13 +297,19 @@ const AutoCaseStudy: React.FC = () => (
           </a>
         </div>
 
-        {/* Collab image row */}
-        <div className={`${row} `}>
+        {/* Collab image rows — presence is 1.13:1 and the collab shot 1.6:1, so
+            sharing a row forced one of them to crop. Split so each sets its own. */}
+        <div className={row}>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(presence, "Real-time collaboration")}
+            {img(presence, "Real-time collaboration", fillImg)}
           </div>
+          <div className="w-3/4 p-2" />
+        </div>
+
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
-            {img(realTimeCollabImage, "Real-time collaboration")}
+            {img(realTimeCollabImage, "Real-time collaboration", fillImg)}
           </div>
           <div className="w-1/4 p-2" />
         </div>

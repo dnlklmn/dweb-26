@@ -24,6 +24,10 @@ const meta: CaseStudyMeta = {
 
 const row = "flex border-l border-r border-b border-[var(--color-border)]";
 const cell = "border-r border-[var(--color-border)]";
+// Images fill their cell edge to edge: object-cover crops the overflow instead
+// of letting it spill past the cell border (or leaving dead space inside it).
+// The full uncropped image is always one click away in the lightbox.
+const fillImg = "w-full h-full object-cover block";
 
 const SolarWalletCaseStudy: React.FC = () => (
   <CaseStudyLayout meta={meta}>
@@ -67,7 +71,7 @@ const SolarWalletCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2 flex justify-center`}>
             <div className="w-1/2">
-              {img(desktopImage, "Solar Wallet desktop interface")}
+              {img(desktopImage, "Solar Wallet desktop interface", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -129,7 +133,7 @@ const SolarWalletCaseStudy: React.FC = () => (
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
             <div className="overflow-hidden">
-              {img(processImage, "Research and design process overview")}
+              {img(processImage, "Research and design process overview", fillImg)}
             </div>
           </div>
           <div className="w-1/4 p-2" />
@@ -185,7 +189,7 @@ const SolarWalletCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(accountCreationGif, "Account creation flow")}
+            {img(accountCreationGif, "Account creation flow", fillImg)}
           </div>
           <div className="w-1/2 p-2" />
         </div>
@@ -214,7 +218,7 @@ const SolarWalletCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(multiSigGif, "Multi-signature authentication flow")}
+            {img(multiSigGif, "Multi-signature authentication flow", fillImg)}
           </div>
           <div className="w-1/2 p-2" />
         </div>
@@ -249,7 +253,7 @@ const SolarWalletCaseStudy: React.FC = () => (
             </div>
           </div>
           <div className={`${cell} w-1/4 p-2`}>
-            {img(sendGif, "Send and withdraw flow")}
+            {img(sendGif, "Send and withdraw flow", fillImg)}
           </div>
           <div className="w-1/2 p-2" />
         </div>
