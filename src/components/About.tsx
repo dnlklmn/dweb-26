@@ -15,6 +15,8 @@ import TokensInFigma from "../assets/radicle-design-system/tokens-in-figma.png";
 import CSSVariables from "../assets/radicle-design-system/css-variables.png";
 import Icons from "../assets/radicle-design-system/icons.png";
 import SeedIcon from "../assets/radicle-design-system/seed-icon.png";
+import ZulipLogo from "../assets/about/ZulipLogo";
+import BieneLogo from "../assets/about/BieneLogo";
 import EntropyLogo from "../assets/about/EntropyLogo";
 import RadicleLogo from "../assets/about/RadicleLogo";
 import ParityLogo from "../assets/about/ParityLogo";
@@ -187,11 +189,73 @@ const About: React.FC = () => {
         <div className={`${row} h-12`} />
 
         {/* Content row: text | img | img | img */}
+        <div className={row}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Present</p>
+            <p className="text-sm leading-relaxed">June 2026</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
+                  Zulip - Open source team chat
+                </p>
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
+                  As part of the core team I design the web and desktop apps,
+                  take proposals from research through to shipped code, and look
+                  after the design system.
+                </p>
+              </div>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
+            </div>
+          </div>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
+            <ZulipLogo className="w-full md:w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
+        <div className={row}>
+          <div
+            className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
+          >
+            <p className="text-sm leading-relaxed">Present</p>
+            <p className="text-sm leading-relaxed">March 2026</p>
+          </div>
+          <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
+            <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col gap-1">
+                <p className="text-sm font-bold leading-relaxed w-full md:w-3/4">
+                  Biene Club - AI consulting
+                </p>
+                <p className="text-sm leading-relaxed w-full md:w-3/4">
+                  My own practice. I take a feature from research and design
+                  through to working code, and write the evals that show it
+                  holds up.
+                </p>
+              </div>
+              <p className="text-sm leading-relaxed opacity-50">
+                Berlin, Germany
+              </p>
+            </div>
+          </div>
+          <div className={`w-1/4 p-2 overflow-hidden`}>
+            <BieneLogo className="w-full md:w-3/4 h-auto" />
+          </div>
+        </div>
+
+        <div className={`${row} h-12`} />
+
         <div className={row} style={{ height: 9 * heightMultiplier }}>
           <div
             className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0 relative`}
           >
-            <p className="text-sm leading-relaxed">Present</p>
+            <p className="text-sm leading-relaxed">March 2026</p>
             <YearMarker year={2026} topPct={22} />
             <p className="text-sm leading-relaxed">June 2025</p>
           </div>
