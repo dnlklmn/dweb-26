@@ -77,7 +77,10 @@ const AskPage: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updatedMessages, sessionId, turnNumber: turnCount + 1 }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => null);
+      if (!res.ok || typeof data?.reply !== "string") {
+        throw new Error(data?.detail || `Request failed (${res.status})`);
+      }
       const finalMessages: Message[] = [
         ...updatedMessages,
         { role: "assistant", content: data.reply },
@@ -89,13 +92,14 @@ const AskPage: React.FC = () => {
         setEmailSent(true);
         sendTranscript(emailMatch[0], finalMessages);
       }
-    } catch {
+    } catch (err) {
+      console.error("Chat request failed:", err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content:
-            "Something went wrong. Try again or [reach out directly](/ask).",
+            "The guide is unavailable right now. Try again in a moment — or browse the [case studies](/) directly.",
         },
       ]);
     } finally {

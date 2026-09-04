@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
-import Anthropic from "@anthropic-ai/sdk";
+import { openRouterChat } from "./_openrouter.js";
 import { z } from "zod";
 
 const OVERVIEW = {
@@ -384,22 +384,20 @@ function createMcpServer() {
     "Ask a conversational question about Daniel's work, process, or thinking. Answered by Claude using portfolio content.",
     { question: z.string().describe("Your question about Daniel's work, skills, or thinking") },
     async ({ question }) => {
-      const apiKey = process.env.ANTHROPIC_API_KEY;
-      if (!apiKey) {
+      try {
+        const result = await openRouterChat({
+          system: ASK_SYSTEM_PROMPT,
+          messages: [{ role: "user", content: question }],
+          maxTokens: 400,
+        });
+        return { content: [{ type: "text" as const, text: result.text }] };
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : String(error);
+        console.error("OpenRouter error:", detail);
         return {
-          content: [{ type: "text" as const, text: "ANTHROPIC_API_KEY not configured on this server." }],
+          content: [{ type: "text" as const, text: `Could not answer right now: ${detail}` }],
         };
       }
-      const anthropic = new Anthropic({ apiKey });
-      const response = await anthropic.messages.create({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 400,
-        system: ASK_SYSTEM_PROMPT,
-        messages: [{ role: "user", content: question }],
-      });
-      const content = response.content[0];
-      if (content.type !== "text") throw new Error("Unexpected content type");
-      return { content: [{ type: "text" as const, text: content.text }] };
     }
   );
 
