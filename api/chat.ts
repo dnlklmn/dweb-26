@@ -1,5 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { Langfuse } from "langfuse";
+import { openRouterChat, OpenRouterError, OPENROUTER_MODEL } from "./_openrouter.js";
 
 const SYSTEM_PROMPT = `You are an interactive guide for Daniel Kalman's portfolio.
 
@@ -191,50 +191,47 @@ export default async function handler(req: any, res: any) {
   const trace = langfuse.trace({ name: "portfolio-chat", sessionId });
 
   try {
-    const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
     const generation = trace.generation({
-      name: "claude-reply",
-      model: "claude-haiku-4-5-20251001",
+      name: "openrouter-reply",
+      model: OPENROUTER_MODEL,
       input: messages,
     });
 
-    const response = await anthropic.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 500,
+    const result = await openRouterChat({
       system: SYSTEM_PROMPT,
       messages,
+      maxTokens: 500,
     });
 
-    const content = response.content[0];
-    if (content.type !== "text") {
-      throw new Error("Unexpected content type");
-    }
-
     generation.end({
-      output: content.text,
+      output: result.text,
       usage: {
-        promptTokens: response.usage.input_tokens,
-        completionTokens: response.usage.output_tokens,
+        promptTokens: result.promptTokens,
+        completionTokens: result.completionTokens,
       },
     });
 
-    const contactOfferMade = /email|get in touch|reach out|i'll send daniel|send daniel/i.test(content.text);
+    const contactOfferMade = /email|get in touch|reach out|i'll send daniel|send daniel/i.test(result.text);
     trace.update({
       metadata: {
         turnNumber,
         totalMessages: messages.length + 1,
         contactOfferMade,
+        model: result.model,
         ...(contactOfferMade ? { turnAtOffer: turnNumber } : {}),
       },
     });
 
     await langfuse.flushAsync();
-    return res.json({ reply: content.text });
+    return res.json({ reply: result.text });
   } catch (error) {
-    trace.update({ metadata: { error: String(error) } });
+    const status = error instanceof OpenRouterError ? error.status : 500;
+    const detail = error instanceof Error ? error.message : String(error);
+    trace.update({ metadata: { error: detail, status } });
     await langfuse.flushAsync();
-    console.error("Anthropic error:", error);
-    return res.status(500).json({ error: "Failed to get response" });
+    console.error("OpenRouter error:", status, detail);
+    return res
+      .status(status >= 400 && status < 600 ? status : 502)
+      .json({ error: "Failed to get response", detail });
   }
 }
