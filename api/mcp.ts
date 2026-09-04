@@ -8,8 +8,8 @@ const OVERVIEW = {
   title: "Product Designer",
   experience: "10+ years",
   location: "Berlin",
-  current: "Entropy (blockchain workflow automation platform, since June 2025)",
-  previous: ["Radicle", "Parity Technologies", "Linkurious", "DotLoop", "Prezi", "SatoshiPay"],
+  current: "Zulip (open source team chat, core team, since June 2026) and Biene Club (own AI consulting practice, since March 2026)",
+  previous: ["Entropy", "Radicle", "Parity Technologies", "Linkurious", "DotLoop", "Prezi", "SatoshiPay"],
   philosophy:
     "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart.",
   skills: ["Figma", "React", "Svelte", "TypeScript", "design systems", "user research", "prototyping"],
@@ -275,7 +275,7 @@ The portfolio doesn't care how you show up.`,
 
 const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Daniel Kalman's portfolio, work, and thinking. Answer concisely and accurately using only the information provided. If you don't know something, say so and suggest visiting https://danielkalman.design/ask for a fuller conversation.
 
-Daniel Kalman is a product designer with 10+ years of experience. He bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently at Entropy. Previously: Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay. Open to new opportunities.
+Daniel Kalman is a product designer with 10+ years of experience. He bridges design and frontend engineering — designs in Figma, builds in React and Svelte, thinks in systems. Currently on the Zulip core team (open source team chat) and running Biene Club, his own AI consulting practice. Previously: Entropy, Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay. Open to new opportunities.
 
 Featured case studies: Good Listener (2026, local AI transcription for therapists, Tauri/Svelte/Whisper/Claude), Auto (2025, blockchain workflow builder with multiplayer, Svelte/Yjs), Radicle Desktop (2024, P2P code collaboration desktop app, Svelte), Radicle Design System (2024, full design token pipeline, Tokens Studio/Style Dictionary/Svelte).
 

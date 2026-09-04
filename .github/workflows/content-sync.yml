@@ -1,0 +1,87 @@
+name: Content sync
+
+# The site's content lives in two places: the React components humans read,
+# and the AI-facing mirrors (public/llms.txt, api/mcp.ts) that the /ask agent
+# and the MCP server read. They drift silently. This check catches that.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check AI-facing mirrors are in sync
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          set -euo pipefail
+
+          # Escape hatch: label the PR "no-content-sync", or put
+          # [no-content-sync] in the title or body.
+          if [[ ",$PR_LABELS," == *",no-content-sync,"* ]] \
+            || [[ "$PR_TITLE" == *"[no-content-sync]"* ]] \
+            || [[ "$PR_BODY" == *"[no-content-sync]"* ]]; then
+            echo "Opted out via no-content-sync. Skipping." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          git fetch --no-tags origin "$BASE_REF"
+          CHANGED=$(git diff --name-only "origin/$BASE_REF...HEAD")
+
+          # Files that carry content a reader (or an agent) would notice.
+          SOURCES=$(echo "$CHANGED" | grep -E \
+            '^src/components/About\.tsx$|^src/components/.*CaseStudy\.tsx$|^src/assets/blog/' \
+            || true)
+
+          # The mirrors that have to be updated alongside them.
+          MIRRORS=$(echo "$CHANGED" | grep -E \
+            '^public/llms\.txt$|^api/mcp\.ts$' \
+            || true)
+
+          if [[ -n "$SOURCES" && -z "$MIRRORS" ]]; then
+            {
+              echo "## Content sync check failed"
+              echo
+              echo "This PR changes content the AI-facing mirrors describe, but"
+              echo "leaves both mirrors untouched."
+              echo
+              echo "### Changed content"
+              echo '```'
+              echo "$SOURCES"
+              echo '```'
+              echo
+              echo "### Expected an update to at least one of"
+              echo '- `public/llms.txt`'
+              echo '- `api/mcp.ts`'
+              echo
+              echo "If this change is purely layout, styling, or a refactor with"
+              echo "no reader-visible content change, opt out: add the"
+              echo '`no-content-sync` label, or put `[no-content-sync]` in the'
+              echo "PR title or body."
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            echo "::error::Content changed but public/llms.txt and api/mcp.ts were not updated. See the job summary."
+            exit 1
+          fi
+
+          {
+            echo "## Content sync check passed"
+            echo
+            if [[ -z "$SOURCES" ]]; then
+              echo "No content files touched."
+            else
+              echo "Content changed, and the mirrors were updated alongside it:"
+              echo '```'
+              echo "$MIRRORS"
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
