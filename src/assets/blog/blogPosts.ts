@@ -3,6 +3,7 @@ import DoDesignPost from "./DoDesignPost";
 import DesignSystemsVibePost from "./DesignSystemsVibePost";
 import AIWebsitePost from "./AIWebsitePost";
 import AXTwoFacesPost from "./AXTwoFacesPost";
+import BecauseICanPost from "./BecauseICanPost";
 
 export interface NotesMeta {
   slug: string;
@@ -13,6 +14,14 @@ export interface NotesMeta {
 }
 
 export const notesPosts: NotesMeta[] = [
+  {
+    slug: "possible-was-never-the-point",
+    title: "Possible was never the point",
+    date: "2026 Sep 4",
+    description:
+      "\"I built it because I can\" is the oldest bug in software, and it predates AI by decades. Cheap execution didn't fix it — it removed the last accidental filter.",
+    component: BecauseICanPost,
+  },
   {
     slug: "ax-has-two-faces",
     title: "AX has two faces",

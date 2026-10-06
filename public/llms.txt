@@ -56,6 +56,9 @@ Best for: Companies scaling a design system, design-engineering collaboration, p
 
 ## Writing (https://danielkalman.design/notes)
 
+### Possible was never the point (https://danielkalman.design/notes/possible-was-never-the-point) — Sep 2026
+"I built it because I can" is the oldest bug in software and it predates AI by decades. Designers have always argued for building what's needed over what's possible. Possible just got cheap — which removed the last accidental filter, since effort used to be a crude proxy for whether something was worth doing. "What's possible got easier. So what. Deciding what to do is still the whole job."
+
 ### Why I design again (https://danielkalman.design/notes/do-design) — Dec 2025
 On the temptation to skip design when AI can ship working software by lunch — and why that's a trap. Design is a decision-making framework. In multi-agent workflows, bad problem framing cascades through every layer. "AI didn't make design obsolete. It made it the highest-leverage thing I can spend time on."
 

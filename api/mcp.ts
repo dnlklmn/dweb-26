@@ -199,6 +199,27 @@ const CASE_STUDIES: Record<string, object> = {
 };
 
 const BLOG_POSTS: Record<string, object> = {
+  "possible-was-never-the-point": {
+    slug: "possible-was-never-the-point",
+    title: "Possible was never the point",
+    date: "2026 Sep 4",
+    url: "https://danielkalman.design/notes/possible-was-never-the-point",
+    description:
+      "\"I built it because I can\" is the oldest bug in software, and it predates AI by decades. Cheap execution didn't fix it \u2014 it removed the last accidental filter.",
+    content: `"I built it because I can" is the oldest bug in software. It didn't arrive with AI. It's been shipping features nobody asked for since long before any of us had a model in the loop.
+
+The fight we were already having: designers have been arguing this with developers for as long as I've been doing this. Build what's needed, not what's possible. Start from the problem, not from the thing that happens to be buildable this sprint. It was never that developers were wrong-headed \u2014 possibility is seductive. It's concrete, measurable, satisfying, and right there in front of you. "What do they actually need" is none of those things.
+
+What actually changed: possible got cheap. That's the whole change. The thing that took a quarter takes an afternoon, and "we can't build that" has mostly stopped being true. So the old bug didn't get fixed, it got amplified. When possible was expensive, cost did some of the filtering for us by accident \u2014 effort was a crude proxy for whether something was worth doing at all. That proxy is gone.
+
+Cheap execution removed the last accidental filter. Nothing now stands between "we could" and "we shipped it" except a decision.
+
+The easy part got easier: execution was never the bottleneck on whether a product was any good. Making it faster doesn't make the product better, it just makes the wrong thing arrive sooner. The hard part didn't move: knowing who this is for, what they need, and what we're deliberately not doing costs exactly what it always did.
+
+Deciding is the work. Teams still describe this as a speed story \u2014 how much they ship, how fast, how many agents in parallel. The interesting question was never how much you can build. It's what you choose to build, and what you refuse to. That question got more valuable, not less, the moment everything became buildable.
+
+"What's possible got easier. So what. Deciding what to do is still the whole job."`,
+  },
   "ax-has-two-faces": {
     slug: "ax-has-two-faces",
     title: "AX has two faces",
@@ -281,7 +302,7 @@ Featured case studies: Good Listener (2026, local AI transcription for therapist
 
 Older case studies: Open Gov Delegation Dashboard (2023, Polkadot governance delegation tool, React), Polkadot Design System (2023, shared design language for Polkadot ecosystem, Token Studio/Style Dictionary/React), Solar Wallet (2019, Stellar wallet with multi-sig, Figma), One Family (2020, baby tracking concept app, Figma), SatoshiPay Micropayments (2019, redesigned micropayment UI, Figma).
 
-Writing: "AX has two faces" — Agent Experience covers agents using your product, but humans using your agentic features need design too. "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development. "A website for the AI age" — building a portfolio that works for humans and AI agents alike.`;
+Writing: "Possible was never the point" — "I built it because I can" predates AI; cheap execution removed the last accidental filter, so deciding what to build is the whole job. "AX has two faces" — Agent Experience covers agents using your product, but humans using your agentic features need design too. "Why I design again" — design as decision-making framework in the AI age. "A design system is documented decisions" — design tokens enabling coherent AI-assisted development. "A website for the AI age" — building a portfolio that works for humans and AI agents alike.`;
 
 function createMcpServer() {
   const server = new McpServer({
@@ -362,7 +383,7 @@ function createMcpServer() {
   server.tool(
     "get_blog_post",
     "Get the full content of a blog post",
-    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real, ai-website, ax-has-two-faces") },
+    { slug: z.string().describe("Blog post slug: do-design, design-systems-make-vibe-coding-real, ai-website, ax-has-two-faces, possible-was-never-the-point") },
     async ({ slug }) => {
       const post = BLOG_POSTS[slug];
       if (!post) {
