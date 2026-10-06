@@ -10,6 +10,20 @@ Open to new opportunities and collaborations.
 
 ## Case Studies
 
+### Beeline (https://danielkalman.design/beeline) - 2026
+A working demonstration of eval-driven development for AI features, built end to end by Daniel, covering method, product design, backend orchestrator, React frontend, deployment, and production monitoring. Live demo: https://beeline.biene.club
+
+The problem: teams ship AI features on vibes. A few inputs get tried, the outputs look fine. You can't check every output by hand, and a machine can't check them for you until someone writes down what "good" means, so evals land on whoever built the feature, late, written against what they already shipped.
+
+The method: describe a feature in one sentence. Beeline expands it into use cases, then distils the seed, a structured, testable definition of "good" made of discrete criteria grouped by coverage, balance, alignment, rot, and safety. Every criterion has to trace back to a stated intent and be specific enough that two people would grade it the same way. The dataset and the scorers are both generated from the seed, so they stay pinned to the use cases. The feature runs against the dataset for a baseline, then an improve loop rewrites it until every scorer clears threshold, not the average, while the seed and scorers stay frozen. After deploy, an LLM judge keeps scoring live production calls.
+
+The argument: the seed is a product and design artifact, not a developer chore. Beeline writes it unattended to prove the loop closes, but in real work it is the one step that deserves a human. Two production failures shaped the method: alignment scorers that never graded a single live call, and refusals scoring as passes. Meta-evals now grade Beeline's own build-time calls and CI gates on an offline eval self-test.
+
+Tech: Claude API, FastAPI, React, Braintrust, OpenRouter, Docker.
+Best for: AI product teams, eval-driven development, LLM observability and quality, AI methodology and consulting engagements.
+
+---
+
 ### Good Listener (https://danielkalman.design/good-listener) — 2026
 Local AI transcription app for therapists. Built entirely by Daniel: product strategy, UX research, UI design, Tauri/Svelte frontend. Privacy-first — runs entirely locally using Whisper models, no cloud uploads.
 

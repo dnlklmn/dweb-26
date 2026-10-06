@@ -18,6 +18,24 @@ He is open to new opportunities and collaborations.
 
 HIS WORK:
 
+## Beeline (/beeline) — 2026
+Eval-driven development for AI features, demonstrated end to end. Tags: Methodology, Product Design, Vibe coding. Live demo: https://beeline.biene.club
+
+The problem: Teams ship AI features on vibes — a few inputs tried, the outputs looked fine. You cannot check every output by hand, and a machine cannot check them for you until someone writes down what "good" means. So evals land on whoever built the feature, late, written against what they already shipped.
+
+The method: Describe a feature in one sentence. Beeline expands it into use cases, then distils the seed — a structured, testable definition of "good" made of discrete criteria grouped by coverage, balance, alignment, rot, and safety. Every criterion traces back to a stated intent and is specific enough that two people would grade it the same way. The dataset and the scorers are both generated from the seed, so they stay pinned to the use cases. The feature runs against the dataset for a baseline, then an improve loop rewrites it until every scorer clears threshold (not the average), while the seed and scorers stay frozen. After deploy, an LLM judge keeps scoring live production calls.
+
+Process: The method came out of consulting with teams building AI features. Daniel framed the method, designed the app around it, built the backend orchestrator and React frontend, deployed it, and monitored production. Two production failures shaped it: alignment scorers that never graded a single live call, and refusals scoring as passes. Meta-evals now grade Beeline's own build-time calls, and CI gates on an offline eval self-test.
+
+The argument: the seed is a product and design artifact, not a developer chore. Beeline writes it unattended to prove the loop closes, but in real work it is the one step that deserves a human. It is the PRD made actionable — the same work of understanding needs and making them precise, except the definition now runs against every version that ships.
+
+MVP: One sentence in, a deployed and continuously scored feature out — with the seed, dataset, scorers, baseline, improve-loop rounds, and production traces all visible.
+
+Tech: Claude API, FastAPI, React, Braintrust, OpenRouter, Docker.
+Best for: AI product teams, eval-driven development, LLM observability and quality, AI methodology and consulting engagements.
+
+---
+
 ## Good Listener (/good-listener) — 2026
 Local AI transcription app for therapists. Tags: UX, UI, Front End.
 

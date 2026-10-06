@@ -18,6 +18,30 @@ const OVERVIEW = {
 };
 
 const CASE_STUDIES: Record<string, object> = {
+  beeline: {
+    slug: "beeline",
+    title: "Beeline",
+    subtitle: "From intent to proof",
+    year: 2026,
+    tags: ["Methodology", "Product Design", "Vibe coding"],
+    url: "https://danielkalman.design/beeline",
+    demo: "https://beeline.biene.club",
+    summary:
+      "A demonstration of eval-driven development for AI features. Describe a feature in one sentence; Beeline builds it, derives a testable definition of \"good\" (the seed), generates a dataset and scorers from it, grades the result, rewrites until every scorer passes, deploys it behind a live URL, and keeps scoring real production calls.",
+    problem:
+      "Teams ship AI features on vibes — a few inputs tried, the outputs looked fine. You can't check every output by hand, and a machine can't check them for you until someone writes down what \"good\" means. So evals land on whoever built the feature, late, written against what they already shipped.",
+    process:
+      "The method came out of consulting with teams building AI features. Framed the method, designed the app around it, built the backend orchestrator and React frontend, deployed it, and monitored production. The central artifact is the seed: a structured, testable definition of good — discrete criteria grouped by coverage, balance, alignment, rot, and safety, each traceable to a stated intent and specific enough that two people would grade it the same. The dataset and scorers are generated from the seed, so they stay pinned to the use cases. The improve loop rewrites the feature until every scorer clears threshold (not the average), and the seed and scorers are never edited to fit. Production monitoring runs an LLM judge over live calls; meta-evals grade Beeline's own build-time calls, and CI gates on an offline eval self-test.",
+    mvp: "One sentence in, a deployed and continuously scored feature out — with the seed, dataset, scorers, baseline, improve-loop rounds, and production traces all visible.",
+    tech: ["Claude API", "FastAPI", "React", "Braintrust", "OpenRouter", "Docker"],
+    bestFor: [
+      "AI product teams",
+      "eval-driven development",
+      "LLM observability and quality",
+      "AI methodology and consulting engagements",
+    ],
+    role: "Methodology, Product Design, Vibe coding",
+  },
   "good-listener": {
     slug: "good-listener",
     title: "Good Listener",
@@ -323,7 +347,7 @@ function createMcpServer() {
   server.tool(
     "get_case_study",
     "Get full details for a specific case study",
-    { slug: z.string().describe("Case study slug: good-listener, auto, radicle-desktop, radicle-design-system") },
+    { slug: z.string().describe("Case study slug: beeline, good-listener, auto, radicle-desktop, radicle-design-system") },
     async ({ slug }) => {
       const study = CASE_STUDIES[slug];
       if (!study) {

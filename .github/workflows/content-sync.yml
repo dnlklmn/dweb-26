@@ -44,7 +44,7 @@ jobs:
 
           # The mirrors that have to be updated alongside them.
           MIRRORS=$(echo "$CHANGED" | grep -E \
-            '^public/llms\.txt$|^api/mcp\.ts$' \
+            '^public/llms\.txt$|^api/mcp\.ts$|^api/chat\.ts$' \
             || true)
 
           if [[ -n "$SOURCES" && -z "$MIRRORS" ]]; then
@@ -62,6 +62,7 @@ jobs:
               echo "### Expected an update to at least one of"
               echo '- `public/llms.txt`'
               echo '- `api/mcp.ts`'
+              echo '- `api/chat.ts`'
               echo
               echo "If this change is purely layout, styling, or a refactor with"
               echo "no reader-visible content change, opt out: add the"
