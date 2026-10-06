@@ -8,6 +8,8 @@ import autoHeaderImage from "../assets/auto/header-2.jpeg";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
 import glHeaderImage from "../assets/good-listener/header.jpeg";
+import beelineHeaderImage from "../assets/beeline/beeline-blog.png";
+import beelineForegroundImage from "../assets/beeline/beeline-app.png";
 import openGovHeaderImage from "../assets/open-gov/dashboard-home.png";
 import polkadotDsHeaderImage from "../assets/polkadot-design-system/cover.png";
 import solarWalletHeaderImage from "../assets/solar-wallet/cover.png";
@@ -19,6 +21,15 @@ import autoForegroundImage from "../assets/auto/foreground.png";
 import components from "../assets/radicle-design-system/foreground.png";
 
 const featuredStudies: CaseStudy[] = [
+  {
+    title: "Beeline",
+    slug: "beeline",
+    description: "From intent to proof",
+    role: "Methodology, Product Design, Vibe coding",
+    year: "2026",
+    image: beelineHeaderImage,
+    foregroundImage: beelineForegroundImage,
+  },
   {
     title: "Good Listener",
     slug: "good-listener",

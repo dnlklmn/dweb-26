@@ -47,7 +47,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ study, onNavigate, compac
   }, []);
 
   return (
-    <Link to={`/${study.slug}`} className={`case-study${compact ? " case-study--compact" : ""}`} onClick={onNavigate}>
+    <Link to={`/${study.slug}`} className={`case-study case-study--${study.slug}${compact ? " case-study--compact" : ""}`} onClick={onNavigate}>
       <div className="case-study__image" ref={containerRef}>
         <div className="case-study__image-clip">
           {study.image && (

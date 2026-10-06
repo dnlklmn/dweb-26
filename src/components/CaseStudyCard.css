@@ -35,6 +35,12 @@
     box-shadow: 0 0 48px 0 rgba(0, 0, 0, 0.75);
 }
 
+/* Beeline's screenshot is 1.72:1, far wider than the other foregrounds, so at
+   85% height it overflows the cell and hides the background. */
+.case-study--beeline .case-study__foreground-img {
+    height: 55%;
+}
+
 .case-study__img {
     width: 100%;
     /* extra height gives room to travel — keep in sync with parallax multiplier */

@@ -4,6 +4,7 @@ import AutoCaseStudy from "./AutoCaseStudy";
 import RadicleDesktopCaseStudy from "./RadicleDesktopCaseStudy";
 import RadicleDesignSystemCaseStudy from "./RadicleDesignSystemCaseStudy";
 import GoodListenerCaseStudy from "./GoodListenerCaseStudy";
+import BeelineCaseStudy from "./BeelineCaseStudy";
 import OpenGovCaseStudy from "./OpenGovCaseStudy";
 import PolkadotDesignSystemCaseStudy from "./PolkadotDesignSystemCaseStudy";
 import SolarWalletCaseStudy from "./SolarWalletCaseStudy";
@@ -25,6 +26,10 @@ const CaseStudyPage: React.FC = () => {
   }
   if (slug === "radicle-design-system") {
     return <RadicleDesignSystemCaseStudy />;
+  }
+
+  if (slug === "beeline") {
+    return <BeelineCaseStudy />;
   }
 
   if (slug === "good-listener") {

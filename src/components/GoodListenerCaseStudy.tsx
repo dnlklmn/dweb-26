@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
 import header from "../assets/good-listener/app.png";
-import radicleDesignSystemHeaderImage from "../assets/radicle-design-system/header.jpeg";
+import beelineHeaderImage from "../assets/beeline/beeline-blog.png";
 import radicleDesktopHeaderImage from "../assets/radicle-desktop/header-2.png";
 import blueprint from "../assets/good-listener/blueprint.png";
 import problemSpace from "../assets/good-listener/problem-framework.png";
@@ -501,7 +501,7 @@ const GoodListenerCaseStudy: React.FC = () => (
 
         <div className="cs-other-section">
           <div className={row}>
-            <Link to="/radicle-design-system" className="cs-other-nav__cell">
+            <Link to="/beeline" className="cs-other-nav__cell">
               <span className="cs-other-nav__label">← Prev</span>
             </Link>
             <div className={`${cell} w-1/4 p-2`} />
@@ -515,28 +515,20 @@ const GoodListenerCaseStudy: React.FC = () => (
           </div>
 
           <div className={row}>
-            <Link
-              to="/radicle-design-system"
-              className="cs-other-card cs-other-card--prev"
-            >
+            <Link to="/beeline" className="cs-other-card cs-other-card--prev">
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
-                  <span className="text-xl font-bold">
-                    Radicle Design System
-                  </span>
-                  <span className="text-sm">Consistency by design</span>
+                  <span className="text-xl font-bold">Beeline</span>
+                  <span className="text-sm">From intent to proof</span>
                 </div>
                 <div className="cs-other-card__image">
-                  <img
-                    src={radicleDesignSystemHeaderImage}
-                    alt="Radicle Design System preview"
-                  />
+                  <img src={beelineHeaderImage} alt="Beeline preview" />
                 </div>
                 <div className="flex justify-between items-end gap-2">
                   <span className="text-sm font-bold">
-                    Design System, UI, Front End
+                    Methodology, Product Design, Vibe coding
                   </span>
-                  <span className="text-sm text-[#5e5e5e]">2024</span>
+                  <span className="text-sm text-[#5e5e5e]">2026</span>
                 </div>
               </div>
             </Link>
