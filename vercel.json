@@ -1,5 +1,30 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/notes", "destination": "/notes/index.html" },
+    { "source": "/ask", "destination": "/ask/index.html" },
+    { "source": "/beeline", "destination": "/beeline/index.html" },
+    { "source": "/good-listener", "destination": "/good-listener/index.html" },
+    { "source": "/auto", "destination": "/auto/index.html" },
+    { "source": "/radicle-desktop", "destination": "/radicle-desktop/index.html" },
+    { "source": "/radicle-design-system", "destination": "/radicle-design-system/index.html" },
+    {
+      "source": "/open-gov-delegation-dashboard",
+      "destination": "/open-gov-delegation-dashboard/index.html"
+    },
+    { "source": "/polkadot-design-system", "destination": "/polkadot-design-system/index.html" },
+    { "source": "/solar-wallet", "destination": "/solar-wallet/index.html" },
+    { "source": "/one-family", "destination": "/one-family/index.html" },
+    { "source": "/satoshi-pay", "destination": "/satoshi-pay/index.html" },
+    { "source": "/notes/ax-has-two-faces", "destination": "/notes/ax-has-two-faces/index.html" },
+    { "source": "/notes/ai-website", "destination": "/notes/ai-website/index.html" },
+    {
+      "source": "/notes/design-systems-make-vibe-coding-real",
+      "destination": "/notes/design-systems-make-vibe-coding-real/index.html"
+    },
+    { "source": "/notes/do-design", "destination": "/notes/do-design/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
