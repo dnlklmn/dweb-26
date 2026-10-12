@@ -134,9 +134,13 @@ const AutoCaseStudy: React.FC = () => (
             <p className="text-sm leading-relaxed w-full md:w-3/4">
               Once the initial user tests eliminated the usability issues I
               implemented a unique multiplayer experience using Yjs and WebRTC
-              to enable real-time collaboration. I am currently running user
-              tests on this prototype as the requirements for the production
-              MVP form.
+              to enable real-time collaboration.
+            </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              The prototype settled the node model: a limited set of atomic
+              blocks, each with one distinct purpose, rather than nodes built
+              per use case. It stayed a demo though — it never reached a
+              production MVP.
             </p>
           </div>
         </div>

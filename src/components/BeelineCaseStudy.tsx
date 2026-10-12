@@ -132,6 +132,11 @@ const BeelineCaseStudy: React.FC = () => (
               orchestrator and the frontend, put it in production, and watched
               what it got wrong.
             </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              It’s live at beeline.biene.club and still scoring production
+              calls. Two classes of broken scorer only surfaced once real
+              traffic hit it, and both of them rewrote the method.
+            </p>
           </div>
         </div>
 

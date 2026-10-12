@@ -127,6 +127,10 @@ const OpenGovCaseStudy: React.FC = () => (
               , implementing the Polkadot Design System I created alongside
               various front end refinements from responsiveness to animations.
             </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Of the three directions, the delegation-first one was the one that
+              shipped. The site has since been retired.
+            </p>
           </div>
         </div>
 
