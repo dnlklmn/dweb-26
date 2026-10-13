@@ -44,7 +44,7 @@ jobs:
 
           # The mirrors that have to be updated alongside them.
           MIRRORS=$(echo "$CHANGED" | grep -E \
-            '^public/llms\.txt$|^api/mcp\.ts$|^api/chat\.ts$' \
+            '^public/llms\.txt$|^api/mcp\.ts$|^api/chat\.ts$|^content/portfolio\.mjs$' \
             || true)
 
           if [[ -n "$SOURCES" && -z "$MIRRORS" ]]; then

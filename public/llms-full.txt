@@ -8,9 +8,9 @@ Every case study and every post, complete, in one fetch. The short index is at h
 
 Name: Daniel Kalman
 Title: Product Designer
-Experience: 10+ years
+Experience: 15+ years
 Location: Berlin
-Currently: Zulip (open source team chat, core team, since June 2026) and Biene Club (own AI consulting practice, since March 2026)
+Currently: Zulip (open source team chat, core team, since April 2026) and Biene Club (own AI consulting practice, since March 2026)
 Previously: Entropy, Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay
 Skills: Figma, React, Svelte, TypeScript, design systems, user research, prototyping
 Available for work: yes

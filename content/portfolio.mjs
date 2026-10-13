@@ -19,10 +19,10 @@ export const SITE = {
 export const OVERVIEW = {
   name: "Daniel Kalman",
   title: "Product Designer",
-  experience: "10+ years",
+  experience: "15+ years",
   location: "Berlin",
   current:
-    "Zulip (open source team chat, core team, since June 2026) and Biene Club (own AI consulting practice, since March 2026)",
+    "Zulip (open source team chat, core team, since April 2026) and Biene Club (own AI consulting practice, since March 2026)",
   previous: [
     "Entropy",
     "Radicle",
