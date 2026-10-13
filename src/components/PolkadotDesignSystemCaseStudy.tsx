@@ -391,10 +391,11 @@ const PolkadotDesignSystemCaseStudy: React.FC = () => (
           </div>
           <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
             <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Three products were built on the design system, each one validating
-              its flexibility and surfacing new component needs that fed back into
-              the library. I built the system and the products on it, and the
-              theme is public.
+              Five products were built on the design system. Multisig Commander
+              and a staking dashboard used it; the three below are the ones I
+              worked on in depth, each validating its flexibility and surfacing
+              new component needs that fed back into the library. I built the
+              system and those three, and the theme is public.
             </p>
           </div>
         </div>
