@@ -235,7 +235,7 @@ export const CASE_STUDIES = [
     process:
       "Aligned designers org-wide, collected web3 best practices, defined shared principles. Built the token system: style primitives from Figma via Token Studio → Style Dictionary → CSS + Tailwind. Internal contributions first, with a Treasury-funded ecosystem vision that wasn't realized before company shutdown.",
     outcome:
-      "Three Polkadot products were built on the system, each one feeding new components back into the library. Daniel built the system and the products on it, and the theme is public at github.com/dnlklmn/polkadot-theme. Parity shut down its app-building efforts before the Treasury-funded ecosystem contribution model could be realized.",
+      "Five Polkadot products were built on the system. Daniel built three of them alongside the system itself — the Open Gov Delegation Dashboard, the Validator Selector and an Asset Menu demo — each feeding new components back into the library; Multisig Commander and a staking dashboard used it too. The theme is public at github.com/dnlklmn/polkadot-theme. Parity shut down its app-building efforts before the Treasury-funded ecosystem contribution model could be realized.",
     tech: ["Figma", "Token Studio", "Style Dictionary", "React"],
     bestFor: ["Companies scaling a design system", "design-engineering collaboration", "platform teams", "web3 ecosystem"],
   },
