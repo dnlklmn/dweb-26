@@ -194,7 +194,7 @@ const About: React.FC = () => {
             className={`${cell} w-1/4 flex flex-col justify-between items-end p-2 shrink-0`}
           >
             <p className="text-sm leading-relaxed">Present</p>
-            <p className="text-sm leading-relaxed">June 2026</p>
+            <p className="text-sm leading-relaxed">April 2026</p>
           </div>
           <div className={`${cell} w-1/2 p-2 overflow-hidden`}>
             <div className="flex flex-col justify-between h-full">

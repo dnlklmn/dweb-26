@@ -159,6 +159,12 @@ const RadicleDesignSystemCaseStudy: React.FC = () => (
               and transform tokens into stylesheets and implemented these in
               the Svelte front end.
             </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              Three Radicle clients ended up on those tokens: the web app, the
+              desktop app, and a mobile app that never shipped. One token source
+              replaced the styling each of them had been keeping on its own.
+              Radicle has moved on since and the system is no longer in use.
+            </p>
           </div>
         </div>
 

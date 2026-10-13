@@ -1,0 +1,426 @@
+# Daniel Kalman — Portfolio, in full
+
+Every case study and every post, complete, in one fetch. The short index is at https://danielkalman.design/llms.txt
+
+---
+
+## About
+
+Name: Daniel Kalman
+Title: Product Designer
+Experience: 15+ years
+Location: Berlin
+Currently: Zulip (open source team chat, core team, since April 2026) and Biene Club (own AI consulting practice, since March 2026)
+Previously: Entropy, Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay
+Skills: Figma, React, Svelte, TypeScript, design systems, user research, prototyping
+Available for work: yes
+Contact: https://danielkalman.design/ask
+
+Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
+
+Links:
+- LinkedIn: https://www.linkedin.com/in/dnlklmn/
+- GitHub: https://github.com/dnlklmn
+- Bluesky: https://bsky.app/profile/dnlklmn.online
+- Ask the AI guide: https://danielkalman.design/ask
+- MCP server: https://danielkalman.design/api/mcp
+
+---
+
+## Case Studies
+
+### Beeline — From intent to proof
+
+Slug: beeline
+Year: 2026
+Company: Biene Club
+Role: Methodology, Product Design, Vibe coding
+Tags: Methodology, Product Design, Vibe coding
+URL: https://danielkalman.design/beeline
+Try it: https://beeline.biene.club
+
+Summary
+A demonstration of eval-driven development for AI features. Describe a feature in one sentence; Beeline builds it, derives a testable definition of "good" (the seed), generates a dataset and scorers from it, grades the result, rewrites until every scorer passes, deploys it behind a live URL, and keeps scoring real production calls.
+
+Problem
+Teams ship AI features on vibes — a few inputs tried, the outputs looked fine. You can't check every output by hand, and a machine can't check them for you until someone writes down what "good" means. So evals land on whoever built the feature, late, written against what they already shipped.
+
+Process
+The method came out of consulting with teams building AI features. Framed the method, designed the app around it, built the backend orchestrator and React frontend, deployed it, and monitored production. The central artifact is the seed: a structured, testable definition of good — discrete criteria grouped by coverage, balance, alignment, rot, and safety, each traceable to a stated intent and specific enough that two people would grade it the same. The dataset and scorers are generated from the seed, so they stay pinned to the use cases. The improve loop rewrites the feature until every scorer clears threshold (not the average), and the seed and scorers are never edited to fit.
+
+Outcome
+Live at beeline.biene.club and still scoring production calls. Running it in production found two classes of broken scorer: alignment scorers that had never graded a single live call, and refusals scoring as passes because a model that declines still returns something clean. Both failures reshaped the method — meta-evals now grade Beeline's own build-time calls, and CI gates on an offline eval self-test. Daniel built the whole thing: method, product design, orchestrator, frontend, deployment and production monitoring.
+
+MVP
+One sentence in, a deployed and continuously scored feature out — with the seed, dataset, scorers, baseline, improve-loop rounds, and production traces all visible.
+
+Tech: Claude API, FastAPI, React, Braintrust, OpenRouter, Docker
+Best for: AI product teams, eval-driven development, LLM observability and quality, AI methodology and consulting engagements
+
+---
+
+### Good Listener — Local transcriptions for therapists
+
+Slug: good-listener
+Year: 2026
+Company: Client work
+Role: Research, Ideation, Design, Prototype, Front End
+Tags: UX, UI, Front End
+URL: https://danielkalman.design/good-listener
+
+Summary
+Local AI transcription app for therapists. Privacy-first — runs entirely locally using Whisper models, no cloud uploads.
+
+Problem
+Psychology practices are buried in admin. The transcribe-anonymise-summarise-write-report pipeline repeats at every session, eating the time therapists most need for patients.
+
+Process
+1-hour user interview with a practicing psychologist in Amsterdam. Built a pain points framework with Claude categorising friction across cognitive, administrative, and relational dimensions. Documentation emerged as the most consistently painful category. Built multiple prototypes: DSM-5 MCP client (Ollama + local models), n8n/Scriberr transcription workflow, CLI bundling local Whisper models. Integrated Langfuse for tracing and eval-driven improvement.
+
+Outcome
+Shipped as a working prototype MVP — record, transcribe and diarize, running entirely on the therapist's own machine. It did not find adoption. Daniel ran the research, built the pain-points framework, designed the app and built the Tauri front end.
+
+MVP
+Record, transcribe, and diarize — runs entirely locally, easy to install. Designed in Figma, wrapped in Tauri for native macOS.
+
+Tech: Figma, Tauri, Svelte, Whisper, n8n, MCP servers, Langfuse, Claude API
+Best for: AI product teams, health/privacy-sensitive tools, eval-driven development, full-stack product design roles
+
+---
+
+### Auto — Collaborative workflow builder for blockchain automations
+
+Slug: auto
+Year: 2025
+Company: Entropy Cryptography
+Role: Ideation, Design, Prototype, User research, Front End
+Tags: UX, UI, Front End
+URL: https://danielkalman.design/auto
+Demo: https://auto-workflow-builder.netlify.app/
+
+Summary
+Visual workflow builder with real-time multiplayer (Figma-like). Bridges on-chain triggers and off-chain actions. Built at Entropy Cryptography.
+
+Problem
+Could Entropy build a better workflow builder altogether, or would being crypto-native be the only differentiator? Use cases vary widely and workflow builders already exist.
+
+Process
+Parallel research tracks: optimal workflow map structure + ideal crypto workflow use cases. Built multiple prototypes exploring directed vs. freeform flows, atomic vs. use-case nodes, whether conditions are connectors or nodes. Forked n8n to experiment with a real workflow builder. Designed the interface with a limited node set to reduce cognitive load. Implemented real-time multiplayer using Yjs CRDTs and WebRTC.
+
+Outcome
+A demo, not a product — it never reached a production MVP. The prototypes did settle the node model: a limited set of atomic blocks, each with one distinct purpose, chosen over use-case-specific nodes to keep cognitive load down. Daniel ran both research tracks, designed the interface and built the Yjs multiplayer prototype.
+
+Tech: Figma, Svelte, Yjs, WebRTC
+Best for: Web3/blockchain companies, complex data-heavy apps, collaborative/multiplayer SaaS
+
+---
+
+### Radicle Desktop — Your Code on Your Machine
+
+Slug: radicle-desktop
+Year: 2024
+Company: Radicle
+Role: Design, Prototype, User research
+Tags: UX, UI, Front End
+URL: https://danielkalman.design/radicle-desktop
+Get the app: https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/
+
+Summary
+Desktop app for Radicle, a decentralized peer-to-peer code collaboration platform. Manage issues, patches, code review, and notifications. Write and review offline, sync when back online.
+
+Problem
+Radicle's peer-to-peer, local-first model doesn't map neatly onto mental models from GitHub. Every design decision had to bridge that gap honestly without hiding what makes Radicle different.
+
+Process
+Per-feature loop: understand user need + protocol behaviour → hypothesis → wireframes → prototype → high-fidelity handoff. Validated with users and engineering team. Key challenge: patches in Radicle have revisions and each peer may be at a different revision — making this visible without overwhelming users.
+
+Outcome
+Shipped and still downloadable. Daniel designed the app across patches, code review and notifications, including the patch page that made revisions and per-peer state legible instead of hiding them behind a GitHub-style single diff. The design has since moved on.
+
+Principles
+- App mirrors the underlying protocol and CLI tools closely — no mental model switching
+- Everything in Radicle is immutable and signed — UI reflects that
+- Local-first: relies on seed nodes for peer discovery
+
+Tech: Figma, Svelte
+Best for: Developer tools, open source products, rigorous user research, local-first/offline-first apps
+
+---
+
+### Radicle Design System — Consistency By Design
+
+Slug: radicle-design-system
+Year: 2024
+Company: Radicle
+Role: Design Audit, Design System, Design Tokens
+Tags: Design System, UI, Front End
+URL: https://danielkalman.design/radicle-design-system
+Radicle design tokens: https://app.radicle.xyz/nodes/rosa.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury/
+
+Summary
+Complete design system for the Radicle ecosystem. Design tokens, component library, Figma integration, CSS variables, icon system — connecting design tooling directly to code.
+
+Problem
+Radicle Explorer is open-source and anyone can deploy it. Design consistency is particularly challenging in distributed open source projects with diverse contributors.
+
+Process
+UI audit → color system + typographic scale + components in Figma → stakeholder sign-off → token export pipeline (Tokens Studio + Style Dictionary) → Svelte implementation. Tokens stored in a shared Radicle repo as single source of truth.
+
+Outcome
+Adopted by three Radicle clients at the time: the web app, the desktop app, and a mobile app that was never released. It replaced per-app styling with one token source the three shared. Daniel ran the audit, designed the system and built the Figma-to-CSS pipeline. Radicle has since moved on and the system is no longer in use.
+
+Highlights
+- Semantic tokens create a shared language between designers and developers
+- Components in Figma match production behaviour exactly
+- Dark and light mode support
+- Style pays homage to 90s programming interfaces — developer tools with character
+
+Tech: Figma, Tokens Studio, Style Dictionary, Svelte
+Best for: Companies scaling a design system, design-engineering collaboration, platform teams, open-source product work
+
+---
+
+### Open Gov Delegation Dashboard — Making Polkadot governance accessible
+
+Slug: open-gov-delegation-dashboard
+Year: 2023
+Company: Parity Technologies
+Role: UX Design, Front End
+Tags: UX, UI, Front End
+URL: https://danielkalman.design/open-gov-delegation-dashboard
+Live: https://delegation.polkadot.network/
+
+Summary
+Governance delegation tool for Polkadot. Lets token holders browse delegate profiles, understand voting history, and delegate tokens across governance tracks.
+
+Problem
+Polkadot's OpenGov system gives every token holder a vote, but most lack time or expertise to vote on every proposal. Delegation existed on-chain but had no accessible dedicated interface.
+
+Process
+Designed the full delegation flow and built the frontend using the Polkadot design system. Real on-chain data. One-pager delegation view consolidated everything needed to make a decision without navigating multiple screens.
+
+Outcome
+Shipped at delegation.polkadot.network, built on the Polkadot design system, and since retired. Three directions were tested before it: a swipe-based voting interface, a full governance portal, and a delegation-first view — the delegation-first one was the one that went live. Daniel designed the flow and built the production front end.
+
+Tech: Figma, React, Polkadot.js
+Best for: Web3/blockchain teams, civic tech, data-dense dashboards, design systems integration
+
+---
+
+### Polkadot Design System — A system to define the look and experience of web3
+
+Slug: polkadot-design-system
+Year: 2023
+Company: Parity Technologies
+Role: Design System, Design, Front End
+Tags: Design System, UI, Front End
+URL: https://danielkalman.design/polkadot-design-system
+GitHub: https://github.com/dnlklmn/polkadot-theme
+
+Summary
+Shared design language for the Polkadot ecosystem. Token pipeline: Figma → Token Studio → Style Dictionary → CSS variables + Tailwind config.
+
+Problem
+Brand designers, product teams, and external builders all worked in isolation. A shared system was needed to improve consistency, collaboration, and speed across a diverse, distributed ecosystem.
+
+Process
+Aligned designers org-wide, collected web3 best practices, defined shared principles. Built the token system: style primitives from Figma via Token Studio → Style Dictionary → CSS + Tailwind. Internal contributions first, with a Treasury-funded ecosystem vision that wasn't realized before company shutdown.
+
+Outcome
+Three Polkadot products were built on the system, each one feeding new components back into the library. Daniel built the system and the products on it, and the theme is public at github.com/dnlklmn/polkadot-theme. Parity shut down its app-building efforts before the Treasury-funded ecosystem contribution model could be realized.
+
+Tech: Figma, Token Studio, Style Dictionary, React
+Best for: Companies scaling a design system, design-engineering collaboration, platform teams, web3 ecosystem
+
+---
+
+### Solar Wallet — A Stellar wallet built for simplicity
+
+Slug: solar-wallet
+Year: 2019
+Company: SatoshiPay
+Role: User Research, UX Design, Prototyping
+Tags: UX, UI, Prototyping
+URL: https://danielkalman.design/solar-wallet
+Live: http://solarwallet.io/
+
+Summary
+Stellar wallet designed for simplicity. In-app onboarding, unified send/withdraw, multi-signature support — one of the first Stellar wallets to offer enterprise-grade multi-sig.
+
+Problem
+Stellar wallets were difficult to use, near-impossible for beginners. Three pain points: complicated withdrawals (KYC), fragmented onboarding, no enterprise multi-sig.
+
+Process
+Surveys, user journey mapping, card sorting, Twitter polls. Three focused design solutions: entirely in-app onboarding, unified send/withdraw flow, multi-signature support across devices.
+
+Tech: Figma
+Best for: Fintech/crypto products, user research-driven design, simplifying complex technical flows
+
+---
+
+### One Family — Baby tracking supercharged
+
+Slug: one-family
+Year: 2020
+Company: Personal Project
+Role: Concept Design, UX Design, Prototyping
+Tags: UX, UI, Concept Design
+URL: https://danielkalman.design/one-family
+
+Summary
+Baby tracking concept app — a personal concept project, never built. Tracks feeds, naps, and routines then generates a personalised schedule. Sleep coach and contextual knowledge base included.
+
+Problem
+Parents spend huge mental energy tracking baby routines. Existing apps captured data but didn't act on it — nights remained unpredictable.
+
+Process
+Concept design exploring how collected tracking data could generate personalized schedules. Sleep coach feature for group or 1:1 sessions with experts. Contextual knowledge base surfaces articles at the right moment.
+
+Tech: Figma
+Best for: Consumer app roles, healthcare/parenting products, concept-driven UX
+
+---
+
+### SatoshiPay Micropayments — Micropayments for the web
+
+Slug: satoshi-pay
+Year: 2019
+Company: SatoshiPay
+Role: User Research, UX Design, Prototyping
+Tags: UX, UI
+URL: https://danielkalman.design/satoshi-pay
+
+Summary
+Redesigned micropayment UI for SatoshiPay. Streamlined purchasing flow, new account creation, adaptable containers that blend into any publisher's website.
+
+Problem
+The micropayment service lacked a clean, user-friendly interface. Major publisher clients required a complete overhaul — faster, simpler, and adaptable to any website context.
+
+Process
+Customer interviews and market research on digital monetization. Identified three core consumer needs. Designed streamlined purchasing flow, trust-building account creation, and flexible containers consistent across any website.
+
+Tech: Figma
+Best for: Fintech/payments products, B2B SaaS, publisher/consumer contexts
+
+---
+
+## Writing
+
+### AX has two faces
+
+Slug: ax-has-two-faces
+Date: 2026 May 18
+URL: https://danielkalman.design/notes/ax-has-two-faces
+
+Agent Experience is half the story. Agents need to use your product, and humans need to trust your agentic features. Both are design work.
+
+AX — Agent Experience. Matt Biilmann at Netlify (https://biilmann.blog/articles/introducing-ax/) coined it: make your product usable by AI agents, the way UX is about making it usable by people. Good idea. About to be everywhere. But the framing only covers half.
+
+Agents using your product: agents will interact with your products, so you need to make sure they can. They need to find their way in, understand what your product does, and use it without getting stuck. This is the part of AX that gets talked about — MCP servers, clean APIs, docs that read well to a model, errors that an LLM can actually recover from.
+
+Humans using your agentic features: humans will interact with your agentic features, so you need to make sure they can too. People need to trust what your agent is doing, see what it's about to do before it happens, and stop it or steer it when something looks off. This part gets talked about a lot less, even though it's where most of the friction is right now.
+
+Both are design work. Most teams are doing one and ignoring the other. Some ship an MCP server and call the agent question handled. Others bolt a chat window onto their product and call the human question handled.
+
+You really need both. Two audiences, two surfaces, one product. Neither one excuses neglecting the other.
+
+When I rebuilt my portfolio (https://danielkalman.design/notes/ai-website) I tried to cover both sides. It reads cleanly for people, and it serves an MCP server so agents can query my case studies the same way you can browse them. The next few posts go deeper into each side: what I've learned making products that agents can use, and what I've learned making agentic features that humans can trust.
+
+"If you're working on either side, I'm open for work or projects."
+
+---
+
+### A website for the AI age
+
+Slug: ai-website
+Date: 2026 Mar 10
+URL: https://danielkalman.design/notes/ai-website
+
+Most websites are made for humans. I added one constraint when rebuilding this portfolio: it should work as well for AI agents as it does for people.
+
+A website that only works for humans is increasingly invisible to how people and their agents actually explore the web.
+
+Making it readable: all meaningful content exists as plain text, structured so a language model can read it as fluently as a person skimming it.
+
+Making it usable: an MCP server exposes the portfolio as queryable tools — case studies with full process descriptions, writing with the actual arguments, bio, contact. Any agent that can use tools can query this portfolio directly at https://danielkalman.design/api/mcp.
+
+Adding the LLM guide: a chat interface backed by Claude with the full portfolio as a briefing document. Understands who's visiting and what they're after, then recommends the most relevant work. Conversations traced through Langfuse.
+
+Three ways to consume it: read it yourself, point your AI agent at the MCP server, or just ask.
+
+The portfolio doesn't care how you show up.
+
+---
+
+### A design system is documented decisions
+
+Slug: design-systems-make-vibe-coding-real
+Date: 2026 Feb 18
+URL: https://danielkalman.design/notes/design-systems-make-vibe-coding-real
+
+A design system isn't only a component library. When I structure tokens, components, and rules, I'm solidifying the choices I've made deliberately.
+
+Each token is a decision. Each component is a bundle of decisions. Each rule is a constraint chosen deliberately.
+
+Without documented decisions, each agent prompt reinvents spacing, color, and layout from scratch. The first screen looks fine. The second looks fine. Together they look like two different products. Worse: I couldn't trace back to what I'd implicitly committed to.
+
+When agents work within a design system, they're not making all sorts of decisions — the decisions are already documented. I'm always moving forward. I can track decisions and measure their impact.
+
+Decisions compound. When documented, they compound in your favor. When implicit, they compound against you.
+
+"I build the system first. Then I vibe as hard as I want."
+
+---
+
+### Why I design again
+
+Slug: do-design
+Date: 2025 Dec 29
+URL: https://danielkalman.design/notes/do-design
+
+AI agents can have working software ready by lunch. What I've come to understand is that I was confusing activity with progress.
+
+Design is a decision-making framework. It reduces the solution space and turns vague ambition into a well-defined problem.
+
+What I kept getting wrong: a well-built output can still be solving the wrong problem. In multi-agent workflows, a bad assumption in problem framing cascades through every layer. It looks like momentum — commits landing, PRs opening, demos running — while drifting far from the actual problem.
+
+What I do differently now: frame the problem before decomposing work into agent-sized tasks. Write explicit acceptance criteria. Design the interfaces between agents rather than letting those boundaries emerge from output. Treat constraints as a first-class artifact.
+
+"AI didn't make design obsolete. It made it the highest-leverage thing I can spend time on."
+
+---
+
+## AI Interfaces
+
+This portfolio exposes two AI interfaces for agents and LLMs:
+
+### Conversational chat API
+Endpoint: https://danielkalman.design/api/chat
+Method: POST
+Content-Type: application/json
+Body: { "messages": [{ "role": "user", "content": "..." }] }
+Returns: { "reply": "..." }
+
+An AI guide (powered by Claude) that understands who you are and recommends relevant case studies. Maintains conversation context across up to 6 exchanges.
+
+### MCP Server
+URL: https://danielkalman.design/api/mcp
+Protocol: Model Context Protocol (MCP), StreamableHTTP transport
+
+Tools available:
+- get_overview — Daniel's bio, philosophy, availability
+- list_case_studies — all case studies with summaries
+- get_case_study(slug) — full detail for a specific case study
+- list_blog_posts — published blog posts
+- get_blog_post(slug) — full post content
+- ask_daniel(question) — conversational query answered by Claude
+
+To use in Claude Desktop, add to your config:
+{
+  "mcpServers": {
+    "daniel-kalman": {
+      "type": "http",
+      "url": "https://danielkalman.design/api/mcp"
+    }
+  }
+}

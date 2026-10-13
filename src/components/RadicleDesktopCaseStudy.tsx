@@ -127,6 +127,11 @@ const RadicleDesktopCaseStudy: React.FC = () => (
               Ideas were validated with both users and the engineering team
               before moving to high-fidelity mockups and handoff.
             </p>
+            <p className="text-sm leading-relaxed">
+              The app shipped and is still downloadable. The patch page went out
+              with revisions and per-peer state visible rather than flattened
+              into one diff. Radicle's design has moved on since.
+            </p>
           </div>
         </div>
 

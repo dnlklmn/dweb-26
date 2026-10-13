@@ -132,6 +132,11 @@ const BeelineCaseStudy: React.FC = () => (
               orchestrator and the frontend, put it in production, and watched
               what it got wrong.
             </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              It’s live at beeline.biene.club and still scoring production
+              calls. Two classes of broken scorer only surfaced once real
+              traffic hit it, and both of them rewrote the method.
+            </p>
           </div>
         </div>
 
@@ -398,8 +403,17 @@ const BeelineCaseStudy: React.FC = () => (
             </p>
           </div>
           <div className="w-1/2 p-2 overflow-hidden">
-            <div className="bg-[#181818] overflow-hidden">
-              {img(app, "A deployed feature and its scored production runs")}
+            {/* Cap the screenshot at the viewport so the whole UI stays
+                visible at once on wide displays, where a w-full image would
+                otherwise grow taller than the window. w-auto + max-w-full
+                keeps the aspect ratio rather than squashing it; the dark
+                backdrop letterboxes whatever width is left over. */}
+            <div className="bg-[#181818] overflow-hidden flex justify-center">
+              {img(
+                app,
+                "A deployed feature and its scored production runs",
+                "w-auto h-auto max-w-full max-h-[80vh] block",
+              )}
             </div>
           </div>
         </div>

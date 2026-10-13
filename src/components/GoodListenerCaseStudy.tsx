@@ -141,6 +141,11 @@ const GoodListenerCaseStudy: React.FC = () => (
               concept bundling local models. The app was designed in Figma and
               wrapped in Tauri for a native macOS experience.
             </p>
+            <p className="text-sm leading-relaxed w-full md:w-3/4">
+              It shipped as a working prototype MVP: record, transcribe and
+              diarise, all of it on the therapist's own machine. It didn't find
+              adoption.
+            </p>
           </div>
         </div>
 
