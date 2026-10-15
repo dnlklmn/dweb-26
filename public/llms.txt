@@ -10,12 +10,30 @@ Open to new opportunities and collaborations.
 
 Everything in one fetch — every case study and every post, in full: https://danielkalman.design/llms-full.txt
 
+Email: hey@danielkalman.design
+
 Links:
 - LinkedIn: https://www.linkedin.com/in/dnlklmn/
 - GitHub: https://github.com/dnlklmn
 - Bluesky: https://bsky.app/profile/dnlklmn.online
 - Ask the AI guide: https://danielkalman.design/ask
 - MCP server: https://danielkalman.design/api/mcp
+
+---
+
+## Experience
+
+- April 2026 – Present · Zulip (Open source team chat) · Berlin, Germany
+- March 2026 – Present · Biene Club (AI consulting) · Berlin, Germany
+- June 2025 – March 2026 · Entropy (Blockchain workflow automation platform) · Berlin, Germany
+- May 2023 – June 2025 · Radicle (Sovereign code collaboration) · Berlin, Germany
+- October 2021 – January 2024 · Parity Technologies (Products for Polkadot) · Berlin, Germany
+- November 2020 – May 2021 · Quarters (Co-living management platform) · Berlin, Germany
+- March 2018 – November 2020 · SatoshiPay (Cryptocurrency payments and content monetization) · Berlin, Germany
+- January 2017 – July 2017 · Linkurious (Graph visualization and analysis) · Paris, France
+- January 2015 – July 2017 · TOTL (Automatic journaling app) · San Francisco, CA
+- January 2015 – April 2015 · Dotloop (Paperless real estate transaction management) · San Francisco, CA
+- July 2011 – December 2014 · Prezi (Zooming presentation software) · Budapest, Hungary
 
 ---
 

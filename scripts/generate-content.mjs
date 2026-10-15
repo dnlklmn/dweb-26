@@ -12,7 +12,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { SITE, OVERVIEW, CASE_STUDIES, NOTES, ROUTES } from "../content/portfolio.mjs";
+import { SITE, OVERVIEW, EXPERIENCE, CASE_STUDIES, NOTES, ROUTES } from "../content/portfolio.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = join(root, "public");
@@ -100,9 +100,20 @@ function llmsTxt() {
     `Everything in one fetch — every case study and every post, in full: ${SITE.url}/llms-full.txt`,
   );
   out.push("");
+  out.push(`Email: ${OVERVIEW.email}`);
+  out.push("");
   out.push("Links:");
   for (const [key, url] of Object.entries(OVERVIEW.links)) {
     out.push(`- ${linkLabel(key)}: ${url}`);
+  }
+
+  // One line per role. A screener asking about tenure, progression or gaps
+  // should not have to open a second URL to answer it.
+  out.push(rule);
+  out.push("## Experience");
+  out.push("");
+  for (const job of EXPERIENCE) {
+    out.push(`- ${job.start} – ${job.end} · ${job.company} (${job.descriptor}) · ${job.location}`);
   }
 
   out.push(rule);
@@ -176,6 +187,7 @@ function llmsFullTxt() {
   out.push(`Previously: ${list(OVERVIEW.previous)}`);
   out.push(`Skills: ${list(OVERVIEW.skills)}`);
   out.push(`Available for work: ${OVERVIEW.available ? "yes" : "no"}`);
+  out.push(`Email: ${OVERVIEW.email}`);
   out.push(`Contact: ${OVERVIEW.contact}`);
   out.push("");
   out.push(`Philosophy: "${OVERVIEW.philosophy}"`);
@@ -183,6 +195,17 @@ function llmsFullTxt() {
   out.push("Links:");
   for (const [key, url] of Object.entries(OVERVIEW.links)) {
     out.push(`- ${linkLabel(key)}: ${url}`);
+  }
+
+  out.push(rule);
+  out.push("## Experience");
+  for (const job of EXPERIENCE) {
+    out.push("");
+    out.push(`### ${job.company} — ${job.descriptor}`);
+    out.push("");
+    out.push(`${job.start} – ${job.end} · ${job.location}`);
+    out.push("");
+    out.push(job.summary);
   }
 
   out.push(rule);
