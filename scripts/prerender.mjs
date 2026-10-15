@@ -16,7 +16,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { SITE, OVERVIEW, CASE_STUDIES, NOTES, ROUTES } from "../content/portfolio.mjs";
+import { SITE, OVERVIEW, EXPERIENCE, CASE_STUDIES, NOTES, ROUTES } from "../content/portfolio.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = join(root, "dist");
@@ -130,8 +130,17 @@ function overviewBody({ heading, intro }) {
     row("Previously", OVERVIEW.previous.join(", ")),
     row("Skills", OVERVIEW.skills.join(", ")),
     row("Available for work", OVERVIEW.available ? "Yes" : "No"),
+    row("Email", OVERVIEW.email),
     "</dl>",
     `<h2>Philosophy</h2>${p(OVERVIEW.philosophy)}`,
+    // The employment history an HR screener actually needs: dates, place, scope.
+    "<h2>Experience</h2><ul>",
+    EXPERIENCE.map(
+      (job) =>
+        `<li><strong>${esc(job.company)}</strong> — ${esc(job.descriptor)}. ` +
+        `${esc(job.start)} – ${esc(job.end)}, ${esc(job.location)}. ${esc(job.summary)}</li>`,
+    ).join(""),
+    "</ul>",
     "<h2>Case studies</h2><ul>",
     CASE_STUDIES.map(
       (cs) =>
@@ -233,6 +242,15 @@ function structuredDataFor(route) {
       "@type": "Person",
       name: OVERVIEW.name,
       jobTitle: OVERVIEW.title,
+      email: `mailto:${OVERVIEW.email}`,
+      worksFor: EXPERIENCE.filter((j) => j.end === "Present").map((j) => ({
+        "@type": "Organization",
+        name: j.company,
+      })),
+      alumniOf: EXPERIENCE.filter((j) => j.end !== "Present").map((j) => ({
+        "@type": "Organization",
+        name: j.company,
+      })),
       url: SITE.url,
       sameAs,
     });

@@ -44,6 +44,7 @@ export const OVERVIEW = {
     "prototyping",
   ],
   available: true,
+  email: "hey@danielkalman.design",
   contact: "https://danielkalman.design/ask",
   links: {
     linkedin: "https://www.linkedin.com/in/dnlklmn/",
@@ -294,6 +295,111 @@ export const CASE_STUDIES = [
       "Customer interviews and market research on digital monetization. Identified three core consumer needs. Designed streamlined purchasing flow, trust-building account creation, and flexible containers consistent across any website.",
     tech: ["Figma"],
     bestFor: ["Fintech/payments products", "B2B SaaS", "publisher/consumer contexts"],
+  },
+];
+
+// The full employment history, as the About page records it. Agent surfaces
+// carried only a list of company names before this, so an agent screening for
+// tenure, progression or gaps came away with nothing. Newest first.
+export const EXPERIENCE = [
+  {
+    company: "Zulip",
+    descriptor: "Open source team chat",
+    start: "April 2026",
+    end: "Present",
+    location: "Berlin, Germany",
+    summary:
+      "As part of the core team I design the web and desktop apps, take proposals from research through to shipped code, and look after the design system.",
+  },
+  {
+    company: "Biene Club",
+    descriptor: "AI consulting",
+    start: "March 2026",
+    end: "Present",
+    location: "Berlin, Germany",
+    summary:
+      "My own practice. I take a feature from research and design through to working code, and write the evals that show it holds up.",
+  },
+  {
+    company: "Entropy",
+    descriptor: "Blockchain workflow automation platform",
+    start: "June 2025",
+    end: "March 2026",
+    location: "Berlin, Germany",
+    summary:
+      "Responsible for everything design. Research and ideation, building and testing prototypes and planning execution of the front end.",
+  },
+  {
+    company: "Radicle",
+    descriptor: "Sovereign code collaboration",
+    start: "May 2023",
+    end: "June 2025",
+    location: "Berlin, Germany",
+    summary:
+      "Responsible for the UX of the web and desktop apps, and the design system. Also refined the front end, implemented the design system and worked on the visual design of the apps.",
+  },
+  {
+    company: "Parity Technologies",
+    descriptor: "Products for Polkadot",
+    start: "October 2021",
+    end: "January 2024",
+    location: "Berlin, Germany",
+    summary:
+      "As a product designer at Parity, helped create the Polkadot design system and worked on decentralized apps like the Delegation Dashboard and Multisig Commander.",
+  },
+  {
+    company: "Quarters",
+    descriptor: "Co-living management platform",
+    start: "November 2020",
+    end: "May 2021",
+    location: "Berlin, Germany",
+    summary:
+      "An attempt to return to web2 that did not stick — the work I care about is in decentralization and distributed systems.",
+  },
+  {
+    company: "SatoshiPay",
+    descriptor: "Cryptocurrency payments and content monetization",
+    start: "March 2018",
+    end: "November 2020",
+    location: "Berlin, Germany",
+    summary:
+      "As the first product designer, designed and built prototypes for monetizing content using cryptocurrency, and an app to facilitate cross-border payments.",
+  },
+  {
+    company: "Linkurious",
+    descriptor: "Graph visualization and analysis",
+    start: "January 2017",
+    end: "July 2017",
+    location: "Paris, France",
+    summary:
+      "As a UX consultant, helped Linkurious improve the usability of their graph visualization tool.",
+  },
+  {
+    company: "TOTL",
+    descriptor: "Automatic journaling app",
+    start: "January 2015",
+    end: "July 2017",
+    location: "San Francisco, CA",
+    summary:
+      "An experimental project that refined my skills in data visualization and rapid prototyping, and taught me the importance of user research and testing.",
+  },
+  {
+    company: "Dotloop",
+    descriptor: "Paperless real estate transaction management",
+    start: "January 2015",
+    end: "April 2015",
+    location: "San Francisco, CA",
+    summary:
+      "Integrated a camera into the Dotloop app so real estate agents could document property acquisitions. The company was acquired by Zillow shortly after.",
+  },
+  {
+    company: "Prezi",
+    descriptor: "Zooming presentation software",
+    start: "July 2011",
+    end: "December 2014",
+    location: "Budapest, Hungary",
+    summary:
+      "My first job as a UX designer. Learned about user research, A/B testing and how rapid prototyping supports both. Designed the capability to reuse content from previous presentations.",
   },
 ];
 

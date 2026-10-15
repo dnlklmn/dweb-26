@@ -14,6 +14,7 @@ Currently: Zulip (open source team chat, core team, since April 2026) and Biene 
 Previously: Entropy, Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay
 Skills: Figma, React, Svelte, TypeScript, design systems, user research, prototyping
 Available for work: yes
+Email: hey@danielkalman.design
 Contact: https://danielkalman.design/ask
 
 Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
@@ -24,6 +25,76 @@ Links:
 - Bluesky: https://bsky.app/profile/dnlklmn.online
 - Ask the AI guide: https://danielkalman.design/ask
 - MCP server: https://danielkalman.design/api/mcp
+
+---
+
+## Experience
+
+### Zulip — Open source team chat
+
+April 2026 – Present · Berlin, Germany
+
+As part of the core team I design the web and desktop apps, take proposals from research through to shipped code, and look after the design system.
+
+### Biene Club — AI consulting
+
+March 2026 – Present · Berlin, Germany
+
+My own practice. I take a feature from research and design through to working code, and write the evals that show it holds up.
+
+### Entropy — Blockchain workflow automation platform
+
+June 2025 – March 2026 · Berlin, Germany
+
+Responsible for everything design. Research and ideation, building and testing prototypes and planning execution of the front end.
+
+### Radicle — Sovereign code collaboration
+
+May 2023 – June 2025 · Berlin, Germany
+
+Responsible for the UX of the web and desktop apps, and the design system. Also refined the front end, implemented the design system and worked on the visual design of the apps.
+
+### Parity Technologies — Products for Polkadot
+
+October 2021 – January 2024 · Berlin, Germany
+
+As a product designer at Parity, helped create the Polkadot design system and worked on decentralized apps like the Delegation Dashboard and Multisig Commander.
+
+### Quarters — Co-living management platform
+
+November 2020 – May 2021 · Berlin, Germany
+
+An attempt to return to web2 that did not stick — the work I care about is in decentralization and distributed systems.
+
+### SatoshiPay — Cryptocurrency payments and content monetization
+
+March 2018 – November 2020 · Berlin, Germany
+
+As the first product designer, designed and built prototypes for monetizing content using cryptocurrency, and an app to facilitate cross-border payments.
+
+### Linkurious — Graph visualization and analysis
+
+January 2017 – July 2017 · Paris, France
+
+As a UX consultant, helped Linkurious improve the usability of their graph visualization tool.
+
+### TOTL — Automatic journaling app
+
+January 2015 – July 2017 · San Francisco, CA
+
+An experimental project that refined my skills in data visualization and rapid prototyping, and taught me the importance of user research and testing.
+
+### Dotloop — Paperless real estate transaction management
+
+January 2015 – April 2015 · San Francisco, CA
+
+Integrated a camera into the Dotloop app so real estate agents could document property acquisitions. The company was acquired by Zillow shortly after.
+
+### Prezi — Zooming presentation software
+
+July 2011 – December 2014 · Budapest, Hungary
+
+My first job as a UX designer. Learned about user research, A/B testing and how rapid prototyping supports both. Designed the capability to reuse content from previous presentations.
 
 ---
 
