@@ -104,7 +104,7 @@ export const CASE_STUDIES = [
     process:
       "1-hour user interview with a practicing psychologist in Amsterdam. Built a pain points framework with Claude categorising friction across cognitive, administrative, and relational dimensions. Documentation emerged as the most consistently painful category. Built multiple prototypes: DSM-5 MCP client (Ollama + local models), n8n/Scriberr transcription workflow, CLI bundling local Whisper models. Integrated Langfuse for tracing and eval-driven improvement.",
     outcome:
-      "Shipped as a working prototype MVP — record, transcribe and diarize, running entirely on the therapist's own machine. It did not find adoption. Daniel ran the research, built the pain-points framework, designed the app and built the Tauri front end.",
+      "The research settled where AI belonged in a therapy practice: documentation, not scheduling or billing — the one task that repeats at every session and is rule-governed enough to hand over. Daniel ran the interview, built the pain-points framework, designed the app and built the Tauri front end. It shipped as a working prototype MVP running entirely on the therapist's own machine, and did not find adoption.",
     mvp: "Record, transcribe, and diarize — runs entirely locally, easy to install. Designed in Figma, wrapped in Tauri for native macOS.",
     tech: ["Figma", "Tauri", "Svelte", "Whisper", "n8n", "MCP servers", "Langfuse", "Claude API"],
     bestFor: [
@@ -132,7 +132,7 @@ export const CASE_STUDIES = [
     process:
       "Parallel research tracks: optimal workflow map structure + ideal crypto workflow use cases. Built multiple prototypes exploring directed vs. freeform flows, atomic vs. use-case nodes, whether conditions are connectors or nodes. Forked n8n to experiment with a real workflow builder. Designed the interface with a limited node set to reduce cognitive load. Implemented real-time multiplayer using Yjs CRDTs and WebRTC.",
     outcome:
-      "A demo, not a product — it never reached a production MVP. The prototypes did settle the node model: a limited set of atomic blocks, each with one distinct purpose, chosen over use-case-specific nodes to keep cognitive load down. Daniel ran both research tracks, designed the interface and built the Yjs multiplayer prototype.",
+      "The prototypes settled the node model: a limited set of atomic blocks, each with one distinct purpose, chosen over use-case-specific nodes to keep cognitive load down. Daniel ran both research tracks, designed the interface and built the Yjs multiplayer prototype. It stayed a demo and never went to a production MVP.",
     tech: ["Figma", "Svelte", "Yjs", "WebRTC"],
     bestFor: ["Web3/blockchain companies", "complex data-heavy apps", "collaborative/multiplayer SaaS"],
   },
@@ -181,7 +181,7 @@ export const CASE_STUDIES = [
     process:
       "UI audit → color system + typographic scale + components in Figma → stakeholder sign-off → token export pipeline (Tokens Studio + Style Dictionary) → Svelte implementation. Tokens stored in a shared Radicle repo as single source of truth.",
     outcome:
-      "Adopted by three Radicle clients at the time: the web app, the desktop app, and a mobile app that was never released. It replaced per-app styling with one token source the three shared. Daniel ran the audit, designed the system and built the Figma-to-CSS pipeline. Radicle has since moved on and the system is no longer in use.",
+      "Adopted by three Radicle clients at the time: the web app, the desktop app, and a mobile app that was never released. One token source replaced the styling each had been keeping on its own, so contributors Daniel would never meet could pick the right colour and text style without asking a designer. Daniel ran the audit, designed the system and built the Figma-to-CSS pipeline. Radicle has since moved on and the system is no longer in use.",
     highlights: [
       "Semantic tokens create a shared language between designers and developers",
       "Components in Figma match production behaviour exactly",
@@ -214,7 +214,7 @@ export const CASE_STUDIES = [
     process:
       "Designed the full delegation flow and built the frontend using the Polkadot design system. Real on-chain data. One-pager delegation view consolidated everything needed to make a decision without navigating multiple screens.",
     outcome:
-      "Shipped at delegation.polkadot.network, built on the Polkadot design system, and since retired. Three directions were tested before it: a swipe-based voting interface, a full governance portal, and a delegation-first view — the delegation-first one was the one that went live. Daniel designed the flow and built the production front end.",
+      "Three directions were tested — a swipe-based voting interface, a full governance portal, and a delegation-first view — and the delegation-first one shipped, at delegation.polkadot.network, built on the Polkadot design system. Daniel designed the flow and built the production front end. The site has since been retired.",
     tech: ["Figma", "React", "Polkadot.js"],
     bestFor: ["Web3/blockchain teams", "civic tech", "data-dense dashboards", "design systems integration"],
   },
@@ -236,7 +236,7 @@ export const CASE_STUDIES = [
     process:
       "Aligned designers org-wide, collected web3 best practices, defined shared principles. Built the token system: style primitives from Figma via Token Studio → Style Dictionary → CSS + Tailwind. Internal contributions first, with a Treasury-funded ecosystem vision that wasn't realized before company shutdown.",
     outcome:
-      "Five Polkadot products were built on the system. Daniel built three of them alongside the system itself — the Open Gov Delegation Dashboard, the Validator Selector and an Asset Menu demo — each feeding new components back into the library; Multisig Commander and a staking dashboard used it too. The theme is public at github.com/dnlklmn/polkadot-theme. Parity shut down its app-building efforts before the Treasury-funded ecosystem contribution model could be realized.",
+      "Five Polkadot products were built on the system. Daniel built three of them alongside the system itself — the Open Gov Delegation Dashboard, the Validator Selector and an Asset Menu demo — each feeding new components back into the library; Multisig Commander and a staking dashboard used it too. He aligned designers across the org and ran the design-system syncs and open office hours that brought contributions in from teams he did not manage. The theme is public at github.com/dnlklmn/polkadot-theme. Parity shut down its app-building efforts before the Treasury-funded ecosystem contribution model could be realized.",
     tech: ["Figma", "Token Studio", "Style Dictionary", "React"],
     bestFor: ["Companies scaling a design system", "design-engineering collaboration", "platform teams", "web3 ecosystem"],
   },
