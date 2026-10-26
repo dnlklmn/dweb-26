@@ -394,6 +394,15 @@ a:active {
     display: none;
 }
 
+/* Company / Role / Tech pairs: a label and its value belong together, so they
+   sit tighter than the 8px the markup's `gap-2` gives them. The 24px between
+   pairs does the separating. Set here rather than per case study — the same
+   box is written out in all ten of them, plus the mobile details panel. */
+.cs-intro-meta > div,
+.cs-header__meta-details > div {
+    gap: 4px;
+}
+
 @media (max-width: 1024px) {
     .cs-other-card,
     .cs-other-cards__spacer {
