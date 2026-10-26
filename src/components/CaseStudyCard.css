@@ -23,24 +23,23 @@
     position: relative;
 }
 
+/* Sized by whichever axis runs out first, so a foreground always fits its
+   window whatever its aspect ratio. Beeline's screenshot is 1.72:1 — far wider
+   than the others — and used to be capped on width alone, which let it fill
+   85% of the window while 1.14:1 and 1.5:1 foregrounds sat at 57-75%. The
+   width cap is the tighter of the two for landscape shots and puts them all in
+   the same band; the height cap keeps a wide-and-short window from spilling. */
 .case-study__foreground-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 85%;
     width: auto;
-    max-width: none;
+    height: auto;
+    max-width: 75%;
+    max-height: 85%;
     pointer-events: none;
     box-shadow: 0 0 48px 0 rgba(0, 0, 0, 0.75);
-}
-
-/* Beeline's screenshot is 1.72:1, far wider than the other foregrounds, so at
-   85% height it overflows the cell. Size it by width instead, to sit in the
-   same 70-92% band as the others and still show the background. */
-.case-study--beeline .case-study__foreground-img {
-    width: 85%;
-    height: auto;
 }
 
 .case-study__img {

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useSteppedAnimation } from "../hooks/useSteppedAnimation";
 import { useTypewriter } from "../hooks/useTypewriter";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
@@ -111,15 +110,13 @@ const otherStudies: CaseStudy[] = [
   },
 ];
 
-const SKIP_ANIM_KEY = "landing-skip-anim";
-
 const TYPEWRITER_PHRASES = [
   { text: "scratch an itch", accentWord: "itch" },
   { text: "matter", accentWord: "matter" },
   { text: "solve real problems", accentWord: "real" },
   { text: "serve communities", accentWord: "communities" },
   { text: "are fun to use", accentWord: "fun" },
-  { text: "make people's lives easier", accentWord: "easier" },
+  { text: "make life easier", accentWord: "easier" },
   { text: "stand the test of time", accentWord: "time" },
   { text: "feel inevitable", accentWord: "inevitable" },
   { text: "earn trust", accentWord: "trust" },
@@ -128,7 +125,7 @@ const TYPEWRITER_PHRASES = [
   { text: "bring ideas to life", accentWord: "life" },
   { text: "make the complex simple", accentWord: "simple" },
   { text: "push the craft forward", accentWord: "craft" },
-  { text: "leave things better than we found them", accentWord: "better" },
+  { text: "leave things better", accentWord: "better" },
 ];
 
 /** Splits `displayed` around `accentWord` and wraps the accent part in a span.
@@ -149,7 +146,7 @@ function renderWithAccent(
   return (
     <>
       {before}
-      <span style={{ color: isColored ? "var(--color-accent)" : "inherit", fontFamily: isColored ? '"DxBurst", sans-serif' : "inherit", position: "relative" as const, top: isColored ? "-0.12em" : undefined }}>{accentTyped}</span>
+      <span className={isColored ? "landing__accent" : undefined}>{accentTyped}</span>
       {after}
     </>
   );
@@ -166,44 +163,55 @@ function shuffled<T>(arr: T[]): T[] {
 
 const LandingPage: React.FC = () => {
   const location = useLocation();
-  const skipAnim =
-    sessionStorage.getItem(SKIP_ANIM_KEY) === "1" ||
-    window.matchMedia("(max-width: 767px)").matches;
   const [phrases] = React.useState(() => shuffled(TYPEWRITER_PHRASES));
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [navHidden, setNavHidden] = React.useState(false);
   const navRef = React.useRef<HTMLDivElement>(null);
+  const tickerRef = React.useRef<HTMLAnchorElement>(null);
+  const frameRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 80);
+      // The ticker is sticky, so the header row never reaches the top of the
+      // viewport — it slides under the strip. Hand over to the sticky header
+      // the moment the row's top edge meets the strip's bottom edge, so the
+      // real one is never half-hidden behind it. (The old `scrollY > 80` let
+      // it slide ~31px under first.) Measured off the elements rather than
+      // hardcoded, so page padding or a shorter strip stay in sync.
+      const tickerBottom =
+        tickerRef.current?.getBoundingClientRect().bottom ?? 0;
+      if (frameRef.current) {
+        setScrolled(frameRef.current.getBoundingClientRect().top <= tickerBottom);
+      }
       if (navRef.current) {
-        setNavHidden(navRef.current.getBoundingClientRect().bottom < 0);
+        setNavHidden(navRef.current.getBoundingClientRect().bottom < tickerBottom);
       }
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
-  const { step, isComplete } = useSteppedAnimation({
-    totalSteps: 6,
-    stepDelays: { 2: 200, 5: 500 },
-    skipToEnd: skipAnim,
-  });
-
-  // Clear the flag after reading it so a reload will animate again
-  React.useEffect(() => {
-    sessionStorage.removeItem(SKIP_ANIM_KEY);
-  }, []);
+  // The layout opens fully drawn — no stepped intro. The step classes are the
+  // final state of what used to be a 6-step choreography; keeping them (rather
+  // than inlining their declarations) leaves the CSS as the single description
+  // of the finished layout. `isComplete` stays as the "everything is settled"
+  // flag the typewriter, hover transitions and case studies read.
+  const step = 5;
+  const isComplete = true;
 
   React.useEffect(() => {
-    if (location.hash !== "#selected-work" || !isComplete) return;
+    if (location.hash !== "#selected-work") return;
     const target = document.getElementById("selected-work");
     if (!target) return;
     const top = target.getBoundingClientRect().top + window.scrollY - 12;
     window.scrollTo({ top, behavior: "smooth" });
-  }, [location.hash, isComplete]);
+  }, [location.hash]);
 
   const {
     displayed: typewriterText,
@@ -291,6 +299,7 @@ const LandingPage: React.FC = () => {
       {/* Full-width ticker — outside padded landing frame */}
       <Link
         to="/ask"
+        ref={tickerRef}
         className="landing__ticker"
         style={{ color: "inherit", textDecoration: "none" }}
       >
@@ -315,7 +324,7 @@ const LandingPage: React.FC = () => {
       </Link>
 
       <div className={`landing ${stepClasses}`}>
-        <div className="landing__main">
+        <div ref={frameRef} className="landing__main">
           {/* Left column — identity, width animated by step classes */}
           <div className="landing__left-col flex items-start p-2">
             <div className="landing__identity-text flex md:flex-col gap-2">
@@ -486,6 +495,11 @@ const LandingPage: React.FC = () => {
             {/* Middle row — flex animated by step classes */}
             <div className="landing__middle-row">
               <h1 className="landing__headline">
+                {/* One wrapper so the headline is a single flex item: as bare
+                    children, the text and the typewriter span would each
+                    become their own blockified item and stack, which breaks
+                    the wrap and strands the cursor on its own line. */}
+                <span className="landing__headline-text">
                 building Products that{" "}
                 <span className="landing__typewriter">
                   {renderWithAccent(typewriterText, accentWord, currentPhrase)}
@@ -509,6 +523,7 @@ const LandingPage: React.FC = () => {
                       }}
                     />
                   )}
+                </span>
                 </span>
               </h1>
             </div>
@@ -556,10 +571,7 @@ const LandingPage: React.FC = () => {
               className="case-study__reveal"
               style={{ transitionDelay: `${(i * 2 + 1) * 150}ms` }}
             >
-              <CaseStudyCard
-                study={study}
-                onNavigate={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
-              />
+              <CaseStudyCard study={study} />
             </div>
           </React.Fragment>
         ))}
@@ -594,12 +606,7 @@ const LandingPage: React.FC = () => {
             >
               <div className="other-projects-row">
                 {pair.map((study) => (
-                  <CaseStudyCard
-                    key={study.slug}
-                    study={study}
-                    compact
-                    onNavigate={() => sessionStorage.setItem(SKIP_ANIM_KEY, "1")}
-                  />
+                  <CaseStudyCard key={study.slug} study={study} compact />
                 ))}
                 {pair.length === 1 && <div className="other-projects-row__placeholder" />}
               </div>
