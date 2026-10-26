@@ -83,7 +83,6 @@ const ContactPage: React.FC = () => {
         <Link
           to="/"
           className="cs-back-row__cell cs-back-row__cell--link"
-          onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
         >
           <span className="cs-back-row__label cs-back-row__label--name" data-text="Daniel Kalman">
             <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
@@ -246,7 +245,6 @@ const ContactPage: React.FC = () => {
               className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21]"
               to="/"
               style={{ color: "inherit", textDecoration: "none" }}
-              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
             >
               <span>Work</span>
             </Link>

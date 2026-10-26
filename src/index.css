@@ -25,6 +25,9 @@
     --color-primary: #851bff;
     --color-accent: #f764a4;
     --page-padding: 48px;
+    /* Height of the sticky "try it" ticker — everything else that sticks to
+       the top offsets itself by this. */
+    --ticker-height: 48px;
     --border: 1px solid var(--color-border);
 
     --border-fade-duration: 9999s;

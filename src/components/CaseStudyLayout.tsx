@@ -73,7 +73,6 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
           <Link
             to="/"
             className="cs-back-row__cell cs-back-row__cell--link"
-            onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
           >
             <span className="cs-back-row__label cs-back-row__label--name" data-text="Daniel Kalman">
               <span className="name-full">Daniel Kalman</span><span className="name-short">Daniel</span>
@@ -86,7 +85,6 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
               <Link
                 to="/#selected-work"
                 className="cs-back-row__aux-action"
-                onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
               >
                 <span className="cs-back-row__aux-label">Work</span>
               </Link>
@@ -113,7 +111,6 @@ const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ meta, children }) => 
             <Link
               to="/"
               className="cs-header__title"
-              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
             >
               {meta.title}
             </Link>

@@ -69,12 +69,15 @@
    ============================================ */
 
 .landing__ticker {
-    height: 48px;
+    position: sticky;
+    top: 0;
+    /* Above the sticky header, which parks itself directly underneath. */
+    z-index: 110;
+    height: var(--ticker-height);
     overflow: hidden;
     display: flex;
     align-items: center;
     background: var(--color-primary);
-    position: relative;
     cursor: pointer;
 }
 
@@ -273,11 +276,44 @@
     opacity: 0;
     margin-left: 8px;
     transition: opacity var(--anim-duration) var(--anim-easing);
+    /* Both lines are always reserved (the two phrases that needed a third were
+       shortened), so the block never changes height and nothing below it
+       moves. The reserved space sits above the text: while a phrase is still
+       empty the headline is a single line, and it stays on the row's bottom
+       edge rather than floating at the top of an empty box. */
+    min-height: 2.42em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* The headline's whole inline flow as one block. Left as bare children of the
+   flex container, the text and the typewriter span each become their own
+   blockified flex item and stack — which breaks the wrap and strands the
+   cursor on a line of its own. */
+.landing__headline-text {
+    display: block;
 }
 
 /* Typewriter suffix — inline, color handled per-word in JSX */
 .landing__typewriter {
     white-space: normal;
+}
+
+/* Accent word inside the typewriter line.
+   DxBurst has taller metrics than Geist, so an inline box using it grows the
+   headline's line box by ~10px the moment the accent word starts typing — the
+   line visibly jumps mid-word. `line-height: 0` drops this span out of the
+   line-box calculation, leaving the block's strut (64px x 1.21) to set the
+   height for every phrase, accented or not. Glyphs still paint from the
+   baseline, so nothing moves visually; `top` is a relative nudge and costs no
+   layout. */
+.landing__accent {
+    color: var(--color-accent);
+    font-family: "DxBurst", sans-serif;
+    line-height: 0;
+    position: relative;
+    top: -0.12em;
 }
 
 /* Blinking cursor */
@@ -617,7 +653,8 @@
 
 .landing__sticky-header {
     position: fixed;
-    top: 0;
+    /* Stacks under the sticky ticker rather than over it. */
+    top: var(--ticker-height);
     left: var(--page-padding);
     right: var(--page-padding);
     z-index: 100;
@@ -664,7 +701,8 @@
 /* Mobile dropdown from sticky header */
 .landing__sticky-dropdown {
     position: fixed;
-    top: 44px;
+    /* Hangs off the bottom of the sticky header, itself offset by the ticker. */
+    top: calc(var(--ticker-height) + 44px);
     left: var(--page-padding);
     right: var(--page-padding);
     z-index: 99;

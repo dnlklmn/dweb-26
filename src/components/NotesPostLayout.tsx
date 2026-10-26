@@ -102,7 +102,6 @@ const NotesPostLayout: React.FC<NotesPostLayoutProps> = ({ meta, children }) => 
               className="contact-nav-link w-full h-full text-sm font-medium leading-[1.21]"
               to="/"
               style={{ color: "inherit", textDecoration: "none" }}
-              onClick={() => sessionStorage.setItem("landing-skip-anim", "1")}
             >
               <span>Work</span>
             </Link>
