@@ -33,7 +33,7 @@ export const OVERVIEW = {
     "SatoshiPay",
   ],
   philosophy:
-    "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart.",
+    "Designer who codes. I think in systems, design and build with AI, then prove it works for people and agents. I build prototypes to validate ideas fast and design systems to keep things from falling apart.",
   skills: [
     "Figma",
     "React",
@@ -485,7 +485,7 @@ export const ROUTES = [
     path: "/about",
     title: "About — Daniel Kalman",
     description:
-      "Product designer who codes. Strong design foundations matter more than ever when working with AI.",
+      "Product designer who codes. Thinks in systems, designs and builds with AI, then proves it works for people and agents.",
     priority: "0.8",
   },
   {

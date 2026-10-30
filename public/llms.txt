@@ -2,7 +2,7 @@
 
 > Daniel Kalman — Product Designer, 15+ years of experience, based in Berlin. Currently: Zulip (open source team chat, core team, since April 2026) and Biene Club (own AI consulting practice, since March 2026). Previously: Entropy, Radicle, Parity Technologies, Linkurious, DotLoop, Prezi, SatoshiPay.
 
-Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
+Philosophy: "Designer who codes. I think in systems, design and build with AI, then prove it works for people and agents. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
 
 Skills: Figma, React, Svelte, TypeScript, design systems, user research, prototyping.
 

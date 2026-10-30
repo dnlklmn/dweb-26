@@ -17,7 +17,7 @@ Available for work: yes
 Email: hey@danielkalman.design
 Contact: https://danielkalman.design/ask
 
-Philosophy: "Designer who codes. Strong design foundations matter more than ever when working with AI. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
+Philosophy: "Designer who codes. I think in systems, design and build with AI, then prove it works for people and agents. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
 
 Links:
 - LinkedIn: https://www.linkedin.com/in/dnlklmn/
