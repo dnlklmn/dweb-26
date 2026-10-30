@@ -145,8 +145,8 @@ const About: React.FC = () => {
             className={`${cell} w-1/2 pt-12 flex flex-col gap-4 justify-end p-2`}
           >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              I believe strong design foundations matter more than ever when
-              working with AI.
+              I think in systems, design and build with AI, then prove it works
+              for people and agents.
             </p>
           </div>
           <div className="w-1/4 flex flex-col gap-2 justify-end p-2">

@@ -24,3 +24,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
+
+# LinkedIn export (personal data — never commit)
+.tmp-linkedin/
+tmp-linkedin/
+
+# Playwright MCP tool output
+.playwright-mcp/

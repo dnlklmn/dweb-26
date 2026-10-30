@@ -9,6 +9,7 @@
     "@modelcontextprotocol/sdk": "^1.27.1",
     "@types/marked": "^5.0.2",
     "@vercel/analytics": "^2.0.0",
+    "braintrust": "^3.7.0",
     "geist": "^1.7.0",
     "langfuse": "^3.38.6",
     "marked": "^17.0.3",
