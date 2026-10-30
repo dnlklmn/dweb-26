@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CaseStudyLayout, { CaseStudyMeta } from "./CaseStudyLayout";
-import header from "../assets/beeline/beeline-blog.png";
+import recording from "../assets/beeline/beeline-recording.mp4";
+import recordingPoster from "../assets/beeline/beeline-recording-poster.webp";
 import app from "../assets/beeline/beeline-app.png";
 import glHeaderImage from "../assets/good-listener/header.jpeg";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -9,16 +10,17 @@ import BuildLoop from "../assets/beeline/BuildLoop";
 import ProductionLoop from "../assets/beeline/ProductionLoop";
 import Anchor from "../assets/beeline/Anchor";
 import { SeedSource, SeedChecks, SeedCoverage } from "../assets/beeline/SeedSteps";
+import { nowrapItems } from "../utils/text";
 
 const meta: CaseStudyMeta = {
   title: "Beeline",
   subtitle: "From intent to proof",
-  tags: "Methodology, Product Design, Vibe coding",
+  tags: nowrapItems("Methodology, Product Design, Vibe coding"),
   year: "2026",
   demoLink: "https://beeline.biene.club",
   demoLabel: "Try it →",
   company: "Biene Club",
-  role: "Methodology, Product Design, Vibe coding",
+  role: nowrapItems("Methodology, Product Design, Vibe coding"),
   tech: "Claude API, FastAPI, React, Braintrust",
 };
 
@@ -42,9 +44,7 @@ const BeelineCaseStudy: React.FC = () => (
             className={`${cell} w-1/2 min-h-48 flex flex-col justify-end gap-4 p-2`}
           >
             <p className="text-xl font-normal leading-relaxed max-w-[75%]">
-              Beeline turns a one-sentence description into a tested, deployed
-              feature: it derives what “good” means, generates the scorers from
-              it, and rewrites until every one of them passes.
+              Beeline builds the eval for your agentic feature before it ships.
             </p>
           </div>
           <div className="cs-intro-meta w-1/4 flex flex-col gap-6 p-2">
@@ -54,9 +54,7 @@ const BeelineCaseStudy: React.FC = () => (
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Role</span>
-              <span className="text-sm">
-                Methodology, Product Design, Vibe coding
-              </span>
+              <span className="text-sm">{meta.role}</span>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold">Tech</span>
@@ -70,13 +68,55 @@ const BeelineCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Hero image */}
+        {/* Video — cells 2-3 */}
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 p-2`}>
-            <div className="bg-[#181818] overflow-hidden">
-              {img(header, "A bee flying a straight line to a flower")}
-            </div>
+            <button
+              type="button"
+              onClick={() =>
+                openLightboxNode(
+                  <video
+                    src={recording}
+                    poster={recordingPoster}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    aria-label="Screen recording: Beeline building a feature"
+                    style={{
+                      display: "block",
+                      margin: "0 auto",
+                      maxWidth: "100%",
+                      maxHeight: "86vh",
+                    }}
+                  />,
+                )
+              }
+              aria-label="Play screen recording of Beeline building a feature"
+              className="relative block w-full bg-[#181818] overflow-hidden cursor-zoom-in"
+            >
+              <img
+                src={recordingPoster}
+                alt=""
+                className="block w-full h-auto"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <svg width="44" height="44" viewBox="0 0 48 48">
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="23"
+                    fill="rgba(0,0,0,0.55)"
+                    stroke="rgba(255,255,255,0.85)"
+                  />
+                  <path d="M19 15l14 9-14 9z" fill="#fff" />
+                </svg>
+              </span>
+            </button>
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -84,137 +124,56 @@ const BeelineCaseStudy: React.FC = () => (
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* Challenge row */}
-        <div className={row}>
-          <div
-            className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}
-          >
-            <h3 className="text-sm font-bold">Challenge and Goals</h3>
-          </div>
-          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Most people try a few inputs, read what comes back, and decide it
-              looks about right. That holds until there’s more output than
-              anyone can read, which is immediately.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              I knew I had to help clients run evals, before they ship and after
-              they’re in production.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              But what would they evaluate against? First I’d have to help them
-              define what a good outcome is, and turn that into an artifact we
-              can use.
-            </p>
-          </div>
-        </div>
-
-        {/* Process row */}
-        <div className={row}>
-          <div
-            className={`${cell} w-1/2 flex items-start justify-start md:justify-end p-2`}
-          >
-            <h3 className="text-sm font-bold">Process and Responsibilities</h3>
-          </div>
-          <div className="w-1/2 flex flex-col gap-4 p-2 pb-12">
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Figuring out what people would call a good outcome is the job I’ve
-              always had. Research, framing, acceptance criteria, it’s the same
-              question asked in different rooms.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              So I pointed those methods at evaluation. The work that produces a
-              good product decision is the work that produces a definition of
-              good precise enough to run evals against.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              I framed the method, designed the app around it, wrote the
-              orchestrator and the frontend, put it in production, and watched
-              what it got wrong.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              It’s live at beeline.biene.club and still scoring production
-              calls. Two classes of broken scorer only surfaced once real
-              traffic hit it, and both of them rewrote the method.
-            </p>
-          </div>
-        </div>
-
-        <div className={`${row} px-2 pt-12 pb-2`}>
-          <h2 className="text-3xl font-bold whitespace-nowrap">
-            Building Got Cheap
-          </h2>
-        </div>
-
-        {/* Spacer */}
-        <div className={`${row} h-12`} />
-
-        {/* The reversal */}
+        {/* Challenge — cells 2-3 */}
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/2 flex flex-col gap-4 p-2 pb-12`}>
+            <h3 className="text-sm font-bold">
+              Agentic features are hard to evaluate
+            </h3>
             <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Agentic engineering changed how software gets built and almost
-              nothing about what building software is. I still frame a problem,
-              propose options, pick one, and iterate until it’s good enough.
+              Evaluating agentic features means you compare their outputs to a
+              definition of good. This might be easy if you have production data to
+              rely on but it gets harder the earlier you start.
             </p>
             <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Generating is nearly free now, so the work moved to the steps on
-              either side of it: knowing what I’m aiming at, and telling whether
-              I hit it.
-            </p>
-            <p className="text-sm leading-relaxed w-full md:w-3/4">
-              Here’s how I think about building with AI now.
+              My work as a product designer centers largely around understanding the
+              problem and settling what a good solution looks like, before I even
+              start thinking of possible solutions.
             </p>
           </div>
           <div className="w-1/4 p-2" />
         </div>
 
-        <div className={`${row} h-12`} />
-
-        {/* Build, Prove, Adapt */}
-        <div className={row}>
-          <div
-            className={`${cell} w-1/4 flex items-start justify-start md:justify-end p-2`}
-          >
-            <h3 className="text-sm font-bold">Build Right</h3>
-          </div>
-          <div className={`${cell} w-1/4 flex flex-col gap-3 p-2 pb-12`}>
-            <span className="text-sm font-bold">Build</span>
-            <p className="text-sm leading-relaxed">
-              Frame the problem with the team, and pin down what a good outcome
-              looks like.
-            </p>
-          </div>
-          <div className={`${cell} w-1/4 flex flex-col gap-3 p-2 pb-12`}>
-            <span className="text-sm font-bold">Prove</span>
-            <p className="text-sm leading-relaxed">
-              Turn that definition into scorers that run, and gate the release
-              on them.
-            </p>
-          </div>
-          <div className="w-1/4 flex flex-col gap-3 p-2 pb-12">
-            <span className="text-sm font-bold">Adapt</span>
-            <p className="text-sm leading-relaxed">
-              As more of the product runs on AI, adapt who owns quality and how
-              it’s measured.
-            </p>
-          </div>
-        </div>
-
         <div className={`${row} px-2 pt-12 pb-2`}>
           <h2 className="text-3xl font-bold whitespace-nowrap">
-            How Evals Work
+            Measuring Success
           </h2>
         </div>
 
         {/* Spacer */}
         <div className={`${row} h-12`} />
 
-        {/* The mechanism — text | eval anatomy diagram */}
+        {/* Thesis beat */}
+        <div className={row}>
+          <div className={`${cell} w-1/4 p-2`} />
+          <div className={`${cell} w-1/2 p-2`}>
+            <p className="text-xl leading-relaxed w-full md:w-3/4">
+              To get closer to your goal you still need an anchor that tells you how
+              far off you are.
+            </p>
+          </div>
+          <div className="w-1/4 p-2" />
+        </div>
+
+        {/* Spacer */}
+        <div className={`${row} h-12`} />
+
+        {/* The mechanism — subtitle + text | eval anatomy diagram */}
         <div className={row}>
           <div className={`${cell} w-1/4 p-2`} />
           <div className={`${cell} w-1/4 flex flex-col gap-4 p-2 shrink-0`}>
+            <h3 className="text-sm font-bold">How Evals Work</h3>
             <p className="text-sm leading-relaxed">
               You make a dataset of good and bad outcomes, then feed inputs
               through the feature and see where they land.
@@ -227,21 +186,6 @@ const BeelineCaseStudy: React.FC = () => (
           </div>
           <div className={`${cell} w-1/4 p-2 flex items-center justify-center`}>
             <Anchor />
-          </div>
-          <div className="w-1/4 p-2" />
-        </div>
-
-
-        <div className={`${row} h-12`} />
-
-        {/* Thesis beat */}
-        <div className={row}>
-          <div className={`${cell} w-1/4 p-2`} />
-          <div className={`${cell} w-1/2 p-2 pb-12`}>
-            <p className="text-xl leading-relaxed w-full md:w-3/4">
-              To get closer to your goal you need an anchor that tells you how
-              far off you are.
-            </p>
           </div>
           <div className="w-1/4 p-2" />
         </div>
@@ -265,6 +209,11 @@ const BeelineCaseStudy: React.FC = () => (
               Before AI, the answers went into a PRD, written with real care,
               opened maybe twice, then left to become an artifact some future
               hire would find and squint at.
+            </p>
+            <p className="text-sm leading-relaxed">
+This is what drives Beeline: I use the prompt you define your feature
+              with to guess the use cases it should work for — and those it
+              shouldn’t — and come up with a set of criteria I call the seed.
             </p>
           </div>
           <div className={`${cell} w-1/4 p-2 flex flex-col gap-4`}>

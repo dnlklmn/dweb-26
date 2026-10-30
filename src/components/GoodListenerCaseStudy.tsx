@@ -20,6 +20,7 @@ import tracing from "../assets/good-listener/tracing.png";
 import experiment from "../assets/good-listener/experiment.png";
 import evals from "../assets/good-listener/evals.png";
 import install from "../assets/good-listener/install.jpeg";
+import { nowrapItems } from "../utils/text";
 
 const meta: CaseStudyMeta = {
   title: "Good Listener",
@@ -531,7 +532,7 @@ const GoodListenerCaseStudy: React.FC = () => (
                 </div>
                 <div className="flex justify-between items-end gap-2">
                   <span className="text-sm font-bold">
-                    Methodology, Product Design, Vibe coding
+                    {nowrapItems("Methodology, Product Design, Vibe coding")}
                   </span>
                   <span className="text-sm text-[#5e5e5e]">2026</span>
                 </div>
