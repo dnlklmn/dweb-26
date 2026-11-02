@@ -39,7 +39,7 @@ jobs:
 
           # Files that carry content a reader (or an agent) would notice.
           SOURCES=$(echo "$CHANGED" | grep -E \
-            '^src/components/About\.tsx$|^src/components/.*CaseStudy\.tsx$|^src/assets/blog/' \
+            '^src/components/About\.tsx$|^src/components/LandingPage\.tsx$|^src/components/.*CaseStudy\.tsx$|^src/assets/blog/' \
             || true)
 
           # The mirrors that have to be updated alongside them.

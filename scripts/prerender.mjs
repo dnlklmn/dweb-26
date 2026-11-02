@@ -132,6 +132,7 @@ function overviewBody({ heading, intro }) {
     row("Available for work", OVERVIEW.available ? "Yes" : "No"),
     row("Email", OVERVIEW.email),
     "</dl>",
+    `<h2>Bio</h2>${p(OVERVIEW.bio)}`,
     `<h2>Philosophy</h2>${p(OVERVIEW.philosophy)}`,
     // The employment history an HR screener actually needs: dates, place, scope.
     "<h2>Experience</h2><ul>",

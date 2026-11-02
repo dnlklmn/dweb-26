@@ -17,6 +17,8 @@ Available for work: yes
 Email: hey@danielkalman.design
 Contact: https://danielkalman.design/ask
 
+Bio: "I think in systems, design and build with AI, then prove it works for people and agents."
+
 Philosophy: "Designer who codes. I think in systems, design and build with AI, then prove it works for people and agents. I build prototypes to validate ideas fast and design systems to keep things from falling apart."
 
 Links:

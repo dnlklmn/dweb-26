@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTypewriter } from "../hooks/useTypewriter";
+import { OVERVIEW } from "../../content/portfolio.mjs";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -536,8 +537,7 @@ const LandingPage: React.FC = () => {
               <div className="flex flex-col justify-end p-2  flex-1 min-w-0">
                 {/* Bio text — opacity animated by step classes */}
                 <p className="text-sm font-normal leading-[1.5] max-w-[254px]">
-                  I design and build digital products. From understanding user
-                  needs to orchestrating implementation.
+                  {OVERVIEW.bio}
                 </p>
               </div>
             </div>

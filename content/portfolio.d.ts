@@ -47,9 +47,11 @@ export const OVERVIEW: {
   location: string;
   current: string;
   previous: string[];
+  bio: string;
   philosophy: string;
   skills: string[];
   available: boolean;
+  email: string;
   contact: string;
   links: Record<string, string>;
 };
