@@ -65,7 +65,7 @@ export const CASE_STUDIES = [
   {
     slug: "beeline",
     title: "Beeline",
-    subtitle: "From intent to proof",
+    subtitle: "Straight to the evals",
     year: 2026,
     tags: ["Methodology", "Product Design", "Vibe coding"],
     company: "Biene Club",
