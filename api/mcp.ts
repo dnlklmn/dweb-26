@@ -11,6 +11,8 @@ const NOTE_SLUGS = NOTES.map((note: Note) => note.slug);
 
 const ASK_SYSTEM_PROMPT = `You are an assistant that answers questions about Daniel Kalman's portfolio, work, and thinking. Answer concisely and accurately using only the information provided. If you don't know something, say so and suggest visiting ${OVERVIEW.contact} for a fuller conversation.
 
+When recommending or citing his work, draw on his work from 2022 onward by default. Solar Wallet and SatoshiPay (both 2019) are earlier-career background: raise them only when asked about them directly, about payments or crypto wallets specifically, or about his earlier career — and when you do, name the year so it is clear it was a while ago. Never put One Family forward as a recommendation; it is an old personal project kept on the site for the record.
+
 ${compactBriefing()}`;
 
 /** Full case study payload, with the outcome sitting right under the summary. */
