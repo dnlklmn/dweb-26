@@ -88,6 +88,8 @@ function llmsTxt() {
   out.push("");
   out.push(bioBlockquote());
   out.push("");
+  out.push(`Bio: "${OVERVIEW.bio}"`);
+  out.push("");
   out.push(`Philosophy: "${OVERVIEW.philosophy}"`);
   out.push("");
   out.push(`Skills: ${list(OVERVIEW.skills)}.`);
@@ -189,6 +191,8 @@ function llmsFullTxt() {
   out.push(`Available for work: ${OVERVIEW.available ? "yes" : "no"}`);
   out.push(`Email: ${OVERVIEW.email}`);
   out.push(`Contact: ${OVERVIEW.contact}`);
+  out.push("");
+  out.push(`Bio: "${OVERVIEW.bio}"`);
   out.push("");
   out.push(`Philosophy: "${OVERVIEW.philosophy}"`);
   out.push("");

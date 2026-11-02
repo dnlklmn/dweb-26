@@ -27,6 +27,8 @@ export function aboutDaniel(): string {
     `Previously: ${OVERVIEW.previous.join(", ")}.`,
     `Works with: ${OVERVIEW.skills.join(", ")}.`,
     "",
+    `How he introduces himself: "${OVERVIEW.bio}"`,
+    "",
     `His philosophy: "${OVERVIEW.philosophy}"`,
     "",
     OVERVIEW.available ? "He is open to new opportunities and collaborations." : "He is not currently taking on new work.",

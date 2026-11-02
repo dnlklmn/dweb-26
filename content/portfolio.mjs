@@ -32,6 +32,8 @@ export const OVERVIEW = {
     "Prezi",
     "SatoshiPay",
   ],
+  /** The landing page's opening line — the first thing a visitor reads. */
+  bio: "I think in systems, design and build with AI, then prove it works for people and agents.",
   philosophy:
     "Designer who codes. I think in systems, design and build with AI, then prove it works for people and agents. I build prototypes to validate ideas fast and design systems to keep things from falling apart.",
   skills: [
