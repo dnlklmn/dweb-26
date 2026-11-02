@@ -21,6 +21,7 @@ import experiment from "../assets/good-listener/experiment.png";
 import evals from "../assets/good-listener/evals.png";
 import install from "../assets/good-listener/install.jpeg";
 import { nowrapItems } from "../utils/text";
+import { caseStudyBySlug } from "../../content/portfolio.mjs";
 
 const meta: CaseStudyMeta = {
   title: "Good Listener",
@@ -525,7 +526,9 @@ const GoodListenerCaseStudy: React.FC = () => (
               <div className="cs-other-card__meta">
                 <div className="flex flex-col gap-2">
                   <span className="text-xl font-bold">Beeline</span>
-                  <span className="text-sm">From intent to proof</span>
+                  <span className="text-sm">
+                    {caseStudyBySlug.beeline.subtitle}
+                  </span>
                 </div>
                 <div className="cs-other-card__image">
                   <img src={beelineHeaderImage} alt="Beeline preview" />

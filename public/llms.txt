@@ -42,7 +42,7 @@ Links:
 ## Case Studies
 
 ### Beeline (https://danielkalman.design/beeline) — 2026
-From intent to proof. Biene Club · Methodology, Product Design, Vibe coding.
+Straight to the evals. Biene Club · Methodology, Product Design, Vibe coding.
 Try it: https://beeline.biene.club
 
 A demonstration of eval-driven development for AI features. Describe a feature in one sentence; Beeline builds it, derives a testable definition of "good" (the seed), generates a dataset and scorers from it, grades the result, rewrites until every scorer passes, deploys it behind a live URL, and keeps scoring real production calls.

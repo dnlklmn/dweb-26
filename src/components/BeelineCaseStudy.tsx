@@ -11,10 +11,11 @@ import ProductionLoop from "../assets/beeline/ProductionLoop";
 import Anchor from "../assets/beeline/Anchor";
 import { SeedSource, SeedChecks, SeedCoverage } from "../assets/beeline/SeedSteps";
 import { nowrapItems } from "../utils/text";
+import { caseStudyBySlug } from "../../content/portfolio.mjs";
 
 const meta: CaseStudyMeta = {
   title: "Beeline",
-  subtitle: "From intent to proof",
+  subtitle: caseStudyBySlug.beeline.subtitle,
   tags: nowrapItems("Methodology, Product Design, Vibe coding"),
   year: "2026",
   demoLink: "https://beeline.biene.club",

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTypewriter } from "../hooks/useTypewriter";
-import { OVERVIEW } from "../../content/portfolio.mjs";
+import { OVERVIEW, caseStudyBySlug } from "../../content/portfolio.mjs";
 import CaseStudyCard, { CaseStudy } from "./CaseStudyCard";
 import "./LandingPage.css";
 import autoHeaderImage from "../assets/auto/header-2.jpeg";
@@ -24,7 +24,7 @@ const featuredStudies: CaseStudy[] = [
   {
     title: "Beeline",
     slug: "beeline",
-    description: "From intent to proof",
+    description: caseStudyBySlug.beeline.subtitle,
     role: "Methodology, Product Design, Vibe coding",
     year: "2026",
     image: beelineHeaderImage,
