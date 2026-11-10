@@ -230,8 +230,63 @@
 }
 
 .other-projects__heading {
-    padding: 48px 8px 8px 8px;
     border-bottom: var(--border);
+}
+
+/* The heading is the disclosure control: the section is collapsed on load and
+   only the people who want the back catalogue pay for it. */
+.other-projects__toggle {
+    /* The cell's padding lives here, not on the wrapper, so the button covers
+       the whole cell: the entire cell is the hit area and the hover fill. */
+    padding: 48px 8px 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.other-projects__toggle-icon {
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* Same 0fr -> 1fr height animation the reveal rows use, so the section opens
+   in the page's existing motion language. `visibility` is what keeps the
+   collapsed links out of the tab order; it flips only after the close
+   finishes, so the content does not vanish mid-animation. */
+.other-projects__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+        grid-template-rows var(--anim-duration) var(--anim-easing),
+        visibility 0s linear var(--anim-duration);
+}
+
+.other-projects__panel > * {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.other-projects__panel--open {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition:
+        grid-template-rows var(--anim-duration) var(--anim-easing),
+        visibility 0s linear 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .other-projects__panel {
+        transition: none;
+    }
 }
 
 @media (max-width: 767px) {

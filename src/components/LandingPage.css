@@ -196,13 +196,16 @@
         border-bottom-color var(--anim-duration) var(--anim-easing);
 }
 
-/* Nav link — grow-from-text fill on hover */
-.landing__nav-link {
+/* Nav link — grow-from-text fill on hover.
+   The "Older projects" disclosure cell reuses the same treatment. */
+.landing__nav-link,
+.other-projects__toggle {
     position: relative;
     overflow: hidden;
 }
 
-.landing__nav-link::before {
+.landing__nav-link::before,
+.other-projects__toggle::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -213,7 +216,8 @@
 }
 
 /* Enable transition only after page animation completes (prevents flash on load) */
-.anim-complete .landing__nav-link::before {
+.anim-complete .landing__nav-link::before,
+.anim-complete .other-projects__toggle::before {
     transition: transform var(--anim-duration) var(--anim-easing);
 }
 
@@ -228,13 +232,21 @@
     transform-origin: bottom right;
 }
 
-.landing__nav-link:hover::before {
+.landing__nav-link:hover::before,
+.other-projects__toggle:hover::before {
     transform: scale(1);
 }
 
-.landing__nav-link > * {
+.landing__nav-link > *,
+.other-projects__toggle > * {
     position: relative;
     z-index: 2;
+}
+
+/* The label sits at the bottom of its cell (48px of padding above it), so the
+   fill grows from the text rather than from an empty corner. */
+.other-projects__toggle::before {
+    transform-origin: bottom left;
 }
 
 /* Nav — starts at 0 width + opacity, grows at step 3 */

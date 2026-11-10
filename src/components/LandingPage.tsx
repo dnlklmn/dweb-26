@@ -165,6 +165,7 @@ function shuffled<T>(arr: T[]): T[] {
 const LandingPage: React.FC = () => {
   const location = useLocation();
   const [phrases] = React.useState(() => shuffled(TYPEWRITER_PHRASES));
+  const [otherOpen, setOtherOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [navHidden, setNavHidden] = React.useState(false);
@@ -588,31 +589,53 @@ const LandingPage: React.FC = () => {
           style={{ transitionDelay: `${(featuredStudies.length * 2 + 1) * 150}ms` }}
         >
           <div className="other-projects__heading">
-            <h2 className="text-3xl font-bold leading-[1.21]">Other Projects</h2>
+            <h2 className="text-sm font-medium leading-[1.21]">
+              <button
+                type="button"
+                className="other-projects__toggle"
+                onClick={() => setOtherOpen((o) => !o)}
+                aria-expanded={otherOpen}
+                aria-controls="other-projects-panel"
+              >
+                <span>Older projects</span>
+                <span className="other-projects__toggle-icon" aria-hidden="true">
+                  {otherOpen ? "\u2212" : "+"}
+                </span>
+              </button>
+            </h2>
           </div>
         </div>
 
-        {(() => {
-          const pairs: CaseStudy[][] = [];
-          for (let i = 0; i < otherStudies.length; i += 2) {
-            pairs.push(otherStudies.slice(i, i + 2));
-          }
-          const baseDelay = (featuredStudies.length * 2 + 2) * 150;
-          return pairs.map((pair, pi) => (
-            <div
-              key={pi}
-              className="case-study__reveal"
-              style={{ transitionDelay: `${baseDelay + pi * 150}ms` }}
-            >
-              <div className="other-projects-row">
-                {pair.map((study) => (
-                  <CaseStudyCard key={study.slug} study={study} compact />
-                ))}
-                {pair.length === 1 && <div className="other-projects-row__placeholder" />}
-              </div>
-            </div>
-          ));
-        })()}
+        <div
+          id="other-projects-panel"
+          className={`other-projects__panel${
+            otherOpen ? " other-projects__panel--open" : ""
+          }`}
+        >
+          <div>
+            {(() => {
+              const pairs: CaseStudy[][] = [];
+              for (let i = 0; i < otherStudies.length; i += 2) {
+                pairs.push(otherStudies.slice(i, i + 2));
+              }
+              const baseDelay = (featuredStudies.length * 2 + 2) * 150;
+              return pairs.map((pair, pi) => (
+                <div
+                  key={pi}
+                  className="case-study__reveal"
+                  style={{ transitionDelay: `${baseDelay + pi * 150}ms` }}
+                >
+                  <div className="other-projects-row">
+                    {pair.map((study) => (
+                      <CaseStudyCard key={study.slug} study={study} compact />
+                    ))}
+                    {pair.length === 1 && <div className="other-projects-row__placeholder" />}
+                  </div>
+                </div>
+              ));
+            })()}
+          </div>
+        </div>
       </div>
       <div className="h-12" />
     </div>
